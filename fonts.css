@@ -6,3 +6,5 @@
 /* 版面修正 2026-08-19 */
 @media(max-width:600px){.ed{display:none}}      /* 手機版隱藏品牌副標 EDITIONS，避免與導覽踩界 */
 .entry .serif{color:#35456a}                     /* 可點的清單標題上連結色，跟不可點的分區標題區分（手機無 hover）*/
+
+#appendix a.entry .serif::after{content:"  →";color:#35456a;font-weight:400;white-space:nowrap}  /* 附錄可點標題加箭頭，手機一眼看出可點 */
