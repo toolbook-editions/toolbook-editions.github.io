@@ -25,6 +25,13 @@
   .grid52{display:grid;grid-template-columns:52px 1fr;column-gap:16px;align-items:baseline;color:inherit;}
   .grid92{display:grid;grid-template-columns:92px 1fr;column-gap:26px;color:inherit;}
   @media(max-width:560px){.two-col{grid-template-columns:1fr !important;}}
+  /* 手機版導覽列收窄：讓「TOOLBOOK. Editions」＋四個連結都塞得下，紀錄不再被擠出畫面 */
+  @media(max-width:600px){
+    nav > a.serif{letter-spacing:.5px !important;font-size:15px !important;}
+    .ed{display:inline !important;margin-left:5px !important;letter-spacing:.5px !important;font-size:9px !important;}
+    .nav-links{gap:13px !important;}
+    .nav-links a{font-size:12px !important;letter-spacing:0 !important;}
+  }
 </style>
 </head>
 <body>
