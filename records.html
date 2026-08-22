@@ -89,7 +89,11 @@
     { no: "07", name: "減法掃描卡", key: "toolbook_subtract_history_v1", file: "tool-subtract.html", unit: "張", label: "這週動的那一項", pick: function (c) { return c.action; } },
     { no: "08", name: "今天兩格", key: "toolbook_two_v1", file: "tool-two.html", unit: "天", daymap: true, label: "最近一天", pick: function (d) { return [d.one, d.two].filter(Boolean).join("／"); } },
     { no: "09", name: "週期執行器", key: "toolbook_cycle_history_v1", file: "tool-cycle.html", unit: "輪", label: "這一輪要交付", pick: function (c) { return c.deliver; } },
-    { no: "10", name: "講完話之後", key: "toolbook_after_talk_history_v1", file: "tool-after-talk.html", unit: "則", label: "上次答的", pick: function (c) { return c.answer; } }
+    { no: "10", name: "講完話之後", key: "toolbook_after_talk_history_v1", file: "tool-after-talk.html", unit: "則", label: "上次答的", pick: function (c) { return c.answer; } },
+    { no: "11", name: "學習筆記卡", key: "toolbook_studynote_history_v1", file: "tool-study-note.html", unit: "張", label: "這次學的", pick: function (c) { return c.topic; } },
+    { no: "12", name: "承諾成本卡", key: "toolbook_commitcost_history_v1", file: "tool-commit-cost.html", unit: "張", label: "想做的事", pick: function (c) { return c.wish; } },
+    { no: "13", name: "內在對話改寫器", key: "toolbook_innervoice_history_v1", file: "tool-inner-voice.html", unit: "張", label: "最後想要的", pick: function (c) { return c.want; } },
+    { no: "14", name: "習慣追蹤卡", key: "toolbook_habit_history_v1", file: "tool-habit.html", unit: "個", label: "在追蹤", pick: function (c) { return c.name; } }
   ];
 
   function readJSON(k, f) { try { var v = JSON.parse(localStorage.getItem(k)); return v == null ? f : v; } catch (_) { return f; } }
