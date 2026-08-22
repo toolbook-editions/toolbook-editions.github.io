@@ -17,12 +17,13 @@
   ::selection{background:rgba(53,69,106,.15);}
   .serif{font-family:'Noto Serif TC',serif;}
   .rec-row:hover{border-color:#35456a !important;}
-  /* 手機版導覽列收窄，與首頁一致 */
+  /* 手機版：兩行式頁首（品牌獨佔上排維持大器、連結退下排），全站一致 */
   @media(max-width:600px){
-    nav > a.serif{letter-spacing:.5px !important;font-size:15px !important;}
-    .ed{display:inline !important;margin-left:5px !important;letter-spacing:.5px !important;font-size:9px !important;}
-    .nav-links{gap:13px !important;}
-    .nav-links a{font-size:12px !important;letter-spacing:0 !important;}
+    nav{flex-direction:column !important;align-items:flex-start !important;gap:11px !important;padding:16px 0 14px !important;}
+    nav > a{letter-spacing:clamp(2px,1.4vw,4px) !important;font-size:clamp(17px,5vw,19px) !important;}
+    nav > a .ed{font-size:10px !important;letter-spacing:2px !important;margin-left:8px !important;display:inline !important;}
+    nav > div{gap:20px !important;}
+    nav > div a{font-size:12px !important;letter-spacing:1px !important;}
   }
 </style>
 </head>
