@@ -93,7 +93,8 @@
     { no: "11", name: "學習筆記卡", key: "toolbook_studynote_history_v1", file: "tool-study-note.html", unit: "張", label: "這次學的", pick: function (c) { return c.topic; } },
     { no: "12", name: "承諾成本卡", key: "toolbook_commitcost_history_v1", file: "tool-commit-cost.html", unit: "張", label: "想做的事", pick: function (c) { return c.wish; } },
     { no: "13", name: "內在對話改寫器", key: "toolbook_innervoice_history_v1", file: "tool-inner-voice.html", unit: "張", label: "最後想要的", pick: function (c) { return c.want; } },
-    { no: "14", name: "習慣追蹤卡", key: "toolbook_habit_history_v1", file: "tool-habit.html", unit: "個", label: "在追蹤", pick: function (c) { return c.name; } }
+    { no: "14", name: "習慣追蹤卡", key: "toolbook_habit_history_v1", file: "tool-habit.html", unit: "個", label: "在追蹤", pick: function (c) { return c.name; } },
+    { no: "15", name: "重新解讀卡", key: "toolbook_reframe_history_v1", file: "tool-reframe.html", unit: "張", label: "那句話", pick: function (c) { return c.line; } }
   ];
 
   function readJSON(k, f) { try { var v = JSON.parse(localStorage.getItem(k)); return v == null ? f : v; } catch (_) { return f; } }
