@@ -46,6 +46,7 @@
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">開一輪，<br />只帶一個關鍵行動</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">六個問題把一輪定下來：你要什麼、擋在中間的是什麼、這一輪交付什麼、關鍵行動、一輪多長、要不要讓一個人知道。之後每週回來記兩個數字。</p>
           <p style="color:#938a78;font-size:11.5px;line-height:1.85;margin-top:14px;">啟發自《12 週做完一年工作》，數字換掉、骨架留下。答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
         </div>
       </sc-if>
 
@@ -205,6 +206,47 @@
 
   </div>
 
+  <!-- 填好的例子 -->
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有個人白天上班，一直想把攝影做成能收費的東西，卻總停在「之後再說」。他開一輪十二週，只逼自己扛一件事——他的週期卡長這樣：</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:8px;padding-left:8px;margin-top:4px;">週 期 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Cycle · Nº 09</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="border:1px solid #e3ddd0;border-radius:3px;margin-bottom:16px;">
+            <div style="padding:13px 15px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">你想要的</div><div style="font-family:'Noto Serif TC',serif;font-size:15.5px;line-height:1.55;white-space:pre-wrap;">靠自己的攝影養活自己</div></div>
+            <div style="padding:13px 15px;border-top:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">擋在中間的</div><div style="font-family:'Noto Serif TC',serif;font-size:15.5px;line-height:1.55;white-space:pre-wrap;">白天的工作佔掉最清醒的四小時</div></div>
+          </div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:7px;">這一輪要交付</div><div style="font-size:14px;white-space:pre-wrap;line-height:1.65;">一套能收費的線上攝影課，錄完並上架</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:7px;">什麼算完成</div><div style="font-size:14px;white-space:pre-wrap;line-height:1.65;">八支影片上架，付款連結測試過</div></div>
+          <div style="height:1px;background:#e3ddd0;margin:17px 0;"></div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:14px 12px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">關鍵行動</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;white-space:pre-wrap;">每天早上倒完咖啡坐下，就錄一段十分鐘的課程草稿</div></div>
+          <div style="margin-top:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:7px;">長度</div><div style="font-size:14px;white-space:pre-wrap;line-height:1.65;">12 週</div></div>
+          <div style="margin-top:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:7px;">讓誰知道</div><div style="font-size:14px;white-space:pre-wrap;line-height:1.65;">我姐</div></div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">近的期限給動力，遠的方向給判準。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 09 · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">一輪只扛<b>一個</b>關鍵行動，不是把清單塞滿。事情越少，你反而越推得動。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">每週回來只記<b>兩個數字</b>——計畫幾項、實際幾項。看的是幾週下來的走勢，不是單週的高低。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">書裡那條 85% 及格線查不到來源，這裡沒有沿用。<b>這裡不轉百分比、不打分、不判你及不及格。</b></div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
   <sc-if value="{{ recordsOpen }}">
     <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
       <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
@@ -238,7 +280,7 @@ class Component extends DCLogic {
     step: 0, want: "", blocker: "", deliver: "", donedef: "", iff: "", thenn: "", weeks: 12, teller: "",
     startedAt: "", logs: [], planCount: 3, doneCount: 0, lognote: "", draftId: "",
     toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
-    cards: [], recordsOpen: false,
+    cards: [], recordsOpen: false, exampleOpen: false,
   };
   HKEY = "toolbook_cycle_history_v1";
   DKEY = "toolbook_cycle_v1";
@@ -361,6 +403,7 @@ class Component extends DCLogic {
       showRecordsBtn: (step === 0 || step === 7) && s.cards.length > 0,
       onOpenRecords: () => this.setState({ recordsOpen: true }),
       recordsOpen: s.recordsOpen, onCloseRecords: () => this.setState({ recordsOpen: false }), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
     };
   }
 }

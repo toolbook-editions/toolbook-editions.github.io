@@ -46,7 +46,8 @@
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">腦中有兩個聲音<br />在互相撕扯？</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">把它們原樣寫下來，逐句翻成你真正要的東西。<br />這不是要解決問題——是先看清楚你在跟自己說什麼。</p>
           <p style="color:#b9b09a;font-size:12px;line-height:1.8;margin-top:16px;">大約 8 分鐘 · 只有你看得到 · 隨時可以停</p>
-          <div style="margin-top:22px;"><span onClick="{{ onQuit }}" style="color:#938a78;font-size:12.5px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">這不是我要的</span></div>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
+          <div style="margin-top:16px;"><span onClick="{{ onQuit }}" style="color:#938a78;font-size:12.5px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">這不是我要的</span></div>
         </div>
       </sc-if>
 
@@ -220,6 +221,43 @@ B｜{{ mirrorB }}</div>
 
   </div>
 
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設腦中兩個聲音在吵——一個說「我應該早就做出點成績」，一個說「認命吧」。翻過之後，卡片長這樣——</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">內 在 對 話 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Inner Voice · Nº 13</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 18px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">改寫前 · 兩個聲音</div>
+          <div style="font-size:13.5px;line-height:1.7;margin-bottom:4px;">A｜我應該早就做出點成績了</div>
+          <div style="font-size:13.5px;line-height:1.7;margin-bottom:14px;">B｜你想太多了，能力就這樣，認命吧</div>
+          <div style="height:1px;background:#e3ddd0;margin-bottom:14px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">改寫後 · 我真正要的</div>
+          <div style="border:1px solid #cec6b4;border-radius:2px;padding:14px 14px;background:#fbf9f4;">
+            <div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#35456a;line-height:1.9;">當我看到同齡的人升遷了，<br />我感到焦慮，<br />因為我需要肯定自己走的路，<br />因此我想要這週把手上的作品完成一件。</div>
+          </div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:12px;">Edition Nº 13 · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">兩個聲音<b>不必選一邊</b>。它們各自在替你擔心一件事——這張卡不是要你分對錯，是把它們翻成你要什麼。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">「應該、必須、總是」這種詞，通常是評判躲的地方。把「<b>應該怎樣</b>」換成「<b>我要什麼</b>」。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">「因為我需要」不指向某個人做某件事——不是「他該回我訊息」，是「<b>被在乎</b>」。填不出來就先空著，空著本身也告訴你還沒想清楚。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，寫我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
   <sc-if value="{{ recordsOpen }}">
     <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
       <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
@@ -251,7 +289,7 @@ class Component extends DCLogic {
   state = {
     step: 0, voiceA: "", voiceB: "", obs: "", feel: "", need: "", want: "", noChoice: false,
     toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
-    cards: [], recordsOpen: false, started: false,
+    cards: [], recordsOpen: false, started: false, exampleOpen: false,
   };
   HKEY = "toolbook_innervoice_history_v1";
   JUDGE = ["應該", "应该", "不得不", "應當", "应当", "必須", "必须", "不能", "理應", "理应", "總是", "总是", "永遠", "永远", "從來", "从来", "每次"];
@@ -394,6 +432,7 @@ class Component extends DCLogic {
       showRecordsBtn: (step === 0 || step === 5) && s.cards.length > 0,
       onOpenRecords: () => this.set("recordsOpen", true),
       recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
     };
   }
 }

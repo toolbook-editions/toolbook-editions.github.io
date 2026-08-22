@@ -45,6 +45,7 @@
           <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 12 · 承諾</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">在說「我要做」之前，<br />先算清楚代價</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">把「想要的」和「擋在前面的代價」一起攤開看——這比光想像成功的樣子，更能讓你真的動起來，也更能讓你誠實地決定要不要做。<br />答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
         </div>
       </sc-if>
 
@@ -171,6 +172,48 @@
 
   </div>
 
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有個人一直想做一件事，卻遲遲沒開始。他把「想要的」和「要付的代價」一起攤開，再誠實選一個——最後那張承諾成本卡長這樣：</p>
+
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:0 0 14px;">承諾成本卡</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">承 諾 成 本 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Commitment · Nº 12</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 18px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">我要的</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;margin-bottom:14px;white-space:pre-wrap;">接下來三個月，把擱了很久的那門線上課做出來、上架。</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">我願意付的代價</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:14px;white-space:pre-wrap;">每個週末讓出半天、暫時推掉兩個臨時的案子，有一陣子收入會少一點。</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">擋在前面的</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:16px;white-space:pre-wrap;">一坐下就想先滑手機；晚上還要顧小孩，很難有一整段完整的時間。</div>
+          <div style="height:1px;background:#e3ddd0;margin-bottom:16px;"></div>
+          <div style="border:1px solid #cec6b4;border-radius:2px;padding:14px 14px;text-align:center;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我的決定</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:18px;color:#35456a;letter-spacing:1px;">值得，我決定做</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:1px;margin-top:16px;line-height:1.8;">代價你看清楚了，也願意付——那就去做。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 12 · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">把<b>「想要」和「代價」同時攤開</b>看，不是只盯著好處——光想像成功會讓人卡在原地，連代價一起看才推得動。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>代價由你自己衡量</b>，這張卡不給標準答案——對你來說真正要付出什麼，只有你知道。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">看清楚之後<b>誠實選一個</b>：投入、先擱著、還是再想想——選「先不做」也不是失敗。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
   <sc-if value="{{ recordsOpen }}">
     <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
       <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
@@ -202,7 +245,7 @@ class Component extends DCLogic {
   state = {
     step: 0, wish: "", cost: "", obstacle: "", decision: "",
     toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
-    cards: [], recordsOpen: false, started: false,
+    cards: [], recordsOpen: false, started: false, exampleOpen: false,
   };
   HKEY = "toolbook_commitcost_history_v1";
   DEC = { go: "決定做", hold: "先不做", think: "再想想" };
@@ -316,6 +359,7 @@ class Component extends DCLogic {
       showRecordsBtn: (step === 0 || step === 5) && s.cards.length > 0,
       onOpenRecords: () => this.set("recordsOpen", true),
       recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
     };
   }
 }

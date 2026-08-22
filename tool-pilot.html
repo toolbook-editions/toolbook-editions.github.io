@@ -46,6 +46,7 @@
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">先試一次小的，<br />再決定大的</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">六個問題，把一個還不敢做的決定，變成一次成本很低、跑得完的試驗。</p>
           <p style="color:#938a78;font-size:11.5px;line-height:1.85;margin-top:14px;">啟發自《一週工作 4 小時》——全書反覆用到、但作者從沒替它取名字的做法。可逆性判斷與「什麼時候定案」是查證後我加的。答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
         </div>
       </sc-if>
 
@@ -199,6 +200,49 @@
 
   </div>
 
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有個人一直想離職去接案，卻不敢一下子辭掉全職。走完六個問題之後，他的試驗卡長這樣——</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:8px;padding-left:8px;margin-top:4px;">試 驗 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Pilot · Nº 05</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="margin-bottom:16px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我在猶豫的決定</div><div style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:600;line-height:1.55;">要不要辭掉全職，改成自己接案</div><div style="font-size:11px;letter-spacing:1px;color:#938a78;margin-top:6px;">要花點力氣才回得去</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">先試的那件小事</div><div style="font-size:14px;line-height:1.65;">先不辭職，用下班時間接一個小案子</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">試多久</div><div style="font-size:14px;line-height:1.65;">這個月內，四個週末做完</div></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;border:1px solid #e3ddd0;border-radius:3px;margin-bottom:14px;">
+            <div style="padding:13px 14px;"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">可以往下走</div><div style="font-size:13.5px;line-height:1.6;">做得起勁，客戶願意再合作</div></div>
+            <div style="padding:13px 14px;border-left:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">該停</div><div style="font-size:13.5px;line-height:1.6;">四個週末都在硬撐，成品自己都不滿意</div></div>
+          </div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">最多賠這麼多</div><div style="font-size:14px;line-height:1.65;white-space:pre-wrap;">時間：四個週末＋每晚兩小時
+金錢：一台二手器材約 $3,000</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">試完還是不會知道</div><div style="font-size:14px;line-height:1.65;">全職接案的收入到底夠不夠穩定養活自己</div></div>
+          <div style="height:1px;background:#e3ddd0;margin:17px 0;"></div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:13px 12px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">關門的日子</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">2026.09.30</div></div>
+          <div style="margin:14px 0 0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">決定之後怎麼收尾</div><div style="font-size:14px;line-height:1.65;">若不做就把器材賣掉，安心留在原職；若要做，先存滿半年生活費再遞辭呈</div></div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">試小的，決定要大方。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 05 · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">不必一開始就辭職——<b>先用下班時間接一個小案子</b>，賭注小到輸得起，別把全部一次押上去。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">「可以往下走」和「該停」都在開始前<b>就先寫死</b>——免得做到一半，用當下的心情替自己找理由。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">給它一個<b>關門的日子和成本上限</b>——時間一到就照當初的判準決定去留，不無限拖下去。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
   <sc-if value="{{ recordsOpen }}">
     <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
       <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
@@ -252,7 +296,7 @@ class Component extends DCLogic {
     step: 0, decision: "", rev: null, pilot: "", dur: "", goSign: "", stopSign: "",
     costTime: "", costMoney: "", costOther: "", unknown: "", decideBy: "", commit: "",
     toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
-    cards: [], recordsOpen: false, openedCard: null,
+    cards: [], recordsOpen: false, openedCard: null, exampleOpen: false,
   };
   HKEY = "toolbook_pilot_history_v1";
   REV = { easy: "這個決定回得去", hard: "要花點力氣才回得去", none: "這個決定回不去" };
@@ -357,6 +401,7 @@ class Component extends DCLogic {
       showRecordsBtn: (step === 0 || step === 7) && s.cards.length > 0,
       onOpenRecords: () => this.set("recordsOpen", true),
       recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
       hasOpened: !!oc, ocDecision: oc ? (oc.decision || "—") : "—", ocPilot: oc ? (oc.pilot || "—") : "—", ocDecide: oc ? this.fmtDate(oc.decideBy) : "—",
       onCloseCard: () => this.set("openedCard", null), onShareOpened: () => { if (oc) this.shareCard(oc); },
     };

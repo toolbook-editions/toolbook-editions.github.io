@@ -46,6 +46,7 @@
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">時間空出來了，<br />然後呢？</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">這張卡不會叫你把空閒填滿。它只幫你安排一件真正在乎的事，然後把該留的空白留住。</p>
           <p style="color:#938a78;font-size:11.5px;line-height:1.85;margin-top:14px;">啟發自《一週工作 4 小時》最後一章——那一章推翻了整本書的書名，也是全書唯一有大量研究支持的一段。答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
         </div>
       </sc-if>
 
@@ -189,6 +190,43 @@
 
   </div>
 
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有個人終於把每天加班的時間省了下來，多出好幾個晚上。走完之後，他的空白卡長這樣——</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:8px;padding-left:8px;margin-top:4px;">空 白 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">After the Rush · Nº 06</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="margin-bottom:16px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">這段空白</div><div style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:600;line-height:1.55;">每個平日晚上，多出來的兩個小時</div><div style="font-size:11px;letter-spacing:1px;color:#938a78;margin-top:6px;">這段時間是我自己安排的</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">我一直想做的那件事</div><div style="font-size:14px;line-height:1.65;">重新開始畫畫，不為交差、只為自己</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">第一個小動作</div><div style="font-size:14px;line-height:1.65;white-space:pre-wrap;">把顏料和紙從箱子裡翻出來，隨手畫十分鐘
+這個週三晚上 20:00</div></div>
+          <div style="height:1px;background:#e3ddd0;margin:17px 0;"></div>
+          <div style="text-align:center;border:1px dashed #cec6b4;border-radius:2px;padding:14px 12px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">留給自己、不安排</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">週日整個下午，什麼都不排</div></div>
+          <div style="margin:14px 0 0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">我希望回頭的時候</div><div style="font-size:14px;line-height:1.65;">覺得這段時間真的是我自己的，沒有又被工作填滿</div></div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">空白不是還沒安排。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 06 · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">空出來的晚上<b>不是拿來塞更多待辦</b>——這張卡只安排一件事，其餘的時間刻意留白。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">挑的是「畫畫」這種<b>真正想做、卻沒什麼用處</b>的事，不是又一項「應該去補」的進修。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">不寫「開始畫畫」這種空願望，而是給它一個<b>這週就能起步的具體小動作</b>——小到今晚就能動。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
   <sc-if value="{{ recordsOpen }}">
     <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
       <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
@@ -241,7 +279,7 @@ class Component extends DCLogic {
   state = {
     step: 0, source: null, span: "", actual: "", thing: "", firstStep: "", whenv: "", blank: "", feel: "",
     toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
-    cards: [], recordsOpen: false, openedCard: null,
+    cards: [], recordsOpen: false, openedCard: null, exampleOpen: false,
   };
   HKEY = "toolbook_leisure_history_v1";
   SRC = { chosen: "這段時間是我自己安排的", mixed: "一半是我安排的", forced: "這段時間不是我能決定的" };
@@ -334,6 +372,7 @@ class Component extends DCLogic {
       showRecordsBtn: (step === 0 || step === 7) && s.cards.length > 0,
       onOpenRecords: () => this.set("recordsOpen", true),
       recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
       hasOpened: !!oc, ocThing: oc ? (oc.thing || "—") : "—", ocStep: oc ? ((oc.firstStep || "—") + (oc.whenv ? "\n" + oc.whenv : "")) : "—", ocBlank: oc ? (oc.blank || "—") : "—",
       onCloseCard: () => this.set("openedCard", null), onShareOpened: () => { if (oc) this.shareCard(oc); },
     };

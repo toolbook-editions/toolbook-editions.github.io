@@ -45,6 +45,7 @@
           <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 11 · 筆記</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">把剛讀完的，<br />變成一張能考自己的卡</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">康奈爾筆記法：筆記、提問、總結。真正讓你記住的不是抄得漂亮，是<b style="color:#554d40;">遮住筆記、只看問題把它答出來</b>——回想比重讀有效得多。<br />答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
         </div>
       </sc-if>
 
@@ -157,6 +158,42 @@
 
   </div>
 
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有個人剛讀完一段講「複利」的內容，想確認自己是不是真的懂。他把重點寫成筆記、再變成三個能考自己的問題——自測那一屏長這樣：</p>
+
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:0 0 12px;">自測 · 複利怎麼把錢滾大</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:22px 20px 20px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">先答這些問題</div>
+          <div style="display:flex;gap:9px;margin-bottom:9px;"><span style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;flex:none;">1.</span><span style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;">複利和單利，差在哪裡？</span></div>
+          <div style="display:flex;gap:9px;margin-bottom:9px;"><span style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;flex:none;">2.</span><span style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;">影響複利結果的三個變數是什麼？</span></div>
+          <div style="display:flex;gap:9px;margin-bottom:9px;"><span style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;flex:none;">3.</span><span style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;">為什麼「早開始」比「多存一點」還要緊？</span></div>
+          <div style="height:1px;background:#e3ddd0;margin:16px 0;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">筆記</div>
+          <div style="font-size:14px;line-height:1.9;white-space:pre-wrap;">複利就是把賺到的利息也放回去，繼續生利息，所以時間拉長之後，成長不是一條直線，而是愈往後愈陡的曲線。關鍵有三個：本金、報酬率、時間；其中時間的威力最大——同一筆錢，早開始十年，最後可能差上一倍。</div>
+          <div style="height:1px;background:#e3ddd0;margin:16px 0;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">一句話總結</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#35456a;line-height:1.7;">複利的重點不是報酬率多高，而是讓時間站在你這邊——愈早開始，曲線愈往後愈陡。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Study Note · Nº 11 · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">筆記是<b>用自己的話重講一遍</b>，不是把原文抄下來——翻成自己聽得懂的話，本身就是一次消化。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">好問題問的是「<b>能不能答出來</b>」，不是「有沒有看過」——想像下週要考你，你要能重講出哪幾點。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">複習時<b>遮住筆記，先自己答一次</b>，再顯示對答案——回想比重讀有效得多。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
   <sc-if value="{{ recordsOpen }}">
     <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
       <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
@@ -188,7 +225,7 @@ class Component extends DCLogic {
   state = {
     step: 0, topic: "", notes: "", cues: "", summary: "", revealed: false,
     toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
-    cards: [], recordsOpen: false, started: false,
+    cards: [], recordsOpen: false, started: false, exampleOpen: false,
   };
   HKEY = "toolbook_studynote_history_v1";
 
@@ -296,6 +333,7 @@ class Component extends DCLogic {
       showRecordsBtn: (step === 0 || step === 5) && s.cards.length > 0,
       onOpenRecords: () => this.set("recordsOpen", true),
       recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
     };
   }
 }

@@ -53,6 +53,7 @@
           </div>
           <p style="color:#938a78;font-size:11.5px;margin-top:16px;line-height:1.8;">啟發自《一週工作 4 小時》第 3 章的恐懼設定練習；第八問「你的退路是什麼」是書上沒有、我自己加的。答案只存在這部裝置。</p>
           <p style="color:#938a78;font-size:11.5px;margin-top:10px;line-height:1.8;">這是一張幫你把想法寫下來的卡，不是心理治療。如果這件事已經讓你長期睡不著、無法工作，或你發現自己一遍又一遍地填同樣的答案來求安心，那需要的是專業協助，不是這張卡。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
         </div>
       </sc-if>
 
@@ -312,6 +313,68 @@
 
   </div>
 
+  <!-- 填好的例子 -->
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有個人想辭掉穩定的工作、全職接設計案，卻卡在「不敢動」快一年了。她走完八題之後，這張恐懼拆解卡長這樣——</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 22px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:7px;padding-left:7px;margin-top:4px;">恐 懼 拆 解 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Fear · Nº 04</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:14px auto 20px;"></div>
+          <div style="border:1px solid #e3ddd0;border-radius:3px;padding:10px 8px 4px;margin-bottom:14px;">
+            <svg viewBox="0 0 300 150" style="display:block;width:100%;height:auto;">
+              <rect x="30" y="10" width="256" height="112" fill="none" stroke="#d6cdba" stroke-width="1"></rect>
+              <line x1="158" y1="10" x2="158" y2="122" stroke="#d6cdba" stroke-width="1" stroke-dasharray="3 4"></line>
+              <line x1="30" y1="66" x2="286" y2="66" stroke="#d6cdba" stroke-width="1" stroke-dasharray="3 4"></line>
+              <circle cx="44" cy="60" r="7" fill="#9c5f4a" fill-opacity=".85" stroke="#f3efe7" stroke-width="1.2"></circle>
+              <circle cx="272" cy="38" r="7" fill="#6b7a5e" fill-opacity=".85" stroke="#f3efe7" stroke-width="1.2"></circle>
+              <text x="24" y="15" font-size="8" fill="#938b78" text-anchor="end">10</text>
+              <text x="24" y="125" font-size="8" fill="#938b78" text-anchor="end">1</text>
+              <text x="62" y="137" font-size="8" fill="#938b78" text-anchor="middle">暫時的</text>
+              <text x="254" y="137" font-size="8" fill="#938b78" text-anchor="middle">永久的</text>
+              <text x="158" y="148" font-size="7.5" text-anchor="middle" fill="#938b78">● 最壞　● 最好　上下＝影響 1–10</text>
+            </svg>
+          </div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:13.5px;color:#241f18;text-align:center;line-height:1.75;margin-bottom:18px;white-space:pre-line;">壞的 6 分、暫時的；好的 8 分。
+差距在這裡。</div>
+          <div style="border:1px solid #e3ddd0;border-radius:3px;margin-bottom:15px;">
+            <div style="padding:13px 15px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">最壞的情況</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">接案接不夠，半年後存款見底，只好回去找一份差不多的全職工作</div><div style="font-size:10.5px;color:#938a78;margin-top:6px;letter-spacing:.5px;">影響 6 分 · 暫時的 · 不太可能發生</div></div>
+            <div style="padding:13px 15px;border-top:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我會怎麼接住它</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">先留半年生活費當緩衝；每月至少談成兩個案子；真的不行就回去上班，履歷不會因此變差</div></div>
+            <div style="padding:13px 15px;border-top:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">順利的話會得到</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">能自己安排時間，做真正喜歡的設計案，收入慢慢超過原本的薪水</div><div style="font-size:10.5px;color:#938a78;margin-top:6px;letter-spacing:.5px;">影響 8 分 · 永久的 · 已有人走過：前同事阿 May</div></div>
+          </div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">收入沒了，我靠這個撐</div><div style="font-size:13.5px;white-space:pre-wrap;line-height:1.7;">半年的生活費、還能接原公司的外包、必要時搬回家住一陣子</div></div>
+          <div style="height:1px;background:#e3ddd0;margin:17px 0;"></div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:14px 12px;margin:4px 0 16px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">這星期先做這一小步</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;white-space:pre-wrap;">這週先談成第一個付費案子，不辭職也能做</div><div style="font-size:10.5px;color:#938a78;margin-top:7px;">為了：先確認自己真的接得到案</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">什麼都不改，一年後</div><div style="font-size:13.5px;white-space:pre-wrap;line-height:1.7;">心情：每天上班都在想「如果那時試了」
+身體：長期壓著，睡不好、常胃痛</div></div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我在等的</div><div style="font-size:13.5px;white-space:pre-wrap;line-height:1.7;">等到手上有三個穩定客戶再辭
+我會知道它到了，因為：第三個客戶簽約那天</div></div>
+          <div style="margin-bottom:0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我的退路</div><div style="font-size:13.5px;white-space:pre-wrap;line-height:1.7;">回得去
+原公司說隨時歡迎回來
+沒有收入能撐 6 個月</div></div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">寫下來的害怕，才拆得動。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 04 · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">把模糊的「怕養不活自己」寫成一個<b>攝影機拍得到的具體畫面</b>——半年後存款見底、回去上班。看得見，才拆得動。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">多數最壞情況<b>都能預防或事後修復</b>，而且多半是暫時的——留緩衝、留退路，那一邊就沒有想像中重。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">別忘了算「<b>什麼都不做</b>」的代價，它通常比想像大；然後這週先做一小步——不辭職也能開始的那一步。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
   <sc-if value="{{ recordsOpen }}">
     <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
       <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
@@ -366,7 +429,7 @@ class Component extends DCLogic {
     survive: "", delayed: "", ministep: "", costMoney: "", costMood: "", costBody: "",
     waitFor: "", waitSignal: "", backRev: null, backText: "", backMonths: "",
     toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
-    cards: [], recordsOpen: false, openedCard: null,
+    cards: [], recordsOpen: false, openedCard: null, exampleOpen: false,
   };
   HKEY = "toolbook_fear_history_v1";
   PERM = { "0": "暫時的", "0.5": "暫時還是永久說不準", "1": "永久的" };
@@ -532,6 +595,7 @@ class Component extends DCLogic {
       showRecordsBtn: (step === 0 || step === 10) && s.cards.length > 0,
       onOpenRecords: () => this.set("recordsOpen", true),
       recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
       hasOpened: !!oc, ocWorst: oc ? (oc.worstText || "—") : "—", ocStep: oc ? (oc.ministep || "—") : "—",
       onCloseCard: () => this.set("openedCard", null), onShareOpened: () => { if (oc) this.shareCard(oc); },
     };

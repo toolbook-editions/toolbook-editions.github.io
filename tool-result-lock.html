@@ -45,6 +45,7 @@
           <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 02 · 推進</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">先鎖定成果，<br />再決定做什麼</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">六個簡短步驟，分清必要工作與錦上添花，<br />最後生成一張成果卡。答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
         </div>
       </sc-if>
 
@@ -161,6 +162,54 @@
 
   </div>
 
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有個人想把擱了很久的個人網站做上線。走完六步之後，他的成果卡長這樣——</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:8px;padding-left:8px;margin-top:4px;">成 果 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Result Lock · Nº 02</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">本輪唯一成果</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:19px;font-weight:600;line-height:1.55;margin-bottom:15px;">把個人網站做到可以公開上線</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">完成證據</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:13px;">網址打得開，首頁、作品集、聯絡方式三頁都在，手機開也正常。</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">現在只做</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:13px;white-space:pre-wrap;">選定一個版型
+放上三個代表作
+寫一段自我介紹
+綁好網域</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">暫時不做</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:14px;white-space:pre-wrap;">重畫 logo
+加部落格
+接電子報
+研究 SEO 外掛</div>
+          <div style="height:1px;background:#e3ddd0;margin-bottom:14px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">止損規則</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:16px;">挑版型或改配色超過 30 分鐘還定不下來，就用手上這一版先上線。</div>
+          <div style="text-align:center;font-size:11px;color:#938a78;letter-spacing:1px;">交付日期 <span style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:15px;margin:0 4px;">2026.09.07</span></div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:14px;">先完成，再完美。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 02 · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">一輪只鎖<b>一個</b>成果——不是列一長串待辦，而是先講清楚「這一輪到底要交付什麼」。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">把工作分成<b>非做不可</b>和<b>錦上添花</b>兩堆；後者不是不做，是先擱著，免得它偷走核心成果的時間。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">事先寫好<b>「做到什麼程度就收手」</b>的止損規則，否則挑版型、改配色這種事會無止境打磨下去。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
   <sc-if value="{{ recordsOpen }}">
     <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
       <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
@@ -222,7 +271,7 @@ class Component extends DCLogic {
   state = {
     step: 0, outcome: "", evidence: "", deadline: "", must: "", later: "", stopRule: "",
     toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
-    cards: [], recordsOpen: false, openedCard: null,
+    cards: [], recordsOpen: false, openedCard: null, exampleOpen: false,
   };
   HKEY = "toolbook_result_lock_history_v1";
   componentDidMount() { try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {} }
@@ -307,6 +356,7 @@ class Component extends DCLogic {
       showRecordsBtn: (step === 0 || step === 6) && s.cards.length > 0,
       onOpenRecords: () => this.set("recordsOpen", true),
       recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
       hasOpened: !!oc, ocOutcome: oc ? (oc.outcome || "—") : "—", ocEvidence: oc ? (oc.evidence || "—") : "—", ocMust: oc ? (oc.must || "—") : "—", ocLater: oc ? (oc.later || "本輪沒有") : "本輪沒有", ocStop: oc ? (oc.stopRule || "—") : "—", ocDeadline: oc ? this.fmtDate(oc.deadline) : "—",
       onCloseCard: () => this.set("openedCard", null), onShareOpened: () => { if (oc) this.shareCard(oc); },
     };

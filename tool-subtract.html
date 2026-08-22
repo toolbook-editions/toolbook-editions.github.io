@@ -46,6 +46,7 @@
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">手上的事太多，<br />該減什麼？</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">六個問題，先看清楚你有多少決定權，再挑一項真的動它——而且動之前，先確認它沒有撐著別的東西。</p>
           <p style="color:#938a78;font-size:11.5px;line-height:1.85;margin-top:14px;">啟發自《一週工作 4 小時》的 80／20 掃描。書中示範的是砍客戶、砍會議，那是老闆的權限；這張卡先問你的權限。答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
         </div>
       </sc-if>
 
@@ -189,6 +190,44 @@
 
   </div>
 
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有個人手上的事多到喘不過氣，覺得每件都不能不做。走完六個問題之後，他的減法卡長這樣——</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:8px;padding-left:8px;margin-top:4px;">減 法 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Subtract · Nº 07</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;border:1px solid #e3ddd0;border-radius:3px;margin-bottom:14px;">
+            <div style="padding:13px 14px;"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">最消耗</div><div style="font-size:13.5px;line-height:1.7;">每天盯各個群組、回一堆不重要的通知</div></div>
+            <div style="padding:13px 14px;border-left:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">最有成果</div><div style="font-size:13.5px;line-height:1.7;">每週那一份給客戶的提案</div></div>
+          </div>
+          <div style="margin-bottom:14px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:7px;">但這一項撐著別的</div><div style="font-size:14px;line-height:1.65;">那堆訊息裡，只有早上那次同步是團隊真的需要的</div></div>
+          <div style="height:1px;background:#e3ddd0;margin:17px 0;"></div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:14px 12px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">這週要動的那一項</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">只留早上一次同步，其餘通知改成一天集中看兩次</div></div>
+          <div style="margin:14px 0 0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:7px;">省下的時間給</div><div style="font-size:14px;line-height:1.65;">每天多出的一小時，拿去把那份提案做得更好</div></div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">減一項，看清楚，再減下一項。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 07 · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">這張卡不問你「還該加什麼」，而是<b>先掃出哪些其實可以停掉</b>——先做減法，不是加法。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">把「最消耗」和「最有成果」擺在一起看，常會發現<b>兩者不是同一件事</b>——這就是 80／20：少數事帶來多數結果，其餘可以砍。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">不是一次砍光，<b>這週只挑一項真的動它</b>——而且動之前先確認它沒有撐著別的東西。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
   <sc-if value="{{ recordsOpen }}">
     <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
       <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
@@ -243,7 +282,7 @@ class Component extends DCLogic {
   state = {
     step: 0, power: null, items: "", drain: "", gain: "", support: "", action: "", freed: "",
     toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
-    cards: [], recordsOpen: false, openedCard: null,
+    cards: [], recordsOpen: false, openedCard: null, exampleOpen: false,
   };
   HKEY = "toolbook_subtract_history_v1";
   POWER = { own: "這些事大部分我可以自己決定", some: "一部分可以決定，一部分要談", none: "大部分不是我能決定的" };
@@ -338,6 +377,7 @@ class Component extends DCLogic {
       showRecordsBtn: (step === 0 || step === 7) && s.cards.length > 0,
       onOpenRecords: () => this.set("recordsOpen", true),
       recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
       hasOpened: !!oc, ocDrain: oc ? (oc.drain || "—") : "—", ocGain: oc ? (oc.gain || "—") : "—", ocAction: oc ? (oc.action || "—") : "—", ocActK: oc ? this.actKeyOf(oc.power) : "—",
       onCloseCard: () => this.set("openedCard", null), onShareOpened: () => { if (oc) this.shareCard(oc); },
     };
