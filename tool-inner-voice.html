@@ -162,15 +162,20 @@ B｜{{ mirrorB }}</div>
         </div>
 
         <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
-          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:4px;">做完了，跟我說一句</div>
-          <p style="font-size:12.5px;color:#938a78;margin-bottom:12px;line-height:1.75;">這張卡對你有沒有用、你希望下一個工具解決什麼——我在收集建議。留 Email，新工具上線也會通知你。</p>
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+          <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
           <form onSubmit="{{ onSubmitFeedback }}">
-            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？（可留空）" style="width:100%;min-height:76px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
             <div style="display:flex;gap:8px;">
-              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email" required style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
               <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
             </div>
-            <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin-top:8px;">{{ subStatus }}</div>
           </form>
           <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《非暴力溝通》。它幫你看清自己在說什麼，不處理情緒疾病；方法是否適合，請自行判斷。</p>
         </div>
@@ -369,6 +374,7 @@ class Component extends DCLogic {
   toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
   async copy() { try { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製卡片文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
   async share() { try { if (navigator.share) await navigator.share({ title: "我的內在對話卡", text: this.cardText() }); else { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: "內在對話改寫器", helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
   onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "內在對話改寫器"); fd.append("_subject", "Toolbook 工具回饋 · 內在對話改寫器"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
   async saveImage() {
     const s = this.state;
@@ -421,7 +427,7 @@ class Component extends DCLogic {
       onHome: () => { window.location.href = "index.html"; },
       onWantTalk: () => this.wantTalk(), onBackToCard: () => this.setState({ step: 5 }),
       feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
-      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e),
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e), onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
       showGate, gateMsg: gateBad ? (step === 1 ? "兩個聲音都寫一句，才能繼續" : step === 3 ? "「當我」「我感到」「因此我想要」先各填一句" : "") : "",
       showNextBtn: step <= 3 || step === 5,
       onNext: step === 5 ? () => this.newCard() : () => this.next(),

@@ -166,15 +166,20 @@
           <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">把「先試的那件小事」帶進 <a href="tool-result-lock.html">成果鎖定卡</a> 給它一個交付日期；試完之後用 <a href="tool-review.html">復盤卡</a> 對一次當初寫的判準。</p>
         </div>
         <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
-          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:4px;">做完了，跟我說一句</div>
-          <p style="font-size:12.5px;color:#938a78;margin-bottom:12px;line-height:1.75;">這張卡對你有沒有用、你希望下一個工具解決什麼——我在收集建議。留 Email，新工具上線也會通知你。</p>
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+          <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
           <form onSubmit="{{ onSubmitFeedback }}">
-            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？（可留空）" style="width:100%;min-height:76px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
             <div style="display:flex;gap:8px;">
-              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email" required style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
               <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
             </div>
-            <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin-top:8px;">{{ subStatus }}</div>
           </form>
         </div>
       </sc-if>
@@ -356,6 +361,7 @@ class Component extends DCLogic {
   async copy() { try { await navigator.clipboard.writeText(this.cardTextOf(this.cur())); this.toast("已複製試驗卡文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
   async share() { try { if (navigator.share) await navigator.share({ title: "我的試驗卡", text: this.cardTextOf(this.cur()) }); else { await navigator.clipboard.writeText(this.cardTextOf(this.cur())); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
   async shareCard(c) { try { if (navigator.share) await navigator.share({ title: "我的試驗卡", text: this.cardTextOf(c) }); else { await navigator.clipboard.writeText(this.cardTextOf(c)); this.toast("已複製"); } } catch (_) {} }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: "小規模試驗卡", helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
   onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "小規模試驗卡"); fd.append("_subject", "Toolbook 工具回饋 · 小規模試驗卡"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
 
   async _png(spec){try{const m=await import("./toolbook-card.js");const ok=await m.downloadCardPNG(spec);this.toast(ok?"卡片圖片已儲存":"圖片產生失敗");}catch(_){this.toast("圖片產生失敗");}}
@@ -391,7 +397,7 @@ class Component extends DCLogic {
       onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(),
       onHome: () => { window.location.href = "index.html"; },
       feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
-      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e),
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e), onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
       showGate, gateMsg: gateBad ? (step === 1 ? "寫下決定，並選一個回頭的難度" : step === 3 ? "三格都要填，包括「該停」" : step === 4 ? "至少寫下時間上限" : step === 6 ? "選一個做決定的日子" : "完成這一題，才能繼續") : "",
       onNext: step === 7 ? () => this.newCard() : () => this.next(),
       nextLabel: step === 0 ? "開始" : step === 6 ? "生成試驗卡" : step === 7 ? "再做一張新的試驗卡" : "下一步",
