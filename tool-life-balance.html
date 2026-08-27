@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  input:focus{outline:none;border-color:#35456a!important;box-shadow:0 0 0 2px rgba(53,69,106,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(53,69,106,.15);}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:3px;background:#e3ddd0;outline:none;}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:#35456a;cursor:pointer;border:3px solid #fbf9f4;box-shadow:0 1px 4px rgba(36,31,24,.25);}
+  input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#35456a;cursor:pointer;border:3px solid #fbf9f4;}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;text-align:center;pointer-events:none;font-family:'Noto Serif TC',serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#938a78;">{{ headTitle }}</div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ vIntro }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 17 · 平衡</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">人生的七個面向，<br />此刻各是幾分？</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">滿分由<b style="color:#554d40;">你自己</b>定義——單身而自在的人，伴侶那欄也可以是滿分。這裡不算總分、不排名，低的那一欄不代表你不及格，只是幫你看清這一季想先顧哪一面。<br />答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ vAssess }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:6px;">此刻的你</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.5;margin-bottom:6px;">每一面，拖到你覺得的分數</h2>
+        <p style="color:#938a78;font-size:12.5px;margin-bottom:6px;line-height:1.8;">憑此刻的感覺就好，不用想太久。每一欄「滿分是什麼樣」由你定義；不想評的那欄，留在「未評」也行。</p>
+
+        <sc-for list="{{ facetRows }}" as="f" hint-placeholder-count="7">
+          <div style="border:1px solid #e3ddd0;background:#fff;border-radius:5px;padding:15px 16px;margin-top:12px;">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2px;">
+              <span style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;">{{ f.name }}</span>
+              <span style="font-family:'Noto Serif TC',serif;font-size:18px;color:{{ f.numColor }};letter-spacing:1px;">{{ f.numLabel }}</span>
+            </div>
+            <p style="color:#938a78;font-size:12px;line-height:1.7;margin-bottom:12px;">{{ f.hint }}</p>
+            <input type="range" min="0" max="10" step="1" value="{{ f.score }}" onInput="{{ f.onScore }}" />
+            <input value="{{ f.def }}" onInput="{{ f.onDef }}" maxlength="60" placeholder="對我來說，這一欄滿分是……（可留空）" style="width:100%;border:none;border-bottom:1px solid #efe9dd;background:transparent;border-radius:0;padding:9px 2px 5px;font-size:13px;color:#554d40;margin-top:12px;" />
+          </div>
+        </sc-for>
+
+        <div style="border-top:1px solid #e3ddd0;margin-top:22px;padding-top:18px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;font-weight:600;margin-bottom:3px;">這一季，你想先照顧哪一面？</div>
+          <p style="color:#938a78;font-size:12px;margin-bottom:12px;line-height:1.7;">不一定是分數最低的那個——選你真正想投注心力的。可以跳過。</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <sc-for list="{{ focusChips }}" as="c" hint-placeholder-count="7">
+              <button onClick="{{ c.onPick }}" style="border:1px solid {{ c.bd }};background:{{ c.bg }};color:{{ c.fg }};border-radius:20px;padding:8px 15px;font-size:13px;cursor:pointer;">{{ c.name }}</button>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">平衡不是每一面都拿一樣的時間。不同的人生階段，本來就會有意識地側重某幾面——重要的是你知道自己為什麼這樣選。</div>
+      </sc-if>
+
+      <sc-if value="{{ vCard }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 14px;">你的人生平衡卡</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 22px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:5px;padding-left:5px;margin-top:4px;">人生平衡卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Balance · Nº 17</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 18px;"></div>
+          <sc-for list="{{ cardRows }}" as="r" hint-placeholder-count="7">
+            <div style="margin-bottom:12px;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:5px;">
+                <span style="font-family:'Noto Serif TC',serif;font-size:14px;">{{ r.name }}{{ r.star }}</span>
+                <span style="font-size:12px;color:#938a78;letter-spacing:1px;">{{ r.numLabel }}</span>
+              </div>
+              <div style="height:7px;border-radius:4px;background:#e3ddd0;overflow:hidden;">
+                <div style="height:100%;width:{{ r.barW }};background:{{ r.barBg }};border-radius:4px;"></div>
+              </div>
+            </div>
+          </sc-for>
+          <div style="height:1px;background:#e3ddd0;margin:16px 0 14px;"></div>
+          <sc-if value="{{ hasFocus }}">
+            <div style="text-align:center;margin-bottom:8px;"><span style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;">這一季，先顧</span><div style="font-family:'Noto Serif TC',serif;font-size:18px;color:#35456a;letter-spacing:1px;margin-top:3px;">{{ focusName }}</div></div>
+          </sc-if>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:13.5px;letter-spacing:.5px;line-height:1.9;">這是這一刻的你，<br />不是一張成績單。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:12px;">Edition Nº 17 · MMXXVI</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製文字</button>
+          <button onClick="{{ onShare }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">分享這張</button>
+        </div>
+
+        <div style="border-left:2px solid #cec6b4;padding:13px 16px;margin-top:18px;background:#f3efe7;border-radius:0 3px 3px 0;">
+          <p style="font-size:13px;color:#554d40;line-height:1.85;margin:0;">選好想先顧的那一面，接 <a href="tool.html">「目標釐清器」</a> 把它想清楚，或用 <a href="tool-commit-cost.html">「承諾成本卡」</a> 算算要付的代價、<a href="tool-cycle.html">「週期執行器」</a> 排成一輪往前推。</p>
+        </div>
+
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:4px;">做完了，跟我說一句</div>
+          <p style="font-size:12.5px;color:#938a78;margin-bottom:12px;line-height:1.75;">這張卡對你有沒有用、你希望下一個工具解決什麼——我在收集建議。留 Email，新工具上線也會通知你。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？（可留空）" style="width:100%;min-height:76px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email" required style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+            <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin-top:8px;">{{ subStatus }}</div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《12 週做完一年工作》第 11 章的人生面向自評。判準一律用你自己的定義，這裡不替任何一面設「該有的樣子」，也不給身體那欄任何數字標準。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showPrimary }}">
+        <button onClick="{{ onPrimary }}" disabled="{{ primaryDisabled }}" style="display:block;width:100%;border:none;background:{{ primaryBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ primaryOp }};">{{ primaryLabel }}</button>
+      </sc-if>
+      <sc-if value="{{ vCard }}">
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">查看平衡卡紀錄簿（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有個人這一季忙於工作，評完七面向後，平衡卡長這樣——注意「伴侶」那欄他打了 9 分：他單身，但很自在，對他來說這就是滿分。</p>
+
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:0 0 14px;">人生平衡卡</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:5px;padding-left:5px;margin-top:4px;">人生平衡卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Balance · Nº 17</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 18px;"></div>
+          <sc-for list="{{ egRows }}" as="r" hint-placeholder-count="7">
+            <div style="margin-bottom:12px;">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:5px;">
+                <span style="font-family:'Noto Serif TC',serif;font-size:14px;">{{ r.name }}{{ r.star }}</span>
+                <span style="font-size:12px;color:#938a78;letter-spacing:1px;">{{ r.numLabel }}</span>
+              </div>
+              <div style="height:7px;border-radius:4px;background:#e3ddd0;overflow:hidden;"><div style="height:100%;width:{{ r.barW }};background:{{ r.barBg }};border-radius:4px;"></div></div>
+            </div>
+          </sc-for>
+          <div style="height:1px;background:#e3ddd0;margin:16px 0 14px;"></div>
+          <div style="text-align:center;margin-bottom:8px;"><span style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;">這一季，先顧</span><div style="font-family:'Noto Serif TC',serif;font-size:18px;color:#35456a;letter-spacing:1px;margin-top:3px;">身體</div></div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:13.5px;letter-spacing:.5px;line-height:1.9;">這是這一刻的你，<br />不是一張成績單。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:12px;">Edition Nº 17 · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">「伴侶」打 9 分，因為<b>滿分由他自己定義</b>——單身而自在，也是圓滿。這張卡不預設你的人生該長什麼樣。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">「身體」分數低，但他<b>沒有被判不及格</b>——他只是選它當這一季想先顧的那一面。低分是提醒，不是判決。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">卡上<b>沒有總分、沒有平均、沒有排名</b>。把七面向加起來算一個「人生分數」，正是這張卡刻意不做的事。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，評我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">平衡卡紀錄簿</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。每次評一次，看得到自己這幾季的變化。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:10px;"><span style="white-space:nowrap;">第 {{ c.idx }} 次 · {{ c.date }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;">這一季先顧</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-top:3px;">{{ c.focusName }}</div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;margin-top:10px;">各面向</div><div style="font-size:13px;color:#35456a;margin-top:3px;line-height:1.8;white-space:pre-wrap;">{{ c.scoreText }}</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有紀錄。<br />評完第一次後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  FACETS = [
+    { key: "spirit", name: "精神", hint: "信念、意義、內在的安定——由你定義" },
+    { key: "partner", name: "配偶／伴侶", hint: "親密關係的狀態；單身而自在，也可以是滿分" },
+    { key: "family", name: "家庭", hint: "與家人的連結，你想要的那一種" },
+    { key: "community", name: "社群", hint: "朋友、歸屬、與人的往來" },
+    { key: "body", name: "身體", hint: "對你來說「身體狀態好」是什麼樣——由你定義，這裡不給任何數字標準" },
+    { key: "personal", name: "個人", hint: "成長、興趣、獨處時與自己相處的時間" },
+    { key: "career", name: "事業", hint: "工作、學業，或你正在建造的東西" },
+  ];
+  state = {
+    view: "intro", scores: {}, defs: {}, focus: "",
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, started: false, exampleOpen: false,
+  };
+  HKEY = "toolbook_lifebalance_history_v1";
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  set(k, v) { this.setState({ [k]: v }); }
+  setScore(key, v) { const n = parseInt(v, 10) || 0; this.setState({ scores: { ...this.state.scores, [key]: n } }); }
+  setDef(key, v) { this.setState({ defs: { ...this.state.defs, [key]: v } }); }
+  pickFocus(key) { this.setState({ focus: this.state.focus === key ? "" : key }); }
+  facetName(key) { const f = this.FACETS.find(x => x.key === key); return f ? f.name : ""; }
+  ratedCount() { return this.FACETS.filter(f => (this.state.scores[f.key] || 0) > 0).length; }
+  scrollTop() { const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+
+  start() {
+    if (!this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "人生七面向自評" }); }
+    this.setState({ view: "assess" }); this.scrollTop();
+  }
+  toCard() {
+    if (this.ratedCount() < 1) return;
+    this.archive();
+    this.setState({ view: "card" }); this.scrollTop();
+  }
+  restart() {
+    if (!window.confirm("再評一次新的？目前這次會清掉（已生成的卡片仍留在紀錄簿）。")) return;
+    this.setState({ view: "assess", scores: {}, defs: {}, focus: "" }); this.scrollTop();
+  }
+  archive() {
+    const s = this.state;
+    const scores = {}; this.FACETS.forEach(f => { scores[f.key] = s.scores[f.key] || 0; });
+    const defs = {}; this.FACETS.forEach(f => { if ((s.defs[f.key] || "").trim()) defs[f.key] = s.defs[f.key].trim(); });
+    const card = { id: "lb_" + Date.now().toString(36), createdAt: new Date().toISOString(), scores, defs, focus: s.focus, focusName: s.focus ? this.facetName(s.focus) : "" };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards });
+    try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: "人生七面向自評" }); } catch (_) {}
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); try { localStorage.setItem(this.HKEY, JSON.stringify(cards)); } catch (_) {} }
+
+  scoreLines() {
+    const s = this.state;
+    return this.FACETS.map(f => { const v = s.scores[f.key] || 0; return f.name + "：" + (v > 0 ? v + " 分" : "未評"); }).join("\n");
+  }
+  cardText() {
+    const s = this.state;
+    return "人生平衡卡\n\n" + this.scoreLines() + (s.focus ? "\n\n這一季，先顧：" + this.facetName(s.focus) : "") + "\n\n這是這一刻的你，不是一張成績單。";
+  }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製卡片文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  async share() { try { if (navigator.share) await navigator.share({ title: "我的人生平衡卡", text: this.cardText() }); else { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "人生七面向自評"); fd.append("_subject", "Toolbook 工具回饋 · 人生七面向自評"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+  async saveImage() {
+    const s = this.state;
+    const blocks = this.FACETS.map(f => { const v = s.scores[f.key] || 0; return { k: f.name + (s.focus === f.key ? " ★" : ""), v: v > 0 ? v + " / 10" : "未評" }; });
+    if (s.focus) blocks.push({ k: "這一季先顧", v: this.facetName(s.focus), big: true });
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "人生平衡卡", sub: "BALANCE · Nº 17", filename: "人生平衡卡-Toolbook", mantra: "這是這一刻的你，不是一張成績單。", edition: "Edition Nº 17 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+  }
+
+  rowsFrom(scores, focus) {
+    return this.FACETS.map(f => {
+      const v = scores[f.key] || 0;
+      return {
+        name: f.name, star: focus === f.key ? " ★" : "",
+        numLabel: v > 0 ? (v + " / 10") : "未評",
+        barW: (v > 0 ? v * 10 : 0) + "%",
+        barBg: focus === f.key ? "#b08d3f" : "#35456a",
+      };
+    });
+  }
+
+  renderVals() {
+    const s = this.state, v = s.view;
+    const heads = { intro: "人生七面向自評", assess: "", card: "平衡卡" };
+
+    const facetRows = this.FACETS.map(f => {
+      const sc = s.scores[f.key] || 0;
+      return {
+        name: f.name, hint: f.hint, score: sc,
+        numLabel: sc > 0 ? (sc + " / 10") : "未評", numColor: sc > 0 ? "#35456a" : "#b9b09a",
+        def: s.defs[f.key] || "",
+        onScore: (e) => this.setScore(f.key, e.target.value),
+        onDef: (e) => this.setDef(f.key, e.target.value),
+      };
+    });
+    const focusChips = this.FACETS.map(f => ({
+      name: f.name, onPick: () => this.pickFocus(f.key),
+      bg: s.focus === f.key ? "#35456a" : "#fff", fg: s.focus === f.key ? "#fbf9f4" : "#554d40", bd: s.focus === f.key ? "#35456a" : "#e3ddd0",
+    }));
+
+    const cardRows = this.rowsFrom(s.scores, s.focus);
+    const egScores = { spirit: 6, partner: 9, family: 7, community: 5, body: 3, personal: 6, career: 8 };
+    const egRows = this.rowsFrom(egScores, "body");
+
+    const cards = s.cards.map((c, n) => ({
+      idx: s.cards.length - n,
+      date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }),
+      focusName: c.focus ? this.facetName(c.focus) : "（這次未指定）",
+      scoreText: this.FACETS.map(f => { const val = (c.scores && c.scores[f.key]) || 0; return f.name + "：" + (val > 0 ? val + " 分" : "未評"); }).join("\n"),
+      onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); },
+    }));
+
+    const ratedOk = this.ratedCount() >= 1;
+    let showPrimary = false, primaryLabel = "", onPrimary = () => {}, primaryDisabled = "", primaryBg = "#35456a", primaryOp = "1";
+    if (v === "intro") { showPrimary = true; primaryLabel = "開始評分"; onPrimary = () => this.start(); }
+    else if (v === "assess") { showPrimary = true; primaryLabel = "看我的平衡卡"; onPrimary = () => this.toCard(); primaryDisabled = ratedOk ? "" : "disabled"; primaryOp = ratedOk ? "1" : ".5"; primaryBg = ratedOk ? "#35456a" : "#b7bdcb"; }
+    else if (v === "card") { showPrimary = true; primaryLabel = "再評一次"; onPrimary = () => this.restart(); }
+
+    return {
+      onBack: () => { if (v === "assess") this.setState({ view: "intro" }); else if (v === "card") this.setState({ view: "assess" }); else this.setState({ view: "intro" }); this.scrollTop(); },
+      backColor: v === "intro" ? "transparent" : "#938a78",
+      headTitle: heads[v] || "",
+      vIntro: v === "intro", vAssess: v === "assess", vCard: v === "card",
+      facetRows, focusChips, cardRows, egRows,
+      hasFocus: !!s.focus, focusName: this.facetName(s.focus),
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(),
+      onHome: () => { window.location.href = "index.html"; },
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e),
+      showPrimary, primaryLabel, onPrimary, primaryDisabled, primaryBg, primaryOp,
+      showRecordsBtn: (v === "intro" || v === "card") && s.cards.length > 0,
+      recordsCount: s.cards.length, onOpenRecords: () => this.set("recordsOpen", true),
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+    };
+  }
+}
+</script>
+</body>
+</html>
