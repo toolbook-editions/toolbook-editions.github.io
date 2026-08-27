@@ -30,7 +30,7 @@
     <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
       <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
       <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
-        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="4">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="5">
           <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
         </sc-for>
       </div>
@@ -44,7 +44,7 @@
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
           <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 11 · 筆記</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">把剛讀完的，<br />變成一張能考自己的卡</h1>
-          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">康奈爾筆記法：筆記、提問、總結。真正讓你記住的不是抄得漂亮，是<b style="color:#554d40;">遮住筆記、只看問題把它答出來</b>——回想比重讀有效得多。<br />答案只存在這部裝置。</p>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">康奈爾筆記法：筆記、提問、總結，最後<b style="color:#554d40;">講給一個沒學過的人聽</b>。真正讓你記住的不是抄得漂亮，是遮住筆記把它答出來、再用自己的話教一遍——回想與教別人，都比重讀有效得多。<br />答案只存在這部裝置。</p>
           <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
         </div>
       </sc-if>
@@ -83,6 +83,15 @@
       </sc-if>
 
       <sc-if value="{{ s5 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 05 · 教出去</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">講給一個<br />沒學過的人聽</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">用最簡單的話、不准用行話，把它講一遍。<b style="color:#554d40;">講不清楚的地方，就是你其實還沒懂。</b>可留空，但寫一次最能逼出漏洞。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">像在教人，用一兩句講清楚</label>
+        <textarea value="{{ teach }}" onInput="{{ onTeach }}" maxlength="400" placeholder="如果要講給一個完全沒學過的朋友聽，你會怎麼說……" style="width:100%;min-height:120px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.9;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">把學到的教出去，是把它記牢最有效的方法之一——講的過程會逼你把鬆散的理解，整理成別人聽得懂的順序。真的找一個人講一遍，比對著螢幕更有效。</div>
+      </sc-if>
+
+      <sc-if value="{{ s6 }}">
         <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 12px;">自測 · {{ topicEcho }}</div>
         <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:22px 20px 20px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">先答這些問題</div>
@@ -107,6 +116,11 @@
             <div style="height:1px;background:#e3ddd0;margin:16px 0;"></div>
             <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">一句話總結</div>
             <div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#35456a;line-height:1.7;white-space:pre-wrap;">{{ summaryEcho }}</div>
+          </sc-if>
+          <sc-if value="{{ hasTeach }}">
+            <div style="height:1px;background:#e3ddd0;margin:16px 0;"></div>
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">講給別人聽</div>
+            <div style="font-size:14px;line-height:1.85;white-space:pre-wrap;">{{ teachEcho }}</div>
           </sc-if>
           <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Study Note · Nº 11 · MMXXVI</div>
         </div>
@@ -136,7 +150,7 @@
               <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
             </div>
           </form>
-          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《人生效率手冊》第 32 章的康奈爾筆記法；「自測比重讀有效」有大量研究支持。</p>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《人生效率手冊》的康奈爾筆記法與「輸出／教別人」（同書輸入輸出篇）；「自測比重讀有效」與「教別人記得最牢」都有大量研究支持。</p>
         </div>
       </sc-if>
 
@@ -149,7 +163,7 @@
       <sc-if value="{{ showNextBtn }}">
         <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
       </sc-if>
-      <sc-if value="{{ s5 }}">
+      <sc-if value="{{ s6 }}">
         <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
       </sc-if>
       <sc-if value="{{ showRecordsBtn }}">
@@ -170,7 +184,7 @@
           <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
           <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
         </div>
-        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有個人剛讀完一段講「複利」的內容，想確認自己是不是真的懂。他把重點寫成筆記、再變成三個能考自己的問題——自測那一屏長這樣：</p>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有個人剛讀完一段講「複利」的內容，想確認自己是不是真的懂。他把重點寫成筆記、變成三個能考自己的問題，再用一句話講給沒學過的人聽——自測那一屏長這樣：</p>
 
         <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:0 0 12px;">自測 · 複利怎麼把錢滾大</div>
         <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:22px 20px 20px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
@@ -184,14 +198,18 @@
           <div style="height:1px;background:#e3ddd0;margin:16px 0;"></div>
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">一句話總結</div>
           <div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#35456a;line-height:1.7;">複利的重點不是報酬率多高，而是讓時間站在你這邊——愈早開始，曲線愈往後愈陡。</div>
+          <div style="height:1px;background:#e3ddd0;margin:16px 0;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">講給別人聽</div>
+          <div style="font-size:14px;line-height:1.85;">「你把錢存著，它生的利息明年也會一起生利息——像滾雪球。所以愈早開始滾，到後面雪球大得愈快，早幾年比多存一點更有用。」</div>
           <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Study Note · Nº 11 · MMXXVI</div>
         </div>
 
         <div style="margin-top:20px;">
-          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到四件事</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">筆記是<b>用自己的話重講一遍</b>，不是把原文抄下來——翻成自己聽得懂的話，本身就是一次消化。</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">好問題問的是「<b>能不能答出來</b>」，不是「有沒有看過」——想像下週要考你，你要能重講出哪幾點。</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">複習時<b>遮住筆記，先自己答一次</b>，再顯示對答案——回想比重讀有效得多。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">複習時<b>遮住筆記，先自己答一次</b>，再顯示對答案——回想比重讀有效得多。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">最後<b>用最簡單的話講給沒學過的人聽</b>——講不清的地方，就是還沒真懂、要回去補的。教別人是記得最牢的一種複習。</div>
         </div>
 
         <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
@@ -228,7 +246,7 @@
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
 class Component extends DCLogic {
   state = {
-    step: 0, topic: "", notes: "", cues: "", summary: "", revealed: false,
+    step: 0, topic: "", notes: "", cues: "", summary: "", teach: "", revealed: false,
     toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
     cards: [], recordsOpen: false, started: false, exampleOpen: false,
   };
@@ -245,15 +263,16 @@ class Component extends DCLogic {
     if (step === 2) return !!s.notes.trim();
     if (step === 3) return this.cueArr().length > 0;
     if (step === 4) return true;
+    if (step === 5) return true;
     return true;
   }
   scrollTop() { const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
   next() {
     const step = this.state.step;
-    if (step >= 1 && step <= 4 && !this.gateOk(step)) return;
+    if (step >= 1 && step <= 5 && !this.gateOk(step)) return;
     if (step === 0 && !this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "學習筆記卡" }); }
-    const n = Math.min(5, step + 1);
-    if (n === 5) { this.archive(); this.setState({ revealed: false }); }
+    const n = Math.min(6, step + 1);
+    if (n === 6) { this.archive(); this.setState({ revealed: false }); }
     this.setState({ step: n });
     this.scrollTop();
   }
@@ -261,15 +280,15 @@ class Component extends DCLogic {
   toggleReveal() { this.setState({ revealed: !this.state.revealed }); }
   newCard() {
     if (!window.confirm("開一張新的筆記？目前內容會清掉。")) return;
-    this.setState({ step: 1, topic: "", notes: "", cues: "", summary: "", revealed: false });
+    this.setState({ step: 1, topic: "", notes: "", cues: "", summary: "", teach: "", revealed: false });
     this.scrollTop();
   }
-  retest(card) { this.setState({ topic: card.topic, notes: card.notes, cues: card.cues, summary: card.summary, revealed: false, step: 5, recordsOpen: false }); this.scrollTop(); }
+  retest(card) { this.setState({ topic: card.topic, notes: card.notes, cues: card.cues, summary: card.summary, teach: card.teach || "", revealed: false, step: 6, recordsOpen: false }); this.scrollTop(); }
   archive() {
     const s = this.state; if (!s.topic.trim() || !s.notes.trim()) return;
     const card = {
       id: "sn_" + Date.now().toString(36), createdAt: new Date().toISOString(),
-      topic: s.topic.trim(), notes: s.notes.trim(), cues: s.cues.trim(), summary: s.summary.trim(),
+      topic: s.topic.trim(), notes: s.notes.trim(), cues: s.cues.trim(), summary: s.summary.trim(), teach: s.teach.trim(),
     };
     const cards = [card, ...this.state.cards].slice(0, 50);
     this.setState({ cards });
@@ -282,6 +301,7 @@ class Component extends DCLogic {
     const qs = this.cueArr().map((q, i) => (i + 1) + ". " + q).join("\n");
     let t = "學習筆記卡 · " + (s.topic.trim() || "—") + "\n\n【提問】\n" + (qs || "—") + "\n\n【筆記】\n" + (s.notes.trim() || "—");
     if (s.summary.trim()) t += "\n\n【一句話總結】\n" + s.summary.trim();
+    if (s.teach.trim()) t += "\n\n【講給別人聽】\n" + s.teach.trim();
     return t;
   }
   toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
@@ -296,13 +316,14 @@ class Component extends DCLogic {
       { k: "筆記", v: s.notes.trim() || "—" },
     ];
     if (s.summary.trim()) blocks.push({ k: "一句話總結", v: s.summary.trim(), big: true });
-    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: s.topic.trim() || "學習筆記卡", sub: "STUDY NOTE · Nº 11", filename: "學習筆記卡-Toolbook", mantra: "遮住筆記，先自己答一次。", edition: "Edition Nº 11 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+    if (s.teach.trim()) blocks.push({ k: "講給別人聽", v: s.teach.trim() });
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: s.topic.trim() || "學習筆記卡", sub: "STUDY NOTE · Nº 11", filename: "學習筆記卡-Toolbook", mantra: "遮住筆記自己答，再講給一個人聽。", edition: "Edition Nº 11 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
 
   renderVals() {
     const s = this.state, step = s.step;
-    const dots = [1, 2, 3, 4].map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#35456a" : "#e3ddd0" }));
-    const showGate = step >= 1 && step <= 4;
+    const dots = [1, 2, 3, 4, 5].map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#35456a" : "#e3ddd0" }));
+    const showGate = step >= 1 && step <= 5;
     const gateBad = showGate && !this.gateOk(step);
     const cueList = this.cueArr().map((q, i) => ({ n: i + 1, q }));
     const cards = s.cards.map((c) => ({
@@ -313,15 +334,17 @@ class Component extends DCLogic {
       onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); },
     }));
     return {
-      dots: (step >= 1 && step <= 4) ? dots : [],
+      dots: (step >= 1 && step <= 5) ? dots : [],
       backColor: (step === 0) ? "transparent" : "#938a78", onBack: () => this.prev(),
-      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: step === 5,
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: step === 5, s6: step === 6,
       topic: s.topic, onTopic: e => this.set("topic", e.target.value),
       notes: s.notes, onNotes: e => this.set("notes", e.target.value),
       cues: s.cues, onCues: e => this.set("cues", e.target.value),
       summary: s.summary, onSummary: e => this.set("summary", e.target.value),
+      teach: s.teach, onTeach: e => this.set("teach", e.target.value),
       topicEcho: s.topic.trim() || "—", notesEcho: s.notes.trim() || "—",
       summaryEcho: s.summary.trim(), hasSummary: !!s.summary.trim(),
+      teachEcho: s.teach.trim(), hasTeach: !!s.teach.trim(),
       cueList,
       revealed: s.revealed, hidden: !s.revealed, onToggleReveal: () => this.toggleReveal(),
       revealLabel: s.revealed ? "遮住筆記" : "顯示筆記",
@@ -330,13 +353,13 @@ class Component extends DCLogic {
       feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
       onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e), onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
       showGate, gateMsg: gateBad ? (step === 1 ? "先給它一個主題" : step === 2 ? "寫下筆記重點，才能繼續" : step === 3 ? "至少寫一個你要能答出來的問題" : "") : "",
-      showNextBtn: step <= 4 || step === 5,
-      onNext: step === 5 ? () => this.newCard() : () => this.next(),
-      nextLabel: step === 0 ? "開始" : step === 4 ? "開始自測" : step === 5 ? "開一張新的筆記" : "下一步",
+      showNextBtn: step <= 5 || step === 6,
+      onNext: step === 6 ? () => this.newCard() : () => this.next(),
+      nextLabel: step === 0 ? "開始" : step === 4 ? "下一步" : step === 5 ? "開始自測" : step === 6 ? "開一張新的筆記" : "下一步",
       nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#b7bdcb" : "#35456a",
       toastOn: s.toastOn, toastMsg: s.toastMsg,
       cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
-      showRecordsBtn: (step === 0 || step === 5) && s.cards.length > 0,
+      showRecordsBtn: (step === 0 || step === 6) && s.cards.length > 0,
       onOpenRecords: () => this.set("recordsOpen", true),
       recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
       exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
