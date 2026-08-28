@@ -104,6 +104,20 @@
       </sc-if>
     </div>
 
+    <sc-if value="{{ askRate }}">
+      <div style="border-top:1px solid #e3ddd0;margin-top:26px;padding-top:20px;">
+        <div style="font-family:'Noto Serif TC',serif;font-size:14px;font-weight:600;margin-bottom:10px;color:#35456a;">這張卡對你有用嗎？</div>
+        <sc-if value="{{ showRateBtns }}">
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+        </sc-if>
+        <div style="min-height:16px;text-align:center;color:#35456a;font-size:11.5px;margin-top:8px;letter-spacing:.5px;">{{ subStatus }}</div>
+      </div>
+    </sc-if>
+
     <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:30px;color:#655e51;font-size:12.5px;line-height:1.85;">
       <b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;font-size:13px;">下一步</b>
       想把整件事從頭理一次，用 <a href="tool-review.html">復盤卡</a>：先寫你實際做了什麼，再跟你原本想要的對一次。<br /><br />
@@ -152,7 +166,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:460,&quot;height&quot;:920}}">
 class Component extends DCLogic {
-  state = { cur: null, answer: "", ask: "", history: [], toastOn: false, toastMsg: "", exampleOpen: false };
+  state = { cur: null, answer: "", ask: "", history: [], toastOn: false, toastMsg: "", exampleOpen: false, started: false, rated: false, subStatus: "" };
   HKEY = "toolbook_after_talk_history_v1";
   DKEY = "toolbook_after_talk_v1";
   NUM = ["題 一", "題 二", "題 三", "題 四", "題 五", "題 六", "題 七"];
@@ -173,7 +187,7 @@ class Component extends DCLogic {
   saveHistory(h) { try { localStorage.setItem(this.HKEY, JSON.stringify(h.slice(0, 14))); } catch (_) {} }
   saveDraft(over) { const s = { ...this.state, ...over }; if (s.cur == null) { try { localStorage.removeItem(this.DKEY); } catch (_) {} return; } try { localStorage.setItem(this.DKEY, JSON.stringify({ q: s.cur, answer: s.answer, ask: s.ask })); } catch (_) {} }
 
-  openQ(i) { this.setState({ cur: i, answer: "", ask: "" }, () => this.saveDraft()); }
+  openQ(i) { if (!this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "講完話之後" }); } this.setState({ cur: i, answer: "", ask: "" }, () => this.saveDraft()); }
   backToPicks() { this.setState({ cur: null }, () => { try { localStorage.removeItem(this.DKEY); } catch (_) {} }); }
   onAnswer(v) { this.setState({ answer: v }, () => this.saveDraft()); }
   onAsk(v) { this.setState({ ask: v }, () => this.saveDraft()); }
@@ -191,6 +205,7 @@ class Component extends DCLogic {
   }
   deleteRec(id) { const history = this.state.history.filter(c => c.id !== id); this.setState({ history }); this.saveHistory(history); }
   clearAll() { if (!window.confirm("清空全部紀錄？留下的每一題都會消失。")) return; this.setState({ history: [] }); this.saveHistory([]); this.toast("已清空"); }
+  rate(v) { if (this.state.rated) return; if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: "講完話之後", helped: v }); this.setState({ rated: true, subStatus: "收到了，謝謝 ✓" }); }
   toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1600); }
   fmt(iso) { const d = new Date(iso); if (isNaN(d.getTime())) return ""; return d.getFullYear() + "." + String(d.getMonth() + 1).padStart(2, "0") + "." + String(d.getDate()).padStart(2, "0"); }
 
@@ -207,6 +222,8 @@ class Component extends DCLogic {
       saveDisabled: canSave ? "" : "disabled", saveBg: canSave ? "#35456a" : "#b7bdcb", saveOp: canSave ? "1" : ".5",
       stateMsg: "",
       past, hasPast: past.length > 0, noPast: past.length === 0, onClear: () => this.clearAll(),
+      askRate: past.length > 0, showRateBtns: past.length > 0 && !s.rated, subStatus: s.subStatus,
+      onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
       toastOn: s.toastOn, toastMsg: s.toastMsg,
       exampleOpen: s.exampleOpen, onOpenExample: () => this.setState({ exampleOpen: true }), onCloseExample: () => this.setState({ exampleOpen: false }), stop: e => e.stopPropagation(),
     };

@@ -299,7 +299,7 @@ class Component extends DCLogic {
       weeks: d.weeks || 12, teller: d.teller || "", startedAt: d.startedAt || "", logs: Array.isArray(d.logs) ? d.logs : [], planCount: Number.isInteger(d.planCount) ? d.planCount : 3, draftId: d.draftId || "",
     }); } } catch (_) {}
   }
-  saveCards(cards, done) { try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if(done&&typeof gtag==='function')gtag('event','tool_complete',{tool_name:'週期執行器'}); } catch (_) {} }
+  saveCards(cards) { try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); } catch (_) {} }
   saveDraft(over) {
     const s = { ...this.state, ...over };
     try { localStorage.setItem(this.DKEY, JSON.stringify({ step: s.step, draftId: s.draftId, startedAt: s.startedAt, logs: s.logs, planCount: s.planCount, want: s.want, blocker: s.blocker, deliver: s.deliver, donedef: s.donedef, iff: s.iff, thenn: s.thenn, weeks: s.weeks, teller: s.teller })); } catch (_) {}
@@ -323,9 +323,11 @@ class Component extends DCLogic {
   next() {
     if (!this.gateOk(this.state.step)) return;
     let st = this.state.step;
+    if (st === 0 && typeof gtag === "function") gtag("event", "tool_start", { tool_name: "週期執行器" });
     if (st === 6) {
       const startedAt = this.state.startedAt || new Date().toISOString();
       const draftId = this.state.draftId || ("cycle_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 6));
+      if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: "週期執行器" });
       this.setState({ step: 7, startedAt, draftId }, () => { this.archive(); this.saveDraft(); });
     } else {
       this.setState({ step: Math.min(7, st + 1) }, () => this.saveDraft());
@@ -344,7 +346,7 @@ class Component extends DCLogic {
     const old = s.cards.find(c => c.id === id);
     const card = { id, createdAt: old ? old.createdAt : new Date().toISOString(), startedAt: s.startedAt, want: s.want.trim(), blocker: s.blocker.trim(), deliver: s.deliver.trim(), donedef: s.donedef.trim(), iff: s.iff.trim(), thenn: s.thenn.trim(), weeks: s.weeks, teller: s.teller.trim(), logs: s.logs };
     const cards = [card, ...s.cards.filter(c => c.id !== id)].slice(0, 50);
-    this.setState({ cards, draftId: id }); this.saveCards(cards, true);
+    this.setState({ cards, draftId: id }); this.saveCards(cards);
   }
   deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); this.saveCards(cards); }
   loadRound(id) {
@@ -355,6 +357,7 @@ class Component extends DCLogic {
   saveLog() {
     const s = this.state; const w = Math.min(s.weeks, s.logs.length + 1);
     const logs = [...s.logs, { w, plan: s.planCount, done: s.doneCount, note: s.lognote.trim() }];
+    if (typeof gtag === "function") gtag("event", "tool_week_log", { tool_name: "週期執行器", week_number: w, planned_count: s.planCount, done_count: s.doneCount });
     this.setState({ logs, lognote: "", doneCount: 0 }, () => { this.archive(); this.saveDraft(); });
     this.toast("已記下第 " + w + " 週");
   }
