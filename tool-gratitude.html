@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#35456a!important;box-shadow:0 0 0 2px rgba(53,69,106,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(53,69,106,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="3">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 20 · 關係</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">有人幫了你，<br />別只在心裡說謝謝</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">「你真好」「謝啦」太輕，很快就過去。換一種說法，把三件事講清楚：<b style="color:#554d40;">他做了什麼、滿足了你什麼、你因此有什麼感受</b>。具體的感激比空泛的稱讚有力得多，而且——這張卡填完可以<b style="color:#554d40;">直接傳給對方</b>。<br />答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 行為</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你想謝誰？<br />他具體做了什麼？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">不要寫「他人很好」，寫<b style="color:#554d40;">攝影機拍得到的那件事</b>——而且<b style="color:#554d40;">直接對他說（用「你」）</b>，這張卡才能原封不動傳出去。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">想謝的人<span style="color:#b9b09a;font-weight:400;font-family:sans-serif;font-size:12px;">　可留空</span></label>
+        <input value="{{ who }}" onInput="{{ onWho }}" maxlength="40" placeholder="例如：同事阿明" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:12px 15px;font-size:15px;color:#241f18;" />
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">他具體做了什麼</label>
+        <textarea value="{{ behavior }}" onInput="{{ onBehavior }}" maxlength="300" placeholder="例如：你主動接手，把我趕不及的那段報告做完。" style="width:100%;min-height:110px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.9;resize:vertical;"></textarea>
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 需要</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這滿足了<br />你什麼需要？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">他那件事，正好接住了你當下的什麼？是被支援、被在乎、能鬆一口氣、還是趕上了要緊的事——說出這一層，感激才落到實處。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">它滿足了我的</label>
+        <textarea value="{{ need }}" onInput="{{ onNeed }}" maxlength="300" placeholder="例如：我需要在快開天窗時有人搭把手，也需要準時交出去。" style="width:100%;min-height:110px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.9;resize:vertical;"></textarea>
+      </sc-if>
+
+      <sc-if value="{{ s3 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 感受</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你因此，<br />有什麼感受？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">需要被滿足時，身體會有反應——鬆一口氣、暖暖的、踏實、感動。說出感受，對方才收得到這份謝的重量。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我的感受</label>
+        <textarea value="{{ feeling }}" onInput="{{ onFeeling }}" maxlength="200" placeholder="例如：我鬆了一大口氣，也很感動。" style="width:100%;min-height:90px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.9;resize:vertical;"></textarea>
+      </sc-if>
+
+      <sc-if value="{{ s4 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 12px;">感激 · {{ whoEcho }}</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:24px 22px 20px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:17px;line-height:1.85;color:#241f18;white-space:pre-wrap;">{{ message }}</div>
+          <div style="height:1px;background:#e3ddd0;margin:18px 0 14px;"></div>
+          <div style="display:flex;gap:8px;margin-bottom:7px;"><span style="font-size:11px;color:#938a78;flex:0 0 30px;">行為</span><span style="font-size:13px;line-height:1.7;white-space:pre-wrap;">{{ behaviorEcho }}</span></div>
+          <div style="display:flex;gap:8px;margin-bottom:7px;"><span style="font-size:11px;color:#938a78;flex:0 0 30px;">需要</span><span style="font-size:13px;line-height:1.7;white-space:pre-wrap;">{{ needEcho }}</span></div>
+          <div style="display:flex;gap:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 30px;">感受</span><span style="font-size:13px;line-height:1.7;white-space:pre-wrap;">{{ feelingEcho }}</span></div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Gratitude · Nº 20 · MMXXVI</div>
+        </div>
+
+        <div style="border-left:2px solid #cec6b4;padding:13px 16px;margin-top:16px;background:#f3efe7;border-radius:0 3px 3px 0;">
+          <p style="font-size:13px;color:#554d40;line-height:1.8;margin:0;">上面那句可以<b style="color:#35456a;">直接傳給對方</b>。它比「你真好」有力，是因為你說清楚了他做的哪件事、接住了你的什麼——這叫「資訊性回饋」，有研究支持。</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製這句話</button>
+        </div>
+
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+          <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《非暴力溝通》表達感激的三要素（行為／需要／感受）；具體回饋比空泛稱讚有力，是認知評價理論說的「資訊性回饋」。還要補一句：口頭讚美對兒童的提升效果小於成人。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <sc-if value="{{ showNextBtn }}">
+        <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      </sc-if>
+      <sc-if value="{{ s4 }}">
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">我的感激卡（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">有個人那天差點趕不出報告，同事主動接手了最後一段。他沒有只回一句「謝啦」，而是把三件事說清楚——寫出來，就是一句可以直接傳出去的話。</p>
+
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:0 0 12px;">感激 · 阿明</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:24px 22px 20px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:17px;line-height:1.85;color:#241f18;">阿明，那天我快趕不及時，你主動接手把報告最後一段做完——我當時真的快開天窗了，你讓我準時交了出去。我鬆了一大口氣，也很感動。謝謝你。</div>
+          <div style="height:1px;background:#e3ddd0;margin:18px 0 14px;"></div>
+          <div style="display:flex;gap:8px;margin-bottom:7px;"><span style="font-size:11px;color:#938a78;flex:0 0 30px;">行為</span><span style="font-size:13px;line-height:1.7;">你主動接手，把我趕不及的那段報告做完。</span></div>
+          <div style="display:flex;gap:8px;margin-bottom:7px;"><span style="font-size:11px;color:#938a78;flex:0 0 30px;">需要</span><span style="font-size:13px;line-height:1.7;">快開天窗時有人搭把手、準時交出去。</span></div>
+          <div style="display:flex;gap:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 30px;">感受</span><span style="font-size:13px;line-height:1.7;">鬆了一大口氣，也很感動。</span></div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Gratitude · Nº 20 · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>行為要具體</b>——「接手做完最後一段」比「你人真好」清楚得多，對方知道你真的看見了那件事。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>說出被滿足的需要</b>——謝的不是空氣，是他正好接住了你「快開天窗、想準時交」這件事。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>加上感受</b>——「鬆一口氣、很感動」讓對方收得到這份謝的重量。三句連起來，就能直接傳出去。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，寫我要謝的人</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">我的感激卡</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:10px;"><span style="white-space:nowrap;">{{ c.date }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:12px;white-space:pre-wrap;">{{ c.who }}</div>
+              <button onClick="{{ c.onView }}" style="border:1px solid #35456a;background:transparent;color:#35456a;border-radius:2px;padding:9px 16px;font-size:13px;cursor:pointer;">看這張</button>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有卡片。<br />寫完第一張後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    step: 0, who: "", behavior: "", need: "", feeling: "",
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, started: false, exampleOpen: false,
+  };
+  HKEY = "toolbook_gratitude_history_v1";
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  set(k, v) { this.setState({ [k]: v }); }
+  gateOk(step) {
+    const s = this.state;
+    if (step === 1) return !!s.behavior.trim();
+    if (step === 2) return !!s.need.trim();
+    if (step === 3) return !!s.feeling.trim();
+    return true;
+  }
+  scrollTop() { const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  buildMessage() {
+    const s = this.state;
+    const who = s.who.trim();
+    const parts = [s.behavior, s.need, s.feeling]
+      .map(function (x) { return x.trim(); })
+      .filter(Boolean)
+      .map(function (x) { return /[。！!？?…」』）)]$/.test(x) ? x : x + "。"; });
+    return (who ? who + "，" : "") + parts.join("") + "謝謝你。";
+  }
+  next() {
+    const step = this.state.step;
+    if (step >= 1 && step <= 3 && !this.gateOk(step)) return;
+    if (step === 0 && !this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "慶祝型卡" }); }
+    const n = Math.min(4, step + 1);
+    if (n === 4) this.archive();
+    this.setState({ step: n });
+    this.scrollTop();
+  }
+  prev() { this.setState({ step: Math.max(0, this.state.step - 1) }); this.scrollTop(); }
+  newCard() {
+    if (!window.confirm("寫一張新的感激卡？目前內容會清掉。")) return;
+    this.setState({ step: 1, who: "", behavior: "", need: "", feeling: "" });
+    this.scrollTop();
+  }
+  view(card) {
+    this.setState({ who: card.who || "", behavior: card.behavior, need: card.need, feeling: card.feeling, step: 4, recordsOpen: false });
+    this.scrollTop();
+  }
+  archive() {
+    const s = this.state; if (!s.behavior.trim()) return;
+    const card = {
+      id: "gr_" + Date.now().toString(36), createdAt: new Date().toISOString(),
+      who: s.who.trim(), behavior: s.behavior.trim(), need: s.need.trim(), feeling: s.feeling.trim(),
+    };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards });
+    try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: "慶祝型卡" }); } catch (_) {}
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); try { localStorage.setItem(this.HKEY, JSON.stringify(cards)); } catch (_) {} }
+
+  cardText() { return this.buildMessage(); }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製，可以傳給對方了"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: "慶祝型卡", helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "慶祝型卡"); fd.append("_subject", "Toolbook 工具回饋 · 慶祝型卡"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+  async saveImage() {
+    const s = this.state;
+    const blocks = [
+      { k: "一句話", v: this.buildMessage(), big: true },
+      { k: "行為", v: s.behavior.trim() || "—" },
+      { k: "需要", v: s.need.trim() || "—" },
+      { k: "感受", v: s.feeling.trim() || "—" },
+    ];
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: s.who.trim() ? "謝謝" + s.who.trim() : "一句感激", sub: "GRATITUDE · Nº 20", filename: "慶祝型卡-Toolbook", mantra: "具體說出他做了什麼，比一句『你真好』有力得多。", edition: "Edition Nº 20 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+  }
+
+  renderVals() {
+    const s = this.state, step = s.step;
+    const dots = [1, 2, 3].map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#35456a" : "#e3ddd0" }));
+    const showGate = step >= 1 && step <= 3;
+    const gateBad = showGate && !this.gateOk(step);
+    const cards = s.cards.map((c) => ({
+      date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }),
+      who: c.who || "（未寫對象）",
+      onView: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.view(c); },
+      onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); },
+    }));
+    return {
+      dots: (step >= 1 && step <= 3) ? dots : [],
+      backColor: (step === 0) ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4,
+      who: s.who, onWho: e => this.set("who", e.target.value),
+      behavior: s.behavior, onBehavior: e => this.set("behavior", e.target.value),
+      need: s.need, onNeed: e => this.set("need", e.target.value),
+      feeling: s.feeling, onFeeling: e => this.set("feeling", e.target.value),
+      whoEcho: s.who.trim() || "一句感激", message: this.buildMessage(),
+      behaviorEcho: s.behavior.trim() || "—", needEcho: s.need.trim() || "—", feelingEcho: s.feeling.trim() || "—",
+      onCopy: () => this.copy(), onSaveImage: () => this.saveImage(),
+      onHome: () => { window.location.href = "index.html"; },
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e), onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
+      showGate, gateMsg: gateBad ? (step === 1 ? "寫下他具體做了什麼（攝影機拍得到的那件事）" : step === 2 ? "說出這件事滿足了你什麼需要" : step === 3 ? "加上你的感受，對方才收得到" : "") : "",
+      showNextBtn: step <= 3 || step === 4,
+      onNext: step === 4 ? () => this.newCard() : () => this.next(),
+      nextLabel: step === 0 ? "開始" : step === 3 ? "完成，做成卡片" : step === 4 ? "寫一張新的" : "下一步",
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#b7bdcb" : "#35456a",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showRecordsBtn: (step === 0 || step === 4) && s.cards.length > 0,
+      onOpenRecords: () => this.set("recordsOpen", true),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+    };
+  }
+}
+</script>
+</body>
+</html>
