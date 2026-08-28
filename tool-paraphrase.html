@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#35456a!important;box-shadow:0 0 0 2px rgba(53,69,106,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(53,69,106,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="3">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❝</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 21 · 對話</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:26px;font-weight:600;line-height:1.7;letter-spacing:.5px;">想讓對方停下來聽你，<br />先讓他覺得被聽懂</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">吵到僵住時，先別急著講贏。把對方的話用你的理解說回去、問一句「我說得對嗎」——他確認你懂了，防衛才會降。<br />但有個前提：<b style="color:#554d40;">你得先真的想懂，再說回去</b>，不是照句型念。還有更重要的一點——<b style="color:#554d40;">不是每次都行得通</b>：對方若無意被理解，複述再多也沒用。這張卡會替你數輪次，該收手時提醒你收手。<br />答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個走過幾輪的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 對方的話</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">對方剛才<br />說了什麼？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">照他的話寫，先別加你的解讀或反駁。等一下你要把它的意思說回去。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">他說的</label>
+        <textarea value="{{ otherSaid }}" onInput="{{ onOtherSaid }}" maxlength="400" placeholder="例如：你每次都說會早點回來，結果每次都拖到很晚，我根本沒法安排。" style="width:100%;min-height:120px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.9;resize:vertical;"></textarea>
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 先想懂</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">他真正在意的，<br />是什麼？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">寫複述之前先停一下：撇開他的語氣，這番話底下他想要的是什麼？被尊重、被顧及、能安排自己的時間……<b style="color:#554d40;">先想懂，等一下說回去才不會變成鸚鵡學舌。</b></p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我猜他要的是</label>
+        <textarea value="{{ understand }}" onInput="{{ onUnderstand }}" maxlength="300" placeholder="例如：他要的其實是能預先安排自己的晚上，不想一直空等。" style="width:100%;min-height:110px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.9;resize:vertical;"></textarea>
+      </sc-if>
+
+      <sc-if value="{{ s3 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 複述 · {{ roundLabel }}</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">把他的意思，<br />說回去</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:10px;">用你剛才想懂的，套進這個句型——說完問他一句，讓他來確認：</p>
+        <div style="background:rgba(53,69,106,.06);border-left:2px solid #35456a;padding:10px 14px;border-radius:0 3px 3px 0;font-size:14px;color:#35456a;line-height:1.7;margin-bottom:14px;">「你的意思是 <span style="color:#938a78;">……</span>，我說得對嗎？」</div>
+        <sc-if value="{{ hasAttempts }}">
+          <div style="border:1px dashed #e3ddd0;border-radius:3px;padding:10px 13px;margin-bottom:14px;">
+            <div style="font-size:11px;color:#938a78;letter-spacing:1px;margin-bottom:6px;">前幾輪你試過（他還沒認可）</div>
+            <sc-for list="{{ attemptsList }}" as="a" hint-placeholder-count="0">
+              <div style="font-size:12.5px;color:#938a78;line-height:1.7;padding:3px 0;border-top:1px solid #f0ece2;">{{ a.t }}</div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:2px 0 7px;">這一輪，我要說的</label>
+        <textarea value="{{ paraphrase }}" onInput="{{ onParaphrase }}" maxlength="400" placeholder="例如：你的意思是，你希望我把時間講準，好讓你能安排自己的晚上、不用一直等——我說得對嗎？" style="width:100%;min-height:120px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.9;resize:vertical;"></textarea>
+      </sc-if>
+
+      <sc-if value="{{ s4 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 核對 · {{ roundLabel }}</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">說給他聽了嗎？<br />他認可嗎？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:12px;">把上面這句說給對方聽，看他的反應——他有沒有點頭、說「對」、鬆下來？回來這裡記一下。</p>
+        <div style="border:1px solid #cec6b4;border-radius:3px;padding:16px 18px;background:#f3efe7;font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.85;color:#241f18;white-space:pre-wrap;margin-bottom:16px;">{{ paraEcho }}</div>
+
+        <sc-if value="{{ warnOn }}">
+          <div style="border-left:2px solid #9c6b52;background:rgba(156,107,82,.06);padding:12px 15px;border-radius:0 3px 3px 0;margin-bottom:16px;">
+            <p style="font-size:13px;color:#7d5642;line-height:1.8;margin:0;">已經複述 {{ roundNum }} 輪，他還是沒認可。留意：有時對方當下<b>無意被理解</b>——理由可能說不出口，也可能只是想吵。這時複述再多次也沒用，別把自己耗在無限「再說一次」裡。</p>
+          </div>
+        </sc-if>
+
+        <button onClick="{{ onConfirmYes }}" style="display:block;width:100%;border:none;background:#6f7f5c;color:#fbf9f4;border-radius:2px;padding:14px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;margin-bottom:9px;">他認可了 ✓</button>
+        <button onClick="{{ onStopNow }}" style="display:block;width:100%;border:{{ stopBorder }};background:{{ stopBg }};color:{{ stopColor }};border-radius:2px;padding:14px;font-size:14.5px;font-weight:600;letter-spacing:.5px;cursor:pointer;margin-bottom:9px;">改談別的：妥協 · 擱置 · 退出</button>
+        <sc-if value="{{ showTryAgain }}">
+          <button onClick="{{ onTryAgain }}" style="display:block;width:100%;border:{{ tryBorder }};background:{{ tryBg }};color:{{ tryColor }};border-radius:2px;padding:{{ tryPad }};font-size:{{ trySize }};letter-spacing:.5px;cursor:pointer;">{{ tryLabel }}</button>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ s5 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#6f7f5c;margin:4px 0 12px;">被聽懂 · {{ roundLabel }}</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:24px 22px 20px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="font-size:11px;color:#938a78;margin-bottom:6px;">奏效的那句複述</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:17px;line-height:1.85;color:#241f18;white-space:pre-wrap;">{{ paraEcho }}</div>
+          <div style="height:1px;background:#e3ddd0;margin:18px 0 14px;"></div>
+          <div style="display:flex;gap:8px;margin-bottom:7px;"><span style="font-size:11px;color:#938a78;flex:0 0 44px;">他說的</span><span style="font-size:13px;line-height:1.7;white-space:pre-wrap;">{{ otherEcho }}</span></div>
+          <div style="display:flex;gap:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 44px;">我先想懂</span><span style="font-size:13px;line-height:1.7;white-space:pre-wrap;">{{ understandEcho }}</span></div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Reflect · Nº 21 · MMXXVI</div>
+        </div>
+        <div style="border-left:2px solid #6f7f5c;padding:13px 16px;margin-top:16px;background:rgba(111,127,92,.06);border-radius:0 3px 3px 0;">
+          <p style="font-size:13px;color:#4d463b;line-height:1.8;margin:0;">他確認你懂了。記住為什麼有效：你是<b style="color:#5a6b4a;">先真的想懂</b>，才說回去的——複述是理解的證明，不是話術。</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製這句</button>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s6 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#9c6b52;margin:4px 0 12px;">止損 · 複述 {{ roundNum }} 輪</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:24px 22px 20px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:19px;line-height:1.75;color:#241f18;">複述了 {{ roundNum }} 輪，<br />對方還是沒認可。</div>
+          <p style="font-size:14px;color:#4d463b;line-height:1.85;margin-top:12px;">有時這代表對方當下無意被理解——理由可能說不出口，也可能只是想吵。這條路再走下去，複述會變成消耗。<b style="color:#9c6b52;">停下不是輸，是止損。</b></p>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:18px;">Reflect · Nº 21 · MMXXVI</div>
+        </div>
+
+        <div style="font-size:11px;color:#938a78;letter-spacing:2px;text-transform:uppercase;margin:20px 0 10px;">三條比「再說一次」更好的路</div>
+        <a href="tool-win-win.html" style="display:block;border:1px solid #e3ddd0;background:#fbf9f4;border-radius:4px;padding:15px 17px;margin-bottom:10px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;font-weight:600;color:#35456a;margin-bottom:3px;">換個方向找雙贏 →</div>
+          <div style="font-size:13px;color:#6b6353;line-height:1.7;">如果還想解決問題，別再爭誰對——換成談「兩邊各要什麼」，用並排找雙贏那張卡。</div>
+        </a>
+        <div style="border:1px solid #e3ddd0;background:#fbf9f4;border-radius:4px;padding:15px 17px;margin-bottom:10px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;font-weight:600;color:#554d40;margin-bottom:3px;">先擱置</div>
+          <div style="font-size:13px;color:#6b6353;line-height:1.7;">等雙方情緒過了再談，不用今天分出勝負。冷一冷常比硬談有用。</div>
+        </div>
+        <div style="border:1px solid #e3ddd0;background:#fbf9f4;border-radius:4px;padding:15px 17px;margin-bottom:16px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;font-weight:600;color:#554d40;margin-bottom:3px;">退出</div>
+          <div style="font-size:13px;color:#6b6353;line-height:1.7;">有些對話值得離開。保護自己不是失敗——不是每段關係、每一次爭執都得談到贏。</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製紀錄</button>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ showEndExtras }}">
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+          <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">啟發自《我就是你啊》達成首個共識一章；複述讓對方感到被理解、降低防衛。這張卡的重點是<b style="color:#938a78;">止損</b>：對方無意被理解時，複述再多也沒用——與其無限「再說一次」，不如及時改談妥協、擱置或退出。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <sc-if value="{{ showNextBtn }}">
+        <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      </sc-if>
+      <sc-if value="{{ showEndExtras }}">
+        <button onClick="{{ onNewCard }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;font-weight:600;letter-spacing:1px;cursor:pointer;">處理另一場對話</button>
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">我的紀錄（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">走過幾輪的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">為了「你總是晚回來」吵起來。與其辯「我哪有每次」，先把對方的意思說回去、讓他確認。</p>
+
+        <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">對方說的</div>
+        <div style="border:1px solid #e3ddd0;background:#fbf9f4;border-radius:3px;padding:13px 15px;font-size:14px;color:#4d463b;line-height:1.8;margin-bottom:16px;">你每次都說會早點回來，結果每次都拖到很晚，我根本沒法安排。</div>
+
+        <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">先想懂（不急著反駁）</div>
+        <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;margin-bottom:16px;">他要的其實不是吵「每次」這個字，是能預先安排自己的晚上、不想一直空等。</div>
+
+        <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">第一輪複述</div>
+        <div style="background:rgba(53,69,106,.05);border-radius:3px;padding:12px 15px;font-size:14px;color:#241f18;line-height:1.8;margin-bottom:4px;">「你的意思是我回家老是遲到，對嗎？」</div>
+        <div style="font-size:12.5px;color:#9c6b52;margin-bottom:16px;">他更氣了：「你根本沒懂。」——只覆述表面、沒接住「被空等」的委屈。</div>
+
+        <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">第二輪複述</div>
+        <div style="background:rgba(111,127,92,.08);border-radius:3px;padding:12px 15px;font-size:14px;color:#241f18;line-height:1.8;margin-bottom:4px;">「你的意思是，你希望我把時間講準，好讓你能安排自己的晚上、不用一直等——我說得對嗎？」</div>
+        <div style="font-size:12.5px;color:#5a6b4a;margin-bottom:20px;">他鬆了一口氣：「對，就是這樣。」——接住了需要，他覺得被懂了。</div>
+
+        <div style="border-left:2px solid #9c6b52;background:rgba(156,107,82,.06);padding:12px 15px;border-radius:0 3px 3px 0;margin-bottom:16px;">
+          <div style="font-family:'Noto Serif TC',serif;color:#9c6b52;font-size:13px;letter-spacing:1px;margin-bottom:4px;">但如果他一直不認可</div>
+          <div style="font-size:13.5px;color:#4d463b;line-height:1.85;">要是換了三五種說法他都說「你不懂」「隨便啦」，那多半不是你複述得不夠好——是他當下無意被理解。這時這張卡會停下來，勸你改談妥協、先擱置或退出，而不是逼你再想第六種說法。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:8px;">懂了，寫我這一場</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">我的紀錄</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:10px;"><span style="white-space:nowrap;">{{ c.date }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:11px;letter-spacing:1px;margin-bottom:6px;color:{{ c.tagColor }};">{{ c.tag }}</div>
+              <div style="font-size:14.5px;color:#4d463b;line-height:1.7;margin-bottom:12px;white-space:pre-wrap;">{{ c.other }}</div>
+              <button onClick="{{ c.onView }}" style="border:1px solid #35456a;background:transparent;color:#35456a;border-radius:2px;padding:9px 16px;font-size:13px;cursor:pointer;">看這則</button>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有紀錄。<br />走完第一場對話後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    step: 0, otherSaid: "", understand: "", paraphrase: "", round: 1, attempts: [], outcome: "",
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, started: false, exampleOpen: false,
+  };
+  HKEY = "toolbook_paraphrase_history_v1";
+  SOFT = 3;
+  HARD = 5;
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  set(k, v) { this.setState({ [k]: v }); }
+  gateOk(step) {
+    const s = this.state;
+    if (step === 1) return !!s.otherSaid.trim();
+    if (step === 2) return !!s.understand.trim();
+    if (step === 3) return !!s.paraphrase.trim();
+    return true;
+  }
+  scrollTop() { const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  next() {
+    const step = this.state.step;
+    if (step >= 1 && step <= 3 && !this.gateOk(step)) return;
+    if (step === 0 && !this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "複述造句器" }); }
+    this.setState({ step: Math.min(4, step + 1) });
+    this.scrollTop();
+  }
+  prev() {
+    const step = this.state.step;
+    if (step === 5 || step === 6) { this.setState({ step: 4 }); this.scrollTop(); return; }
+    this.setState({ step: Math.max(0, step - 1) });
+    this.scrollTop();
+  }
+  confirmYes() { this.setState({ outcome: "ok", step: 5 }); this.archive("ok"); this.scrollTop(); }
+  tryAgain() {
+    const r = this.state.round;
+    if (r >= this.HARD) { return this.stopNow(); }
+    const attempts = [...this.state.attempts, this.state.paraphrase.trim()].filter(Boolean);
+    this.setState({ attempts, round: r + 1, paraphrase: "", step: 3 });
+    this.scrollTop();
+  }
+  stopNow() { this.setState({ outcome: "stop", step: 6 }); this.archive("stop"); this.scrollTop(); }
+  newCard() {
+    if (!window.confirm("處理另一場對話？目前內容會清掉。")) return;
+    this.setState({ step: 1, otherSaid: "", understand: "", paraphrase: "", round: 1, attempts: [], outcome: "" });
+    this.scrollTop();
+  }
+  view(card) {
+    this.setState({ otherSaid: card.otherSaid, understand: card.understand, paraphrase: card.paraphrase, round: card.round || 1, outcome: card.outcome, step: card.outcome === "stop" ? 6 : 5, recordsOpen: false });
+    this.scrollTop();
+  }
+  archive(outcome) {
+    const s = this.state; if (!s.otherSaid.trim()) return;
+    const card = {
+      id: "pf_" + Date.now().toString(36), createdAt: new Date().toISOString(),
+      otherSaid: s.otherSaid.trim(), understand: s.understand.trim(), paraphrase: s.paraphrase.trim(),
+      round: s.round, outcome: outcome,
+    };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards });
+    try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: "複述造句器" }); } catch (_) {}
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); try { localStorage.setItem(this.HKEY, JSON.stringify(cards)); } catch (_) {} }
+
+  cardText() {
+    const s = this.state;
+    if (s.outcome === "stop") {
+      let t = "複述造句器 · 止損";
+      t += "\n\n【對方說的】\n" + (s.otherSaid.trim() || "—");
+      t += "\n\n複述了 " + s.round + " 輪仍未被認可。這條路可能走不通——考慮妥協、擱置或退出，而不是無限再說一次。";
+      return t;
+    }
+    let t = "複述造句器";
+    t += "\n\n【對方說的】\n" + (s.otherSaid.trim() || "—");
+    t += "\n\n【我先想懂的】\n" + (s.understand.trim() || "—");
+    t += "\n\n【奏效的複述】\n" + (s.paraphrase.trim() || "—");
+    t += "\n\n（先真的想懂，再說回去——複述是理解的證明，不是話術。）";
+    return t;
+  }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: "複述造句器", helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "複述造句器"); fd.append("_subject", "Toolbook 工具回饋 · 複述造句器"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+  async saveImage() {
+    const s = this.state;
+    let blocks, title, mantra;
+    if (s.outcome === "stop") {
+      blocks = [
+        { k: "對方說的", v: s.otherSaid.trim() || "—" },
+        { k: "複述輪數", v: s.round + " 輪仍未被認可" },
+        { k: "我的選擇", v: "止損——改談妥協、擱置或退出" },
+      ];
+      title = "止損，不是輸";
+      mantra = "對方無意被理解時，複述再多也沒用。停下是止損，不是失敗。";
+    } else {
+      blocks = [
+        { k: "對方說的", v: s.otherSaid.trim() || "—" },
+        { k: "我先想懂的", v: s.understand.trim() || "—" },
+        { k: "奏效的複述", v: s.paraphrase.trim() || "—", big: true },
+      ];
+      title = "他覺得被懂了";
+      mantra = "先真的想懂，再說回去——複述是理解的證明，不是話術。";
+    }
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: title, sub: "REFLECT · Nº 21", filename: "複述造句器-Toolbook", mantra: mantra, edition: "Edition Nº 21 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+  }
+
+  renderVals() {
+    const s = this.state, step = s.step;
+    const activeDot = step === 4 ? 3 : step;
+    const dots = [1, 2, 3].map(n => ({ w: n === activeDot ? "16px" : "5px", bg: n === activeDot ? "#35456a" : "#e3ddd0" }));
+    const showGate = step >= 1 && step <= 3;
+    const gateBad = showGate && !this.gateOk(step);
+    const warnOn = step === 4 && s.round >= this.SOFT;
+    const stopPrimary = s.round >= this.SOFT;
+    const showTryAgain = s.round < this.HARD;
+    const isEnd = step === 5 || step === 6;
+    const cards = s.cards.map((c) => ({
+      date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }),
+      other: c.otherSaid || "—",
+      tag: c.outcome === "stop" ? ("止損 · 複述 " + (c.round || 1) + " 輪") : ("被聽懂 · 第 " + (c.round || 1) + " 輪"),
+      tagColor: c.outcome === "stop" ? "#9c6b52" : "#6f7f5c",
+      onView: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.view(c); },
+      onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); },
+    }));
+    return {
+      dots: (step >= 1 && step <= 4) ? dots : [],
+      backColor: (step === 0) ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: step === 5, s6: step === 6,
+      roundLabel: "第 " + s.round + " 輪", roundNum: s.round,
+      otherSaid: s.otherSaid, onOtherSaid: e => this.set("otherSaid", e.target.value),
+      understand: s.understand, onUnderstand: e => this.set("understand", e.target.value),
+      paraphrase: s.paraphrase, onParaphrase: e => this.set("paraphrase", e.target.value),
+      paraEcho: s.paraphrase.trim() || "—", otherEcho: s.otherSaid.trim() || "—", understandEcho: s.understand.trim() || "—",
+      hasAttempts: s.attempts.length > 0, attemptsList: s.attempts.map(t => ({ t })),
+      warnOn: warnOn, showTryAgain: showTryAgain,
+      onConfirmYes: () => this.confirmYes(), onTryAgain: () => this.tryAgain(), onStopNow: () => this.stopNow(),
+      stopBg: stopPrimary ? "#9c6b52" : "transparent", stopColor: stopPrimary ? "#fbf9f4" : "#9c6b52", stopBorder: stopPrimary ? "none" : "1px solid #cebfb4",
+      tryBg: stopPrimary ? "transparent" : "#35456a", tryColor: stopPrimary ? "#938a78" : "#fbf9f4", tryBorder: stopPrimary ? "1px solid #e3ddd0" : "none",
+      tryPad: stopPrimary ? "11px" : "14px", trySize: stopPrimary ? "13px" : "14.5px",
+      tryLabel: stopPrimary ? "再試一次（不建議無限重來）" : "還沒，我再試一次",
+      onCopy: () => this.copy(), onSaveImage: () => this.saveImage(),
+      onHome: () => { window.location.href = "index.html"; }, onNewCard: () => this.newCard(),
+      showEndExtras: isEnd,
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e), onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
+      showGate, gateMsg: gateBad ? (step === 1 ? "先照他的話寫下他說了什麼" : step === 2 ? "先寫你猜他真正在意的是什麼" : step === 3 ? "把他的意思用你的話說回去" : "") : "",
+      showNextBtn: step <= 3,
+      onNext: () => this.next(),
+      nextLabel: step === 0 ? "開始" : step === 3 ? "這句就是要說的 →" : "下一步",
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#b7bdcb" : "#35456a",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showRecordsBtn: (step === 0) && s.cards.length > 0,
+      onOpenRecords: () => this.set("recordsOpen", true),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -98,7 +98,8 @@
     { no: "17", name: "人生七面向自評", key: "toolbook_lifebalance_history_v1", file: "tool-life-balance.html", unit: "次", label: "這一季先顧", pick: function (c) { return c.focusName || "（未指定）"; } },
     { no: "18", name: "並排找雙贏", key: "toolbook_winwin_history_v1", file: "tool-win-win.html", unit: "張", label: "卡住的僵局", pick: function (c) { return c.situation; } },
     { no: "19", name: "陳年舊怨三輪卡", key: "toolbook_grudge_history_v1", file: "tool-old-grudge.html", unit: "張", label: "那件事", pick: function (c) { return c.situation; } },
-    { no: "20", name: "慶祝型卡", key: "toolbook_gratitude_history_v1", file: "tool-gratitude.html", unit: "張", label: "想謝的人", pick: function (c) { return c.who || c.behavior; } }
+    { no: "20", name: "慶祝型卡", key: "toolbook_gratitude_history_v1", file: "tool-gratitude.html", unit: "張", label: "想謝的人", pick: function (c) { return c.who || c.behavior; } },
+    { no: "21", name: "複述造句器", key: "toolbook_paraphrase_history_v1", file: "tool-paraphrase.html", unit: "則", label: "對方的話", pick: function (c) { return c.otherSaid; } }
   ];
 
   function readJSON(k, f) { try { var v = JSON.parse(localStorage.getItem(k)); return v == null ? f : v; } catch (_) { return f; } }
