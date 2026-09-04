@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+<!-- toolbook-icons -->
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-f.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f3efe7">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#9c5b3f;text-decoration:none;transition:.18s;}
+  a:hover{color:#7a4530;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#9c5b3f!important;box-shadow:0 0 0 2px rgba(156,91,63,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(156,91,63,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="4">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 27 · 中圈測試</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">「先便宜地測一下」<br />要測成三個數字</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">把「試試看某條管道」逼成：測多少、測多久、<b style="color:#9c5b3f;">多少算過</b>。<br />最後那個數字最容易漏，這張卡逼你測之前就填。<br />答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#9c5b3f;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 哪一條</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你想測<br />哪一條管道？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">寫下你打算試的那條取得客戶的路。一次只測一條。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:14px 0 7px;">這條管道</label>
+        <input value="{{ channel }}" onInput="{{ onChannel }}" maxlength="60" placeholder="例如：在某個社群下廣告、寫部落格、找人合作導流" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:20px 0 7px;">它靠什麼看出有沒有效？</label>
+        <sc-for list="{{ typeOpts }}" as="t" hint-placeholder-count="3">
+          <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:12px 15px;margin-bottom:8px;cursor:pointer;">
+            <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:1px;color:{{ t.fg }};">{{ t.label }}</div>
+            <div style="font-size:12px;color:#938a78;line-height:1.55;">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:16px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">為什麼先問這個：便宜的小測試只測得準「有沒有人直接因此付錢／註冊」這種訊號。若這條路要靠「大家對你更有印象」才發酵，小測試在雜訊裡分不出來——那要走另一條路。</div>
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <sc-if value="{{ normalMode }}">
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 測多少</div>
+          <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這一輪<br />投入多少就停？</h2>
+          <p style="color:#938a78;font-size:13px;margin-bottom:8px;">一個具體的量：多少錢、多少則貼文、接觸多少人。小就好——書給的參考上限是一千美元、一個月，通常更少。</p>
+          <div style="border-left:2px solid #9c5b3f;background:rgba(156,91,63,.05);padding:12px 15px;margin:6px 0 10px;border-radius:0 3px 3px 0;">
+            <div style="font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">你要測的管道</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">{{ mirrorChannel }}</div>
+          </div>
+          <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:14px 0 7px;">這一輪的量</label>
+          <input value="{{ amount }}" onInput="{{ onAmount }}" maxlength="60" placeholder="例如：花 3000 元廣告費／發 8 則貼文／接觸 200 個人" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        </sc-if>
+        <sc-if value="{{ brandMode }}">
+          <div style="font-family:'Noto Serif TC',serif;color:#a6552f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 這條測不準</div>
+          <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這一條，<br />小測試給不了你答案</h2>
+          <p style="color:#938a78;font-size:13px;margin-bottom:12px;">靠「累積印象」才發酵的管道，效果小又慢、還得靠事後的銷售回推。連花數百萬、觸及數百萬人的大型實驗，都測不準這種廣告的回報——你花一千元、跑一個月，得到的多半是雜訊，不是答案。</p>
+          <div style="border:1px solid #cd9a86;background:rgba(166,85,47,.06);border-radius:4px;padding:14px 16px;margin-bottom:16px;">
+            <b style="display:block;font-family:'Noto Serif TC',serif;font-size:13px;color:#a6552f;margin-bottom:5px;">你有兩條路</b>
+            <p style="font-size:13px;color:#6b5347;line-height:1.75;margin:0 0 8px;"><b>一、換一個直接反應型的代理指標。</b>不要測「大家有沒有更認識我」，改測「有沒有人因此<b>直接</b>做了一個看得到的動作」——註冊、加購物車、回信、預約。若找得到，寫下來，這張卡會幫你把它變成可測的三個數字。</p>
+            <p style="font-size:13px;color:#6b5347;line-height:1.75;margin:0;"><b>二、承認它是長期投資。</b>找不到直接動作，就別假裝這是一次便宜測試能定案的事——把它當長期投入，用別的方式判斷，不要拿小測試的數字騙自己。</p>
+          </div>
+          <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:6px 0 7px;">若找得到，寫下那個直接動作（可留空）</label>
+          <input value="{{ proxy }}" onInput="{{ onProxy }}" maxlength="80" placeholder="例如：不看曝光數，改看有多少人點進來留了 Email" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+          <p style="color:#938a78;font-size:12.5px;line-height:1.7;margin-top:10px;">寫得出直接動作，下一版可以拿它回到上一步、選「直接反應型」重測。</p>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ s3 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 測多久</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">跑多久<br />就收手看結果？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">先定好期限，時間到就看數字，別無限期拖著等它「再好一點」。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:14px 0 7px;">這一輪跑多久</label>
+        <input value="{{ period }}" onInput="{{ onPeriod }}" maxlength="40" placeholder="例如：兩週／一個月" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">期限的用處是逼你停下來看。沒有期限，你會一直「再等等」，把一個該收掉的測試養成一個吞時間的黑洞。</div>
+      </sc-if>
+
+      <sc-if value="{{ s4 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 多少算過</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">達到多少，<br />你才會決定深做？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;"><b style="color:#9c5b3f;">這一格最容易漏，也最重要。</b>測之前就寫下「到多少算過」——一個具體數字。等測完才決定它算不算好，那不是測試，是替一個你已經想做的決定找安慰。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:14px 0 7px;">及格線（達到這個才深做）</label>
+        <input value="{{ passline }}" onInput="{{ onPassline }}" maxlength="80" placeholder="例如：拿到 20 個註冊／每個註冊成本低於 50 元／有 3 個人主動回信" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">及格線要能一眼判定過或不過。定得模糊（「反應還不錯」），等於沒定。</div>
+      </sc-if>
+
+      <sc-if value="{{ s5 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 14px;">{{ resultKicker }}</div>
+
+        <sc-if value="{{ normalMode }}">
+          <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+            <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#9c5b3f;">❦</div>
+            <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">中 圈 測 試 卡</div>
+            <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Middle Ring Test · 創業卷</div>
+            <div style="width:30px;height:1px;background:#9c5b3f;opacity:.6;margin:16px auto 20px;"></div>
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">管道</div>
+            <div style="font-size:14px;line-height:1.7;margin-bottom:14px;white-space:pre-wrap;">{{ cardChannel }}</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+              <div><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">測多少</div><div style="font-size:14px;line-height:1.6;white-space:pre-wrap;">{{ cardAmount }}</div></div>
+              <div><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">測多久</div><div style="font-size:14px;line-height:1.6;white-space:pre-wrap;">{{ cardPeriod }}</div></div>
+            </div>
+            <div style="height:1px;background:#e3ddd0;margin-bottom:16px;"></div>
+            <div style="border:1px solid #cec6b4;border-radius:2px;padding:14px 14px;">
+              <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">及格線 · 達到才深做</div>
+              <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#9c5b3f;line-height:1.6;white-space:pre-wrap;">{{ cardPassline }}</div>
+            </div>
+            <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:14px;letter-spacing:2px;margin-top:16px;">先寫及格線，測試才算數。</div>
+            <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Toolbook · MMXXVI</div>
+          </div>
+          <div style="border:1px solid #cec6b4;border-radius:4px;background:#fbf9f4;padding:16px 18px;margin-top:16px;">
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">看結果的時候，記住這是粗篩</div>
+            <p style="color:#554d40;font-size:13px;line-height:1.8;margin:0;">便宜的小測試只分得出<b style="color:#9c5b3f;">明顯過</b>和<b style="color:#9c5b3f;">明顯不過</b>。過了就深做，明顯不過就換一條；若結果剛好卡在及格線附近、或兩條管道差不多，<b style="color:#9c5b3f;">當平手</b>——別把那點小差距當真，它多半是雜訊。要分辨接近的兩條，得靠更大的第二輪。</p>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ brandMode }}">
+          <div style="position:relative;border:1px solid #cd9a86;border-radius:3px;padding:28px 24px 22px;background:#f6efe9;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cd9a86;">
+            <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#a6552f;">❦</div>
+            <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">誠 實 卡</div>
+            <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Not A Cheap Test · 創業卷</div>
+            <div style="width:30px;height:1px;background:#a6552f;opacity:.6;margin:16px auto 20px;"></div>
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">管道</div>
+            <div style="font-size:14px;line-height:1.7;margin-bottom:14px;white-space:pre-wrap;">{{ cardChannel }}</div>
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">判定</div>
+            <div style="font-size:14px;line-height:1.7;margin-bottom:14px;">這條靠累積印象發酵，小測試測不準——別拿一次便宜測試的數字定案。</div>
+            <div style="height:1px;background:#e3ddd0;margin-bottom:16px;"></div>
+            <div style="border:1px solid #cd9a86;border-radius:2px;padding:14px 14px;">
+              <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">{{ proxyK }}</div>
+              <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#a6552f;line-height:1.6;white-space:pre-wrap;">{{ proxyV }}</div>
+            </div>
+            <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#a6552f;font-size:14px;letter-spacing:2px;margin-top:16px;">測不準的事，別用測試的口氣講。</div>
+            <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Toolbook · MMXXVI</div>
+          </div>
+        </sc-if>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製文字</button>
+          <button onClick="{{ onShare }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">分享這張</button>
+        </div>
+
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:24px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">這條線的下一步</div>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">想弄清楚為什麼便宜的測試只能粗篩、而不是精密量尺，讀 <a href="article-test-ceiling.html">〈「便宜地測一下」，測不出你想知道的那件事〉</a>。</p>
+        </div>
+
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+          <div style="min-height:16px;text-align:center;color:#9c5b3f;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《牽引力》。書給了「測多少、測多久」，及格線那一格是本站補的。方法是否適合你，請自行判斷。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      <sc-if value="{{ s5 }}">
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">查看中圈測試卡紀錄簿（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設你想測「在一個小眾社群裡下廣告，把人導到註冊頁」。它靠的是有沒有人直接註冊——直接反應型。填出來的中圈測試卡長這樣：</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#9c5b3f;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">中 圈 測 試 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Middle Ring Test · 創業卷</div>
+          <div style="width:30px;height:1px;background:#9c5b3f;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">管道</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:14px;">在某個小眾社群下廣告，導到註冊頁</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+            <div><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">測多少</div><div style="font-size:14px;line-height:1.6;">花 3000 元廣告費</div></div>
+            <div><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">測多久</div><div style="font-size:14px;line-height:1.6;">兩週</div></div>
+          </div>
+          <div style="height:1px;background:#e3ddd0;margin-bottom:16px;"></div>
+          <div style="border:1px solid #cec6b4;border-radius:2px;padding:14px 14px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">及格線 · 達到才深做</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#9c5b3f;line-height:1.6;">拿到 20 個註冊，且每個成本低於 50 元</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:14px;letter-spacing:2px;margin-top:16px;">先寫及格線，測試才算數。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Toolbook · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>先分辨管道的型別。</b>第一題先問「靠什麼看出有效」——靠直接動作的才適合小測試；靠累積印象的，卡會直接告訴你別測。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>及格線測之前就要填。</b>「拿到 20 個註冊、成本低於 50 元」——一眼判得出過或不過，不會等測完才決定它算不算好。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>它只是粗篩。</b>明顯過就深做、明顯不過就換；卡在及格線附近就當平手——別把小差距當洞見。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">中圈測試卡紀錄簿</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:12px;"><span style="white-space:nowrap;">第 {{ c.idx }} 張 · {{ c.date }}{{ c.tag }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;">管道</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-top:3px;white-space:pre-wrap;">{{ c.channel }}</div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;margin-top:10px;">{{ c.respK }}</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#9c5b3f;font-weight:600;margin-top:3px;white-space:pre-wrap;">{{ c.respV }}</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有卡片。<br />完成第一張後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    step: 0, channel: "", ctype: "", amount: "", period: "", passline: "", proxy: "",
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, started: false, exampleOpen: false,
+  };
+  HKEY = "toolbook_middlering_history_v1";
+  TYPES = {
+    direct: ["直接反應型", "看得到有人因此直接做了動作：註冊、購買、回信、預約。"],
+    unsure: ["說不上來", "還不確定，先當直接反應型試試看。"],
+    brand: ["靠累積印象", "要靠「大家對你更有印象、更信任」才慢慢發酵，沒有立即的直接動作。"],
+  };
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  set(k, v) { this.setState({ [k]: v }); }
+  isBrand() { return this.state.ctype === "brand"; }
+  flow() { return this.isBrand() ? [0, 1, 2, 5] : [0, 1, 2, 3, 4, 5]; }
+  gateOk(step) {
+    const s = this.state;
+    if (step === 1) return !!s.channel.trim() && !!s.ctype;
+    if (step === 2) return this.isBrand() ? true : !!s.amount.trim();
+    if (step === 3) return !!s.period.trim();
+    if (step === 4) return !!s.passline.trim();
+    return true;
+  }
+  next() {
+    if (!this.gateOk(this.state.step)) return;
+    if (this.state.step === 0 && !this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "中圈測試設定器" }); }
+    const fl = this.flow(); const i = fl.indexOf(this.state.step); const n = fl[Math.min(fl.length - 1, i + 1)];
+    if (n === 5) this.archive();
+    this.setState({ step: n });
+    const st = document.querySelector(".stage"); if (st) st.scrollTop = 0;
+  }
+  prev() { const fl = this.flow(); const i = fl.indexOf(this.state.step); const p = fl[Math.max(0, i - 1)]; this.setState({ step: p }); const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  pickType(t) { this.setState({ ctype: t }); }
+  newCard() {
+    if (!window.confirm("開始一張新的卡片？目前內容會清掉。")) return;
+    this.setState({ step: 1, channel: "", ctype: "", amount: "", period: "", passline: "", proxy: "" });
+  }
+  archive() {
+    const s = this.state; if (!s.channel.trim()) return;
+    const brand = this.isBrand();
+    const card = { id: "mr_" + Date.now().toString(36), createdAt: new Date().toISOString(),
+      ctype: s.ctype, channel: s.channel.trim(), amount: s.amount.trim(), period: s.period.trim(), passline: s.passline.trim(), proxy: s.proxy.trim() };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards });
+    try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: "中圈測試設定器", testable: brand ? "no" : "yes" }); } catch (_) {}
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); try { localStorage.setItem(this.HKEY, JSON.stringify(cards)); } catch (_) {} }
+
+  cardText() {
+    const s = this.state;
+    if (this.isBrand()) return "誠實卡\n\n管道：" + s.channel.trim() + "\n\n判定：這條靠累積印象發酵，小測試測不準。\n" + (s.proxy.trim() ? "直接反應型的代理：" + s.proxy.trim() : "沒有直接動作可測——當長期投資，別拿小測試定案。") + "\n\n測不準的事，別用測試的口氣講。";
+    return "中圈測試卡\n\n管道：" + s.channel.trim() + "\n測多少：" + s.amount.trim() + "\n測多久：" + s.period.trim() + "\n及格線（達到才深做）：" + s.passline.trim() + "\n\n這是粗篩：明顯過就深做，明顯不過就換，接近就當平手。\n先寫及格線，測試才算數。";
+  }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製卡片文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  async share() { try { if (navigator.share) await navigator.share({ title: "我的中圈測試卡", text: this.cardText() }); else { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: "中圈測試設定器", helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "中圈測試設定器"); fd.append("_subject", "Toolbook 工具回饋 · 中圈測試設定器"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+  async saveImage() {
+    const s = this.state; const brand = this.isBrand();
+    const blocks = brand
+      ? [{ k: "管道", v: s.channel.trim() || "—", serif: true }, { k: "判定", v: "這條靠累積印象發酵，小測試測不準。" }, { k: s.proxy.trim() ? "直接反應型的代理" : "沒有直接動作可測", v: s.proxy.trim() || "當長期投資，別拿小測試定案。", big: true }]
+      : [{ k: "管道", v: s.channel.trim() || "—", serif: true }, { k: "測多少", v: s.amount.trim() || "—" }, { k: "測多久", v: s.period.trim() || "—" }, { k: "及格線 · 達到才深做", v: s.passline.trim() || "—", big: true }];
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: brand ? "誠實卡" : "中圈測試卡", sub: brand ? "NOT A CHEAP TEST · Nº 27" : "MIDDLE RING · Nº 27", filename: "中圈測試卡-Toolbook", mantra: brand ? "測不準的事，別用測試的口氣講。" : "先寫及格線，測試才算數。", edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+  }
+
+  renderVals() {
+    const s = this.state, step = s.step, brand = this.isBrand();
+    const fl = this.flow(); const inner = fl.filter(n => n > 0 && n < 5);
+    const dots = inner.map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#9c5b3f" : "#e3ddd0" }));
+    const showGate = step >= 1 && step <= 4;
+    const gateBad = showGate && !this.gateOk(step);
+    const typeOpts = ["direct", "unsure", "brand"].map(k => ({
+      label: this.TYPES[k][0], desc: this.TYPES[k][1],
+      bd: s.ctype === k ? (k === "brand" ? "#a6552f" : "#9c5b3f") : "#e3ddd0",
+      bg: s.ctype === k ? (k === "brand" ? "rgba(166,85,47,.06)" : "rgba(156,91,63,.06)") : "#fbf9f4",
+      fg: s.ctype === k ? (k === "brand" ? "#a6552f" : "#9c5b3f") : "#241f18",
+      onClick: () => this.pickType(k),
+    }));
+    const cards = s.cards.map((c, n) => {
+      const cb = c.ctype === "brand";
+      return { idx: s.cards.length - n, date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }),
+        tag: cb ? " · 測不準" : "", channel: c.channel || "—",
+        respK: cb ? "判定" : "及格線", respV: cb ? "小測試測不準，別定案" : (c.passline || "—"),
+        onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); } };
+    });
+    return {
+      dots, backColor: step === 0 ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: step === 5,
+      normalMode: !brand, brandMode: brand,
+      channel: s.channel, onChannel: e => this.set("channel", e.target.value),
+      mirrorChannel: s.channel.trim() || "—",
+      typeOpts,
+      amount: s.amount, onAmount: e => this.set("amount", e.target.value),
+      proxy: s.proxy, onProxy: e => this.set("proxy", e.target.value),
+      period: s.period, onPeriod: e => this.set("period", e.target.value),
+      passline: s.passline, onPassline: e => this.set("passline", e.target.value),
+      resultKicker: brand ? "這是一張誠實卡" : "你的中圈測試卡",
+      cardChannel: s.channel.trim() || "—", cardAmount: s.amount.trim() || "—", cardPeriod: s.period.trim() || "—", cardPassline: s.passline.trim() || "—",
+      proxyK: s.proxy.trim() ? "直接反應型的代理" : "沒有直接動作可測",
+      proxyV: s.proxy.trim() || "當長期投資，別拿小測試定案。",
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(), onHome: () => { window.location.href = "index.html"; },
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e), onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
+      showGate, gateMsg: gateBad ? (step === 1 ? "先寫下管道、並選一個型別" : step === 2 ? "寫下這一輪要投入的量" : step === 3 ? "寫下這一輪跑多久" : "寫下及格線——達到多少才深做") : "",
+      onNext: step === 5 ? () => this.newCard() : () => this.next(),
+      nextLabel: step === 0 ? "開始" : (step === 2 && brand) ? "生成卡片" : step === 4 ? "生成卡片" : step === 5 ? "再做一張新的卡片" : "下一步",
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#cbb9ac" : "#9c5b3f",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showRecordsBtn: (step === 0 || step === 5) && s.cards.length > 0,
+      onOpenRecords: () => this.set("recordsOpen", true),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+    };
+  }
+}
+</script>
+</body>
+</html>
