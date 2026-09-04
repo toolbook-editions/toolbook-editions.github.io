@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+<!-- toolbook-icons -->
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-f.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f3efe7">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#35456a!important;box-shadow:0 0 0 2px rgba(53,69,106,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(53,69,106,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="4">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 25 · 自檢</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:26px;font-weight:600;line-height:1.7;letter-spacing:.5px;">你準備說「數據證明了」<br />之前，先過一關</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">有四種「假裝在做科學」的樣子，最會拆穿它的人自己都躲不過。這張卡幫你把一句準備宣布的話，對著它最容易掉進的那個陷阱，檢查一遍。<br />答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 那句話</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你準備宣布的<br />那句話是什麼？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">就寫你正要跟老闆、投資人、或自己說的那個「數據證明了…」的結論。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">你要宣布的結論</label>
+        <textarea value="{{ claim }}" onInput="{{ onClaim }}" maxlength="200" placeholder="例如：改版帶動了這個月的成長／這次收掉，我們學到很多／使用者留言都說好，市場驗證了" style="width:100%;min-height:110px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">寫一句具體的結論，不是一個主題。越像「我要拿它去說服人」的那句話越好。</div>
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 它是哪一種</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這句話，<br />最像下面哪一種？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:12px;">憑第一反應選最接近的一種。這四種是書裡列的「假裝做科學」的樣子。</p>
+        <div style="border-left:2px solid #35456a;background:rgba(53,69,106,.05);padding:12px 15px;margin:0 0 14px;border-radius:0 3px 3px 0;">
+          <div style="font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">你要宣布的話</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">{{ mirrorClaim }}</div>
+        </div>
+        <sc-for list="{{ trapOpts }}" as="t" hint-placeholder-count="4">
+          <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:13px 15px;margin-bottom:8px;cursor:pointer;">
+            <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:1px;color:{{ t.fg }};">{{ t.label }}</div>
+            <div style="font-size:12px;color:#938a78;line-height:1.55;">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+      </sc-if>
+
+      <sc-if value="{{ s3 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 先確認</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這一關，<br />是拿來照自己的</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:12px;">這四條是自省用的，不是拿去拆別人台的。先確認你在做的是哪一件事：</p>
+        <div onClick="{{ onGuardSelf }}" style="border:1px solid {{ selfBd }};background:{{ selfBg }};border-radius:4px;padding:14px 15px;margin-bottom:9px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:2px;color:{{ selfFg }};">我在檢查我自己要宣布的東西</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.6;">這句話是我要拿去說服人的，我想先確認它站不站得住</div>
+        </div>
+        <div onClick="{{ onGuardNotClaim }}" style="border:1px solid {{ ncBd }};background:{{ ncBg }};border-radius:4px;padding:14px 15px;margin-bottom:9px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:2px;color:{{ ncFg }};">其實這不算「宣稱數據證明了什麼」</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.6;">只是一個執行決定或美感選擇，本來就不打算用數據撐</div>
+        </div>
+        <div onClick="{{ onGuardOthers }}" style="border:1px solid {{ otBd }};background:{{ otBg }};border-radius:4px;padding:14px 15px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:2px;color:{{ otFg }};">我想用它反駁別人的宣稱</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.6;">我想拿這四條去指出別人在假裝做科學</div>
+        </div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;"><b style="color:#35456a;">為什麼先問這個</b><br />連提出這四條的那本書，作者自己都中了兩條半。所以這面鏡子的用法是照自己——拿去照別人，多半只會變成吵架的武器。</div>
+      </sc-if>
+
+      <sc-if value="{{ s4 }}">
+        <sc-if value="{{ modePass }}">
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 讓它站得住</div>
+          <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">{{ stressTitle }}</h2>
+          <div style="border-left:2px solid #35456a;background:rgba(53,69,106,.05);padding:12px 15px;margin:0 0 14px;border-radius:0 3px 3px 0;">
+            <div style="font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">你這句話最容易掉進的陷阱</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;color:#9c5a3c;">{{ trapName }}</div>
+          </div>
+          <p style="color:#554d40;font-size:14px;line-height:1.85;margin-bottom:10px;white-space:pre-wrap;">{{ stressQuestion }}</p>
+          <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:8px 0 7px;">{{ stressLabel }}</label>
+          <textarea value="{{ answer }}" onInput="{{ onAnswer }}" maxlength="240" placeholder="{{ stressPlaceholder }}" style="width:100%;min-height:104px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+          <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:18px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">寫得出來，你的宣稱就從「感覺」升級成「站得住」；寫不出來，那就先別宣布——它還不是一個經得起檢驗的結論。</div>
+        </sc-if>
+        <sc-if value="{{ modeNotApp }}">
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5a3c;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 這次先擱著</div>
+          <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">{{ notAppTitle }}</h2>
+          <p style="color:#554d40;font-size:14px;line-height:1.85;margin-bottom:8px;white-space:pre-wrap;">{{ notAppText }}</p>
+          <div style="border:1px solid #cd9a86;background:rgba(156,90,60,.06);border-radius:4px;padding:14px 16px;margin-top:18px;">
+            <b style="display:block;font-family:'Noto Serif TC',serif;font-size:13px;color:#9c5a3c;margin-bottom:5px;">一句提醒</b>
+            <p style="font-size:13px;color:#6b5347;line-height:1.75;margin:0;">{{ notAppTip }}</p>
+          </div>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ s5 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 14px;">{{ resultKicker }}</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">數 據 自 檢 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Data Check · Nº 25</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">你要宣布的話</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:14px;white-space:pre-wrap;">{{ cardClaim }}</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">{{ cardMidK }}</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:{{ verdictColor }};line-height:1.6;margin-bottom:14px;">{{ cardMidV }}</div>
+          <div style="height:1px;background:#e3ddd0;margin-bottom:16px;"></div>
+          <div style="border:1px solid #cec6b4;border-radius:2px;padding:14px 14px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">{{ cardBottomK }}</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;white-space:pre-wrap;">{{ cardBottomV }}</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:1px;margin-top:16px;line-height:1.7;">{{ mantra }}</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 25 · MMXXVI</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製文字</button>
+          <button onClick="{{ onShare }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">分享這張</button>
+        </div>
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:24px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">這條線的下一步</div>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">想看連提出這四條標準的書，自己都中了兩條半？讀 <a href="article-own-yardstick.html">〈他列了四個「假科學」的症狀，卻忘了照鏡子〉</a>。</p>
+        </div>
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+          <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡的四條標準出自《精益創業》第 13 章，我用自己的話重寫。一句宣稱算不算站得住，請自行判斷。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      <sc-if value="{{ s5 }}">
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">查看數據自檢卡紀錄簿（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">一個人準備在週報寫「改版帶動了這個月的成長」。他先過了這一關——這句話最像「在總量圖上畫因果」——於是被逼著寫出讓它成立的條件：</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">數 據 自 檢 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Data Check · Nº 25</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">你要宣布的話</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:14px;">改版帶動了這個月的成長。</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">最容易掉進的陷阱</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#9c5a3c;line-height:1.6;margin-bottom:14px;">在總量圖上畫因果</div>
+          <div style="height:1px;background:#e3ddd0;margin-bottom:16px;"></div>
+          <div style="border:1px solid #cec6b4;border-radius:2px;padding:14px 14px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">讓它站得住的條件</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">同月剛好碰上開學旺季，我要先比「沒看到改版的舊用戶」這個月有沒有一樣漲——漲了，就不是改版的功勞。</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:1px;margin-top:16px;line-height:1.7;">最會拆穿別人的那四條，<br />先拿來照自己。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 25 · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>不是打勾清單。</b>它只針對你這一句話，挑出它最容易掉進的那一個陷阱，逼你正面回答。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>是拿來照自己的。</b>如果你想用它去反駁別人，第一關就會把你擋下來——這面鏡子照別人只會變成吵架。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">寫得出讓它站得住的條件，就宣布；<b>寫不出來，就先別宣布</b>——它還不是一個經得起檢驗的結論。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，換我自己的那句話</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">數據自檢卡紀錄簿</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:12px;"><span style="white-space:nowrap;">第 {{ c.idx }} 張 · {{ c.date }} · {{ c.tag }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;">你要宣布的話</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-top:3px;white-space:pre-wrap;">{{ c.claim }}</div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;margin-top:10px;">{{ c.bottomK }}</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#35456a;font-weight:600;margin-top:3px;white-space:pre-wrap;">{{ c.bottomV }}</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有卡片。<br />完成第一張後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    step: 0, claim: "", trap: "", guard: "", answer: "",
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, started: false, exampleOpen: false,
+  };
+  HKEY = "toolbook_datacheck_history_v1";
+  TRAPS = {
+    theater: {
+      label: "我拿支持我想法的數據，當成驗證", desc: "「留言都說好」「我早就覺得會這樣」",
+      name: "成功劇場（只挑支持你的數據）",
+      title: "反面的數據，你看了嗎？",
+      q: "成功劇場，就是只去找支持你已經想信的那件事。你有沒有認真看過反面——沒回來的那些人、不叫好的那些聲音？",
+      lab: "你要去看的反面證據", ph: "例如：叫好的是那 30 則留言，但我還沒看沒留言的那九成用戶後來回不回來——我要先把這個數字調出來。",
+    },
+    cause: {
+      label: "某個數字漲了，我說是我做的某件事造成的", desc: "「改版帶動成長」「這波是那次活動的功勞」",
+      name: "在總量圖上畫因果",
+      title: "你怎麼知道是「它」，不是別的？",
+      q: "數字漲的時候，人天然想認領自己剛好在做的那件事。你有沒有一個能排除其他原因的對照？還是只是兩件事剛好同時發生？",
+      lab: "你要拿來排除其他原因的對照", ph: "例如：我要比「沒接觸到改版的那批舊用戶」同期有沒有一樣漲；如果他們也漲，那就不是改版的功勞。",
+    },
+    excuse: {
+      label: "事情沒成，但我說「至少學到很多」", desc: "「這次失敗很有價值」「我們更懂市場了」",
+      name: "拿學習當失敗的藉口",
+      title: "你「學到的」，能被驗證嗎？",
+      q: "拿學習當藉口，就是說不出學到了什麼可被檢驗的東西。把你「學到的」寫成一個下一輪可以拿數字驗證、而且可能被證明是錯的具體預測。",
+      lab: "一個下一輪可驗證的具體預測", ph: "例如：我學到「用戶不為 X 付錢」——那我下一輪的預測是：把 X 換成 Y，願付比例會從 2% 升到 8%；升不到，代表我這次其實沒學到。",
+    },
+    stealth: {
+      label: "還沒給外部真實用戶看過，說「再做完整一點」", desc: "「還在打磨」「等做好一點再拿出去」",
+      name: "匿蹤（沒有外部回饋的無資料區）",
+      title: "下一次見真實用戶，是什麼時候？",
+      q: "匿蹤，就是替自己造一塊沒有外部回饋、沒人能問責的地帶。這件事下一次接受外部真實回饋，是什麼時候、給誰看？寫成一個確切的日子。",
+      lab: "下一次見真實用戶的時間與對象", ph: "例如：這週五之前，把現在這半成品給 5 個真實用戶用，看他們卡在哪——不等做完整。",
+    },
+  };
+  GUARDS = {
+    notclaim: {
+      title: "那這一關對你沒用",
+      text: "很好——你很清楚這不是一個「數據證明了什麼」的宣稱，而是一個執行或美感的決定。那就不必用這四條去檢查它。這四條是給「你打算拿數據去說服人」的結論用的。",
+      tip: "不是每件事都要用數據撐。有些決定靠品味、靠速度、靠直覺，那本來就正當——別把它硬套上一個科學的外殼。",
+    },
+    others: {
+      title: "先收回來，照自己",
+      text: "這四條非常會拆穿別人在假裝做科學——但那正是它最危險的用法。拿去照別人，多半只會變成一場吵架；而且你很難看到自己這一邊有沒有中。",
+      tip: "換個做法：把你自己最近一句「數據證明了…」的話拿出來，用這張卡照一遍。連提出這四條的作者自己都中了兩條半——你我也不會例外。",
+    },
+  };
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  set(k, v) { this.setState({ [k]: v }); }
+  isPass() { return this.state.guard === "self"; }
+  verdict() { return this.isPass() ? this.state.trap : "not_applicable"; }
+  gateOk(step) {
+    const s = this.state;
+    if (step === 1) return !!s.claim.trim();
+    if (step === 2) return !!s.trap;
+    if (step === 3) return !!s.guard;
+    if (step === 4) return this.isPass() ? !!s.answer.trim() : true;
+    return true;
+  }
+  next() {
+    if (!this.gateOk(this.state.step)) return;
+    if (this.state.step === 0 && !this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "數據自檢" }); }
+    const n = Math.min(5, this.state.step + 1);
+    if (n === 5) this.archive();
+    this.setState({ step: n });
+    const st = document.querySelector(".stage"); if (st) st.scrollTop = 0;
+  }
+  prev() { this.setState({ step: Math.max(0, this.state.step - 1) }); const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  pickTrap(v) { this.setState({ trap: v }); }
+  pickGuard(v) { this.setState({ guard: v }); }
+  newCard() {
+    if (!window.confirm("開始一張新的卡片？目前內容會清掉。")) return;
+    this.setState({ step: 1, claim: "", trap: "", guard: "", answer: "" });
+  }
+  verdictLabelText() {
+    if (!this.isPass()) return this.state.guard === "notclaim" ? "這不是數據宣稱" : "先照自己";
+    const t = this.TRAPS[this.state.trap];
+    return t ? t.name : "—";
+  }
+  cardBottom() {
+    const s = this.state;
+    if (this.isPass()) return { k: "讓它站得住的條件", val: s.answer.trim() || "—" };
+    const g = this.GUARDS[s.guard];
+    return { k: "為什麼擱著", val: g ? g.title : "—" };
+  }
+  mantraText() { return this.isPass() ? "最會拆穿別人的那四條，先拿來照自己。" : "這面鏡子，是拿來照自己的。"; }
+  archive() {
+    const s = this.state; if (!s.claim.trim()) return;
+    const v = this.verdict();
+    const card = { id: "dc_" + Date.now().toString(36), createdAt: new Date().toISOString(),
+      claim: s.claim.trim(), trap: s.trap, guard: s.guard, answer: s.answer.trim(), verdict: v };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards });
+    try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: "數據自檢", verdict: v }); } catch (_) {}
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); try { localStorage.setItem(this.HKEY, JSON.stringify(cards)); } catch (_) {} }
+
+  cardText() {
+    const s = this.state, b = this.cardBottom();
+    return "數據自檢卡\n\n你要宣布的話：" + (s.claim.trim() || "—") + "\n" + (this.isPass() ? "最容易掉進的陷阱：" : "判定：") + this.verdictLabelText() + "\n" + b.k + "：" + b.val + "\n\n" + this.mantraText();
+  }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製卡片文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  async share() { try { if (navigator.share) await navigator.share({ title: "我的數據自檢卡", text: this.cardText() }); else { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: "數據自檢", helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "數據自檢"); fd.append("_subject", "Toolbook 工具回饋 · 數據自檢"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+  async saveImage() {
+    const s = this.state, b = this.cardBottom();
+    const blocks = [
+      { k: "你要宣布的話", v: s.claim.trim() || "—", serif: true },
+      { k: this.isPass() ? "最容易掉進的陷阱" : "判定", v: this.verdictLabelText() },
+      { k: b.k, v: b.val, big: true },
+    ];
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "數據自檢卡", sub: "DATA CHECK · Nº 25", filename: "數據自檢卡-Toolbook", mantra: this.mantraText(), edition: "Edition Nº 25 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+  }
+
+  renderVals() {
+    const s = this.state, step = s.step, pass = this.isPass();
+    const dots = [1, 2, 3, 4].map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#35456a" : "#e3ddd0" }));
+    const showGate = step >= 1 && step <= 4;
+    const gateBad = showGate && !this.gateOk(step);
+    const sel = (on, base, accent) => on ? accent : base;
+    const trapOpts = ["theater", "cause", "excuse", "stealth"].map(k => ({
+      label: this.TRAPS[k].label, desc: this.TRAPS[k].desc,
+      bd: s.trap === k ? "#35456a" : "#e3ddd0", bg: s.trap === k ? "rgba(53,69,106,.06)" : "#fbf9f4", fg: s.trap === k ? "#35456a" : "#241f18",
+      onClick: () => this.pickTrap(k),
+    }));
+    const T = this.TRAPS[s.trap] || {};
+    const G = this.GUARDS[s.guard] || {};
+    const b = this.cardBottom();
+    const cards = s.cards.map((c, n) => {
+      const lab = c.guard === "self" ? (this.TRAPS[c.trap] ? this.TRAPS[c.trap].name : "—") : (c.guard === "notclaim" ? "不是數據宣稱" : "先照自己");
+      const bk = c.guard === "self" ? "讓它站得住的條件" : "為什麼擱著";
+      const bv = c.guard === "self" ? (c.answer || "—") : (this.GUARDS[c.guard] ? this.GUARDS[c.guard].title : "—");
+      return { idx: s.cards.length - n, date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }),
+        tag: c.guard === "self" ? "已過關" : "擱著", claim: c.claim || "—", bottomK: bk, bottomV: bv,
+        onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); } };
+    });
+    return {
+      dots, backColor: step === 0 ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: step === 5,
+      modePass: pass, modeNotApp: step === 4 && !pass,
+      claim: s.claim, onClaim: e => this.set("claim", e.target.value), mirrorClaim: s.claim.trim() || "—",
+      trapOpts,
+      onGuardSelf: () => this.pickGuard("self"), onGuardNotClaim: () => this.pickGuard("notclaim"), onGuardOthers: () => this.pickGuard("others"),
+      selfBd: sel(s.guard === "self", "#e3ddd0", "#35456a"), selfBg: sel(s.guard === "self", "#fbf9f4", "rgba(53,69,106,.06)"), selfFg: sel(s.guard === "self", "#241f18", "#35456a"),
+      ncBd: sel(s.guard === "notclaim", "#e3ddd0", "#9c5a3c"), ncBg: sel(s.guard === "notclaim", "#fbf9f4", "rgba(156,90,60,.06)"), ncFg: sel(s.guard === "notclaim", "#241f18", "#9c5a3c"),
+      otBd: sel(s.guard === "others", "#e3ddd0", "#9c5a3c"), otBg: sel(s.guard === "others", "#fbf9f4", "rgba(156,90,60,.06)"), otFg: sel(s.guard === "others", "#241f18", "#9c5a3c"),
+      stressTitle: T.title || "", trapName: T.name || "—", stressQuestion: T.q || "", stressLabel: T.lab || "", stressPlaceholder: T.ph || "",
+      answer: s.answer, onAnswer: e => this.set("answer", e.target.value),
+      notAppTitle: G.title || "", notAppText: G.text || "", notAppTip: G.tip || "",
+      resultKicker: pass ? "你的數據自檢卡" : "這次先擱著",
+      cardClaim: s.claim.trim() || "—",
+      cardMidK: pass ? "最容易掉進的陷阱" : "判定", cardMidV: this.verdictLabelText(),
+      verdictColor: "#9c5a3c",
+      cardBottomK: b.k, cardBottomV: b.val, mantra: this.mantraText(),
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(), onHome: () => { window.location.href = "index.html"; },
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e), onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
+      showGate, gateMsg: gateBad ? (step === 1 ? "先寫下那句話，才能繼續" : step === 2 ? "選一個最接近的" : step === 3 ? "先選一個" : "寫下讓它站得住的條件") : "",
+      onNext: step === 5 ? () => this.newCard() : () => this.next(),
+      nextLabel: step === 0 ? "開始" : step === 4 ? "生成卡片" : step === 5 ? "再檢查一句話" : "下一步",
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#b7bdcb" : "#35456a",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showRecordsBtn: (step === 0 || step === 5) && s.cards.length > 0,
+      onOpenRecords: () => this.set("recordsOpen", true),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+    };
+  }
+}
+</script>
+</body>
+</html>

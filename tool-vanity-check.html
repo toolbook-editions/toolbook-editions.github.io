@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+<!-- toolbook-icons -->
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-f.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f3efe7">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#35456a!important;box-shadow:0 0 0 2px rgba(53,69,106,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(53,69,106,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="4">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 24 · 兩張臉</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">你在盯的那個數字，<br />是哪一張臉？</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">有些數字只會往上、永遠好看，卻幫不了你做決定；有些會漲也會跌，才真的告訴你事情變好還是變壞。這張卡幫你分辨，並把第一種翻成第二種。<br />答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 那個數字</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你最近<br />在盯哪一個數字？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">就寫你常看、常拿來說「有在成長」的那一個。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">你在追蹤的數字</label>
+        <textarea value="{{ metric }}" onInput="{{ onMetric }}" maxlength="120" placeholder="例如：App 的累計下載數、網站的總註冊人數、到目前為止的營收" style="width:100%;min-height:96px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">寫一個具體的數字名稱就好，先不用寫它現在是多少。</div>
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 先做一個測試</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這個數字，<br />有沒有可能「下週變差」？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:12px;">這一題最關鍵。一個永遠只會往上的數字，沒辦法告訴你事情是變好還是變壞——因為它怎樣都在往上。</p>
+        <div style="border-left:2px solid #35456a;background:rgba(53,69,106,.05);padding:12px 15px;margin:0 0 14px;border-radius:0 3px 3px 0;">
+          <div style="font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">你盯的數字</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">{{ mirrorMetric }}</div>
+        </div>
+        <div onClick="{{ onDropNo }}" style="border:1px solid {{ noBd }};background:{{ noBg }};border-radius:4px;padding:14px 15px;margin-bottom:9px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:2px;color:{{ noFg }};">幾乎不可能</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.6;">它是累計或總量，只會往上、頂多不動</div>
+        </div>
+        <div onClick="{{ onDropYes }}" style="border:1px solid {{ yesBd }};background:{{ yesBg }};border-radius:4px;padding:14px 15px;margin-bottom:9px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:2px;color:{{ yesFg }};">有可能</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.6;">它會漲，也會跌（像某個比例、某種轉換率）</div>
+        </div>
+        <div onClick="{{ onDropUnsure }}" style="border:1px solid {{ unsureBd }};background:{{ unsureBg }};border-radius:4px;padding:14px 15px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:2px;">不確定</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.6;">說不太準</div>
+        </div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">「總」「累計」「到目前為止」開頭的數字，幾乎都只會往上。</div>
+      </sc-if>
+
+      <sc-if value="{{ s3 }}">
+        <sc-if value="{{ branchA }}">
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 它的處境</div>
+          <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">先確認一件事：<br />你這個數字是不是這幾種情況？</h2>
+          <p style="color:#938a78;font-size:13px;margin-bottom:12px;">有三種情況，「只會漲」是正常的、不該被當成問題。看看你中不中：</p>
+          <sc-for list="{{ failOpts }}" as="f" hint-placeholder-count="4">
+            <div onClick="{{ f.onClick }}" style="border:1px solid {{ f.bd }};background:{{ f.bg }};border-radius:4px;padding:13px 15px;margin-bottom:8px;cursor:pointer;">
+              <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:1px;color:{{ f.fg }};">{{ f.label }}</div>
+              <div style="font-size:12px;color:#938a78;line-height:1.55;">{{ f.desc }}</div>
+            </div>
+          </sc-for>
+          <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:18px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">中了前三種其中一種，這張卡的判斷就先別硬套——下一步會告訴你為什麼。</div>
+        </sc-if>
+        <sc-if value="{{ branchB }}">
+          <div style="font-family:'Noto Serif TC',serif;color:#3f6b4f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 你已經站對邊了</div>
+          <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你已經在看<br />會跌的那一張臉</h2>
+          <p style="color:#938a78;font-size:13px;margin-bottom:8px;">一個會漲也會跌的數字，本身就帶著資訊——它可能打你的臉，所以它的好消息才可信。這一步你不用做什麼，順手記一句你在盯哪一批人的什麼比例就好（可留空）。</p>
+          <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">你追的比例（可留空）</label>
+          <textarea value="{{ cohort }}" onInput="{{ onCohort }}" maxlength="160" placeholder="例如：每個月新註冊的人裡，七天內回訪的比例" style="width:100%;min-height:90px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ s4 }}">
+        <sc-if value="{{ modeVanity }}">
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 翻成第二張臉</div>
+          <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">把它翻成<br />一批一批人的比例</h2>
+          <p style="color:#938a78;font-size:13px;margin-bottom:12px;">別看總量，改看「每一批新進來的人，做到某件事的比例」。同一批資料，這樣切會露出總量藏起來的真相。</p>
+          <div style="border-left:2px solid #35456a;background:rgba(53,69,106,.05);padding:12px 15px;margin:0 0 14px;border-radius:0 3px 3px 0;">
+            <div style="font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">第一張臉（你原本盯的）</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">{{ mirrorMetric }}</div>
+          </div>
+          <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:6px 0 7px;">翻成的第二張臉</label>
+          <textarea value="{{ cohort }}" onInput="{{ onCohort }}" maxlength="160" placeholder="例如：把「總註冊人數」翻成「每個月新註冊的人裡，當月就付費的比例」" style="width:100%;min-height:100px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+          <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:18px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;"><b style="color:#35456a;">訣竅</b><br />把「總數」換成「某一批人裡、做到某件事的比例」。這個比例會漲也會跌，才是你該盯的。</div>
+        </sc-if>
+        <sc-if value="{{ modeNotApp }}">
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5a3c;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 這次先別套</div>
+          <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這個情況下，<br />先別急著換指標</h2>
+          <p style="color:#554d40;font-size:14px;line-height:1.85;margin-bottom:8px;white-space:pre-wrap;">{{ notAppText }}</p>
+          <div style="border:1px solid #cd9a86;background:rgba(156,90,60,.06);border-radius:4px;padding:14px 16px;margin-top:18px;">
+            <b style="display:block;font-family:'Noto Serif TC',serif;font-size:13px;color:#9c5a3c;margin-bottom:5px;">一句提醒</b>
+            <p style="font-size:13px;color:#6b5347;line-height:1.75;margin:0;">方法要看前提。這張卡是給「會持續有新用戶進來、量夠大」的東西用的；前提不到，硬換指標反而誤導。前提到了再回來。</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ modeActionable }}">
+          <div style="font-family:'Noto Serif TC',serif;color:#3f6b4f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 一句提醒</div>
+          <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">記得別掉回去<br />看總量</h2>
+          <p style="color:#938a78;font-size:13px;margin-bottom:8px;">你已經在看對的那張臉。唯一要小心的是：當有人問「我們成長了嗎」，很容易順手掏出一個漂亮的總量去回答。回到你剛剛寫的那個比例，那才是答案。</p>
+          <div style="border-left:2px solid #3f6b4f;background:rgba(63,107,79,.06);padding:12px 15px;margin-top:16px;border-radius:0 3px 3px 0;">
+            <div style="font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">你要盯的那張臉</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">{{ cohortShown }}</div>
+          </div>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ s5 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 14px;">{{ resultKicker }}</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">兩 張 臉 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Two Faces · Nº 24</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">你盯的數字</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:14px;white-space:pre-wrap;">{{ cardMetric }}</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">判定</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:{{ verdictColor }};line-height:1.6;margin-bottom:14px;">{{ verdictLabel }}</div>
+          <div style="height:1px;background:#e3ddd0;margin-bottom:16px;"></div>
+          <div style="border:1px solid #cec6b4;border-radius:2px;padding:14px 14px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">{{ cardBottomK }}</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;white-space:pre-wrap;">{{ cardBottomV }}</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:1px;margin-top:16px;line-height:1.7;">{{ mantra }}</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 24 · MMXXVI</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製文字</button>
+          <button onClick="{{ onShare }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">分享這張</button>
+        </div>
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:24px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">這條線的下一步</div>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">想知道為什麼連提出「虛榮指標」這個詞的作者，講自己時都栽了三次？讀 <a href="article-two-faces.html">〈同一批數字，藏著兩張臉〉</a>。</p>
+        </div>
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+          <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《精益創業》。「分批看比例」（同期群分析）是通用的資料做法，不是這本書獨有。某個數字算不算虛榮指標、該不該換，請自行判斷。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      <sc-if value="{{ s5 }}">
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">查看兩張臉卡紀錄簿（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">一個團隊每週都在慶祝「總註冊人數又創新高」。他先做了那個測試——這個數字幾乎不可能下週變差——於是把它翻成第二張臉：</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">兩 張 臉 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Two Faces · Nº 24</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">你盯的數字</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:14px;">App 的總註冊人數（每週都創新高）</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">判定</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#9c5a3c;line-height:1.6;margin-bottom:14px;">第一張臉 · 虛榮指標</div>
+          <div style="height:1px;background:#e3ddd0;margin-bottom:16px;"></div>
+          <div style="border:1px solid #cec6b4;border-radius:2px;padding:14px 14px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">翻成第二張臉</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">每個月新註冊的人裡，當月就回來用第二次的比例——這個數字七個月沒動過。</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:1px;margin-top:16px;line-height:1.7;">會漲的數字讓你安心，<br />會跌的數字才給你真相。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 24 · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>一個測試就夠了。</b>「這個數字有沒有可能下週變差」——不可能，它就是第一張臉，只能讓你安心。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>翻譯的訣竅：</b>把「總數」換成「某一批人裡、做到某件事的比例」。同一批資料，這樣切才看得到進步。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">總量一路往上、比例七個月沒動——這就是<b>總量在漲、產品沒進步</b>長什麼樣子。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，換我自己的數字</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">兩張臉卡紀錄簿</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:12px;"><span style="white-space:nowrap;">第 {{ c.idx }} 張 · {{ c.date }} · {{ c.tag }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;">你盯的數字</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-top:3px;white-space:pre-wrap;">{{ c.metric }}</div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;margin-top:10px;">{{ c.bottomK }}</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#35456a;font-weight:600;margin-top:3px;white-space:pre-wrap;">{{ c.bottomV }}</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有卡片。<br />完成第一張後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    step: 0, metric: "", canDrop: "", failCond: "", cohort: "",
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, started: false, exampleOpen: false,
+  };
+  HKEY = "toolbook_vanity_history_v1";
+  FAILS = {
+    too_small: ["量還太小", "使用者才幾十上百個，還拆不出「一批一批」來看比例", "你的量還太小，拆成一批一批反而每批都只有零星幾個人，比例會跳來跳去、讀不出東西。先讓量長起來，回頭再用這張卡。"],
+    milestone: ["這個總量本身就是目標", "例如這一輪就是要「累計營收破 X」，那看總量沒錯", "這一輪你要的就是那個累計數字達標——那麼盯總量是對的。等這個里程碑過了、要判斷「產品有沒有變得更留得住人」時，再回來翻第二張臉。"],
+    one_off: ["一次性的事", "做完就結束、沒有「下一批人」會進來", "一次性的事沒有「下一批人」，同期群那套用不上。這張卡是給會持續有新用戶進來的東西用的。"],
+    none: ["都不是", "就是日常在追蹤的成長數字", ""],
+  };
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  set(k, v) { this.setState({ [k]: v }); }
+  isA() { return this.state.canDrop === "only_up" || this.state.canDrop === "unsure"; }
+  isB() { return this.state.canDrop === "both"; }
+  verdict() {
+    if (this.isB()) return "actionable";
+    if (this.state.failCond && this.state.failCond !== "none") return "not_applicable";
+    return "vanity";
+  }
+  gateOk(step) {
+    const s = this.state;
+    if (step === 1) return !!s.metric.trim();
+    if (step === 2) return !!s.canDrop;
+    if (step === 3) return this.isA() ? !!s.failCond : true;
+    if (step === 4) return this.verdict() === "vanity" ? !!s.cohort.trim() : true;
+    return true;
+  }
+  next() {
+    if (!this.gateOk(this.state.step)) return;
+    if (this.state.step === 0 && !this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "虛榮指標自檢" }); }
+    const n = Math.min(5, this.state.step + 1);
+    if (n === 5) this.archive();
+    this.setState({ step: n });
+    const st = document.querySelector(".stage"); if (st) st.scrollTop = 0;
+  }
+  prev() { this.setState({ step: Math.max(0, this.state.step - 1) }); const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  pickDrop(v) { this.setState({ canDrop: v, failCond: "" }); }
+  pickFail(v) { this.setState({ failCond: v }); }
+  newCard() {
+    if (!window.confirm("開始一張新的卡片？目前內容會清掉。")) return;
+    this.setState({ step: 1, metric: "", canDrop: "", failCond: "", cohort: "" });
+  }
+  verdictLabelText() {
+    const v = this.verdict();
+    if (v === "actionable") return "第二張臉 · 可行動指標";
+    if (v === "not_applicable") return "這個情況下不套用";
+    return "第一張臉 · 虛榮指標";
+  }
+  archive() {
+    const s = this.state; if (!s.metric.trim()) return;
+    const v = this.verdict();
+    const card = { id: "vf_" + Date.now().toString(36), createdAt: new Date().toISOString(),
+      metric: s.metric.trim(), verdict: v, canDrop: s.canDrop, failCond: s.failCond, cohort: s.cohort.trim() };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards });
+    try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: "虛榮指標自檢", verdict: v }); } catch (_) {}
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); try { localStorage.setItem(this.HKEY, JSON.stringify(cards)); } catch (_) {} }
+
+  cardBottom() {
+    const s = this.state, v = this.verdict();
+    if (v === "vanity") return { k: "翻成第二張臉", val: s.cohort.trim() || "—" };
+    if (v === "actionable") return { k: "你要盯的那張臉", val: s.cohort.trim() || "（會漲也會跌的比例）" };
+    const r = this.FAILS[s.failCond] ? this.FAILS[s.failCond][0] : "—";
+    return { k: "先擱著的原因", val: r };
+  }
+  mantraText() { return this.verdict() === "not_applicable" ? "方法要看前提，這次的前提還沒到。" : "會漲的數字讓你安心，會跌的數字才給你真相。"; }
+  cardText() {
+    const s = this.state, b = this.cardBottom();
+    return "兩張臉卡\n\n你盯的數字：" + (s.metric.trim() || "—") + "\n判定：" + this.verdictLabelText() + "\n" + b.k + "：" + b.val + "\n\n" + this.mantraText();
+  }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製卡片文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  async share() { try { if (navigator.share) await navigator.share({ title: "我的兩張臉卡", text: this.cardText() }); else { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: "虛榮指標自檢", helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "虛榮指標自檢"); fd.append("_subject", "Toolbook 工具回饋 · 虛榮指標自檢"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+  async saveImage() {
+    const s = this.state, b = this.cardBottom();
+    const blocks = [
+      { k: "你盯的數字", v: s.metric.trim() || "—", serif: true },
+      { k: "判定", v: this.verdictLabelText() },
+      { k: b.k, v: b.val, big: true },
+    ];
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "兩張臉卡", sub: "TWO FACES · Nº 24", filename: "兩張臉卡-Toolbook", mantra: this.mantraText(), edition: "Edition Nº 24 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+  }
+
+  renderVals() {
+    const s = this.state, step = s.step, v = this.verdict();
+    const dots = [1, 2, 3, 4].map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#35456a" : "#e3ddd0" }));
+    const showGate = step >= 1 && step <= 4;
+    const gateBad = showGate && !this.gateOk(step);
+    const sel = (on, base, accent) => on ? accent : base;
+    const failOpts = ["too_small", "milestone", "one_off", "none"].map(k => ({
+      label: this.FAILS[k][0], desc: this.FAILS[k][1],
+      bd: s.failCond === k ? "#35456a" : "#e3ddd0", bg: s.failCond === k ? "rgba(53,69,106,.06)" : "#fbf9f4", fg: s.failCond === k ? "#35456a" : "#241f18",
+      onClick: () => this.pickFail(k),
+    }));
+    const notAppText = this.FAILS[s.failCond] ? this.FAILS[s.failCond][2] : "";
+    const b = this.cardBottom();
+    const verdictColor = v === "vanity" ? "#9c5a3c" : (v === "actionable" ? "#3f6b4f" : "#9c5a3c");
+    const cards = s.cards.map((c, n) => {
+      const lab = c.verdict === "actionable" ? "可行動指標" : (c.verdict === "not_applicable" ? "先擱著" : "虛榮指標");
+      const bk = c.verdict === "vanity" ? "翻成第二張臉" : (c.verdict === "actionable" ? "你要盯的比例" : "先擱著的原因");
+      const bv = c.verdict === "not_applicable" ? (this.FAILS[c.failCond] ? this.FAILS[c.failCond][0] : "—") : (c.cohort || "—");
+      return { idx: s.cards.length - n, date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }),
+        tag: lab, metric: c.metric || "—", bottomK: bk, bottomV: bv,
+        onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); } };
+    });
+    return {
+      dots, backColor: step === 0 ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: step === 5,
+      branchA: this.isA(), branchB: this.isB(),
+      modeVanity: v === "vanity", modeNotApp: v === "not_applicable", modeActionable: v === "actionable",
+      metric: s.metric, onMetric: e => this.set("metric", e.target.value),
+      mirrorMetric: s.metric.trim() || "—",
+      onDropNo: () => this.pickDrop("only_up"), onDropYes: () => this.pickDrop("both"), onDropUnsure: () => this.pickDrop("unsure"),
+      noBd: sel(s.canDrop === "only_up", "#e3ddd0", "#9c5a3c"), noBg: sel(s.canDrop === "only_up", "#fbf9f4", "rgba(156,90,60,.06)"), noFg: sel(s.canDrop === "only_up", "#241f18", "#9c5a3c"),
+      yesBd: sel(s.canDrop === "both", "#e3ddd0", "#3f6b4f"), yesBg: sel(s.canDrop === "both", "#fbf9f4", "rgba(63,107,79,.06)"), yesFg: sel(s.canDrop === "both", "#241f18", "#3f6b4f"),
+      unsureBd: sel(s.canDrop === "unsure", "#e3ddd0", "#35456a"), unsureBg: sel(s.canDrop === "unsure", "#fbf9f4", "rgba(53,69,106,.06)"),
+      failOpts, notAppText,
+      cohort: s.cohort, onCohort: e => this.set("cohort", e.target.value),
+      cohortShown: s.cohort.trim() || "（你剛剛寫的那個比例）",
+      resultKicker: v === "not_applicable" ? "這次先擱著" : "你的兩張臉卡",
+      cardMetric: s.metric.trim() || "—",
+      verdictLabel: this.verdictLabelText(), verdictColor,
+      cardBottomK: b.k, cardBottomV: b.val, mantra: this.mantraText(),
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(), onHome: () => { window.location.href = "index.html"; },
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e), onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
+      showGate, gateMsg: gateBad ? (step === 1 ? "先寫下那個數字，才能繼續" : step === 2 ? "先選一個——它會不會下週變差" : step === 3 ? "選一個處境" : "把它翻成一個比例") : "",
+      onNext: step === 5 ? () => this.newCard() : () => this.next(),
+      nextLabel: step === 0 ? "開始" : step === 4 ? "生成卡片" : step === 5 ? "再檢查一個數字" : "下一步",
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#b7bdcb" : "#35456a",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showRecordsBtn: (step === 0 || step === 5) && s.cards.length > 0,
+      onOpenRecords: () => this.set("recordsOpen", true),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+    };
+  }
+}
+</script>
+</body>
+</html>
