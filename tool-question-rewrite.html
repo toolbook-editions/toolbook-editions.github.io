@@ -21,13 +21,13 @@
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
   body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
-  a{color:#35456a;text-decoration:none;transition:.18s;}
-  a:hover{color:#26324f;}
+  a{color:#9c5b3f;text-decoration:none;transition:.18s;}
+  a:hover{color:#7a4530;}
   input,textarea,button{font-family:inherit;}
   input::placeholder,textarea::placeholder{color:#b9b09a;}
-  textarea:focus,input:focus{outline:none;border-color:#35456a!important;box-shadow:0 0 0 2px rgba(53,69,106,.08);}
+  textarea:focus,input:focus{outline:none;border-color:#9c5b3f!important;box-shadow:0 0 0 2px rgba(156, 91, 63,.08);}
   .stage::-webkit-scrollbar{width:0;}
-  ::selection{background:rgba(53,69,106,.15);}
+  ::selection{background:rgba(156, 91, 63,.15);}
 </style>
 </helmet>
 <div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
@@ -48,19 +48,19 @@
 
       <sc-if value="{{ s0 }}">
         <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
-          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
-          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 23 · 對話之前</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 23 · 對話之前</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">別問他會不會用，<br />問他上一次怎麼做</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">「你會用這個嗎」得到的答案幾乎一定是善意的——他在猜自己以後會怎樣，而人猜自己都猜得很寬。<b style="color:#554d40;">把同一件事挪回他已經做過的生活</b>，答案才有東西可以核對。這張卡幫你把手上的問題換一遍。<br />答案只存在這部裝置。</p>
           <div style="border-left:2px solid #cec6b4;padding:11px 14px;margin-top:20px;text-align:left;background:#f3efe7;border-radius:0 3px 3px 0;">
             <p style="font-size:12px;color:#554d40;line-height:1.75;margin:0;">先說清楚它的邊界：<b style="color:#554d40;">對方要有既成的做法可以講</b>，這一招才有東西可挖。全新的事情、一輩子做一次的決定，問過去問不出來——那不代表沒有需求。</p>
           </div>
-          <div onClick="{{ onOpenExample }}" style="margin-top:20px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
+          <div onClick="{{ onOpenExample }}" style="margin-top:20px;color:#9c5b3f;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
         </div>
       </sc-if>
 
       <sc-if value="{{ s1 }}">
-        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 這一題重不重要</div>
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 這一題重不重要</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">先確定這一題<br />問了會改變什麼</h2>
         <p style="color:#938a78;font-size:13px;margin-bottom:8px;">改寫問法之前，先過這一關：<b style="color:#554d40;">如果他的答案跟你想的相反，你會改掉哪一件事？</b>答不出來的題目，問得再漂亮也不會影響你接下來做什麼。</p>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">你原本想問的那句話</label>
@@ -69,13 +69,13 @@
         <textarea value="{{ change }}" onInput="{{ onChange }}" maxlength="300" placeholder="例如：如果他們其實不介意手動對表，我就不做自動排班，改做月底結帳那一段。" style="width:100%;min-height:92px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.85;resize:vertical;"></textarea>
         <sc-if value="{{ noChange }}">
           <div style="border-left:2px solid #cec6b4;padding:11px 14px;margin-top:10px;background:#f3efe7;border-radius:0 3px 3px 0;">
-            <p style="font-size:12.5px;color:#554d40;line-height:1.8;margin:0;">這一格空著，意思是<b style="color:#35456a;">這一題不管答什麼你都會照原計畫走</b>——那它就不是重要的問題。往下改寫還是有用（問法會變好），但先知道這件事：真正值得問的那一題，是答案有可能推翻你正在做的事的那一題。</p>
+            <p style="font-size:12.5px;color:#554d40;line-height:1.8;margin:0;">這一格空著，意思是<b style="color:#9c5b3f;">這一題不管答什麼你都會照原計畫走</b>——那它就不是重要的問題。往下改寫還是有用（問法會變好），但先知道這件事：真正值得問的那一題，是答案有可能推翻你正在做的事的那一題。</p>
           </div>
         </sc-if>
       </sc-if>
 
       <sc-if value="{{ s2 }}">
-        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 這一句在問什麼</div>
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 這一句在問什麼</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你自己看，<br />它問的是哪一種？</h2>
         <p style="color:#938a78;font-size:13px;margin-bottom:6px;">這裡不做自動判定——同一句話換個場合意思就變了，機器判不準，你判得準。三種只有第三種拿得到可以核對的東西。</p>
         <div style="border:1px solid #e3ddd0;background:#f3efe7;border-radius:3px;padding:12px 15px;margin:14px 0 16px;">
@@ -89,14 +89,14 @@
           </div>
         </sc-for>
         <sc-if value="{{ kindPast }}">
-          <div style="border-left:2px solid #35456a;padding:11px 14px;margin-top:4px;background:#f3efe7;border-radius:0 3px 3px 0;">
-            <p style="font-size:12.5px;color:#554d40;line-height:1.8;margin:0;">這一句本來就問對了方向。往下還是值得走一遍：<b style="color:#35456a;">把「上一次」釘成具體的一次</b>，並且記得補一句「後來怎麼解決的」。</p>
+          <div style="border-left:2px solid #9c5b3f;padding:11px 14px;margin-top:4px;background:#f3efe7;border-radius:0 3px 3px 0;">
+            <p style="font-size:12.5px;color:#554d40;line-height:1.8;margin:0;">這一句本來就問對了方向。往下還是值得走一遍：<b style="color:#9c5b3f;">把「上一次」釘成具體的一次</b>，並且記得補一句「後來怎麼解決的」。</p>
           </div>
         </sc-if>
       </sc-if>
 
       <sc-if value="{{ s3 }}">
-        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 換成已經發生的事</div>
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 換成已經發生的事</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">寫三句<br />你真的問得出口的話</h2>
         <p style="color:#938a78;font-size:13px;margin-bottom:6px;">骨架給你，<b style="color:#554d40;">空格自己填</b>——填的是你要問的那件事，不是我猜的那件事。三句都可以留空，留一句也夠用。</p>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">現在怎麼做</label>
@@ -105,13 +105,13 @@
         <textarea value="{{ r2 }}" onInput="{{ onR2 }}" maxlength="200" placeholder="上一次＿＿是什麼時候？當時你怎麼做的？" style="width:100%;min-height:70px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.85;resize:vertical;"></textarea>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">他自己試過什麼</label>
         <textarea value="{{ r3 }}" onInput="{{ onR3 }}" maxlength="200" placeholder="為了＿＿，你之前試過哪些辦法？後來為什麼沒用了？" style="width:100%;min-height:70px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.85;resize:vertical;"></textarea>
-        <div style="border-left:2px solid #35456a;padding:11px 14px;margin-top:16px;background:#f3efe7;border-radius:0 3px 3px 0;">
-          <p style="font-size:12.5px;color:#554d40;line-height:1.8;margin:0;">還有一句是固定的，會跟著印在卡上：<b style="color:#35456a;">「那後來怎麼解決的？」</b>——很多人會把一件事講得像災難，問到這裡才發現他早就湊出辦法了。少問這一句，會把情緒當成需求。</p>
+        <div style="border-left:2px solid #9c5b3f;padding:11px 14px;margin-top:16px;background:#f3efe7;border-radius:0 3px 3px 0;">
+          <p style="font-size:12.5px;color:#554d40;line-height:1.8;margin:0;">還有一句是固定的，會跟著印在卡上：<b style="color:#9c5b3f;">「那後來怎麼解決的？」</b>——很多人會把一件事講得像災難，問到這裡才發現他早就湊出辦法了。少問這一句，會把情緒當成需求。</p>
         </div>
       </sc-if>
 
       <sc-if value="{{ s4 }}">
-        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 價格錨</div>
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 價格錨</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">他現在為這件事<br />付出多少？</h2>
         <p style="color:#938a78;font-size:13px;margin-bottom:6px;">問「現在花多少」是順手拿到的一個錨。<b style="color:#554d40;">但錨不是一個數字，是一個位置</b>——同一個人身上常常兩種支出並存（自己熬夜做，也付錢給別人做），所以要你自己選要當誰的替代品。這一步可以整格留空。</p>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">要問的那一句<span style="color:#b9b09a;font-weight:400;font-family:sans-serif;font-size:12px;">　可留空</span></label>
@@ -129,7 +129,7 @@
         <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 12px;">要問的話 · {{ kindEcho }}</div>
         <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:24px 22px 20px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
           <sc-for list="{{ lines }}" as="l" hint-placeholder-count="3">
-            <div style="display:flex;gap:10px;margin-bottom:12px;"><span class="serif" style="font-family:'Noto Serif TC',serif;font-size:12px;color:#35456a;flex:0 0 14px;line-height:1.9;">{{ l.n }}</span><span style="font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.9;white-space:pre-wrap;">{{ l.t }}</span></div>
+            <div style="display:flex;gap:10px;margin-bottom:12px;"><span class="serif" style="font-family:'Noto Serif TC',serif;font-size:12px;color:#9c5b3f;flex:0 0 14px;line-height:1.9;">{{ l.n }}</span><span style="font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.9;white-space:pre-wrap;">{{ l.t }}</span></div>
           </sc-for>
           <div style="height:1px;background:#e3ddd0;margin:14px 0 12px;"></div>
           <div style="display:flex;gap:8px;margin-bottom:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 64px;">原本想問</span><span style="font-size:13px;line-height:1.7;white-space:pre-wrap;">{{ qEcho }}</span></div>
@@ -138,14 +138,14 @@
           <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Questions · Nº 23 · MMXXVI</div>
         </div>
 
-        <div style="border-left:2px solid #35456a;padding:13px 16px;margin-top:18px;background:#f3efe7;border-radius:0 3px 3px 0;">
-          <div style="font-family:'Noto Serif TC',serif;font-size:14.5px;font-weight:600;color:#35456a;margin-bottom:5px;">這三句問不出東西的兩種情況</div>
+        <div style="border-left:2px solid #9c5b3f;padding:13px 16px;margin-top:18px;background:#f3efe7;border-radius:0 3px 3px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:14.5px;font-weight:600;color:#9c5b3f;margin-bottom:5px;">這三句問不出東西的兩種情況</div>
           <p style="font-size:12.5px;color:#554d40;line-height:1.8;margin:0 0 7px;"><b style="color:#241f18;">一、他沒有既成的做法。</b>全新的事情、一輩子做一次的決定、還沒有人這樣做過的流程——問過去會得到一片空白。<b>那不代表需求不存在</b>，只代表這個方法用完了：讓行為先發生，再看結果。</p>
           <p style="font-size:12.5px;color:#554d40;line-height:1.8;margin:0;"><b style="color:#241f18;">二、那件事一年只發生一次。</b>報稅、換車、續約——他的「上一次」可能剛好是很特別的一次。這種題目要多問幾個人，別把一次當成常態。</p>
         </div>
 
         <a href="tool-pilot.html" style="display:block;border:1px solid #cec6b4;background:#fbf9f4;border-radius:3px;padding:13px 16px;margin-top:10px;">
-          <div style="font-family:'Noto Serif TC',serif;font-size:14px;font-weight:600;color:#35456a;margin-bottom:3px;">沒有過去可以問的時候 →</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:14px;font-weight:600;color:#9c5b3f;margin-bottom:3px;">沒有過去可以問的時候 →</div>
           <div style="font-size:12.5px;color:#554d40;line-height:1.75;">用「小規模試驗卡」設計一次成本很低的試驗：試多久、看到什麼算數、什麼時候收手。那張卡來自另一本書，但正好接在這裡。</div>
         </a>
 
@@ -156,24 +156,24 @@
         </div>
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px;">
-          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
-          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製這幾句</button>
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製這幾句</button>
         </div>
 
         <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
           <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
           <div style="display:flex;gap:8px;">
-            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
-            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
-            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
           </div>
-          <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <div style="min-height:16px;text-align:center;color:#9c5b3f;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
           <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
           <form onSubmit="{{ onSubmitFeedback }}">
             <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
             <div style="display:flex;gap:8px;">
               <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
-              <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+              <button type="submit" style="border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
             </div>
           </form>
           <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《The Mom Test》的三條規則與五組替代問法。要說準確一點：問過去不等於拿到真話——自陳的過去跟客觀紀錄只有中等相關；它的好處是兩種問法都會失真，而問過去的失真比較好辨認、比較校正得回來。而且它有前提：對方要有既成的做法可講。</p>
@@ -190,10 +190,10 @@
         <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
       </sc-if>
       <sc-if value="{{ s5 }}">
-        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
       </sc-if>
       <sc-if value="{{ showRecordsBtn }}">
-        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">我的問句（{{ recordsCount }}）</button>
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">我的問句（{{ recordsCount }}）</button>
       </sc-if>
     </div>
 
@@ -214,10 +214,10 @@
 
         <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:0 0 12px;">要問的話 · 原本在問未來</div>
         <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:24px 22px 20px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
-          <div style="display:flex;gap:10px;margin-bottom:12px;"><span style="font-family:'Noto Serif TC',serif;font-size:12px;color:#35456a;flex:0 0 14px;line-height:1.9;">1</span><span style="font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.9;">你們現在怎麼排下個月的班？</span></div>
-          <div style="display:flex;gap:10px;margin-bottom:12px;"><span style="font-family:'Noto Serif TC',serif;font-size:12px;color:#35456a;flex:0 0 14px;line-height:1.9;">2</span><span style="font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.9;">上一次排到很難排是什麼時候？當時你怎麼弄的？</span></div>
-          <div style="display:flex;gap:10px;margin-bottom:12px;"><span style="font-family:'Noto Serif TC',serif;font-size:12px;color:#35456a;flex:0 0 14px;line-height:1.9;">3</span><span style="font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.9;">為了少花時間在排班上，你之前試過哪些辦法？後來為什麼沒用了？</span></div>
-          <div style="display:flex;gap:10px;"><span style="font-family:'Noto Serif TC',serif;font-size:12px;color:#35456a;flex:0 0 14px;line-height:1.9;">＋</span><span style="font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.9;">那後來怎麼解決的？</span></div>
+          <div style="display:flex;gap:10px;margin-bottom:12px;"><span style="font-family:'Noto Serif TC',serif;font-size:12px;color:#9c5b3f;flex:0 0 14px;line-height:1.9;">1</span><span style="font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.9;">你們現在怎麼排下個月的班？</span></div>
+          <div style="display:flex;gap:10px;margin-bottom:12px;"><span style="font-family:'Noto Serif TC',serif;font-size:12px;color:#9c5b3f;flex:0 0 14px;line-height:1.9;">2</span><span style="font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.9;">上一次排到很難排是什麼時候？當時你怎麼弄的？</span></div>
+          <div style="display:flex;gap:10px;margin-bottom:12px;"><span style="font-family:'Noto Serif TC',serif;font-size:12px;color:#9c5b3f;flex:0 0 14px;line-height:1.9;">3</span><span style="font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.9;">為了少花時間在排班上，你之前試過哪些辦法？後來為什麼沒用了？</span></div>
+          <div style="display:flex;gap:10px;"><span style="font-family:'Noto Serif TC',serif;font-size:12px;color:#9c5b3f;flex:0 0 14px;line-height:1.9;">＋</span><span style="font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.9;">那後來怎麼解決的？</span></div>
           <div style="height:1px;background:#e3ddd0;margin:14px 0 12px;"></div>
           <div style="display:flex;gap:8px;margin-bottom:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 64px;">原本想問</span><span style="font-size:13px;line-height:1.7;">如果有一個工具可以自動幫你排班，你會用嗎？</span></div>
           <div style="display:flex;gap:8px;margin-bottom:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 64px;">答相反就改</span><span style="font-size:13px;line-height:1.7;">如果他們其實不介意手動排，我就不做排班，改做月底結帳那一段。</span></div>
@@ -232,7 +232,7 @@
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>價格錨是一個位置，不是一個數字</b>——同一家診所可能既熬夜手動做、又付錢給外面的人做。你要先決定自己站在哪一格。</div>
         </div>
 
-        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，換我的問題</button>
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，換我的問題</button>
       </div>
     </div>
   </sc-if>
@@ -250,7 +250,7 @@
             <div style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;">
               <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:10px;"><span style="white-space:nowrap;">{{ c.date }} · {{ c.kind }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
               <div style="font-family:'Noto Serif TC',serif;font-size:15.5px;font-weight:600;margin-bottom:12px;line-height:1.7;white-space:pre-wrap;">{{ c.first }}</div>
-              <button onClick="{{ c.onView }}" style="border:1px solid #35456a;background:transparent;color:#35456a;border-radius:2px;padding:9px 16px;font-size:13px;cursor:pointer;">看這張</button>
+              <button onClick="{{ c.onView }}" style="border:1px solid #9c5b3f;background:transparent;color:#9c5b3f;border-radius:2px;padding:9px 16px;font-size:13px;cursor:pointer;">看這張</button>
             </div>
           </sc-for>
         </sc-if>
@@ -361,16 +361,16 @@ class Component extends DCLogic {
   opts(list, cur, pick) {
     return list.map(o => ({
       label: o.label, hint: o.hint || "",
-      bg: cur === o.k ? "#eceff5" : "#fff",
-      bd: cur === o.k ? "#35456a" : "#e3ddd0",
-      fg: cur === o.k ? "#35456a" : "#554d40",
+      bg: cur === o.k ? "#f4ece5" : "#fff",
+      bd: cur === o.k ? "#9c5b3f" : "#e3ddd0",
+      fg: cur === o.k ? "#9c5b3f" : "#554d40",
       onPick: () => pick(o.k),
     }));
   }
 
   renderVals() {
     const s = this.state, step = s.step;
-    const dots = [1, 2, 3, 4].map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#35456a" : "#e3ddd0" }));
+    const dots = [1, 2, 3, 4].map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#9c5b3f" : "#e3ddd0" }));
     const showGate = step >= 1 && step <= 3;
     const gateBad = showGate && !this.gateOk(step);
     const cards = s.cards.map((c) => ({
@@ -407,7 +407,7 @@ class Component extends DCLogic {
       showNextBtn: step <= 5,
       onNext: step === 5 ? () => this.newCard() : () => this.next(),
       nextLabel: step === 0 ? "開始" : step === 4 ? "完成，看要問的話" : step === 5 ? "換另一個問題" : "下一步",
-      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#b7bdcb" : "#35456a",
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#b7bdcb" : "#9c5b3f",
       toastOn: s.toastOn, toastMsg: s.toastMsg,
       cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
       showRecordsBtn: (step === 0 || step === 5) && s.cards.length > 0,
