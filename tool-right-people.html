@@ -368,7 +368,7 @@ class Component extends DCLogic {
     };
     const cards = [card, ...this.state.cards].slice(0, 50);
     this.setState({ cards });
-    try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: this.TOOL }); } catch (_) {}
+    try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: this.TOOL, verdict: this.verdict(card) }); } catch (_) {}
   }
   deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); try { localStorage.setItem(this.HKEY, JSON.stringify(cards)); } catch (_) {} }
 
