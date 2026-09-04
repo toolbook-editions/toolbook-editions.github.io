@@ -47,7 +47,7 @@
     </nav>
 
     <header style="padding:34px 0 26px;">
-      <div style="color:#35456a;font-size:12px;letter-spacing:4px;text-transform:uppercase;margin-bottom:16px;">我的紀錄</div>
+      <div id="eyebrow" style="color:#35456a;font-size:12px;letter-spacing:4px;text-transform:uppercase;margin-bottom:16px;">我的紀錄</div>
       <h1 class="serif" style="font-size:clamp(27px,6vw,34px);font-weight:600;line-height:1.35;letter-spacing:.5px;margin-bottom:14px;text-wrap:balance;">你用過哪些，<br />以及上次寫下了什麼。</h1>
       <p style="color:#5d564a;font-size:15px;line-height:1.9;font-family:'EB Garamond','Noto Serif TC',serif;">忘記一個工具做什麼的時候，不必回去重讀文章——先看你上次自己寫下的結論。答案只存在這部裝置，我看不到。</p>
     </header>
@@ -58,7 +58,8 @@
       <div style="flex:1;padding:18px 12px;text-align:center;border-left:1px solid #e3ddd0;"><div id="tLast" class="serif" style="font-size:28px;color:#35456a;line-height:1.2;">—</div><div style="font-size:11px;color:#938a78;letter-spacing:.5px;margin-top:3px;">最近一次</div></div>
     </div>
 
-    <div style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#938a78;margin-bottom:16px;">全部工具</div>
+    <div id="volTabs" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;"></div>
+    <div id="secLabel" style="font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#938a78;margin-bottom:16px;">全部工具</div>
     <div id="rows"></div>
 
     <div style="height:1px;background:#e3ddd0;margin:30px 0;"></div>
@@ -113,6 +114,36 @@
     { no: "25", name: "數據自檢卡", key: "toolbook_datacheck_history_v1", file: "tool-data-check.html", unit: "張", label: "想宣布的那句", pick: function (c) { return c.claim; } }
   ];
 
+  var VOL = (function () {
+    var m = (location.search.match(/[?&]vol=([^&#]+)/) || [])[1];
+    return (m === "personal" || m === "founders") ? m : "all";
+  })();
+  function volOf(t) { return parseInt(t.no, 10) >= 22 ? "founders" : "personal"; }
+  var ACCENT = VOL === "founders" ? "#9c5b3f" : "#35456a";
+  var POOL = TOOLS.filter(function (t) { return VOL === "all" || volOf(t) === VOL; });
+
+  function renderTabs() {
+    var tabs = [
+      { k: "all", label: "全部", href: "records.html" },
+      { k: "personal", label: "個人卷", href: "records.html?vol=personal" },
+      { k: "founders", label: "創業卷", href: "records.html?vol=founders" }
+    ];
+    var host = document.getElementById("volTabs"); if (!host) return;
+    host.innerHTML = tabs.map(function (t) {
+      var on = t.k === VOL;
+      var col = t.k === "founders" ? "#9c5b3f" : "#35456a";
+      return '<a href="' + t.href + '" style="font-size:12.5px;letter-spacing:1px;padding:7px 15px;border-radius:999px;border:1px solid ' + (on ? col : "#d8d2c4") + ';color:' + (on ? "#fbf9f4" : "#938a78") + ';background:' + (on ? col : "transparent") + ';">' + t.label + '</a>';
+    }).join("");
+  }
+
+  function applyVol() {
+    ["tUsed", "tCards", "tLast"].forEach(function (id) { var e = document.getElementById(id); if (e) e.style.color = ACCENT; });
+    var eb = document.getElementById("eyebrow"); if (eb) eb.style.color = ACCENT;
+    var lbl = document.getElementById("secLabel");
+    if (lbl) lbl.textContent = VOL === "founders" ? "創業卷 · 工具" : VOL === "personal" ? "個人卷 · 工具" : "全部工具";
+    renderTabs();
+  }
+
   function readJSON(k, f) { try { var v = JSON.parse(localStorage.getItem(k)); return v == null ? f : v; } catch (_) { return f; } }
   function fmtDate(d) { if (!d || isNaN(d.getTime())) return "日期不明"; return d.getFullYear() + "." + String(d.getMonth() + 1).padStart(2, "0") + "." + String(d.getDate()).padStart(2, "0"); }
   function clip(s, n) { s = String(s == null ? "" : s).replace(/\s+/g, " ").trim(); return s.length > n ? s.slice(0, n) + "…" : s; }
@@ -152,7 +183,7 @@
   }
 
   function refresh() {
-    var raw = TOOLS.map(function (t) { return { t: t, u: usageOf(t) }; });
+    var raw = POOL.map(function (t) { return { t: t, u: usageOf(t) }; });
     var used = raw.filter(function (r) { return r.u.count > 0; });
     var cards = raw.reduce(function (s, r) { return s + r.u.count; }, 0);
     var dates = used.map(function (r) { return r.u.lastAt; }).filter(Boolean).sort(function (a, b) { return b - a; });
@@ -173,7 +204,7 @@
       };
     });
     document.getElementById("rows").innerHTML = rows.map(rowHTML).join("");
-    document.getElementById("tUsed").textContent = used.length + " / " + TOOLS.length;
+    document.getElementById("tUsed").textContent = used.length + " / " + POOL.length;
     document.getElementById("tCards").textContent = cards;
     document.getElementById("tLast").textContent = dates.length ? ((dates[0].getMonth() + 1) + "." + String(dates[0].getDate()).padStart(2, "0")) : "—";
   }
@@ -221,6 +252,7 @@
 
   document.getElementById("btnExport").addEventListener("click", exportAll);
   document.getElementById("fileImport").addEventListener("change", onFile);
+  applyVol();
   refresh();
 })();
 </script>
