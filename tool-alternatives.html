@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+<!-- toolbook-icons -->
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-f.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f3efe7">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#9c5b3f;text-decoration:none;transition:.18s;}
+  a:hover{color:#7a4530;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#9c5b3f!important;box-shadow:0 0 0 2px rgba(156,91,63,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(156,91,63,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="3">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 28 · 替代方案盤點</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">你列的競品表，<br />客戶一個都沒在看</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">別從你認定的對手出發。問一句話：<b style="color:#9c5b3f;">如果你不存在，客戶明天會改用什麼？</b><br />這張卡幫你盤出他心裡真正在比的東西。<br />答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#9c5b3f;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 挑一個人</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">先想一個<br />最滿意你的客戶</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">一個真實的、最近成交或續約、而且是真心愛用的客戶。從一個人開始，比對著空氣想「市場」準得多。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:14px 0 7px;">這位客戶是誰</label>
+        <input value="{{ client }}" onInput="{{ onClient }}" maxlength="70" placeholder="例如：一家 20 人的設計公司、負責的是營運長" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:16px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">若你已經有一套定位，這些「最滿意的客戶」可能正是被那套定位篩進來的。多挑幾個來源不同的，別讓現狀替你把答案先選好。</div>
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 不然他會用什麼</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">如果你不存在，<br />他明天會改用什麼？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">問他實際會怎麼做（行為），不要問他「覺得你算哪一類」（判斷）——後者他會亂猜，還會把你帶去最顯而易見、對你最不利的框架。</p>
+        <div style="border-left:2px solid #9c5b3f;background:rgba(156,91,63,.05);padding:12px 15px;margin:6px 0 12px;border-radius:0 3px 3px 0;">
+          <div style="font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">這位客戶</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">{{ mirrorClient }}</div>
+        </div>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:8px 0 7px;">他最可能改用的那一種</label>
+        <sc-for list="{{ typeOpts }}" as="t" hint-placeholder-count="4">
+          <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:12px 15px;margin-bottom:8px;cursor:pointer;">
+            <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:1px;color:{{ t.fg }};">{{ t.label }}</div>
+            <div style="font-size:12px;color:#938a78;line-height:1.55;">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">具體是什麼</label>
+        <input value="{{ mainAlt }}" onInput="{{ onMainAlt }}" maxlength="80" placeholder="例如：繼續用 Excel 手動對帳／請工讀生做／某某競品" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">其他他也會考慮的（可留空）</label>
+        <textarea value="{{ otherAlt }}" onInput="{{ onOtherAlt }}" maxlength="200" placeholder="一行一個，想到幾個寫幾個" style="width:100%;min-height:56px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:12px 15px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;"></textarea>
+      </sc-if>
+
+      <sc-if value="{{ s3 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 你贏在哪</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">相對這個替代方案，<br />他為什麼還是選你？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">現在你知道他真正在比的是什麼了。差異化就從這裡長出來——不是你比別人「好」，是你有<b style="color:#9c5b3f;">這個替代方案給不了</b>的東西。</p>
+        <div style="border-left:2px solid #9c5b3f;background:rgba(156,91,63,.05);padding:12px 15px;margin:6px 0 12px;border-radius:0 3px 3px 0;">
+          <div style="font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">他心裡的主要替代方案</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">{{ mirrorMainAlt }}</div>
+        </div>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:8px 0 7px;">這個替代方案給不了、而你給得了的</label>
+        <input value="{{ edge }}" onInput="{{ onEdge }}" maxlength="90" placeholder="例如：不用自己維護、出錯有人扛、十分鐘就上手" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:16px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">先別急著證明「只有你有」——那要另外查對手的能力，不能自己說了算。這一步只要先寫下「相對這個替代方案，你多了什麼」。</div>
+      </sc-if>
+
+      <sc-if value="{{ s4 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 14px;">你的替代方案盤點卡</div>
+
+        <div style="position:relative;border:1px solid {{ cardBd }};border-radius:3px;padding:28px 24px 22px;background:{{ cardBg }};box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px {{ cardBd }};">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:{{ cardAccent }};">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:5px;padding-left:5px;margin-top:4px;">替 代 方 案 盤 點 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Alternatives Inventory · 創業卷</div>
+          <div style="width:30px;height:1px;background:{{ cardAccent }};opacity:.6;margin:16px auto 20px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">客戶</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:14px;white-space:pre-wrap;">{{ cardClient }}</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">他心裡的主要替代方案</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:4px;white-space:pre-wrap;">{{ cardMainAlt }}</div>
+          <div style="font-size:12px;color:{{ cardAccent }};margin-bottom:14px;">類型：{{ cardTypeLabel }}</div>
+          <sc-if value="{{ hasOther }}">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">其他也在考慮的</div>
+            <div style="font-size:13.5px;line-height:1.7;margin-bottom:14px;white-space:pre-wrap;">{{ cardOther }}</div>
+          </sc-if>
+          <div style="height:1px;background:#e3ddd0;margin-bottom:16px;"></div>
+          <div style="border:1px solid {{ cardBd }};border-radius:2px;padding:14px 14px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">你贏在這個替代方案給不了的</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:{{ cardAccent }};line-height:1.6;white-space:pre-wrap;">{{ cardEdge }}</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:{{ cardAccent }};font-size:14px;letter-spacing:2px;margin-top:16px;">先看清他在比什麼，再談你贏在哪。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Toolbook · MMXXVI</div>
+        </div>
+
+        <div style="border:1px solid {{ cardBd }};border-radius:4px;background:#fbf9f4;padding:16px 18px;margin-top:16px;">
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">你在打哪一種仗</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:{{ cardAccent }};font-weight:600;margin-bottom:6px;">{{ verdictTitle }}</div>
+          <p style="color:#554d40;font-size:13px;line-height:1.8;margin:0;">{{ verdictBody }}</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製文字</button>
+          <button onClick="{{ onShare }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">分享這張</button>
+        </div>
+
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:24px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">這條線的下一步</div>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">想弄清楚為什麼差異化要從客戶心裡的替代方案出發、而不是你的競品表，讀 <a href="article-what-would-they-use.html">〈你列的競品表，客戶一個都沒在看〉</a>。</p>
+        </div>
+
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+          <div style="min-height:16px;text-align:center;color:#9c5b3f;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《產品定位》。書給了「問客戶會用什麼」，把「什麼都不做／用 AI 自建」單獨列一欄、以及據此判你在打哪種仗，是本站補的。方法是否適合你，請自行判斷。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      <sc-if value="{{ s4 }}">
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">查看替代方案盤點卡紀錄簿（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設你做的是小型團隊的自動對帳工具。你最滿意的客戶是一家設計公司的營運長。你問他「如果我們不存在，你明天會改用什麼」——他不會說某個競品，他會說「繼續用 Excel 手動對」。填出來的卡長這樣：</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#9c5b3f;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:5px;padding-left:5px;margin-top:4px;">替 代 方 案 盤 點 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Alternatives Inventory · 創業卷</div>
+          <div style="width:30px;height:1px;background:#9c5b3f;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">客戶</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:14px;">一家 20 人設計公司的營運長</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">他心裡的主要替代方案</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:4px;">繼續用 Excel 手動對帳</div>
+          <div style="font-size:12px;color:#9c5b3f;margin-bottom:14px;">類型：試算表／人工流程</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">其他也在考慮的</div>
+          <div style="font-size:13.5px;line-height:1.7;margin-bottom:14px;">請工讀生做、什麼都不做先撐著</div>
+          <div style="height:1px;background:#e3ddd0;margin-bottom:16px;"></div>
+          <div style="border:1px solid #cec6b4;border-radius:2px;padding:14px 14px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">你贏在這個替代方案給不了的</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#9c5b3f;line-height:1.6;">出錯會自己抓出來，不用月底熬夜核</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:14px;letter-spacing:2px;margin-top:16px;">先看清他在比什麼，再談你贏在哪。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Toolbook · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>真正的對手沒有 logo。</b>他的主要替代方案是 Excel，不是任何一個競品——你那張競品表上一個都沒中。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>差異化從替代方案長出來。</b>對手是手動對帳，你的賣點就不是「功能比誰多」，是「不用自己熬夜核」。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>問行為，不問判斷。</b>問「你會改用什麼」他答得準；問「你覺得我們算哪類」他只會亂猜。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">替代方案盤點卡紀錄簿</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:12px;"><span style="white-space:nowrap;">第 {{ c.idx }} 張 · {{ c.date }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;">客戶</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-top:3px;white-space:pre-wrap;">{{ c.client }}</div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;margin-top:10px;">主要替代方案 · {{ c.typeLabel }}</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#9c5b3f;font-weight:600;margin-top:3px;white-space:pre-wrap;">{{ c.mainAlt }}</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有卡片。<br />完成第一張後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    step: 0, client: "", atype: "", mainAlt: "", otherAlt: "", edge: "",
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, started: false, exampleOpen: false,
+  };
+  HKEY = "toolbook_alternatives_history_v1";
+  TYPES = {
+    competitor: ["某個直接競品", "一個有名字、有官網的產品——跟你做同一件事。"],
+    manual: ["試算表／人工流程", "用 Excel、手動、找人做——土法煉鋼撐著。"],
+    donothing: ["什麼都不做", "維持現狀，先忍著，或根本不覺得這是個問題。"],
+    aidiy: ["用 AI 自己拼一個", "叫通用 AI 工具幫他做一個堪用的版本。"],
+  };
+  VERDICTS = {
+    competitor: ["同場競爭：你在既有類別裡", "客戶拿一個真競品在跟你比，代表這個類別他懂。差異化要對著這個競品在他心中的預設（該有什麼功能、賣多少錢）下手——但別用它的打法打它，正面拼規模你多半拼不過。"],
+    manual: ["取代現狀：你的對手是土法煉鋼", "這通常是最好賣的一種——手動很痛，痛就是你的機會。差異化＝比手動好夠多，且切換成本值得。把力氣放在「省下的時間／少犯的錯」，不是「功能比誰多」。"],
+    donothing: ["⚠️ 你可能在創類別（最難的一條）", "如果他寧可什麼都不做、甚至不覺得這是問題，你的對手是慣性。這代表你得先賣「這是個值得解決的問題」，再賣你的方案——這是書裡說最難、最慢的一條路。先確認真的有夠多人已經在為這件事煩惱，再投入。"],
+    aidiy: ["隱形對手：他可以用 AI 自己做", "這個對手不在任何競品追蹤裡，沒有官網、沒有募資新聞。差異化要正面回答一句話：「為什麼不自己用 AI 拼一個就好？」——通常答案是可靠度、整合、維護成本、或不想自己養這攤。答不出來，這條就危險。"],
+  };
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  set(k, v) { this.setState({ [k]: v }); }
+  flow() { return [0, 1, 2, 3, 4]; }
+  gateOk(step) {
+    const s = this.state;
+    if (step === 1) return !!s.client.trim();
+    if (step === 2) return !!s.atype && !!s.mainAlt.trim();
+    if (step === 3) return !!s.edge.trim();
+    return true;
+  }
+  next() {
+    if (!this.gateOk(this.state.step)) return;
+    if (this.state.step === 0 && !this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "替代方案盤點器" }); }
+    const fl = this.flow(); const i = fl.indexOf(this.state.step); const n = fl[Math.min(fl.length - 1, i + 1)];
+    if (n === 4) this.archive();
+    this.setState({ step: n });
+    const st = document.querySelector(".stage"); if (st) st.scrollTop = 0;
+  }
+  prev() { const fl = this.flow(); const i = fl.indexOf(this.state.step); const p = fl[Math.max(0, i - 1)]; this.setState({ step: p }); const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  pickType(t) { this.setState({ atype: t }); }
+  verdictKey() { return this.state.atype === "competitor" ? "competitor" : this.state.atype === "manual" ? "manual" : this.state.atype === "aidiy" ? "aidiy" : "donothing"; }
+  gaVerdict() { const k = this.verdictKey(); return k === "donothing" ? "do_nothing" : k === "aidiy" ? "ai_diy" : k; }
+  newCard() {
+    if (!window.confirm("開始一張新的卡片？目前內容會清掉。")) return;
+    this.setState({ step: 1, client: "", atype: "", mainAlt: "", otherAlt: "", edge: "" });
+  }
+  archive() {
+    const s = this.state; if (!s.client.trim()) return;
+    const card = { id: "alt_" + Date.now().toString(36), createdAt: new Date().toISOString(),
+      client: s.client.trim(), atype: s.atype, mainAlt: s.mainAlt.trim(), otherAlt: s.otherAlt.trim(), edge: s.edge.trim() };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards });
+    try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: "替代方案盤點器", verdict: this.gaVerdict() }); } catch (_) {}
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); try { localStorage.setItem(this.HKEY, JSON.stringify(cards)); } catch (_) {} }
+
+  cardText() {
+    const s = this.state; const tl = this.TYPES[s.atype] ? this.TYPES[s.atype][0] : "—"; const v = this.VERDICTS[this.verdictKey()];
+    return "替代方案盤點卡\n\n客戶：" + s.client.trim() + "\n主要替代方案：" + s.mainAlt.trim() + "（" + tl + "）\n" + (s.otherAlt.trim() ? "其他也在考慮：" + s.otherAlt.trim() + "\n" : "") + "你贏在替代方案給不了的：" + s.edge.trim() + "\n\n你在打哪種仗：" + v[0] + "\n" + v[1] + "\n\n先看清他在比什麼，再談你贏在哪。";
+  }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製卡片文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  async share() { try { if (navigator.share) await navigator.share({ title: "我的替代方案盤點卡", text: this.cardText() }); else { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: "替代方案盤點器", helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "替代方案盤點器"); fd.append("_subject", "Toolbook 工具回饋 · 替代方案盤點器"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+  async saveImage() {
+    const s = this.state; const tl = this.TYPES[s.atype] ? this.TYPES[s.atype][0] : "—"; const v = this.VERDICTS[this.verdictKey()];
+    const blocks = [
+      { k: "客戶", v: s.client.trim() || "—", serif: true },
+      { k: "主要替代方案（" + tl + "）", v: s.mainAlt.trim() || "—" },
+    ];
+    if (s.otherAlt.trim()) blocks.push({ k: "其他也在考慮", v: s.otherAlt.trim() });
+    blocks.push({ k: "你贏在替代方案給不了的", v: s.edge.trim() || "—", big: true });
+    blocks.push({ k: "你在打哪種仗", v: v[0] });
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "替代方案盤點卡", sub: "ALTERNATIVES INVENTORY · Nº 28", filename: "替代方案盤點卡-Toolbook", mantra: "先看清他在比什麼，再談你贏在哪。", edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+  }
+
+  renderVals() {
+    const s = this.state, step = s.step;
+    const fl = this.flow(); const inner = fl.filter(n => n > 0 && n < 4);
+    const dots = inner.map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#9c5b3f" : "#e3ddd0" }));
+    const showGate = step >= 1 && step <= 3;
+    const gateBad = showGate && !this.gateOk(step);
+    const typeOpts = ["competitor", "manual", "donothing", "aidiy"].map(k => ({
+      label: this.TYPES[k][0], desc: this.TYPES[k][1],
+      bd: s.atype === k ? "#9c5b3f" : "#e3ddd0",
+      bg: s.atype === k ? "rgba(156,91,63,.06)" : "#fbf9f4",
+      fg: s.atype === k ? "#9c5b3f" : "#241f18",
+      onClick: () => this.pickType(k),
+    }));
+    const cards = s.cards.map((c, n) => ({
+      idx: s.cards.length - n, date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }),
+      client: c.client || "—", typeLabel: this.TYPES[c.atype] ? this.TYPES[c.atype][0] : "—", mainAlt: c.mainAlt || "—",
+      onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); },
+    }));
+    const vkey = this.verdictKey(); const v = this.VERDICTS[vkey];
+    const danger = vkey === "donothing";
+    return {
+      dots, backColor: step === 0 ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4,
+      client: s.client, onClient: e => this.set("client", e.target.value),
+      mirrorClient: s.client.trim() || "—",
+      typeOpts,
+      mainAlt: s.mainAlt, onMainAlt: e => this.set("mainAlt", e.target.value),
+      otherAlt: s.otherAlt, onOtherAlt: e => this.set("otherAlt", e.target.value),
+      mirrorMainAlt: s.mainAlt.trim() || "—",
+      edge: s.edge, onEdge: e => this.set("edge", e.target.value),
+      cardClient: s.client.trim() || "—", cardMainAlt: s.mainAlt.trim() || "—",
+      cardTypeLabel: this.TYPES[s.atype] ? this.TYPES[s.atype][0] : "—",
+      hasOther: !!s.otherAlt.trim(), cardOther: s.otherAlt.trim() || "—",
+      cardEdge: s.edge.trim() || "—",
+      verdictTitle: v[0], verdictBody: v[1],
+      cardBd: danger ? "#cd9a86" : "#cec6b4", cardBg: danger ? "#f6efe9" : "#f3efe7", cardAccent: danger ? "#a6552f" : "#9c5b3f",
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(), onHome: () => { window.location.href = "index.html"; },
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e), onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
+      showGate, gateMsg: gateBad ? (step === 1 ? "先寫下這位客戶是誰" : step === 2 ? "選一個型別、並寫下具體是什麼" : "寫下這個替代方案給不了、而你給得了的") : "",
+      onNext: step === 4 ? () => this.newCard() : () => this.next(),
+      nextLabel: step === 0 ? "開始" : step === 3 ? "生成盤點卡" : step === 4 ? "再做一張新的卡片" : "下一步",
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#cbb9ac" : "#9c5b3f",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showRecordsBtn: (step === 0 || step === 4) && s.cards.length > 0,
+      onOpenRecords: () => this.set("recordsOpen", true),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+    };
+  }
+}
+</script>
+</body>
+</html>
