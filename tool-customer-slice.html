@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+<!-- toolbook-icons -->
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-f.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f3efe7">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#9c5b3f;text-decoration:none;transition:.18s;}
+  a:hover{color:#7a4530;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#9c5b3f!important;box-shadow:0 0 0 2px rgba(156,91,63,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(156,91,63,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="4">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 32 · 客戶切片</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">「大家」不是客戶，<br />切到你知道去哪找他為止</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">一個太廣的客戶群沒有用——因為你<b style="color:#9c5b3f;">找不到他們去談</b>。這張卡逼你把「大家」切到「誰＋在哪裡找得到」，再多問一層：那個場所裡，誰能一次把你介紹給很多這樣的人。<br />答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#9c5b3f;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個切好的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 起點</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你想服務的<br />是哪一群人？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">起點可以很廣沒關係——「想學理財的人」「小商家」都行。廣的東西下一步再切。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:14px 0 7px;">起點的客戶群</label>
+        <input value="{{ broad }}" onInput="{{ onBroad }}" maxlength="50" placeholder="例如：想學理財的人／小商家／新手爸媽" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 切一刀</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這群人裡，<br />先服務最明確的一小群</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">不要選「最大」的一群，選「最好找、最有理由現在就需要」的一小群。</p>
+        <div style="border-left:2px solid #9c5b3f;background:rgba(156,91,63,.05);padding:10px 14px;margin:6px 0 12px;border-radius:0 3px 3px 0;">
+          <div style="font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:#938a78;margin-bottom:3px;">你的起點</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.5;white-space:pre-wrap;">{{ mirrorBroad }}</div>
+        </div>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:8px 0 7px;">切到這一小群</label>
+        <input value="{{ who }}" onInput="{{ onWho }}" maxlength="60" placeholder="例如：剛接手家裡小吃店、想搞懂帳的第二代" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:18px 0 7px;">一眼能認出他是這群人的特徵（可留空）</label>
+        <input value="{{ marker }}" onInput="{{ onMarker }}" maxlength="60" placeholder="例如：最近半年剛接手、店還在用手寫帳本" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:16px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">切得夠不夠細，下一步見真章：如果你說不出去哪找他們，就是還沒切夠。</div>
+      </sc-if>
+
+      <sc-if value="{{ s3 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 在哪找得到</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你這週<br />去哪就能遇到他們？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">一個具體、你今天就找得到的場所或管道——線上線下都算。<b style="color:#9c5b3f;">這一題才是切片的真正檢驗。</b></p>
+        <div style="border-left:2px solid #9c5b3f;background:rgba(156,91,63,.05);padding:10px 14px;margin:6px 0 12px;border-radius:0 3px 3px 0;">
+          <div style="font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:#938a78;margin-bottom:3px;">你切到的一小群</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.5;white-space:pre-wrap;">{{ mirrorWho }}</div>
+        </div>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:8px 0 7px;">在哪找得到他們</label>
+        <input value="{{ where }}" onInput="{{ onWhere }}" maxlength="70" placeholder="例如：某個餐飲創業社團、某條街的店家、某個記帳 App 的社群" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <div style="border-left:2px solid #cd9a86;background:rgba(166,85,47,.06);padding:12px 15px;margin-top:16px;border-radius:0 3px 3px 0;font-size:13.5px;color:#6b5347;line-height:1.8;">如果你只寫得出「網路上」「很多地方」這種——那不是地方，是還沒切夠。回上一步，把那一小群再切細一點，細到你能指著一個具體的門進去。</div>
+      </sc-if>
+
+      <sc-if value="{{ s4 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 分發權</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">那個場所裡，<br />誰能一次介紹你給很多人？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">這是書之外多問的一層。與其一個一個找，不如找到那個握著「分發權」的人：社團管理員、電子報主筆、某個大家都信的前輩、某個窗口。找得到就寫，還沒有就留空。</p>
+        <div style="border-left:2px solid #9c5b3f;background:rgba(156,91,63,.05);padding:10px 14px;margin:6px 0 12px;border-radius:0 3px 3px 0;">
+          <div style="font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:#938a78;margin-bottom:3px;">你找他們的場所</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.5;white-space:pre-wrap;">{{ mirrorWhere }}</div>
+        </div>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:8px 0 7px;">誰有分發權（可留空）</label>
+        <input value="{{ gate }}" onInput="{{ onGate }}" maxlength="70" placeholder="例如：那個社團的版主、那份電子報的作者" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:16px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">找不到分發權的人也沒關係——那代表你得先一個一個去談，把前幾個談成了，他們往往就成了你的分發權。</div>
+      </sc-if>
+
+      <sc-if value="{{ s5 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 14px;">你的客戶切片卡</div>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 20px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#9c5b3f;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">客 戶 切 片 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Customer Slice · 創業卷</div>
+          <div style="width:30px;height:1px;background:#9c5b3f;opacity:.6;margin:15px auto 18px;"></div>
+          <div style="font-size:11px;color:#938a78;line-height:1.6;margin-bottom:14px;">從「<span style="white-space:pre-wrap;">{{ cardBroad }}</span>」切到——</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">這一小群人</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:17px;color:#9c5b3f;line-height:1.5;white-space:pre-wrap;">{{ cardWho }}</div>
+          <sc-if value="{{ hasMarker }}"><div style="font-size:12px;color:#938a78;line-height:1.6;margin-top:4px;white-space:pre-wrap;">認得出的特徵：{{ cardMarker }}</div></sc-if>
+          <div style="height:1px;background:#e3ddd0;margin:14px 0;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">在哪找得到</div>
+          <div style="font-size:15px;line-height:1.6;white-space:pre-wrap;">{{ cardWhere }}</div>
+          <sc-if value="{{ hasGate }}">
+            <div style="height:1px;background:#e3ddd0;margin:14px 0;"></div>
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">誰有分發權</div>
+            <div style="font-size:15px;line-height:1.6;white-space:pre-wrap;">{{ cardGate }}</div>
+          </sc-if>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:14px;letter-spacing:1px;margin-top:18px;">切到你知道明天去哪找他，才算切完。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Toolbook · MMXXVI</div>
+        </div>
+
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fbf9f4;padding:16px 18px;margin-top:16px;">
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">接下來</div>
+          <p style="color:#554d40;font-size:13px;line-height:1.85;margin:0;">拿著這張切片去那個場所找三五個人聊。切片對不對，去談一輪就知道——找得到、談得起來，就對了；連人都湊不齊，回來把那一小群再切一次。</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製文字</button>
+          <button onClick="{{ onShare }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">分享這張</button>
+        </div>
+
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:24px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">找到人之後</div>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">去談的時候，別問「你會不會用」。先用 <a href="tool-question-rewrite.html">問句改寫器</a> 把問題換成他已經做過的事，談完再用 <a href="tool-meeting-verdict.html">會後判定器</a> 看他到底交出了什麼。整本書的取捨在 <a href="book-momtest.html">工具地圖</a>。</p>
+        </div>
+
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+          <div style="min-height:16px;text-align:center;color:#9c5b3f;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《The Mom Test 媽媽測試》：好客群要切到「誰＋在哪找得到」。「分發權」那一層是本站多問的。方法是否適合你，請自行判斷。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      <sc-if value="{{ s5 }}">
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">查看切片紀錄簿（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個切好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">起點是「想學理財的人」——太廣，你根本不知道去哪找。切到底之後長這樣：</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 20px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#9c5b3f;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">客 戶 切 片 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Customer Slice · 創業卷</div>
+          <div style="width:30px;height:1px;background:#9c5b3f;opacity:.6;margin:15px auto 18px;"></div>
+          <div style="font-size:11px;color:#938a78;line-height:1.6;margin-bottom:14px;">從「想學理財的人」切到——</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">這一小群人</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:17px;color:#9c5b3f;line-height:1.5;">剛接手家裡小吃店、想搞懂帳的第二代</div>
+          <div style="font-size:12px;color:#938a78;line-height:1.6;margin-top:4px;">認得出的特徵：最近半年剛接手、還在用手寫帳本</div>
+          <div style="height:1px;background:#e3ddd0;margin:14px 0;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">在哪找得到</div>
+          <div style="font-size:15px;line-height:1.6;">某個餐飲二代接班的臉書社團</div>
+          <div style="height:1px;background:#e3ddd0;margin:14px 0;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">誰有分發權</div>
+          <div style="font-size:15px;line-height:1.6;">那個社團的版主</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:14px;letter-spacing:1px;margin-top:18px;">切到你知道明天去哪找他，才算切完。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Toolbook · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到兩件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>「在哪找得到」是照妖鏡。</b>「想學理財的人」答不出這一題；「餐飲二代接班社團裡的人」一答就出來。答得出，才算切夠。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>先找分發權的人。</b>與其一個個加好友，不如先跟版主聊——他一句話，抵你自己找一個月。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，切我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">客戶切片紀錄簿</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:12px;"><span style="white-space:nowrap;">第 {{ c.idx }} 張 · {{ c.date }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;">切到的一小群</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-top:3px;white-space:pre-wrap;">{{ c.who }}</div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;margin-top:10px;">在哪找</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#9c5b3f;font-weight:600;margin-top:3px;white-space:pre-wrap;">{{ c.where }}</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有卡片。<br />切完第一張後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    step: 0, broad: "", who: "", marker: "", where: "", gate: "",
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, started: false, exampleOpen: false,
+  };
+  HKEY = "toolbook_customerslice_history_v1";
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  set(k, v) { this.setState({ [k]: v }); }
+
+  flow() { return [0, 1, 2, 3, 4, 5]; }
+  gateOk(step) {
+    const s = this.state;
+    if (step === 1) return !!s.broad.trim();
+    if (step === 2) return !!s.who.trim();
+    if (step === 3) return !!s.where.trim();
+    return true;
+  }
+  next() {
+    if (!this.gateOk(this.state.step)) return;
+    if (this.state.step === 0 && !this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "客戶切片器" }); }
+    const fl = this.flow(); const i = fl.indexOf(this.state.step); const n = fl[Math.min(fl.length - 1, i + 1)];
+    if (n === 5) this.archive();
+    this.setState({ step: n });
+    const st = document.querySelector(".stage"); if (st) st.scrollTop = 0;
+  }
+  prev() { const fl = this.flow(); const i = fl.indexOf(this.state.step); const p = fl[Math.max(0, i - 1)]; this.setState({ step: p }); const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  newCard() {
+    if (!window.confirm("開始切新的一片？目前內容會清掉。")) return;
+    this.setState({ step: 1, broad: "", who: "", marker: "", where: "", gate: "" });
+  }
+  archive() {
+    const s = this.state; if (!s.who.trim()) return;
+    const card = { id: "cs_" + Date.now().toString(36), createdAt: new Date().toISOString(),
+      broad: s.broad.trim(), who: s.who.trim(), marker: s.marker.trim(), where: s.where.trim(), gate: s.gate.trim() };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards });
+    try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: "客戶切片器", has_gate: s.gate.trim() ? "yes" : "no" }); } catch (_) {}
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); try { localStorage.setItem(this.HKEY, JSON.stringify(cards)); } catch (_) {} }
+
+  cardText() {
+    const s = this.state;
+    let t = "客戶切片卡\n\n從「" + s.broad.trim() + "」切到：\n" + s.who.trim();
+    if (s.marker.trim()) t += "\n（認得出的特徵：" + s.marker.trim() + "）";
+    t += "\n\n在哪找得到：" + s.where.trim();
+    if (s.gate.trim()) t += "\n誰有分發權：" + s.gate.trim();
+    t += "\n\n切到你知道明天去哪找他，才算切完。";
+    return t;
+  }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製卡片文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  async share() { try { if (navigator.share) await navigator.share({ title: "我的客戶切片卡", text: this.cardText() }); else { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: "客戶切片器", helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "客戶切片器"); fd.append("_subject", "Toolbook 工具回饋 · 客戶切片器"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+  async saveImage() {
+    const s = this.state;
+    const blocks = [
+      { k: "這一小群人", v: s.who.trim() || "—", serif: true },
+      { k: "在哪找得到", v: s.where.trim() || "—" },
+    ];
+    if (s.gate.trim()) blocks.push({ k: "誰有分發權", v: s.gate.trim(), big: true });
+    else blocks.push({ k: "從哪切來的", v: s.broad.trim() || "—" });
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "客戶切片卡", sub: "CUSTOMER SLICE · Nº 32", filename: "客戶切片卡-Toolbook", mantra: "切到你知道明天去哪找他，才算切完。", edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+  }
+
+  renderVals() {
+    const s = this.state, step = s.step;
+    const fl = this.flow(); const inner = fl.filter(n => n > 0 && n < 5);
+    const dots = inner.map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#9c5b3f" : "#e3ddd0" }));
+    const showGate = step >= 1 && step <= 4;
+    const gateBad = showGate && !this.gateOk(step);
+    const cards = s.cards.map((c, n) => ({
+      idx: s.cards.length - n, date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }),
+      who: c.who || "—", where: c.where || "—",
+      onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); },
+    }));
+    return {
+      dots, backColor: step === 0 ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: step === 5,
+      broad: s.broad, onBroad: e => this.set("broad", e.target.value),
+      who: s.who, onWho: e => this.set("who", e.target.value),
+      marker: s.marker, onMarker: e => this.set("marker", e.target.value),
+      where: s.where, onWhere: e => this.set("where", e.target.value),
+      gate: s.gate, onGate: e => this.set("gate", e.target.value),
+      mirrorBroad: s.broad.trim() || "—", mirrorWho: s.who.trim() || "—", mirrorWhere: s.where.trim() || "—",
+      cardBroad: s.broad.trim() || "—", cardWho: s.who.trim() || "—", cardMarker: s.marker.trim(), hasMarker: !!s.marker.trim(),
+      cardWhere: s.where.trim() || "—", cardGate: s.gate.trim(), hasGate: !!s.gate.trim(),
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(), onHome: () => { window.location.href = "index.html"; },
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e), onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
+      showGate, gateMsg: gateBad ? (step === 1 ? "先寫下起點的客戶群" : step === 2 ? "切到一小群、寫下來" : step === 3 ? "寫下一個你找得到他們的具體地方" : "") : "",
+      onNext: step === 5 ? () => this.newCard() : () => this.next(),
+      nextLabel: step === 0 ? "開始" : step === 4 ? "生成切片卡" : step === 5 ? "再切一片新的" : "下一步",
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#cbb9ac" : "#9c5b3f",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showRecordsBtn: (step === 0 || step === 5) && s.cards.length > 0,
+      onOpenRecords: () => this.set("recordsOpen", true),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+    };
+  }
+}
+</script>
+</body>
+</html>
