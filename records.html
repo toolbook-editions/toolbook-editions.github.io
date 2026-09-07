@@ -120,7 +120,8 @@
     { no: "31", name: "關鍵路徑編輯器", key: "toolbook_criticalpath_history_v1", file: "tool-critical-path.html", unit: "張", label: "目標", pick: function (c) { return c.goal; } },
     { no: "32", name: "客戶切片器", key: "toolbook_customerslice_history_v1", file: "tool-customer-slice.html", unit: "張", label: "切到的一小群", pick: function (c) { return c.who; } },
     { no: "33", name: "類別存在檢查器", key: "toolbook_categorycheck_history_v1", file: "tool-category-check.html", unit: "張", label: "想宣稱的類別", pick: function (c) { return c.cat; } },
-    { no: "34", name: "第三方證明盤點器", key: "toolbook_proofcheck_history_v1", file: "tool-proof-check.html", unit: "條", label: "這條能力", pick: function (c) { return c.attr; } }
+    { no: "34", name: "第三方證明盤點器", key: "toolbook_proofcheck_history_v1", file: "tool-proof-check.html", unit: "條", label: "這條能力", pick: function (c) { return c.attr; } },
+    { no: "35", name: "市場打法判定器", key: "toolbook_marketplay_history_v1", file: "tool-market-play.html", unit: "張", label: "判定", pick: function (c) { return c.verdictLabel || c.verdict; } }
   ];
 
   var VOL = (function () {

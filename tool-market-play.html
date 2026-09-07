@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+<!-- toolbook-icons -->
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-f.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f3efe7">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#9c5b3f;text-decoration:none;transition:.18s;}
+  a:hover{color:#7a4530;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#9c5b3f!important;box-shadow:0 0 0 2px rgba(156,91,63,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(156,91,63,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="4">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 35 · 市場打法判定</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">三種打法看似三選一，<br />你其實只有一條路</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">正面對決、小池大魚、另開新局——書給了三選一的自由感，但實際多數新創走不通其中兩條。這支<b style="color:#9c5b3f;">用答得出、會被市場打臉的硬門</b>，一題一題砍掉走不通的，剩下那一條就是你的。<br />答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#9c5b3f;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個走完的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Q1 · 類別存在嗎</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你要進的類別，<br />買家腦裡已經有了嗎？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:12px;">這一刀決定你在既有市場裡選位置，還是要從零教一個新類別。不確定的話，先做 <a href="tool-category-check.html">類別存在檢查器</a> 再回來。</p>
+        <sc-for list="{{ catOpts }}" as="t" hint-placeholder-count="2">
+          <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:13px 16px;margin-bottom:9px;cursor:pointer;">
+            <div style="font-family:'Noto Serif TC',serif;font-size:15.5px;margin-bottom:2px;color:{{ t.fg }};">{{ t.label }}</div>
+            <div style="font-size:12.5px;color:#938a78;line-height:1.6;">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Q2 · 資源門（創類別）</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你撐得起<br />教一個市場的成本嗎？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:12px;">創類別是書裡最貴、最慢的一條——要先花很久讓夠多人相信「這是個值得解決的問題」，還要在市場教熟後守住領導位，不然資源更多的後進者會搶走。硬問一句：</p>
+        <sc-for list="{{ res1Opts }}" as="t" hint-placeholder-count="2">
+          <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:13px 16px;margin-bottom:9px;cursor:pointer;">
+            <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:2px;color:{{ t.fg }};">{{ t.label }}</div>
+            <div style="font-size:12.5px;color:#938a78;line-height:1.6;">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+      </sc-if>
+
+      <sc-if value="{{ s3 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Q3 · 有龍頭嗎</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這個類別有明確的<br />領導者嗎（而且不是你）？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:12px;">這是兩條既有類別路的分水嶺。判準很簡單：買家能不能一口說出這個類別的龍頭是誰。</p>
+        <sc-for list="{{ leaderOpts }}" as="t" hint-placeholder-count="2">
+          <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:13px 16px;margin-bottom:9px;cursor:pointer;">
+            <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:2px;color:{{ t.fg }};">{{ t.label }}</div>
+            <div style="font-size:12.5px;color:#938a78;line-height:1.6;">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+      </sc-if>
+
+      <sc-if value="{{ s4 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Q4 · 資源門（搶領先）</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你能快到在對手<br />反應過來前搶下領先嗎？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:12px;">類別沒龍頭，正面搶整個市場才有機會——但前提是你要能「快速」確立領先。硬問：這通常意味著<b style="color:#9c5b3f;">現在就有外部資金能砸下去</b>，不是靠營收慢慢滾。你是哪一種？</p>
+        <sc-for list="{{ res2Opts }}" as="t" hint-placeholder-count="2">
+          <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:13px 16px;margin-bottom:9px;cursor:pointer;">
+            <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:2px;color:{{ t.fg }};">{{ t.label }}</div>
+            <div style="font-size:12.5px;color:#938a78;line-height:1.6;">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+      </sc-if>
+
+      <sc-if value="{{ s5 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Q5 · 名單門</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你要切的那一塊，<br />列得出一份買家名單嗎？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:12px;">小池大魚要切一塊——但「一塊」得是列得出具體潛在買家的。書的鋒利反例：「重視設計的公司」「員工開心的公司」列不出名單，那不是切分，是形容詞。</p>
+        <sc-for list="{{ listOpts }}" as="t" hint-placeholder-count="2">
+          <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:13px 16px;margin-bottom:9px;cursor:pointer;">
+            <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:2px;color:{{ t.fg }};">{{ t.label }}</div>
+            <div style="font-size:12.5px;color:#938a78;line-height:1.6;">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+      </sc-if>
+
+      <sc-if value="{{ s6 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Q6 · 算術門</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這一塊，<br />夠你達成目標嗎？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:14px;">別用「感覺夠大」判——填兩個數字，看你需要多高的成交率。書的例子：要成交 30 單、這塊只有 100 家，就得三成的人都跟你買，幾乎不可能。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:6px 0 7px;">今年在這塊要成交幾單／幾個客戶</label>
+        <input value="{{ deals }}" onInput="{{ onDeals }}" inputmode="numeric" maxlength="9" placeholder="例如：30" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">這一塊總共有幾家／幾個人</label>
+        <input value="{{ pool }}" onInput="{{ onPool }}" inputmode="numeric" maxlength="12" placeholder="例如：3000" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <sc-if value="{{ showRateHint }}">
+          <div style="border-left:2px solid {{ rateColor }};background:{{ rateBg }};padding:12px 15px;margin-top:16px;border-radius:0 3px 3px 0;">
+            <div style="font-size:13px;color:#554d40;line-height:1.7;">要達標，你得讓 <b style="color:{{ rateColor }};font-size:16px;">{{ ratePct }}</b> 的人都跟你成交。<br /><span style="color:#938a78;font-size:12px;">{{ rateComment }}</span></div>
+          </div>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ s9 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 14px;">你的市場打法判定卡</div>
+
+        <div style="position:relative;border:1px solid {{ cardBd }};border-radius:3px;padding:28px 24px 22px;background:{{ cardBg }};box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px {{ cardBd }};">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:{{ cardAccent }};">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:5px;padding-left:5px;margin-top:4px;">市 場 打 法 判 定</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Market Play · 創業卷</div>
+          <div style="width:30px;height:1px;background:{{ cardAccent }};opacity:.6;margin:16px auto 20px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">你走過的門</div>
+          <sc-for list="{{ cardGates }}" as="g" hint-placeholder-count="3">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:5px 0;border-bottom:1px dotted #e3ddd0;">
+              <span style="font-size:13px;color:#554d40;">{{ g.name }}</span>
+              <span style="font-size:13px;color:{{ g.fg }};white-space:nowrap;text-align:right;">{{ g.val }}</span>
+            </div>
+          </sc-for>
+          <div style="border:1px solid {{ cardBd }};border-radius:2px;padding:14px 14px;margin-top:16px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">你的打法</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:17px;color:{{ cardAccent }};line-height:1.5;">{{ verdictTitle }}</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:{{ cardAccent }};font-size:13.5px;letter-spacing:1px;margin-top:16px;">{{ cardMantra }}</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Toolbook · MMXXVI</div>
+        </div>
+
+        <div style="border:1px solid {{ cardBd }};border-radius:4px;background:#fbf9f4;padding:16px 18px;margin-top:16px;">
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">這代表什麼、下一步做什麼</div>
+          <p style="color:#554d40;font-size:13px;line-height:1.8;margin:0;">{{ verdictBody }}</p>
+          <sc-if value="{{ showRiskNote }}">
+            <p style="color:#938a78;font-size:11.5px;line-height:1.7;margin:10px 0 0;">要盯的風險：領導者可能補一個「夠好」的版本、或直接併購你擋路。最理想是你的優勢難以複製——有專利，或他模仿你會傷到自己在大市場的位置。這一格書沒給事前判準，只能持續盯。</p>
+          </sc-if>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製文字</button>
+          <button onClick="{{ onShare }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">分享這張</button>
+        </div>
+
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:24px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">這條線的其他工具</div>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">類別到底存不存在，用 <a href="tool-category-check.html">類別存在檢查器</a>；切不出具體的一塊，用 <a href="tool-customer-slice.html">客戶切片器</a>；要宣稱的獨有能力證不證得住，用 <a href="tool-proof-check.html">第三方證明盤點器</a>。</p>
+        </div>
+
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+          <div style="min-height:16px;text-align:center;color:#9c5b3f;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《產品定位》第八步的三種打法。用排除樹＋算術硬門代替「三選一」按鈕，並刻意不把書裡兩個無法執行的門（「評估過每個既有類別」「難不難複製」）當閘，是本站的取捨。方法是否適合你，請自行判斷。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      <sc-if value="{{ s9 }}">
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">查看市場打法判定卡紀錄簿（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個走完的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">你做一個給獨立診所用的預約系統。類別（預約系統）買家腦裡有、也有明確龍頭（不是你）——所以走小池大魚。你要切「牙醫診所」這一塊：列得出名單。今年要成交 40 家，全台目標牙醫診所約 6,500 家。填出來的判定長這樣：</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 20px;background:#f3efe7;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#9c5b3f;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:5px;padding-left:5px;margin-top:4px;">市 場 打 法 判 定</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Market Play · 創業卷</div>
+          <div style="width:30px;height:1px;background:#9c5b3f;opacity:.6;margin:14px auto 18px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">你走過的門</div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dotted #e3ddd0;"><span style="font-size:13px;color:#554d40;">類別存在</span><span style="font-size:13px;color:#6f7f5c;">買家腦裡有</span></div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dotted #e3ddd0;"><span style="font-size:13px;color:#554d40;">有龍頭</span><span style="font-size:13px;color:#6f7f5c;">有（不是你）</span></div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dotted #e3ddd0;"><span style="font-size:13px;color:#554d40;">列得出名單</span><span style="font-size:13px;color:#6f7f5c;">列得出</span></div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dotted #e3ddd0;"><span style="font-size:13px;color:#554d40;">算術</span><span style="font-size:13px;color:#6f7f5c;">40 / 6500 ≈ 0.6%</span></div>
+          <div style="border:1px solid #cec6b4;border-radius:2px;padding:14px 14px;margin-top:16px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">你的打法</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:17px;color:#9c5b3f;line-height:1.5;">小池大魚：切這一塊，站得住</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:13.5px;letter-spacing:1px;margin-top:16px;">切一塊規則不太一樣的，口碑在裡面傳最快。</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>「有龍頭」把你導向小池大魚。</b>類別有明確領導者、又不是你，硬拚整個市場就是 out-cola Coke；切一塊規則不一樣的地方，才有勝算。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>算術把「感覺夠大」變成一個數。</b>40 家 ÷ 6,500 ≈ 0.6% 的成交率就達標——這個規模撐得起。若這塊只有 100 家，40 單就要四成成交率，當場就會被打回票。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>剩下要盯的是「難不難複製」。</b>這一格書沒給事前判準，工具不假裝能算——它只提醒你持續盯：龍頭會不會補一個夠好的牙醫版。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，判我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">市場打法判定卡紀錄簿</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:12px;"><span style="white-space:nowrap;">第 {{ c.idx }} 張 · {{ c.date }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;">判定</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#9c5b3f;font-weight:600;margin-top:3px;white-space:pre-wrap;">{{ c.verdict }}</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有卡片。<br />完成第一張後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    step: 0, cat: "", res1: "", leader: "", res2: "", list: "", deals: "", pool: "",
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, started: false, exampleOpen: false,
+  };
+  HKEY = "toolbook_marketplay_history_v1";
+  TOOL = "市場打法判定器";
+  CAT = { yes: ["買家腦裡已經有這個類別", "買家已經知道這類產品是什麼，你要在裡面選一個位置。"], no: ["還不存在，我要創一個新類別", "市面上還沒有這種東西，你得先教市場它為什麼該存在。"] };
+  RES1 = { yes: ["撐得起：有耐心的深口袋資金", "願意陪你走很久去教市場、直到守住領導位。"], no: ["撐不起：要靠營收慢慢滾／精實", "沒有能長期燒的錢，或就是想 bootstrap。"] };
+  LEADER = { yes: ["有，買家說得出龍頭是誰", "類別成熟、已有明確領導者，而且不是你。"], no: ["沒有明確的龍頭", "大家知道這類產品，卻說不出誰是老大。"] };
+  RES2 = { fast: ["能：現在就有外部資金能砸", "有錢有人，能在對手反應前快速確立領先。"], bootstrap: ["不能：要 bootstrap／慢慢滾", "靠營收成長，快不起來。"] };
+  LIST = { yes: ["列得出：說得出去哪找這些人", "有具體的產業／職務／名單，找得到他們。"], no: ["列不出：只講得出一種特質", "像「重視設計的公司」——是形容詞，不是名單。"] };
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  set(k, v) { this.setState({ [k]: v }); }
+  setNum(k, v) { this.setState({ [k]: (v || "").replace(/[^0-9]/g, "").slice(0, 12) }); }
+  isPond() { const s = this.state; return s.cat === "yes" && (s.leader === "yes" || (s.leader === "no" && s.res2 === "bootstrap")); }
+  isBeachhead() { const s = this.state; return s.cat === "yes" && s.leader === "no" && s.res2 === "bootstrap"; }
+  nums() { const d = parseInt(this.state.deals, 10), p = parseInt(this.state.pool, 10); return { d: isNaN(d) ? 0 : d, p: isNaN(p) ? 0 : p }; }
+  arithReady() { const { d, p } = this.nums(); return d > 0 && p > 0; }
+  rate() { const { d, p } = this.nums(); return p > 0 ? d / p : 0; }
+  ratePctStr() { const r = this.rate() * 100; return r >= 10 ? Math.round(r) + "%" : r >= 1 ? (Math.round(r * 10) / 10) + "%" : (Math.round(r * 100) / 100) + "%"; }
+  arithBand() { const { d, p } = this.nums(); if (p <= 0 || d <= 0) return "none"; if (p <= d) return "impossible"; const r = d / p; if (r > 0.25) return "toosmall"; if (r > 0.1) return "tight"; return "ok"; }
+
+  flow() {
+    const s = this.state; const f = [0, 1];
+    if (s.cat === "no") { f.push(2); if (s.res1) f.push(9); return f; }
+    if (s.cat === "yes") {
+      f.push(3);
+      if (s.leader === "no") { f.push(4); if (s.res2 === "fast") { f.push(9); return f; } if (s.res2 !== "bootstrap") return f; }
+      else if (s.leader !== "yes") return f;
+      f.push(5);
+      if (s.list === "no") { f.push(9); return f; }
+      if (s.list === "yes") { f.push(6); if (this.arithReady()) f.push(9); return f; }
+      return f;
+    }
+    return f;
+  }
+  gateOk(step) {
+    const s = this.state;
+    if (step === 1) return !!s.cat;
+    if (step === 2) return !!s.res1;
+    if (step === 3) return !!s.leader;
+    if (step === 4) return !!s.res2;
+    if (step === 5) return !!s.list;
+    if (step === 6) return this.arithReady();
+    return true;
+  }
+  next() {
+    if (!this.gateOk(this.state.step)) return;
+    if (this.state.step === 0 && !this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: this.TOOL }); }
+    const fl = this.flow(); const i = fl.indexOf(this.state.step); const n = fl[Math.min(fl.length - 1, i + 1)];
+    if (n === 9) this.archive();
+    this.setState({ step: n });
+    const st = document.querySelector(".stage"); if (st) st.scrollTop = 0;
+  }
+  prev() { const fl = this.flow(); const i = fl.indexOf(this.state.step); const p = fl[Math.max(0, i - 1)]; this.setState({ step: p }); const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  pick(k, v) { this.setState({ [k]: v }); }
+
+  verdictKey() {
+    const s = this.state;
+    if (s.cat === "no") return s.res1 === "yes" ? "newgame_go" : s.res1 === "no" ? "newgame_stop" : "";
+    if (s.cat === "yes" && s.leader === "no" && s.res2 === "fast") return "headtohead";
+    if (this.isPond()) {
+      if (s.list === "no") return "list_fail";
+      if (s.list === "yes") { const b = this.arithBand(); return b === "impossible" ? "pond_impossible" : b === "toosmall" ? "pond_toosmall" : b === "tight" ? "pond_tight" : b === "ok" ? "pond_ok" : ""; }
+    }
+    return "";
+  }
+  V_TITLE = {
+    newgame_go: "另開新局：創一個新類別",
+    newgame_stop: "另開新局，但這條對你走不通",
+    headtohead: "正面對決：趁沒龍頭搶下整個類別",
+    list_fail: "先回去把客群切具體",
+    pond_impossible: "這一塊比你要的單數還小",
+    pond_toosmall: "小池大魚，但這一塊太小",
+    pond_tight: "小池大魚，但算術很吃力",
+    pond_ok: "小池大魚：切這一塊，站得住",
+  };
+  V_MANTRA = {
+    newgame_go: "先賣問題，再守住領導位。",
+    newgame_stop: "多半你只是還沒找到買家的詞。",
+    headtohead: "符合買家既有定義，才配搶整個市場。",
+    list_fail: "列不出名單的，不是切分，是形容詞。",
+    pond_impossible: "不是打法錯，是這塊選錯了。",
+    pond_toosmall: "另找一塊更大的，或放寬定義。",
+    pond_tight: "邊緣——把這塊放大，或確認你真的夠強。",
+    pond_ok: "切一塊規則不太一樣的，口碑在裡面傳最快。",
+  };
+  verdictBody() {
+    const k = this.verdictKey(); const { d, p } = this.nums(); const pct = this.ratePctStr(); const bh = this.isBeachhead();
+    const bhNote = bh ? "（你沒有現成的領導者可切，所以要自己界定第一塊、當那塊的第一——先在灘頭站穩，再談擴張。）" : "";
+    switch (k) {
+      case "newgame_go": return "你要教市場一個還不存在的類別。書講最重的三件：先賣問題再賣方案、要答得出「為什麼是現在」、市場教熟的那一刻正是資源更多的後進者搶領導位的時候——守住它。";
+      case "newgame_stop": return "創類別是最貴最慢的一條，沒有耐心的深口袋資金多半撐不到守住領導位那天。兩條路：多半你只是還沒找到買家已經在用的詞（回類別存在檢查器重測），或真要創類別，先去找願意陪你的耐心資金，沒有就別硬走。";
+      case "headtohead": return "類別買家懂、又還沒有明確龍頭，加上你有資源快速確立領先——這是新創少數能用正面對決的情形。但你依賴買家既有的認知，就必須符合他們既有的定義；達不到某條他們預設的標準，你就只是某一塊的好方案，不是整個市場的贏家。";
+      case "list_fail": return "小池大魚要切一塊，而「一塊」得列得出具體潛在買家名單——列不出來（像「重視設計的公司」），那還是形容詞不是切分。先做客戶切片器，切到說得出去哪找人，再回來算這塊夠不夠大。";
+      case "pond_impossible": return "你今年要成交 " + d + " 單，但這一塊只有 " + p + "——整塊都成交也不夠。這不是打法問題，是這塊選錯了：另找一塊更大的，或放寬客群定義。" + bhNote;
+      case "pond_toosmall": return "要達標，你得讓約 " + pct + " 的人都跟你成交（" + d + " ÷ " + p + "）——這個成交率幾乎沒人做得到。另找一塊更大的，或把客群定義放寬一點再算一次。" + bhNote;
+      case "pond_tight": return "要達標你得讓約 " + pct + " 的人成交（" + d + " ÷ " + p + "），偏高。除非你的優勢極強、口碑在這塊傳得夠快，否則邊緣：要嘛把這塊放大一點，要嘛先確認你真的強到撐得起這個成交率。" + bhNote;
+      case "pond_ok": return "需要約 " + pct + " 的成交率就達標（" + d + " ÷ " + p + "），這個規模撐得起。書對多數新創的實際建議就是這條——切一塊規則不太一樣的地方，收窄不是變小，是把本來就不會買的人取消勾選。" + bhNote;
+      default: return "";
+    }
+  }
+  showRisk() { const k = this.verdictKey(); return k === "pond_ok" || k === "pond_tight"; }
+
+  newCard() { if (!window.confirm("重新判一次？目前內容會清掉。")) return; this.setState({ step: 1, cat: "", res1: "", leader: "", res2: "", list: "", deals: "", pool: "" }); }
+  archive() {
+    const s = this.state; const vk = this.verdictKey(); if (!vk) return;
+    const card = { id: "mp_" + Date.now().toString(36), createdAt: new Date().toISOString(),
+      cat: s.cat, res1: s.res1, leader: s.leader, res2: s.res2, list: s.list, deals: s.deals, pool: s.pool, verdict: vk, verdictLabel: this.V_TITLE[vk] || "" };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards });
+    try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: this.TOOL }); } catch (_) {}
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); try { localStorage.setItem(this.HKEY, JSON.stringify(cards)); } catch (_) {} }
+
+  gateRows() {
+    const s = this.state; const rows = [];
+    rows.push({ name: "類別存在", val: s.cat === "yes" ? "買家腦裡有" : "還不存在", key: s.cat === "yes" ? "g" : "b" });
+    if (s.cat === "no") { rows.push({ name: "撐得起教市場", val: s.res1 === "yes" ? "有耐心資金" : "撐不起", key: s.res1 === "yes" ? "g" : "b" }); return rows; }
+    rows.push({ name: "有龍頭", val: s.leader === "yes" ? "有（不是你）" : "沒有龍頭", key: "n" });
+    if (s.leader === "no") rows.push({ name: "能快速搶領先", val: s.res2 === "fast" ? "能" : "要 bootstrap", key: s.res2 === "fast" ? "g" : "b" });
+    if (this.isPond()) {
+      rows.push({ name: "列得出名單", val: s.list === "yes" ? "列得出" : "列不出", key: s.list === "yes" ? "g" : "b" });
+      if (s.list === "yes" && this.arithReady()) { const { d, p } = this.nums(); rows.push({ name: "算術", val: d + " / " + p + " ≈ " + this.ratePctStr(), key: this.arithBand() === "ok" ? "g" : this.arithBand() === "tight" ? "n" : "b" }); }
+    }
+    return rows;
+  }
+  cardText() {
+    const vk = this.verdictKey(); const rows = this.gateRows().map(r => "· " + r.name + "：" + r.val).join("\n");
+    return "市場打法判定\n\n" + rows + "\n\n打法：" + this.V_TITLE[vk] + "\n" + this.verdictBody() + "\n\n" + this.V_MANTRA[vk];
+  }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製卡片文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  async share() { try { if (navigator.share) await navigator.share({ title: "我的市場打法判定卡", text: this.cardText() }); else { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  rate2(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: this.TOOL, helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", this.TOOL); fd.append("_subject", "Toolbook 工具回饋 · 市場打法判定器"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+  async saveImage() {
+    const vk = this.verdictKey(); const rows = this.gateRows();
+    const blocks = [{ k: "你走過的門", v: rows.map(r => r.name + "：" + r.val).join("　·　"), serif: false }];
+    blocks.push({ k: "你的打法", v: this.V_TITLE[vk], big: true });
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "市場打法判定", sub: "MARKET PLAY · Nº 35", filename: "市場打法判定卡-Toolbook", mantra: this.V_MANTRA[vk], edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+  }
+
+  renderVals() {
+    const s = this.state, step = s.step;
+    const fl = this.flow(); const inner = fl.filter(n => n > 0 && n < 9);
+    const dots = inner.map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#9c5b3f" : "#e3ddd0" }));
+    const isResult = step === 9;
+    const showGate = step >= 1 && step <= 6;
+    const gateBad = showGate && !this.gateOk(step);
+
+    const mk = (key, cur, dict, order) => order.map(k => ({
+      label: dict[k][0], desc: dict[k][1],
+      bd: cur === k ? "#9c5b3f" : "#e3ddd0", bg: cur === k ? "rgba(156,91,63,.06)" : "#fbf9f4",
+      fg: cur === k ? "#9c5b3f" : "#241f18", onClick: () => this.pick(key, k),
+    }));
+
+    const cards = s.cards.map((c, n) => ({
+      idx: s.cards.length - n, date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }),
+      verdict: (this.V_TITLE[c.verdict] || "—"),
+      onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); },
+    }));
+
+    const band = this.arithBand();
+    const rateColor = band === "ok" ? "#6f7f5c" : band === "tight" ? "#9c7b3f" : "#a6552f";
+    const rateBg = band === "ok" ? "rgba(111,127,92,.07)" : band === "tight" ? "rgba(156,123,63,.07)" : "rgba(166,85,47,.07)";
+    const rateComment = band === "impossible" ? "整塊人數比你要的單數還少——這塊選錯了。" : band === "toosmall" ? "太高了，幾乎沒人做得到。" : band === "tight" ? "偏高，要非常強或口碑很快才撐得起。" : band === "ok" ? "這個規模撐得起。" : "";
+
+    const vk = this.verdictKey();
+    const tone = (vk === "pond_ok" || vk === "headtohead" || vk === "newgame_go") ? { bd: "#cec6b4", bg: "#f3efe7", ac: "#9c5b3f" }
+      : (vk === "pond_tight") ? { bd: "#cdb98a", bg: "#f5f0e4", ac: "#9c7b3f" }
+      : { bd: "#cd9a86", bg: "#f6efe9", ac: "#a6552f" };
+    const gFg = { g: "#6f7f5c", n: "#9c7b3f", b: "#a6552f" };
+    const cardGates = this.gateRows().map(r => ({ name: r.name, val: r.val, fg: gFg[r.key] || "#554d40" }));
+
+    return {
+      dots, backColor: step === 0 ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: step === 5, s6: step === 6, s9: isResult,
+      catOpts: mk("cat", s.cat, this.CAT, ["yes", "no"]),
+      res1Opts: mk("res1", s.res1, this.RES1, ["yes", "no"]),
+      leaderOpts: mk("leader", s.leader, this.LEADER, ["yes", "no"]),
+      res2Opts: mk("res2", s.res2, this.RES2, ["fast", "bootstrap"]),
+      listOpts: mk("list", s.list, this.LIST, ["yes", "no"]),
+      deals: s.deals, pool: s.pool, onDeals: e => this.setNum("deals", e.target.value), onPool: e => this.setNum("pool", e.target.value),
+      showRateHint: this.arithReady(), ratePct: this.ratePctStr(), rateColor, rateBg, rateComment,
+      cardGates, verdictTitle: this.V_TITLE[vk] || "—", verdictBody: this.verdictBody(), cardMantra: this.V_MANTRA[vk] || "",
+      showRiskNote: this.showRisk(),
+      cardBd: tone.bd, cardBg: tone.bg, cardAccent: tone.ac,
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(), onHome: () => { window.location.href = "index.html"; },
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e),
+      onRateYes: () => this.rate2("yes"), onRateMid: () => this.rate2("half"), onRateNo: () => this.rate2("no"),
+      showGate, gateMsg: gateBad ? (step === 6 ? "兩個數字都要填（大於 0）" : "選一個再繼續") : "",
+      onNext: isResult ? () => this.newCard() : () => this.next(),
+      nextLabel: step === 0 ? "開始" : isResult ? "重新判一次" : (step === 2) ? "看判定" : (step === 4 && s.res2 === "fast") ? "看判定" : (step === 5 && s.list === "no") ? "看判定" : (step === 6) ? "看判定" : "下一步",
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#cbb9ac" : "#9c5b3f",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showRecordsBtn: (step === 0 || isResult) && s.cards.length > 0,
+      onOpenRecords: () => this.set("recordsOpen", true),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+    };
+  }
+}
+</script>
+</body>
+</html>
