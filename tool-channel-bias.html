@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+<!-- toolbook-icons -->
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-f.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f3efe7">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#9c5b3f;text-decoration:none;transition:.18s;}
+  a:hover{color:#7a4530;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#9c5b3f!important;box-shadow:0 0 0 2px rgba(156,91,63,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(156,91,63,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="1">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 30 · 管道偏見盤點</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">你排除一條管道，<br />是想清楚的，還是偏見？</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">取得客戶的路不只你在用的那幾條。你略過其他的，常常是三種偏見：<b style="color:#9c5b3f;">沒想到、看不起、嫌麻煩</b>——不是真的判斷過它不行。<br />這張卡逼你對每一類表態一次，把偏見排除的那幾條翻出來。<br />答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#9c5b3f;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">逐類表態</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.55;margin-bottom:8px;">每一類，你對它的態度是？</h2>
+        <p style="color:#938a78;font-size:12.5px;margin-bottom:6px;line-height:1.7;">不是問你現在有沒有做，是問你<b style="color:#9c5b3f;">為什麼還沒做</b>。誠實選——「沒想到」和「看不起」都不丟臉，它們正是這張卡要抓的東西。</p>
+        <div style="display:flex;gap:10px;font-size:10.5px;color:#938a78;margin-bottom:4px;line-height:1.5;padding-top:8px;border-top:1px solid #e3ddd0;">
+          <span>沒想到＝根本沒把它當選項</span><span>·</span><span>看不起＝覺得不適合我</span><span>·</span><span>嫌麻煩＝懶得碰</span>
+        </div>
+
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="8">
+          <div style="border-top:1px solid #e3ddd0;padding:13px 0 12px;">
+            <div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#241f18;margin-bottom:1px;">{{ r.name }}</div>
+            <div style="font-size:11.5px;color:#938a78;line-height:1.5;margin-bottom:9px;">{{ r.desc }}</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span onClick="{{ r.on0 }}" style="font-size:12px;padding:6px 11px;border-radius:20px;cursor:pointer;border:1px solid {{ r.bd0 }};background:{{ r.bg0 }};color:{{ r.fg0 }};">沒想到</span>
+              <span onClick="{{ r.on1 }}" style="font-size:12px;padding:6px 11px;border-radius:20px;cursor:pointer;border:1px solid {{ r.bd1 }};background:{{ r.bg1 }};color:{{ r.fg1 }};">看不起</span>
+              <span onClick="{{ r.on2 }}" style="font-size:12px;padding:6px 11px;border-radius:20px;cursor:pointer;border:1px solid {{ r.bd2 }};background:{{ r.bg2 }};color:{{ r.fg2 }};">嫌麻煩</span>
+              <span onClick="{{ r.on3 }}" style="font-size:12px;padding:6px 11px;border-radius:20px;cursor:pointer;border:1px solid {{ r.bd3 }};background:{{ r.bg3 }};color:{{ r.fg3 }};">已認真考慮</span>
+            </div>
+          </div>
+        </sc-for>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:16px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">「已認真考慮」是指你真的評估過它適不適合你的產品，不是「聽過」。只要還沒認真想過，就選前面三個裡最誠實的那一個。</div>
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 14px;">你的盤點結果</div>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 20px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#9c5b3f;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">管 道 偏 見 盤 點</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Channel Bias · 創業卷</div>
+          <div style="width:30px;height:1px;background:#9c5b3f;opacity:.6;margin:15px auto 18px;"></div>
+
+          <sc-if value="{{ hasBias }}">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">被偏見擋掉的管道</div>
+            <sc-for list="{{ flagged }}" as="f" hint-placeholder-count="3">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:7px 0;border-bottom:1px dotted #d8d0bf;">
+                <span style="font-size:14px;color:#241f18;line-height:1.5;">{{ f.name }}</span>
+                <span style="font-size:11px;color:{{ f.tagColor }};white-space:nowrap;font-family:'Noto Serif TC',serif;">{{ f.tag }}</span>
+              </div>
+            </sc-for>
+          </sc-if>
+          <sc-if value="{{ noBias }}">
+            <div style="text-align:center;font-size:14px;color:#6f7f5c;line-height:1.7;padding:6px 0;">每一類你都認真評估過了。<br />沒有被偏見擋掉的管道。</div>
+          </sc-if>
+
+          <div style="border:1px solid #cec6b4;border-radius:2px;padding:13px 14px;margin-top:16px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">下一步先便宜地試這一條</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:17px;color:#9c5b3f;line-height:1.5;white-space:pre-wrap;">{{ topPick }}</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:14px;letter-spacing:1px;margin-top:16px;">最值得試的，常是你原本沒在看的那條。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Toolbook · MMXXVI</div>
+        </div>
+
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fbf9f4;padding:16px 18px;margin-top:16px;">
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">怎麼用這張盤點</div>
+          <p style="color:#554d40;font-size:13px;line-height:1.85;margin:0;">別急著全部去試。挑上面那一條最省事的，用一次便宜的小測試看它值不值得深入——這正是「中圈」的做法。盤點的用處不是逼你做十件事，是<b style="color:#9c5b3f;">確保你砍掉一條管道時，是因為判斷，不是因為沒看見</b>。</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製文字</button>
+          <button onClick="{{ onShare }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">分享這張</button>
+        </div>
+
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:24px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">挑好一條之後</div>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">把它逼成一次便宜、設好及格線的測試，用 <a href="tool-middle-ring.html">中圈測試設定器</a>。要看整本《Traction 牽引力》的取捨，讀 <a href="book-traction.html">工具地圖</a>。</p>
+        </div>
+
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+          <div style="min-height:16px;text-align:center;color:#9c5b3f;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《Traction 牽引力》指認的三種管道偏見。上面的管道分類是本站自行歸的，不是書裡那份清單。方法是否適合你，請自行判斷。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      <sc-if value="{{ s2 }}">
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">查看盤點紀錄簿（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">一個只靠付費廣告帶客的團隊，做完盤點後長這樣——三條被偏見擋掉，其中「公關與媒體」是根本沒想到的。</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 20px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#9c5b3f;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">管 道 偏 見 盤 點</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Channel Bias · 創業卷</div>
+          <div style="width:30px;height:1px;background:#9c5b3f;opacity:.6;margin:15px auto 18px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">被偏見擋掉的管道</div>
+          <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dotted #d8d0bf;"><span style="font-size:14px;">公關與媒體</span><span style="font-size:11px;color:#a6552f;font-family:'Noto Serif TC',serif;">沒想到</span></div>
+          <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dotted #d8d0bf;"><span style="font-size:14px;">直接銷售與洽談</span><span style="font-size:11px;color:#9c5b3f;font-family:'Noto Serif TC',serif;">看不起</span></div>
+          <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dotted #d8d0bf;"><span style="font-size:14px;">線下</span><span style="font-size:11px;color:#8a7f66;font-family:'Noto Serif TC',serif;">嫌麻煩</span></div>
+          <div style="border:1px solid #cec6b4;border-radius:2px;padding:13px 14px;margin-top:16px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">下一步先便宜地試這一條</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:17px;color:#9c5b3f;line-height:1.5;">公關與媒體</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:14px;letter-spacing:1px;margin-top:16px;">最值得試的，常是你原本沒在看的那條。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Toolbook · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到兩件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>「沒想到」比「看不起」更危險。</b>看不起至少是一種判斷；沒想到代表它從沒進過你的考慮，而它可能正是被大家忽略、因此最便宜的那條。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>盤點不是要你全做。</b>挑最省事的一條，便宜地試一格就好。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，盤我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">盤點紀錄簿</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:12px;"><span style="white-space:nowrap;">第 {{ c.idx }} 張 · {{ c.date }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;">被偏見擋掉</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-top:3px;white-space:pre-wrap;">{{ c.summary }}</div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;margin-top:10px;">先試這一條</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#9c5b3f;font-weight:600;margin-top:3px;white-space:pre-wrap;">{{ c.topPick }}</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有卡片。<br />盤完第一張後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    step: 0, marks: {},
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, started: false, exampleOpen: false,
+  };
+  HKEY = "toolbook_channelbias_history_v1";
+  CHANNELS = [
+    ["付費廣告", "搜尋、社群、展示型廣告——花錢買曝光與點擊。"],
+    ["內容與自然搜尋", "部落格、教學、SEO，靠被搜到慢慢累積。"],
+    ["口碑與推薦", "讓用戶帶用戶：推薦獎勵、分享機制、社群擴散。"],
+    ["公關與媒體", "讓別人報導你：新聞、專訪、話題操作。"],
+    ["社群經營", "自建社群、論壇，經營一群固定的人。"],
+    ["合作導流", "跟別的產品或通路互相帶客、談整合。"],
+    ["直接銷售與洽談", "一對一去談、商務開發、談合作或大客戶。"],
+    ["線下", "活動、講座、擺攤、面對面接觸。"],
+  ];
+  MARKS = {
+    m0: ["沒想到", "#a6552f"],   // blind
+    m1: ["看不起", "#9c5b3f"],   // dismiss
+    m2: ["嫌麻煩", "#8a7f66"],   // avoid
+    m3: ["已認真考慮", "#6f7f5c"], // considered
+  };
+  BIAS_KEYS = ["m0", "m1", "m2"];
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  set(k, v) { this.setState({ [k]: v }); }
+  mark(i, m) { const marks = Object.assign({}, this.state.marks); marks[i] = m; this.setState({ marks }); }
+  ratedCount() { return Object.keys(this.state.marks).length; }
+
+  analyze() {
+    const s = this.state; const blind = [], dismiss = [], avoid = [];
+    this.CHANNELS.forEach((c, i) => {
+      const m = s.marks[i];
+      if (m === "m0") blind.push(c[0]);
+      else if (m === "m1") dismiss.push(c[0]);
+      else if (m === "m2") avoid.push(c[0]);
+    });
+    const flagged = [];
+    blind.forEach(n => flagged.push({ name: n, tag: "沒想到", tagColor: "#a6552f" }));
+    dismiss.forEach(n => flagged.push({ name: n, tag: "看不起", tagColor: "#9c5b3f" }));
+    avoid.forEach(n => flagged.push({ name: n, tag: "嫌麻煩", tagColor: "#8a7f66" }));
+    const topPick = blind[0] || dismiss[0] || avoid[0] || "";
+    return { blind, dismiss, avoid, flagged, topPick, hasBias: flagged.length > 0 };
+  }
+
+  flow() { return [0, 1, 2]; }
+  gateOk(step) { if (step === 1) return this.ratedCount() >= this.CHANNELS.length; return true; }
+  next() {
+    if (!this.gateOk(this.state.step)) return;
+    if (this.state.step === 0 && !this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "管道偏見盤點器" }); }
+    const fl = this.flow(); const i = fl.indexOf(this.state.step); const n = fl[Math.min(fl.length - 1, i + 1)];
+    if (n === 2) this.archive();
+    this.setState({ step: n });
+    const st = document.querySelector(".stage"); if (st) st.scrollTop = 0;
+  }
+  prev() { const fl = this.flow(); const i = fl.indexOf(this.state.step); const p = fl[Math.max(0, i - 1)]; this.setState({ step: p }); const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  newCard() {
+    if (!window.confirm("重新盤一次？目前的表態會清掉。")) return;
+    this.setState({ step: 1, marks: {} });
+  }
+  archive() {
+    const a = this.analyze(); if (!a.hasBias && this.ratedCount() < this.CHANNELS.length) return;
+    const summary = a.flagged.map(f => f.name + "（" + f.tag + "）").join("、") || "無——每一類都認真考慮過";
+    const card = { id: "cb_" + Date.now().toString(36), createdAt: new Date().toISOString(),
+      marks: this.state.marks, summary, topPick: a.topPick || "（都評估過了）" };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards });
+    try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: "管道偏見盤點器", biased: String(a.flagged.length) }); } catch (_) {}
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); try { localStorage.setItem(this.HKEY, JSON.stringify(cards)); } catch (_) {} }
+
+  cardText() {
+    const a = this.analyze();
+    let t = "管道偏見盤點\n\n";
+    if (a.hasBias) { t += "被偏見擋掉的管道：\n" + a.flagged.map(f => "· " + f.name + "（" + f.tag + "）").join("\n"); t += "\n\n下一步先便宜地試：" + a.topPick; }
+    else t += "每一類都認真評估過了，沒有被偏見擋掉的管道。";
+    t += "\n\n最值得試的，常是你原本沒在看的那條。";
+    return t;
+  }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製盤點文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  async share() { try { if (navigator.share) await navigator.share({ title: "我的管道偏見盤點", text: this.cardText() }); else { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: "管道偏見盤點器", helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "管道偏見盤點器"); fd.append("_subject", "Toolbook 工具回饋 · 管道偏見盤點器"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+  async saveImage() {
+    const a = this.analyze();
+    const blocks = [];
+    if (a.blind.length) blocks.push({ k: "沒想到", v: a.blind.join("、") });
+    if (a.dismiss.length) blocks.push({ k: "看不起", v: a.dismiss.join("、") });
+    if (a.avoid.length) blocks.push({ k: "嫌麻煩", v: a.avoid.join("、") });
+    if (!blocks.length) blocks.push({ k: "結果", v: "每一類都認真考慮過了" });
+    blocks.push({ k: "先試這一條", v: a.topPick || "挑最沒把握的一條", big: true });
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "管道偏見盤點", sub: "CHANNEL BIAS · Nº 30", filename: "管道偏見盤點-Toolbook", mantra: "最值得試的，常是你原本沒在看的那條。", edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+  }
+
+  renderVals() {
+    const s = this.state, step = s.step;
+    const dots = step === 1 ? [{ w: "16px", bg: "#9c5b3f" }] : [{ w: "5px", bg: "#e3ddd0" }];
+    const rated = this.ratedCount(); const total = this.CHANNELS.length;
+    const showGate = step === 1;
+    const gateBad = showGate && !this.gateOk(step);
+    const rows = this.CHANNELS.map((c, i) => {
+      const cur = s.marks[i]; const o = {};
+      ["m0", "m1", "m2", "m3"].forEach((mk, j) => {
+        const on = cur === mk; const col = this.MARKS[mk][1];
+        o["on" + j] = () => this.mark(i, mk);
+        o["bd" + j] = on ? col : "#e3ddd0";
+        o["bg" + j] = on ? (col === "#a6552f" ? "rgba(166,85,47,.1)" : col === "#6f7f5c" ? "rgba(111,127,92,.1)" : "rgba(156,91,63,.08)") : "#fbf9f4";
+        o["fg" + j] = on ? col : "#8a8168";
+      });
+      return Object.assign({ name: c[0], desc: c[1] }, o);
+    });
+    const a = this.analyze();
+    const cards = s.cards.map((c, n) => ({
+      idx: s.cards.length - n, date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }),
+      summary: c.summary || "—", topPick: c.topPick || "—",
+      onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); },
+    }));
+    return {
+      dots, backColor: step === 0 ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2,
+      rows,
+      flagged: a.flagged, hasBias: a.hasBias, noBias: !a.hasBias, topPick: a.topPick || "挑最沒把握的一條，便宜地試",
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(), onHome: () => { window.location.href = "index.html"; },
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e), onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
+      showGate, gateMsg: gateBad ? ("還有 " + (total - rated) + " 類沒表態") : "",
+      onNext: step === 2 ? () => this.newCard() : () => this.next(),
+      nextLabel: step === 0 ? "開始盤點" : step === 1 ? "看盤點結果" : "重新盤一次",
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#cbb9ac" : "#9c5b3f",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showRecordsBtn: (step === 0 || step === 2) && s.cards.length > 0,
+      onOpenRecords: () => this.set("recordsOpen", true),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+    };
+  }
+}
+</script>
+</body>
+</html>
