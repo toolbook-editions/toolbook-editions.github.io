@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+<!-- toolbook-icons -->
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-f.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f3efe7">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#9c5b3f;text-decoration:none;transition:.18s;}
+  a:hover{color:#7a4530;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#9c5b3f!important;box-shadow:0 0 0 2px rgba(156,91,63,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(156,91,63,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="5">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 34 · 第三方證明盤點</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">你說的那個「獨有能力」，<br />證得出來嗎？</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">書要你把定位建在「替代方案沒有、你有」的能力上——但有兩道它自己沒守的門：<b style="color:#9c5b3f;">沒有證明的自我評價不算數</b>，而且「有價值」不等於「只有你有」。這支把你自稱的每一條，逐一逼過這幾道門。<br />答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#9c5b3f;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個做完的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 一次一條</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">寫下一條你以為<br />對手沒有、你有的能力</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">先接在 <a href="tool-alternatives.html">替代方案盤點器</a> 之後最好——「獨有」是相對那些替代方案講的。一次盤一條，做完可以再來下一條。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:14px 0 7px;">這一條能力</label>
+        <input value="{{ attr }}" onInput="{{ onAttr }}" maxlength="60" placeholder="例如：唯一支援離線協作編輯／自家專利的對帳演算法" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:16px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">先求廣不求精：連你不確定價值的、甚至有人覺得是缺點的也可以拿來盤（同一件事在不同客戶眼中可能是優點）。這一步只盤一條你最想拿來當賣點的。</div>
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 形容詞閘</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這是一件事實，<br />還是一句評價？</h2>
+        <div style="border-left:2px solid #9c5b3f;background:rgba(156,91,63,.05);padding:10px 15px;margin:2px 0 12px;border-radius:0 3px 3px 0;">
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:2px;">你寫的是</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#9c5b3f;white-space:pre-wrap;">{{ mirrorAttr }}</div>
+        </div>
+        <p style="color:#938a78;font-size:13px;margin-bottom:10px;">「好用」「客服好」「快」「可靠」「彈性」都是評價，不是能力——每家公司都會這樣說自己。能力是「產品／公司具體有什麼、會做什麼」。</p>
+        <sc-for list="{{ kindOpts }}" as="t" hint-placeholder-count="2">
+          <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:13px 16px;margin-bottom:9px;cursor:pointer;">
+            <div style="font-family:'Noto Serif TC',serif;font-size:15.5px;margin-bottom:2px;color:{{ t.fg }};">{{ t.label }}</div>
+            <div style="font-size:12.5px;color:#938a78;line-height:1.6;">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+        <sc-if value="{{ kindAdj }}">
+          <div style="border-left:2px solid #a6552f;background:#f6efe9;padding:12px 15px;margin-top:8px;border-radius:0 3px 3px 0;color:#554d40;font-size:13px;line-height:1.8;"><b style="color:#a6552f;">先把它逼回可查的事實。</b>問自己：誰說的（你，還是第三方）？能不能量化——例如「上手只要 10 分鐘、對手要一天教育訓練」？寫得出具體事實，回上一步改寫它；寫不出來，這條就還不是能力。</div>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ s3 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 有價值嗎（誰說的）</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">有第三方能證明<br />它比替代方案好嗎？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:10px;">你自己說的不算。算數的是：獨立評測、分析師、或客戶在<b style="color:#9c5b3f;">授權引用</b>的推薦語裡說的。（今天要留意：AI 生成的假評論不算，可引用推薦語也要防造假。）</p>
+        <sc-for list="{{ pvOpts }}" as="t" hint-placeholder-count="3">
+          <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:12px 15px;margin-bottom:8px;cursor:pointer;">
+            <div style="font-size:14.5px;color:{{ t.fg }};margin-bottom:1px;">{{ t.label }}</div>
+            <div style="font-size:12px;color:#938a78;line-height:1.55;">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+      </sc-if>
+
+      <sc-if value="{{ s4 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 只有你有嗎</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你查過對手<br />真的沒有嗎？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:10px;">書只要你證「有價值」，卻沒要你證「只有你有」——而後者才是「獨有」的定義。你查不完對手的內部能力，所以誠實一點：你到底查過沒有？</p>
+        <sc-for list="{{ puOpts }}" as="t" hint-placeholder-count="3">
+          <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:12px 15px;margin-bottom:8px;cursor:pointer;">
+            <div style="font-size:14.5px;color:{{ t.fg }};margin-bottom:1px;">{{ t.label }}</div>
+            <div style="font-size:12px;color:#938a78;line-height:1.55;">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+      </sc-if>
+
+      <sc-if value="{{ s5 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 05 · 買前還是買後</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">買家在決定要不要買時，<br />就會看到這條嗎？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:10px;">定位文件要以「採購期能力」為主——買家評估要不要買時會看的。續約才感受得到的（像客服品質），先放後面。</p>
+        <sc-for list="{{ tmOpts }}" as="t" hint-placeholder-count="2">
+          <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:13px 16px;margin-bottom:9px;cursor:pointer;">
+            <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:2px;color:{{ t.fg }};">{{ t.label }}</div>
+            <div style="font-size:12.5px;color:#938a78;line-height:1.6;">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+      </sc-if>
+
+      <sc-if value="{{ s6 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 14px;">你的第三方證明盤點卡</div>
+
+        <div style="position:relative;border:1px solid {{ cardBd }};border-radius:3px;padding:28px 24px 22px;background:{{ cardBg }};box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px {{ cardBd }};">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:{{ cardAccent }};">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:5px;padding-left:5px;margin-top:4px;">第 三 方 證 明 盤 點</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Proof Inventory · 創業卷</div>
+          <div style="width:30px;height:1px;background:{{ cardAccent }};opacity:.6;margin:16px auto 20px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">你盤的這條能力</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:17px;line-height:1.6;margin-bottom:16px;white-space:pre-wrap;">{{ cardAttr }}</div>
+          <sc-if value="{{ showGates }}">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">逐道閘</div>
+            <sc-for list="{{ cardGates }}" as="g" hint-placeholder-count="3">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:5px 0;border-bottom:1px dotted #e3ddd0;">
+                <span style="font-size:13px;color:#554d40;">{{ g.name }}</span>
+                <span style="font-size:13px;color:{{ g.fg }};white-space:nowrap;text-align:right;">{{ g.val }}</span>
+              </div>
+            </sc-for>
+          </sc-if>
+          <div style="border:1px solid {{ cardBd }};border-radius:2px;padding:14px 14px;margin-top:16px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">判定</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:17px;color:{{ cardAccent }};line-height:1.5;">{{ verdictTitle }}</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:{{ cardAccent }};font-size:13.5px;letter-spacing:1px;margin-top:16px;">{{ cardMantra }}</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Toolbook · MMXXVI</div>
+        </div>
+
+        <div style="border:1px solid {{ cardBd }};border-radius:4px;background:#fbf9f4;padding:16px 18px;margin-top:16px;">
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">這代表什麼、下一步做什麼</div>
+          <p style="color:#554d40;font-size:13px;line-height:1.8;margin:0;">{{ verdictBody }}</p>
+          <sc-if value="{{ showTimingNote }}">
+            <p style="color:#938a78;font-size:11.5px;line-height:1.7;margin:10px 0 0;">{{ timingNote }}</p>
+          </sc-if>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製文字</button>
+          <button onClick="{{ onShare }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">分享這張</button>
+        </div>
+
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:24px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">這條線的下一步</div>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">還沒盤過「客戶心裡拿什麼跟你比」，先做 <a href="tool-alternatives.html">替代方案盤點器</a>——那份清單是判斷「只有你有」的基準。想確認你要宣稱的類別買家認不認，做 <a href="tool-category-check.html">類別存在檢查器</a>。</p>
+        </div>
+
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+          <div style="min-height:16px;text-align:center;color:#9c5b3f;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《產品定位》第五步。書要求「沒有證明的自我評價不算數」、第三方驗證才算證明；把「有價值」與「只有你有」拆成兩道獨立的閘、以及形容詞攔截，是本站補的（書只要求前者）。方法是否適合你，請自行判斷。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      <sc-if value="{{ s6 }}">
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">查看第三方證明盤點卡紀錄簿（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個做完的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">你做筆記軟體，想拿「端到端加密的協作筆記」當賣點。它是事實（不是形容詞）；一篇獨立評測點名過你的加密協作，所以有價值有第三方證明。但你其實沒真的去查對手——填出來的卡長這樣：</p>
+
+        <div style="position:relative;border:1px solid #cdb98a;border-radius:3px;padding:26px 22px 20px;background:#f5f0e4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cdb98a;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#9c7b3f;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:5px;padding-left:5px;margin-top:4px;">第 三 方 證 明 盤 點</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Proof Inventory · 創業卷</div>
+          <div style="width:30px;height:1px;background:#9c7b3f;opacity:.6;margin:14px auto 18px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">你盤的這條能力</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:17px;line-height:1.6;margin-bottom:16px;">端到端加密的協作筆記</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">逐道閘</div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dotted #e3ddd0;"><span style="font-size:13px;color:#554d40;">是能力還是形容詞</span><span style="font-size:13px;color:#6f7f5c;">具體事實</span></div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dotted #e3ddd0;"><span style="font-size:13px;color:#554d40;">第三方證明有價值</span><span style="font-size:13px;color:#6f7f5c;">有（獨立評測）</span></div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dotted #e3ddd0;"><span style="font-size:13px;color:#554d40;">只有你有</span><span style="font-size:13px;color:#9c7b3f;">沒查過</span></div>
+          <div style="border:1px solid #cdb98a;border-radius:2px;padding:14px 14px;margin-top:16px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">判定</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:17px;color:#9c7b3f;line-height:1.5;">就我所知：證了有價值，沒證只有你有</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#9c7b3f;font-size:13.5px;letter-spacing:1px;margin-top:16px;">去查對手，別把它當鐵打的獨有。</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>「有價值」不等於「只有你有」。</b>評測說你的加密協作好，證的是它有價值；沒人證過「只有你有」——而很多筆記軟體也在做加密協作。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>這正是書漏掉的一格。</b>書要你證有價值，卻沒要你證獨有——所以你的清單真名是「就我所知，替代方案沒有的」，不是「獨有」。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>下一步很具體。</b>去查三家最像的對手有沒有這條；查完再回來，這條就能升成「真獨有」或被誠實地劃掉。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始盤我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">第三方證明盤點卡紀錄簿</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:12px;"><span style="white-space:nowrap;">第 {{ c.idx }} 張 · {{ c.date }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;">這條能力</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-top:3px;white-space:pre-wrap;">{{ c.attr }}</div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;margin-top:10px;">判定</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#9c5b3f;font-weight:600;margin-top:3px;white-space:pre-wrap;">{{ c.verdict }}</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有卡片。<br />完成第一張後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    step: 0, attr: "", kind: "", proofValue: "", proofUnique: "", timing: "",
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, started: false, exampleOpen: false,
+  };
+  HKEY = "toolbook_proofcheck_history_v1";
+  TOOL = "第三方證明盤點器";
+  KINDS = {
+    fact: ["是具體事實", "產品／公司有什麼、會做什麼——查得到、指得出。"],
+    adj: ["其實是一句評價", "好用／客服好／快／可靠／彈性——每家都這樣說自己。"],
+  };
+  PV = {
+    yes: ["有，說得出是誰", "獨立評測、分析師、或授權引用的客戶推薦語。"],
+    searching: ["還在找", "覺得有，但目前拿不出第三方的說法。"],
+    no: ["沒有，只有我們自己說", "目前只有內部或自己的判斷。"],
+  };
+  PU = {
+    haveproof: ["查過，對手真的沒有", "我實際比對過最像的幾家。"],
+    unchecked: ["沒真的查過", "我假設對手沒有，但沒去比對。"],
+    rivals: ["查了，對手也有", "比對後發現這條別人也做得到。"],
+  };
+  TM = {
+    consideration: ["買之前就會看到", "客戶評估要不要買時會拿它比較。"],
+    retention: ["續約才感受得到", "像客服品質、好不好合作——買時看不太到。"],
+  };
+  KIND_SHORT = { fact: "具體事實", adj: "還是形容詞" };
+  PV_SHORT = { yes: "有（第三方）", searching: "還在找", no: "只有自己說" };
+  PU_SHORT = { haveproof: "查過對手沒有", unchecked: "沒查過", rivals: "對手也有" };
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  set(k, v) { this.setState({ [k]: v }); }
+  isAdj() { return this.state.kind === "adj"; }
+  flow() { return this.isAdj() ? [0, 1, 2, 6] : [0, 1, 2, 3, 4, 5, 6]; }
+  gateOk(step) {
+    const s = this.state;
+    if (step === 1) return !!s.attr.trim();
+    if (step === 2) return !!s.kind;
+    if (step === 3) return !!s.proofValue;
+    if (step === 4) return !!s.proofUnique;
+    if (step === 5) return !!s.timing;
+    return true;
+  }
+  next() {
+    if (!this.gateOk(this.state.step)) return;
+    if (this.state.step === 0 && !this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: this.TOOL }); }
+    const fl = this.flow(); const i = fl.indexOf(this.state.step); const n = fl[Math.min(fl.length - 1, i + 1)];
+    if (n === 6) this.archive();
+    this.setState({ step: n });
+    const st = document.querySelector(".stage"); if (st) st.scrollTop = 0;
+  }
+  prev() { const fl = this.flow(); const i = fl.indexOf(this.state.step); const p = fl[Math.max(0, i - 1)]; this.setState({ step: p }); const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  pick(k, v) { this.setState({ [k]: v }); }
+
+  verdictKey() {
+    const s = this.state;
+    if (s.kind === "adj") return "adjective";
+    if (s.proofValue === "no" || s.proofValue === "searching") return "unproven";
+    if (s.proofUnique === "rivals") return "notunique";
+    if (s.proofUnique === "unchecked") return "asfaras";
+    return "trueunique";
+  }
+  VERDICTS = {
+    adjective: ["還是形容詞，不是能力", "「好用」「客服好」這種話每家都會講，等於沒說。先把它逼回可查的事實——誰說的、能不能量化（例如上手時間、要不要教育訓練），再回來盤。逼不出事實，這條就先別拿來定位。"],
+    unproven: ["還沒證明：你自己說不算數", "沒有證明的自我評價不算數。去拿第三方的說法——獨立評測、分析師、或授權引用的客戶推薦語。⚠️ 拿不到不代表你沒這能力：最需要定位的早期公司天生最缺這些，那就先去拿證明，別急著把它印上官網、也別因此判自己沒有。"],
+    notunique: ["不是獨有：對手也有", "你查過、對手也做得到——這條就不能當差異點。留著它當「基本盤」可以，但定位要建在別條真正只有你有的能力上。回到替代方案清單，找那條對手給不了的。"],
+    asfaras: ["就我所知：證了有價值，沒證只有你有", "這正是書漏掉、而你最容易自我感覺良好的一格。你證了它有價值，卻沒證「只有你有」——它真正的名字是「就我們所知，替代方案沒有的」。下一步很具體：去查最像的三家對手有沒有這條，查完再回來，這條會升成「真獨有」或被誠實劃掉。"],
+    trueunique: ["真獨有能力：可進定位地基", "有第三方證明有價值、你也查過對手沒有——這條站得住，可以拿它當定位的地基。⚠️ 獨有會過期：對手隨時可能補上，每隔一段時間回來重盤一次。"],
+  };
+  MANTRA = { adjective: "先逼回事實，再回來盤。", unproven: "你自己說不算，去拿第三方的。", notunique: "對手也有的，不是差異點。", asfaras: "去查對手，別當鐵打的獨有。", trueunique: "站得住，但會過期，記得回來重盤。" };
+
+  timingNote() {
+    const s = this.state;
+    if (this.verdictKey() === "adjective") return "";
+    if (s.timing === "retention") return "你標了這是「續約才感受到」的留存期能力——定位文件以採購期能力為主，把它放後面。但若你的產品是先用後買／自助試用，試用期就是採購期，這條線要往前移，別把它一律降級。";
+    if (s.timing === "consideration") return "這是採購期能力（買家買之前就會看），正好是定位文件該擺在前面的那種。";
+    return "";
+  }
+
+  newCard() {
+    if (!window.confirm("盤下一條能力？目前內容會清掉。")) return;
+    this.setState({ step: 1, attr: "", kind: "", proofValue: "", proofUnique: "", timing: "" });
+  }
+  archive() {
+    const s = this.state; if (!s.attr.trim()) return;
+    const vk = this.verdictKey();
+    const card = { id: "prf_" + Date.now().toString(36), createdAt: new Date().toISOString(),
+      attr: s.attr.trim(), kind: s.kind, proofValue: s.proofValue, proofUnique: s.proofUnique, timing: s.timing, verdict: vk };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards });
+    try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: this.TOOL }); } catch (_) {}
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); try { localStorage.setItem(this.HKEY, JSON.stringify(cards)); } catch (_) {} }
+
+  gateRows() {
+    const s = this.state;
+    if (s.kind === "adj") return [{ name: "是能力還是形容詞", val: "還是形容詞", key: "adj" }];
+    return [
+      { name: "是能力還是形容詞", val: "具體事實", key: "fact" },
+      { name: "第三方證明有價值", val: this.PV_SHORT[s.proofValue] || "—", key: "pv_" + s.proofValue },
+      { name: "只有你有", val: this.PU_SHORT[s.proofUnique] || "—", key: "pu_" + s.proofUnique },
+      { name: "買前還是買後", val: s.timing === "consideration" ? "採購期" : s.timing === "retention" ? "留存期" : "—", key: "tm_" + s.timing },
+    ];
+  }
+  cardText() {
+    const s = this.state; const vk = this.verdictKey(); const v = this.VERDICTS[vk];
+    const rows = this.gateRows().map(r => "· " + r.name + "：" + r.val).join("\n");
+    return "第三方證明盤點\n\n這條能力：" + s.attr.trim() + "\n\n" + rows + "\n\n判定：" + v[0] + "\n" + v[1] + "\n\n" + this.MANTRA[vk];
+  }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製卡片文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  async share() { try { if (navigator.share) await navigator.share({ title: "我的第三方證明盤點卡", text: this.cardText() }); else { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: this.TOOL, helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", this.TOOL); fd.append("_subject", "Toolbook 工具回饋 · 第三方證明盤點器"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+  async saveImage() {
+    const s = this.state; const vk = this.verdictKey(); const v = this.VERDICTS[vk];
+    const rows = this.gateRows();
+    const blocks = [{ k: "你盤的這條能力", v: s.attr.trim() || "—", serif: true, big: true }];
+    blocks.push({ k: "逐道閘", v: rows.map(r => r.name + "：" + r.val).join("　·　") });
+    blocks.push({ k: "判定", v: v[0] });
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "第三方證明盤點", sub: "PROOF INVENTORY · Nº 34", filename: "第三方證明盤點卡-Toolbook", mantra: this.MANTRA[vk], edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+  }
+
+  renderVals() {
+    const s = this.state, step = s.step;
+    const fl = this.flow(); const inner = fl.filter(n => n > 0 && n < 6);
+    const dots = inner.map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#9c5b3f" : "#e3ddd0" }));
+    const isResult = step === 6;
+    const showGate = step >= 1 && step <= 5;
+    const gateBad = showGate && !this.gateOk(step);
+
+    const mkCards = (key, cur, dict, order) => order.map(k => ({
+      label: dict[k][0], desc: dict[k][1],
+      bd: cur === k ? "#9c5b3f" : "#e3ddd0", bg: cur === k ? "rgba(156,91,63,.06)" : "#fbf9f4",
+      fg: cur === k ? "#9c5b3f" : "#241f18", onClick: () => this.pick(key, k),
+    }));
+    const kindOpts = mkCards("kind", s.kind, this.KINDS, ["fact", "adj"]);
+    const pvOpts = mkCards("proofValue", s.proofValue, this.PV, ["yes", "searching", "no"]);
+    const puOpts = mkCards("proofUnique", s.proofUnique, this.PU, ["haveproof", "unchecked", "rivals"]);
+    const tmOpts = mkCards("timing", s.timing, this.TM, ["consideration", "retention"]);
+
+    const cards = s.cards.map((c, n) => ({
+      idx: s.cards.length - n, date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }),
+      attr: c.attr || "—", verdict: (this.VERDICTS[c.verdict] ? this.VERDICTS[c.verdict][0] : "—"),
+      onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); },
+    }));
+
+    const vk = this.verdictKey(); const v = this.VERDICTS[vk];
+    const tone = vk === "trueunique" ? { bd: "#cec6b4", bg: "#f3efe7", ac: "#9c5b3f" }
+      : vk === "notunique" || vk === "adjective" ? { bd: "#cd9a86", bg: "#f6efe9", ac: "#a6552f" }
+      : { bd: "#cdb98a", bg: "#f5f0e4", ac: "#9c7b3f" };
+    const gFg = { fact: "#6f7f5c", adj: "#a6552f", pv_yes: "#6f7f5c", pv_searching: "#9c7b3f", pv_no: "#b06a45", pu_haveproof: "#6f7f5c", pu_unchecked: "#9c7b3f", pu_rivals: "#b06a45", tm_consideration: "#6f7f5c", tm_retention: "#9c7b3f" };
+    const cardGates = this.gateRows().map(r => ({ name: r.name, val: r.val, fg: gFg[r.key] || "#554d40" }));
+    const tnote = this.timingNote();
+
+    return {
+      dots, backColor: step === 0 ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: step === 5, s6: isResult,
+      attr: s.attr, onAttr: e => this.set("attr", e.target.value), mirrorAttr: s.attr.trim() || "（還沒填）",
+      kindOpts, kindAdj: s.kind === "adj",
+      pvOpts, puOpts, tmOpts,
+      cardAttr: s.attr.trim() || "—", showGates: true, cardGates,
+      verdictTitle: v[0], verdictBody: v[1], cardMantra: this.MANTRA[vk],
+      showTimingNote: !!tnote, timingNote: tnote,
+      cardBd: tone.bd, cardBg: tone.bg, cardAccent: tone.ac,
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(), onHome: () => { window.location.href = "index.html"; },
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e),
+      onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
+      showGate, gateMsg: gateBad ? (step === 1 ? "先寫下這一條能力" : step === 2 ? "選一個" : "選一個再繼續") : "",
+      onNext: isResult ? () => this.newCard() : () => this.next(),
+      nextLabel: step === 0 ? "開始" : isResult ? "盤下一條" : (step === 2 && s.kind === "adj") ? "看判定" : step === 5 ? "看判定" : "下一步",
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#cbb9ac" : "#9c5b3f",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showRecordsBtn: (step === 0 || isResult) && s.cards.length > 0,
+      onOpenRecords: () => this.set("recordsOpen", true),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+    };
+  }
+}
+</script>
+</body>
+</html>
