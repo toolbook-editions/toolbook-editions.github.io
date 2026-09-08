@@ -101,7 +101,10 @@
           </sc-if>
         </div>
 
-        <sc-if value="{{ hasGap }}">
+        <sc-if value="{{ gapJustTwo }}">
+          <div style="border-left:2px solid #cec6b4;background:#f3efe7;border-radius:0 3px 3px 0;padding:11px 15px;margin:8px 0 4px;color:#554d40;font-size:13px;line-height:1.8;">已經兩天沒記錄了——這通常是最容易乾脆放棄的時間點。<b>現在點一下，比之後再說容易得多。</b></div>
+        </sc-if>
+        <sc-if value="{{ gapMoreThanTwo }}">
           <div style="border-left:2px solid #cec6b4;background:#f3efe7;border-radius:0 3px 3px 0;padding:11px 15px;margin:8px 0 4px;color:#554d40;font-size:13px;line-height:1.8;">上次是 {{ gapDays }} 天前。<b>接回去就好</b>，不用從頭來過。</div>
         </sc-if>
 
@@ -157,7 +160,7 @@
               <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
             </div>
           </form>
-          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這個工具啟發自《人生效率手冊》第 30 章早起打卡與第 20 章戒習慣的方法；「不顯示連續天數、漏做一兩次不影響養成」依 Lally 等人的習慣形成研究。</p>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這個工具啟發自《人生效率手冊》第 30 章早起打卡與第 20 章戒習慣的方法；「不顯示連續天數、漏做一兩次不影響養成」依 Lally 等人的習慣形成研究。第二天沒記錄時的提醒文字，依《原子習慣》談連續紀錄的一章與 Polivy &amp; Herman 對破戒後容易整盤放棄這個現象的研究。</p>
         </div>
       </sc-if>
 
@@ -434,7 +437,7 @@ class Component extends DCLogic {
       actName, cycleDay, cycleLen, doneCount, grid, trendLabel,
       doneToday, notDoneToday: !doneToday,
       onMark: () => this.markToday(), onUndo: () => this.undoToday(),
-      hasGap, gapDays,
+      hasGap, gapDays, gapJustTwo: hasGap && gapDays === 2, gapMoreThanTwo: hasGap && gapDays > 2,
 
       endName, endCount, endWord,
 
