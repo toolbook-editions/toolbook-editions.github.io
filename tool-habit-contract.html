@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+<!-- toolbook-icons -->
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-f.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f3efe7">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  input:focus,textarea:focus{outline:none;border-color:#35456a!important;box-shadow:0 0 0 2px rgba(53,69,106,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(53,69,106,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;text-align:center;pointer-events:none;font-family:'Noto Serif TC',serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#938a78;">{{ headTitle }}</div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ vIntro }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 36 · 長程</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">把承諾寫清楚，<br />順便找個人盯著你</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">先問你一個問題：有沒有人會在你沒做到時，真的執行代價。<b style="color:#554d40;">這不是保證你會做到的工具</b>，是幫你把後果講清楚的工具。答案只存在這部裝置。</p>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ vScreen }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第一步 · 選人</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:21px;font-weight:600;line-height:1.6;margin-bottom:14px;">你有沒有一個人選，<br />你有把握他真的會在你沒做到時，執行你們講好的代價？</h2>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:18px;">
+          <button onClick="{{ onScreenYes }}" style="border:1px solid #cec6b4;background:#fff;color:#241f18;border-radius:4px;padding:15px 16px;font-size:14.5px;text-align:left;cursor:pointer;">有，我想到一個人了</button>
+          <button onClick="{{ onScreenNo }}" style="border:1px solid #cec6b4;background:#fff;color:#241f18;border-radius:4px;padding:15px 16px;font-size:14.5px;text-align:left;cursor:pointer;">沒有適合的人選</button>
+          <button onClick="{{ onScreenUnsure }}" style="border:1px solid #cec6b4;background:#fff;color:#241f18;border-radius:4px;padding:15px 16px;font-size:14.5px;text-align:left;cursor:pointer;">不確定</button>
+        </div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:22px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">研究裡，真的執行代價的簽約者不到一半——多數人簽了約、沒做到，就直接放棄了代價。<b>沒有把握的話，選「沒有」或「不確定」誠實得多</b>，工具會給你一個不靠外部代價的版本。</div>
+      </sc-if>
+
+      <sc-if value="{{ vSetup }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">{{ setupKicker }}</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">要為<br />什麼事立約？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">一件具體、查核日能一句話回答「做到了沒」的事。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">這件事</label>
+        <input value="{{ newBehavior }}" onInput="{{ onBehavior }}" maxlength="40" placeholder="例如：每週跑步兩次 / 每天寫 500 字" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:15px;color:#241f18;" />
+
+        <sc-if value="{{ hasStakes }}">
+          <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:24px 0 7px;">見證人（誰會知道、誰會執行代價）</label>
+          <input value="{{ newWitness }}" onInput="{{ onWitness }}" maxlength="30" placeholder="例如：室友阿明 / 我姐" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:15px;color:#241f18;" />
+
+          <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:24px 0 7px;">代價類型</label>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onStakeFinancial }}" style="flex:1;border:1px solid {{ finBd }};background:{{ finBg }};color:{{ finFg }};border-radius:3px;padding:13px 6px;font-size:14px;cursor:pointer;">財務型</button>
+            <button onClick="{{ onStakeSocial }}" style="flex:1;border:1px solid {{ socBd }};background:{{ socBg }};color:{{ socFg }};border-radius:3px;padding:13px 6px;font-size:14px;cursor:pointer;">社會型</button>
+          </div>
+          <div style="color:#b9b09a;font-size:11.5px;margin-top:8px;line-height:1.7;">財務型（真的付出金錢或喪失某樣東西）目前的研究證據比社會型（只靠見證人知道）更穩固——不確定選哪個，可以先選財務型。</div>
+
+          <sc-if value="{{ stakePicked }}">
+            <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:20px 0 7px;">{{ stakeLabel }}</label>
+            <textarea value="{{ newStakeDetail }}" onInput="{{ onStakeDetail }}" maxlength="80" placeholder="{{ stakePlaceholder }}" style="width:100%;min-height:60px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:12px 14px;font-size:14.5px;color:#241f18;line-height:1.7;resize:vertical;"></textarea>
+          </sc-if>
+
+          <sc-if value="{{ reducedHint }}">
+            <div style="border-left:2px solid #cec6b4;background:#f3efe7;border-radius:0 3px 3px 0;padding:11px 15px;margin-top:14px;color:#554d40;font-size:13px;line-height:1.8;">上次的代價是「{{ prevStakeDetail }}」，沒做到。這次可以選一個更小、更容易真的執行的代價，或拉長查核週期。</div>
+          </sc-if>
+        </sc-if>
+
+        <sc-if value="{{ noStakes }}">
+          <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:22px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">這一版沒有外部代價，效果的證據比有代價版本弱——但你至少把承諾寫清楚了。想找到人選之後，隨時可以回來升級。</div>
+        </sc-if>
+
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:24px 0 7px;">多久查核一次</label>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <sc-for list="{{ periodOpts }}" as="o" hint-placeholder-count="4">
+            <button onClick="{{ o.onPick }}" style="flex:1;min-width:64px;border:1px solid {{ o.bd }};background:{{ o.bg }};color:{{ o.fg }};border-radius:3px;padding:11px 6px;font-size:13.5px;cursor:pointer;white-space:nowrap;">{{ o.label }}</button>
+          </sc-for>
+        </div>
+        <sc-if value="{{ customOn }}">
+          <div style="display:flex;align-items:center;gap:10px;margin-top:12px;">
+            <input value="{{ newPeriod }}" onInput="{{ onPeriod }}" type="number" min="1" max="90" style="width:96px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:11px 13px;font-size:15px;color:#241f18;" />
+            <span style="color:#938a78;font-size:13px;">天</span>
+          </div>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ vTrack }}">
+        <div style="text-align:center;margin-bottom:4px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.5;">{{ actBehavior }}</div>
+          <div style="color:#938a78;font-size:12px;letter-spacing:.5px;margin-top:4px;">第 {{ cycleDay }} 天 · 這一輪共 {{ cycleLen }} 天</div>
+        </div>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:22px 20px;margin-top:20px;background:#f3efe7;box-shadow:inset 0 0 0 4px #fbf9f4,inset 0 0 0 5px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#938a78;margin-bottom:14px;">{{ contractKicker }}</div>
+          <sc-if value="{{ actHasStakes }}">
+            <div style="color:#554d40;font-size:13.5px;line-height:2;">
+              <div><b style="color:#241f18;">見證人</b>　{{ actWitness }}</div>
+              <div><b style="color:#241f18;">代價</b>　{{ actStakeLabel }}：{{ actStakeDetail }}</div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ actNoStakes }}">
+            <p style="color:#554d40;font-size:13.5px;line-height:1.9;text-align:center;">自我記錄版（無外部代價）</p>
+          </sc-if>
+        </div>
+
+        <div style="text-align:center;margin-top:22px;">
+          <sc-if value="{{ dueNow }}">
+            <div style="color:#35456a;font-size:14px;font-weight:600;">查核日到了</div>
+          </sc-if>
+          <sc-if value="{{ notDueYet }}">
+            <div style="color:#938a78;font-size:13px;">還有 {{ daysLeft }} 天到查核日</div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ vCheckin }}">
+        <sc-if value="{{ askingResult }}">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 16px;">查核時間到了</div>
+          <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;text-align:center;line-height:1.6;margin-bottom:6px;">{{ checkinBehavior }}</h2>
+          <p style="color:#938a78;font-size:13px;text-align:center;margin-bottom:22px;">這段期間，你做到了嗎？</p>
+          <div style="display:flex;gap:10px;">
+            <button onClick="{{ onKept }}" style="flex:1;border:1px solid #35456a;background:#35456a;color:#fbf9f4;border-radius:4px;padding:16px 8px;font-size:14.5px;font-weight:600;cursor:pointer;">做到了</button>
+            <button onClick="{{ onBroken }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#554d40;border-radius:4px;padding:16px 8px;font-size:14.5px;cursor:pointer;">沒做到</button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ resultKept }}">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 16px;">做到了</div>
+          <div style="border:1px solid #cec6b4;border-radius:3px;padding:22px 20px;background:#f3efe7;text-align:center;">
+            <p style="color:#554d40;font-size:13.5px;line-height:1.9;margin:0;">契約履行了。這不代表接下來一定會繼續，但這一輪，你言出必行。</p>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ resultBroken }}">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 16px;">沒做到</div>
+          <div style="border:1px solid #cec6b4;border-radius:3px;padding:22px 20px;background:#f3efe7;text-align:center;">
+            <p style="color:#554d40;font-size:13.5px;line-height:1.9;margin:0;">先別急著放棄。多數簽約的人都會有做不到的一輪——要不要調降代價，或拉長週期，重新簽一次？</p>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ showEndFeedback }}">
+          <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+            <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+            <div style="display:flex;gap:8px;">
+              <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+              <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+              <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+            </div>
+            <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+            <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
+            <form onSubmit="{{ onSubmitFeedback }}">
+              <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+              <div style="display:flex;gap:8px;">
+                <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+                <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+              </div>
+            </form>
+            <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這個工具啟發自《原子習慣》第17章的習慣契約與第24章範例工具箱；財務型承諾機制的效果見 Giné, Karlan &amp; Zinman (2010) 的隨機對照試驗，但簽約後真的執行代價的人不到一半（Anett John 田野實驗）——這也是這裡不承諾「簽了就會做到」的原因。</p>
+          </div>
+        </sc-if>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showPrimary }}">
+        <button onClick="{{ onPrimary }}" disabled="{{ primaryDisabled }}" style="display:block;width:100%;border:none;background:{{ primaryBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ primaryOp }};">{{ primaryLabel }}</button>
+      </sc-if>
+      <sc-if value="{{ showSecondary }}">
+        <button onClick="{{ onSecondary }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">{{ secondaryLabel }}</button>
+      </sc-if>
+      <sc-if value="{{ showTertiary }}">
+        <div onClick="{{ onTertiary }}" style="text-align:center;color:#b9b09a;font-size:12px;margin-top:12px;cursor:pointer;">{{ tertiaryLabel }}</div>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">我的契約（{{ contractCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">我的契約</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。點一個就切到它。</p>
+        <sc-if value="{{ hasContracts }}">
+          <sc-for list="{{ contractRows }}" as="c" hint-placeholder-count="0">
+            <div onClick="{{ c.onPick }}" style="background:{{ c.bg }};border:1px solid {{ c.bd }};border-radius:4px;padding:16px 18px;margin-bottom:12px;cursor:pointer;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <span style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;white-space:pre-wrap;">{{ c.behavior }}</span>
+                <span onClick="{{ c.onDel }}" style="color:#b9b09a;font-size:12px;cursor:pointer;white-space:nowrap;">刪除</span>
+              </div>
+              <div style="color:#938a78;font-size:12px;">{{ c.statusLabel }}</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <button onClick="{{ onNewContract }}" style="display:block;width:100%;border:1px dashed #cec6b4;background:transparent;color:#35456a;border-radius:4px;padding:14px;font-size:14px;cursor:pointer;margin-top:4px;">＋ 新增一個契約</button>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    view: "intro", contracts: [], activeId: null,
+    newBehavior: "", newWitness: "", newStakeType: null, newStakeDetail: "", newPeriod: 14,
+    editId: null, pendingHasStakes: true, reducingId: null,
+    checkinResult: null,
+    toastOn: false, toastMsg: "",
+    feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    recordsOpen: false, started: false,
+  };
+  HKEY = "toolbook_habitcontract_history_v1";
+
+  componentDidMount() {
+    try {
+      const raw = localStorage.getItem(this.HKEY);
+      if (raw) { const a = JSON.parse(raw); if (Array.isArray(a) && a.length) { const contracts = a.slice(0, 30); const active = contracts.find(c => !c.ended) || contracts[0]; this.setState({ contracts, activeId: active.id, view: this.viewFor(active) }); return; } }
+    } catch (_) {}
+  }
+  save(contracts) { try { localStorage.setItem(this.HKEY, JSON.stringify(contracts.slice(0, 30))); } catch (_) {} }
+
+  dkey(d) { d = d || new Date(); const p = n => String(n).padStart(2, "0"); return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate()); }
+  parseK(k) { const a = k.split("-").map(Number); return new Date(a[0], a[1] - 1, a[2]); }
+  daysBetween(aK, bK) { return Math.round((this.parseK(bK) - this.parseK(aK)) / 86400000); }
+
+  active() { return this.state.contracts.find(c => c.id === this.state.activeId) || null; }
+  cycleDayOf(c) { return this.daysBetween(c.start, this.dkey()) + 1; }
+  viewFor(c) { if (c.ended) return "intro"; return (this.cycleDayOf(c) > c.periodDays && !c.result) ? "checkin" : "track"; }
+
+  set(k, v) { this.setState({ [k]: v }); }
+  scrollTop() { const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+
+  goScreen() { this.setState({ view: "screen" }); this.scrollTop(); }
+  pickScreen(answer) {
+    const hasStakes = answer === "yes";
+    this.setState({
+      view: "setup", pendingHasStakes: hasStakes, reducingId: null, editId: null,
+      newBehavior: "", newWitness: "", newStakeType: null, newStakeDetail: "", newPeriod: 14,
+    });
+    this.scrollTop();
+  }
+
+  goSetupAgain(edit) {
+    const c = this.active();
+    if (edit && c) {
+      this.setState({ view: "setup", editId: c.id, reducingId: null, pendingHasStakes: c.hasStakes, newBehavior: c.behavior, newWitness: c.witness || "", newStakeType: c.stakeType, newStakeDetail: c.stakeDetail || "", newPeriod: c.periodDays });
+    } else {
+      this.setState({ view: "screen", editId: null, reducingId: null });
+    }
+    this.scrollTop();
+  }
+  goReduce() {
+    const c = this.active();
+    if (!c) return;
+    this.setState({ view: "setup", editId: c.id, reducingId: c.id, pendingHasStakes: c.hasStakes, newBehavior: c.behavior, newWitness: c.witness || "", newStakeType: c.stakeType, newStakeDetail: "", newPeriod: c.periodDays });
+    this.scrollTop();
+  }
+
+  saveContract() {
+    const behavior = (this.state.newBehavior || "").trim();
+    if (!behavior) return;
+    const hasStakes = this.state.pendingHasStakes;
+    if (hasStakes && !this.state.newStakeType) return;
+    if (hasStakes && !(this.state.newStakeDetail || "").trim()) return;
+    let period = parseInt(this.state.newPeriod, 10); if (!period || period < 1) period = 14; if (period > 90) period = 90;
+    if (!this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "習慣契約卡" }); }
+
+    let contracts = this.state.contracts.slice();
+    if (this.state.editId) {
+      const prev = contracts.find(c => c.id === this.state.editId);
+      const gen = prev ? (prev.gen || 1) + 1 : 1;
+      const prevStakeDetail = this.state.reducingId ? (prev && prev.stakeDetail) : null;
+      contracts = contracts.map(c => c.id === this.state.editId ? {
+        ...c, behavior, hasStakes, stakeType: hasStakes ? this.state.newStakeType : null,
+        stakeDetail: hasStakes ? (this.state.newStakeDetail || "").trim() : "", witness: hasStakes ? (this.state.newWitness || "").trim() : "",
+        periodDays: period, start: this.dkey(), result: null, ended: false, gen, prevStakeDetail,
+      } : c);
+      this.save(contracts);
+      this.setState({ contracts, activeId: this.state.editId, view: "track", editId: null, reducingId: null, checkinResult: null });
+      this.toast("契約更新了，新的一輪開始");
+    } else {
+      const c = {
+        id: "hc_" + Date.now().toString(36), behavior, hasStakes,
+        stakeType: hasStakes ? this.state.newStakeType : null, stakeDetail: hasStakes ? (this.state.newStakeDetail || "").trim() : "",
+        witness: hasStakes ? (this.state.newWitness || "").trim() : "", periodDays: period,
+        start: this.dkey(), createdAt: new Date().toISOString(), result: null, ended: false, gen: 1, prevStakeDetail: null,
+      };
+      contracts = [c, ...contracts].slice(0, 30);
+      this.save(contracts);
+      this.setState({ contracts, activeId: c.id, view: "track", recordsOpen: false });
+      if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: "習慣契約卡" });
+      this.toast("契約寫好了");
+    }
+    this.scrollTop();
+  }
+
+  setResult(result) {
+    this.setState({ checkinResult: result });
+  }
+  finishCheckin(action) {
+    // action: "again" 照原樣再簽 / "adjust" 調整後再簽 / "reduce" 調降後重簽 / "end" 不簽了
+    const c = this.active();
+    if (!c) return;
+    if (action === "adjust") { this.goSetupAgain(true); return; }
+    if (action === "reduce") { this.goReduce(); return; }
+    let contracts = this.state.contracts.slice();
+    if (action === "again") {
+      contracts = contracts.map(x => x.id === c.id ? { ...x, start: this.dkey(), result: null } : x);
+      this.save(contracts); this.setState({ contracts, view: "track", checkinResult: null }); this.toast("新的一輪開始");
+    } else if (action === "end") {
+      contracts = contracts.map(x => x.id === c.id ? { ...x, ended: true, result: this.state.checkinResult } : x);
+      this.save(contracts);
+      const next = contracts.find(x => !x.ended);
+      if (next) this.setState({ contracts, activeId: next.id, view: this.viewFor(next), checkinResult: null });
+      else this.setState({ contracts, activeId: null, view: "intro", checkinResult: null });
+    }
+    this.scrollTop();
+  }
+  pickContract(id) { const c = this.state.contracts.find(x => x.id === id); if (!c) return; this.setState({ activeId: id, recordsOpen: false, view: this.viewFor(c), checkinResult: null }); this.scrollTop(); }
+  deleteContract(id) {
+    if (!window.confirm("刪掉這個契約？它的紀錄會一起清掉。")) return;
+    const contracts = this.state.contracts.filter(c => c.id !== id);
+    this.save(contracts);
+    if (id === this.state.activeId) {
+      const next = contracts.find(c => !c.ended) || contracts[0];
+      if (next) this.setState({ contracts, activeId: next.id, view: this.viewFor(next) });
+      else this.setState({ contracts, activeId: null, view: "intro", recordsOpen: false });
+    } else this.setState({ contracts });
+  }
+
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: "習慣契約卡", helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "習慣契約卡"); fd.append("_subject", "Toolbook 工具回饋 · 習慣契約卡"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+
+  renderVals() {
+    const s = this.state, v = s.view;
+    const c = this.active();
+    const heads = { intro: "習慣契約卡", screen: "習慣契約卡", setup: s.editId ? "重新簽約" : "新的契約", track: "", checkin: "查核" };
+
+    const hasStakes = s.pendingHasStakes;
+    const stakePicked = !!s.newStakeType;
+    const stakeLabel = s.newStakeType === "financial" ? "具體代價（財務型）" : "具體代價（社會型）";
+    const stakePlaceholder = s.newStakeType === "financial" ? "例如：沒做到，這週的 100 元讓見證人拿去" : "例如：沒做到，見證人會在群組公告";
+
+    const periodPresets = [7, 14, 30];
+    const period = parseInt(s.newPeriod, 10);
+    const isPreset = periodPresets.indexOf(period) >= 0;
+    const periodOpts = periodPresets.map(n => ({ label: n + " 天", onPick: () => this.set("newPeriod", n), sel: period === n }))
+      .concat([{ label: "自訂", onPick: () => this.set("newPeriod", isPreset ? 21 : (period || 21)), sel: !isPreset }])
+      .map(o => ({ label: o.label, onPick: o.onPick, bg: o.sel ? "#35456a" : "#fff", fg: o.sel ? "#fbf9f4" : "#554d40", bd: o.sel ? "#35456a" : "#e3ddd0" }));
+
+    let cycleDay = 0, cycleLen = 0, actBehavior = "", actHasStakes = false, actNoStakes = false, actWitness = "", actStakeLabel = "", actStakeDetail = "", contractKicker = "", dueNow = false, notDueYet = false, daysLeft = 0;
+    if (c) {
+      cycleLen = c.periodDays; actBehavior = c.behavior;
+      cycleDay = Math.min(this.cycleDayOf(c), c.periodDays);
+      actHasStakes = c.hasStakes; actNoStakes = !c.hasStakes;
+      actWitness = c.witness || ""; actStakeLabel = c.stakeType === "financial" ? "財務型" : "社會型"; actStakeDetail = c.stakeDetail || "";
+      contractKicker = c.gen > 1 ? "已簽的契約 · 第 " + c.gen + " 次" : "已簽的契約";
+      const realDay = this.cycleDayOf(c);
+      if (realDay > c.periodDays) dueNow = true; else { notDueYet = true; daysLeft = c.periodDays - realDay + 1; }
+    }
+
+    let checkinBehavior = c ? c.behavior : "", askingResult = v === "checkin" && !s.checkinResult, resultKept = v === "checkin" && s.checkinResult === "kept", resultBroken = v === "checkin" && s.checkinResult === "broken";
+
+    let showPrimary = false, primaryLabel = "", onPrimary = () => {}, primaryDisabled = "", primaryBg = "#35456a", primaryOp = "1";
+    let showSecondary = false, secondaryLabel = "", onSecondary = () => {};
+    let showTertiary = false, tertiaryLabel = "", onTertiary = () => {};
+    if (v === "intro") {
+      showPrimary = true; primaryLabel = s.contracts.some(x => !x.ended) ? "回到我的契約" : "立一個契約";
+      onPrimary = () => { const open = s.contracts.find(x => !x.ended); if (open) this.pickContract(open.id); else this.goScreen(); };
+    } else if (v === "setup") {
+      const bad = !(s.newBehavior || "").trim() || (hasStakes && (!s.newStakeType || !(s.newStakeDetail || "").trim()));
+      showPrimary = true; primaryLabel = s.editId ? (s.reducingId ? "調降並重新簽約" : "更新並重新開始這一輪") : "簽這份契約";
+      onPrimary = () => this.saveContract(); primaryDisabled = bad ? "disabled" : ""; primaryOp = bad ? ".5" : "1"; primaryBg = bad ? "#b7bdcb" : "#35456a";
+    } else if (v === "track") {
+      showSecondary = true; secondaryLabel = "新增一個契約"; onSecondary = () => this.goScreen();
+    } else if (v === "checkin" && s.checkinResult === "kept") {
+      showPrimary = true; primaryLabel = "照原樣，再簽一輪"; onPrimary = () => this.finishCheckin("again");
+      showSecondary = true; secondaryLabel = "調整後再簽"; onSecondary = () => this.finishCheckin("adjust");
+      showTertiary = true; tertiaryLabel = "不簽了，結束這個契約"; onTertiary = () => this.finishCheckin("end");
+    } else if (v === "checkin" && s.checkinResult === "broken") {
+      showPrimary = true; primaryLabel = "調降後重簽"; onPrimary = () => this.finishCheckin("reduce");
+      showSecondary = true; secondaryLabel = "先不簽了，只留紀錄"; onSecondary = () => this.finishCheckin("end");
+    }
+
+    const statusOf = (x) => { if (x.ended) return x.result === "kept" ? "已結束 · 做到了" : (x.result === "broken" ? "已結束 · 沒做到" : "已結束"); const d = Math.min(this.cycleDayOf(x), x.periodDays); return "第 " + d + " 天 · 共 " + x.periodDays + " 天" + (x.hasStakes ? "" : " · 自我記錄版"); };
+    const contractRows = s.contracts.map(x => ({
+      behavior: x.behavior, statusLabel: statusOf(x),
+      bg: x.id === s.activeId ? "#fbf9f4" : "#fff", bd: x.id === s.activeId ? "#35456a" : "#e3ddd0",
+      onPick: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.pickContract(x.id); },
+      onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteContract(x.id); },
+    }));
+
+    return {
+      onBack: () => { if (v === "screen" || v === "setup") { const open = s.contracts.find(x => !x.ended); if (open) this.pickContract(open.id); else this.setState({ view: "intro" }); } else { this.setState({ view: "intro" }); } this.scrollTop(); },
+      backColor: (v === "intro" || v === "track") ? "transparent" : "#938a78",
+      headTitle: heads[v] || "",
+      vIntro: v === "intro", vScreen: v === "screen", vSetup: v === "setup", vTrack: v === "track", vCheckin: v === "checkin",
+
+      onScreenYes: () => this.pickScreen("yes"), onScreenNo: () => this.pickScreen("no"), onScreenUnsure: () => this.pickScreen("unsure"),
+
+      setupKicker: s.editId ? (s.reducingId ? "調降 · 重新簽約" : "調整 · 會開新一輪") : "第二步 · 立約",
+      newBehavior: s.newBehavior, onBehavior: e => this.set("newBehavior", e.target.value),
+      hasStakes, noStakes: !hasStakes,
+      newWitness: s.newWitness, onWitness: e => this.set("newWitness", e.target.value),
+      onStakeFinancial: () => this.set("newStakeType", "financial"), onStakeSocial: () => this.set("newStakeType", "social"),
+      finBg: s.newStakeType === "financial" ? "#35456a" : "#fff", finFg: s.newStakeType === "financial" ? "#fbf9f4" : "#554d40", finBd: s.newStakeType === "financial" ? "#35456a" : "#e3ddd0",
+      socBg: s.newStakeType === "social" ? "#35456a" : "#fff", socFg: s.newStakeType === "social" ? "#fbf9f4" : "#554d40", socBd: s.newStakeType === "social" ? "#35456a" : "#e3ddd0",
+      stakePicked, stakeLabel, stakePlaceholder, newStakeDetail: s.newStakeDetail, onStakeDetail: e => this.set("newStakeDetail", e.target.value),
+      reducedHint: !!s.reducingId, prevStakeDetail: (this.active() && this.active().stakeDetail) || "",
+      newPeriod: s.newPeriod, onPeriod: e => this.set("newPeriod", e.target.value), periodOpts, customOn: !isPreset,
+
+      actBehavior, cycleDay, cycleLen, actHasStakes, actNoStakes, actWitness, actStakeLabel, actStakeDetail, contractKicker, dueNow, notDueYet, daysLeft,
+
+      checkinBehavior, askingResult, resultKept, resultBroken,
+      onKept: () => this.setResult("kept"), onBroken: () => this.setResult("broken"),
+      showEndFeedback: resultKept || resultBroken,
+
+      showPrimary, primaryLabel, onPrimary, primaryDisabled, primaryBg, primaryOp,
+      showSecondary, secondaryLabel, onSecondary,
+      showTertiary, tertiaryLabel, onTertiary,
+      showRecordsBtn: (v === "intro" || v === "track") && s.contracts.length > 0,
+      contractCount: s.contracts.filter(x => !x.ended).length, onOpenRecords: () => this.set("recordsOpen", true),
+
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e), onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
+
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      hasContracts: s.contracts.length > 0, contractRows, onNewContract: () => this.goScreen(),
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -121,7 +121,9 @@
     { no: "32", name: "客戶切片器", key: "toolbook_customerslice_history_v1", file: "tool-customer-slice.html", unit: "張", label: "切到的一小群", pick: function (c) { return c.who; } },
     { no: "33", name: "類別存在檢查器", key: "toolbook_categorycheck_history_v1", file: "tool-category-check.html", unit: "張", label: "想宣稱的類別", pick: function (c) { return c.cat; } },
     { no: "34", name: "第三方證明盤點器", key: "toolbook_proofcheck_history_v1", file: "tool-proof-check.html", unit: "條", label: "這條能力", pick: function (c) { return c.attr; } },
-    { no: "35", name: "市場打法判定器", key: "toolbook_marketplay_history_v1", file: "tool-market-play.html", unit: "張", label: "判定", pick: function (c) { return c.verdictLabel || c.verdict; } }
+    { no: "35", name: "市場打法判定器", key: "toolbook_marketplay_history_v1", file: "tool-market-play.html", unit: "張", label: "判定", pick: function (c) { return c.verdictLabel || c.verdict; } },
+    { no: "36", name: "習慣契約卡", key: "toolbook_habitcontract_history_v1", file: "tool-habit-contract.html", unit: "張", label: "契約行為", pick: function (c) { return c.behavior; } },
+    { no: "37", name: "若則計畫卡", key: "toolbook_ifthen_history_v1", file: "tool-if-then.html", unit: "張", label: "動作", pick: function (c) { return c.action; } }
   ];
 
   var VOL = (function () {

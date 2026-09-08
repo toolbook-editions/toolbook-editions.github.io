@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+<!-- toolbook-icons -->
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-f.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f3efe7">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  input:focus,textarea:focus{outline:none;border-color:#35456a!important;box-shadow:0 0 0 2px rgba(53,69,106,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(53,69,106,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;text-align:center;pointer-events:none;font-family:'Noto Serif TC',serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#938a78;">{{ headTitle }}</div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ vIntro }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 37 · 起頭</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">把「我想要」<br />換成「當…我就…」</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">模糊的打算很難自動啟動。<b style="color:#554d40;">具體到時間或地點的一句話</b>，比較容易在那個當下真的被觸發。這裡沒有成功率承諾，只是幫你把念頭寫成一個能被觸發的句子。答案只存在這部裝置。</p>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ vScreen }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第一步 · 選行為</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:21px;font-weight:600;line-height:1.6;margin-bottom:14px;">這件事，是<br />一次性的，還是要重複做的？</h2>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:18px;">
+          <button onClick="{{ onTypeOnce }}" style="border:1px solid #cec6b4;background:#fff;color:#241f18;border-radius:4px;padding:15px 16px;font-size:14.5px;text-align:left;cursor:pointer;">一次性　<span style="color:#938a78;font-size:12.5px;">例如：去投票、去做健檢、報名一個活動</span></button>
+          <button onClick="{{ onTypeRepeat }}" style="border:1px solid #cec6b4;background:#fff;color:#241f18;border-radius:4px;padding:15px 16px;font-size:14.5px;text-align:left;cursor:pointer;">重複性　<span style="color:#938a78;font-size:12.5px;">例如：每週運動、每天讀書</span></button>
+        </div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:22px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">研究裡，這類若則計畫對一次性的行為效果比較穩定；<b>重複性的行為單靠一句計畫，效果通常小很多</b>——選重複性，這裡會建議你搭配另一張卡一起用。</div>
+      </sc-if>
+
+      <sc-if value="{{ vSetup }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第二步 · 寫下觸發</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:14px;">當…，我就…</h2>
+
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:0 0 7px;">當（什麼時候、在哪裡）</label>
+        <input value="{{ newContext }}" onInput="{{ onContext }}" maxlength="40" placeholder="例如：明天早上七點鬧鐘響 / 下班經過健身房門口" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:15px;color:#241f18;" />
+
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:20px 0 7px;">我就（具體動作）</label>
+        <input value="{{ newAction }}" onInput="{{ onAction }}" maxlength="40" placeholder="例如：換上運動鞋出門走 20 分鐘" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:15px;color:#241f18;" />
+
+        <sc-if value="{{ hasBoth }}">
+          <div style="border:1px solid #cec6b4;border-radius:3px;padding:16px 18px;margin-top:22px;background:#f3efe7;">
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">你的若則計畫</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.7;color:#241f18;">當{{ newContext }}，我就{{ newAction }}。</div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isRepeat }}">
+          <div style="border-left:2px solid #cec6b4;background:#f3efe7;border-radius:0 3px 3px 0;padding:11px 15px;margin-top:16px;color:#554d40;font-size:13px;line-height:1.8;">這是重複性行為——存完之後，建議順手去開一張<b>習慣追蹤卡</b>，讓斷了也能接得回去，不必只靠這一句話撐。</div>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ vEnd }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 16px;">寫好了</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;text-align:center;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:19px;font-weight:600;line-height:1.8;">當{{ endContext }}，<br />我就{{ endAction }}。</div>
+          <div style="height:1px;background:#e3ddd0;margin:18px 0;"></div>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.9;margin:0;">你把意圖轉成了一個具體的觸發條件。它不保證你會做到——這類計畫確實能提高執行機率，但重複性的行為，效果通常比一次性行為小很多，沒有搭配追蹤或提醒時可能不明顯。</p>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:18px;">If-Then · Nº 37 · MMXXVI</div>
+        </div>
+
+        <sc-if value="{{ endIsRepeat }}">
+          <a href="tool-habit.html" style="display:flex;align-items:center;justify-content:space-between;border:1px solid #cec6b4;border-radius:4px;padding:16px 18px;margin-top:16px;background:#fff;">
+            <span style="font-size:13.5px;color:#554d40;line-height:1.7;">這是重複性行為——去開一張習慣追蹤卡，讓斷了也能接得回去</span>
+            <span style="color:#35456a;font-size:13px;white-space:nowrap;margin-left:12px;">開始 →</span>
+          </a>
+        </sc-if>
+
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+          <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這個工具啟發自《原子習慣》第5章的執行意向；機制見 Milne, Orbell &amp; Sheeran (2002) 的隨機對照試驗，整體效果見 Gollwitzer &amp; Sheeran (2006) 把多份研究彙整起來一起算的結果——但效果因行為類型而異，重複性習慣通常小很多，這裡不引用書中的單一數字。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showPrimary }}">
+        <button onClick="{{ onPrimary }}" disabled="{{ primaryDisabled }}" style="display:block;width:100%;border:none;background:{{ primaryBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ primaryOp }};">{{ primaryLabel }}</button>
+      </sc-if>
+      <sc-if value="{{ showSecondary }}">
+        <button onClick="{{ onSecondary }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">{{ secondaryLabel }}</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">我的若則計畫（{{ planCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">我的若則計畫</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。點一個就切到它。</p>
+        <sc-if value="{{ hasPlans }}">
+          <sc-for list="{{ planRows }}" as="p" hint-placeholder-count="0">
+            <div onClick="{{ p.onPick }}" style="background:{{ p.bg }};border:1px solid {{ p.bd }};border-radius:4px;padding:16px 18px;margin-bottom:12px;cursor:pointer;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <span style="font-family:'Noto Serif TC',serif;font-size:15px;font-weight:600;white-space:pre-wrap;line-height:1.6;">當{{ p.context }}，我就{{ p.action }}。</span>
+                <span onClick="{{ p.onDel }}" style="color:#b9b09a;font-size:12px;cursor:pointer;white-space:nowrap;margin-left:10px;">刪除</span>
+              </div>
+              <div style="color:#938a78;font-size:12px;">{{ p.typeLabel }}</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <button onClick="{{ onNewPlan }}" style="display:block;width:100%;border:1px dashed #cec6b4;background:transparent;color:#35456a;border-radius:4px;padding:14px;font-size:14px;cursor:pointer;margin-top:4px;">＋ 新增一個若則計畫</button>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    view: "intro", plans: [], activeId: null,
+    newType: null, newContext: "", newAction: "",
+    toastOn: false, toastMsg: "",
+    feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    recordsOpen: false, started: false,
+  };
+  HKEY = "toolbook_ifthen_history_v1";
+
+  componentDidMount() {
+    try {
+      const raw = localStorage.getItem(this.HKEY);
+      if (raw) { const a = JSON.parse(raw); if (Array.isArray(a) && a.length) { const plans = a.slice(0, 30); this.setState({ plans, activeId: plans[0].id, view: "end" }); return; } }
+    } catch (_) {}
+  }
+  save(plans) { try { localStorage.setItem(this.HKEY, JSON.stringify(plans.slice(0, 30))); } catch (_) {} }
+
+  active() { return this.state.plans.find(p => p.id === this.state.activeId) || null; }
+  set(k, v) { this.setState({ [k]: v }); }
+  scrollTop() { const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+
+  goScreen() { this.setState({ view: "screen" }); this.scrollTop(); }
+  pickType(t) { this.setState({ view: "setup", newType: t, newContext: "", newAction: "" }); this.scrollTop(); }
+
+  savePlan() {
+    const context = (this.state.newContext || "").trim();
+    const action = (this.state.newAction || "").trim();
+    if (!context || !action) return;
+    if (!this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "若則計畫卡" }); }
+    const p = { id: "it_" + Date.now().toString(36), type: this.state.newType, context, action, createdAt: new Date().toISOString() };
+    const plans = [p, ...this.state.plans].slice(0, 30);
+    this.save(plans);
+    this.setState({ plans, activeId: p.id, view: "end", recordsOpen: false });
+    if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: "若則計畫卡" });
+    this.toast("若則計畫存好了");
+    this.scrollTop();
+  }
+  pickPlan(id) { this.setState({ activeId: id, recordsOpen: false, view: "end" }); this.scrollTop(); }
+  deletePlan(id) {
+    if (!window.confirm("刪掉這個若則計畫？")) return;
+    const plans = this.state.plans.filter(p => p.id !== id);
+    this.save(plans);
+    if (id === this.state.activeId) {
+      if (plans.length) this.setState({ plans, activeId: plans[0].id, view: "end" });
+      else this.setState({ plans, activeId: null, view: "intro", recordsOpen: false });
+    } else this.setState({ plans });
+  }
+
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: "若則計畫卡", helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "若則計畫卡"); fd.append("_subject", "Toolbook 工具回饋 · 若則計畫卡"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+
+  renderVals() {
+    const s = this.state, v = s.view;
+    const p = this.active();
+    const heads = { intro: "若則計畫卡", screen: "若則計畫卡", setup: "新的若則計畫", end: "" };
+
+    const hasBoth = !!(s.newContext || "").trim() && !!(s.newAction || "").trim();
+    const isRepeat = s.newType === "repeat";
+
+    let endContext = "", endAction = "", endIsRepeat = false;
+    if (v === "end" && p) { endContext = p.context; endAction = p.action; endIsRepeat = p.type === "repeat"; }
+
+    let showPrimary = false, primaryLabel = "", onPrimary = () => {}, primaryDisabled = "", primaryBg = "#35456a", primaryOp = "1";
+    let showSecondary = false, secondaryLabel = "", onSecondary = () => {};
+    if (v === "intro") {
+      showPrimary = true; primaryLabel = s.plans.length ? "回到我的若則計畫" : "寫第一個若則計畫";
+      onPrimary = () => { if (s.plans.length) this.pickPlan(s.plans[0].id); else this.goScreen(); };
+    } else if (v === "setup") {
+      showPrimary = true; primaryLabel = "存起來";
+      onPrimary = () => this.savePlan(); primaryDisabled = hasBoth ? "" : "disabled"; primaryOp = hasBoth ? "1" : ".5"; primaryBg = hasBoth ? "#35456a" : "#b7bdcb";
+    } else if (v === "end") {
+      showSecondary = true; secondaryLabel = "新增一個若則計畫"; onSecondary = () => this.goScreen();
+    }
+
+    const typeLabelOf = (x) => x.type === "repeat" ? "重複性" : "一次性";
+    const planRows = s.plans.map(x => ({
+      context: x.context, action: x.action, typeLabel: typeLabelOf(x),
+      bg: x.id === s.activeId ? "#fbf9f4" : "#fff", bd: x.id === s.activeId ? "#35456a" : "#e3ddd0",
+      onPick: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.pickPlan(x.id); },
+      onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deletePlan(x.id); },
+    }));
+
+    return {
+      onBack: () => { if (v === "screen" || v === "setup") { if (s.plans.length) this.pickPlan(s.activeId || s.plans[0].id); else this.setState({ view: "intro" }); } else { this.setState({ view: "intro" }); } this.scrollTop(); },
+      backColor: (v === "intro" || v === "end") ? "transparent" : "#938a78",
+      headTitle: heads[v] || "",
+      vIntro: v === "intro", vScreen: v === "screen", vSetup: v === "setup", vEnd: v === "end",
+
+      onTypeOnce: () => this.pickType("once"), onTypeRepeat: () => this.pickType("repeat"),
+
+      newContext: s.newContext, onContext: e => this.set("newContext", e.target.value),
+      newAction: s.newAction, onAction: e => this.set("newAction", e.target.value),
+      hasBoth, isRepeat,
+
+      endContext, endAction, endIsRepeat,
+
+      showPrimary, primaryLabel, onPrimary, primaryDisabled, primaryBg, primaryOp,
+      showSecondary, secondaryLabel, onSecondary,
+      showRecordsBtn: (v === "intro" || v === "end") && s.plans.length > 0,
+      planCount: s.plans.length, onOpenRecords: () => this.set("recordsOpen", true),
+
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e), onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
+
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      hasPlans: s.plans.length > 0, planRows, onNewPlan: () => this.goScreen(),
+    };
+  }
+}
+</script>
+</body>
+</html>
