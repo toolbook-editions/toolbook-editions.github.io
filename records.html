@@ -123,14 +123,20 @@
     { no: "34", name: "第三方證明盤點器", key: "toolbook_proofcheck_history_v1", file: "tool-proof-check.html", unit: "條", label: "這條能力", pick: function (c) { return c.attr; } },
     { no: "35", name: "市場打法判定器", key: "toolbook_marketplay_history_v1", file: "tool-market-play.html", unit: "張", label: "判定", pick: function (c) { return c.verdictLabel || c.verdict; } },
     { no: "36", name: "習慣契約卡", key: "toolbook_habitcontract_history_v1", file: "tool-habit-contract.html", unit: "張", label: "契約行為", pick: function (c) { return c.behavior; } },
-    { no: "37", name: "若則計畫卡", key: "toolbook_ifthen_history_v1", file: "tool-if-then.html", unit: "張", label: "動作", pick: function (c) { return c.action; } }
+    { no: "37", name: "若則計畫卡", key: "toolbook_ifthen_history_v1", file: "tool-if-then.html", unit: "張", label: "動作", pick: function (c) { return c.action; } },
+    { no: "38", name: "杰出人物差異分析器", key: "toolbook_peercompare_history_v1", file: "tool-peer-compare.html", unit: "次", label: "領域", pick: function (c) { return c.skill; } },
+    { no: "39", name: "天賦迷思拆解器", key: "toolbook_talentmyth_history_v1", file: "tool-talent-myth.html", unit: "次", label: "拆解的事", pick: function (c) { return c.thing; } },
+    { no: "40", name: "停滯期弱點定位工具", key: "toolbook_plateau_history_v1", file: "tool-plateau.html", unit: "次", label: "卡關技能", pick: function (c) { return c.skill; } }
   ];
 
   var VOL = (function () {
     var m = (location.search.match(/[?&]vol=([^&#]+)/) || [])[1];
     return (m === "personal" || m === "founders") ? m : "all";
   })();
-  function volOf(t) { return parseInt(t.no, 10) >= 22 ? "founders" : "personal"; }
+  // ⚠️ Nº22–35 是創業卷，但 Nº36 起（習慣契約卡／若則計畫卡）又回到個人卷——
+  // 序號是全站單一遞增序列，不是「>=22 全部創業卷」，純數字判斷會誤判。
+  var FOUNDERS_NOS = { "22":1,"23":1,"24":1,"25":1,"26":1,"27":1,"28":1,"29":1,"30":1,"31":1,"32":1,"33":1,"34":1,"35":1 };
+  function volOf(t) { return FOUNDERS_NOS[t.no] ? "founders" : "personal"; }
   var ACCENT = VOL === "founders" ? "#9c5b3f" : "#35456a";
   var POOL = TOOLS.filter(function (t) { return VOL === "all" || volOf(t) === VOL; });
 

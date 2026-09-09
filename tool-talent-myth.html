@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+<!-- toolbook-icons -->
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-f.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f3efe7">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  input:focus,textarea:focus{outline:none;border-color:#35456a!important;box-shadow:0 0 0 2px rgba(53,69,106,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(53,69,106,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;text-align:center;pointer-events:none;font-family:'Noto Serif TC',serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#938a78;">{{ headTitle }}</div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ vIntro }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 39 · 起頭</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">拆解「天生不擅長」<br />這個認定</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">用兩個問題檢查一件你認定「天生就是不擅長」（或「他天生就是很強」）的事：<b style="color:#554d40;">這個能力具體是什麼、有沒有認真練過</b>。這只能排除「沒試過就認定不行」的假天花板，不保證排除所有天花板——答案只存在這部裝置。</p>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ vStep1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第一步 · 問題一</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:20px;font-weight:600;line-height:1.6;margin-bottom:6px;">這件事，具體是什麼？</h2>
+        <p style="color:#938a78;font-size:12.5px;line-height:1.8;margin-bottom:16px;">先寫下你認定「天生很強」或「天生不擅長」的那件事，再拆成具體的技能點。</p>
+
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:0 0 7px;">那件事</label>
+        <input value="{{ thing }}" onInput="{{ onThing }}" maxlength="40" placeholder="例如：我天生不會唱歌 / 他天生反應就是快" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:15px;color:#241f18;margin-bottom:18px;" />
+
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:0 0 7px;">拆成更具體的技能點</label>
+        <input value="{{ skillPoint }}" onInput="{{ onSkillPoint }}" maxlength="50" placeholder="例如：不是「唱歌」，是「抓不到旋律音準」" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+      </sc-if>
+
+      <sc-if value="{{ vStep2 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第二步 · 問題二</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:20px;font-weight:600;line-height:1.6;margin-bottom:18px;">什麼樣的訓練，<br />可能造就（或改變）這件事？</h2>
+        <div style="display:flex;flex-direction:column;gap:9px;">
+          <button onClick="{{ onHistNever }}" style="border:1px solid {{ hNeverBd }};background:{{ hNeverBg }};color:#241f18;border-radius:4px;padding:14px 15px;font-size:14px;text-align:left;cursor:pointer;">從沒認真練過，只是被斷言過、或直覺覺得不行</button>
+          <button onClick="{{ onHistWrong }}" style="border:1px solid {{ hWrongBd }};background:{{ hWrongBg }};color:#241f18;border-radius:4px;padding:14px 15px;font-size:14px;text-align:left;cursor:pointer;">練過，但方法可能不對，沒有人指出具體錯在哪</button>
+          <button onClick="{{ onHistPlateau }}" style="border:1px solid {{ hPlatBd }};background:{{ hPlatBg }};color:#241f18;border-radius:4px;padding:14px 15px;font-size:14px;text-align:left;cursor:pointer;">已經用心練過一段時間，方法也對，但沒什麼進步</button>
+          <button onClick="{{ onHistLimit }}" style="border:1px solid {{ hLimBd }};background:{{ hLimBg }};color:#241f18;border-radius:4px;padding:14px 15px;font-size:14px;text-align:left;cursor:pointer;">這可能是已知有嚴格年齡窗口或明顯遺傳成分的能力（例如某些感官辨識能力）</button>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ vEnd }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 16px;">拆解結果</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:24px 22px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">那件事</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:12px;">{{ endThing }}</div>
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">具體技能點</div>
+          <div style="font-size:14.5px;margin-bottom:12px;">{{ endSkillPoint }}</div>
+          <div style="height:1px;background:#e3ddd0;margin:14px 0;"></div>
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:{{ endTagColor }};margin-bottom:8px;">{{ endTagLabel }}</div>
+          <p style="font-size:14.5px;line-height:1.9;color:#241f18;margin:0;">{{ endVerdict }}</p>
+        </div>
+
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+          <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這個工具啟發自《刻意練習》第8章拆解「天才傳說」的兩問框架。查證後要誠實補一句：基因可能同時影響能力上限與練習意願本身，這套框架只能排除「沒試過就認定不行」的假天花板，不能證明任何天花板都是後天可突破的。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showPrimary }}">
+        <button onClick="{{ onPrimary }}" disabled="{{ primaryDisabled }}" style="display:block;width:100%;border:none;background:{{ primaryBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ primaryOp }};">{{ primaryLabel }}</button>
+      </sc-if>
+      <sc-if value="{{ showSecondary }}">
+        <button onClick="{{ onSecondary }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">{{ secondaryLabel }}</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">我的拆解紀錄（{{ recCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">我的拆解紀錄</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。點一個就切到它。</p>
+        <sc-if value="{{ hasRecs }}">
+          <sc-for list="{{ recRows }}" as="r" hint-placeholder-count="0">
+            <div onClick="{{ r.onPick }}" style="background:{{ r.bg }};border:1px solid {{ r.bd }};border-radius:4px;padding:16px 18px;margin-bottom:12px;cursor:pointer;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <span style="font-family:'Noto Serif TC',serif;font-size:15px;font-weight:600;">{{ r.thing }}</span>
+                <span onClick="{{ r.onDel }}" style="color:#b9b09a;font-size:12px;cursor:pointer;white-space:nowrap;margin-left:10px;">刪除</span>
+              </div>
+              <div style="color:#938a78;font-size:12px;">{{ r.tagLabel }}</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <button onClick="{{ onNewOne }}" style="display:block;width:100%;border:1px dashed #cec6b4;background:transparent;color:#35456a;border-radius:4px;padding:14px;font-size:14px;cursor:pointer;margin-top:4px;">＋ 新增一次拆解</button>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    view: "intro", records: [], activeId: null,
+    thing: "", skillPoint: "", history: null,
+    toastOn: false, toastMsg: "",
+    feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    recordsOpen: false, started: false,
+  };
+  HKEY = "toolbook_talentmyth_history_v1";
+
+  componentDidMount() {
+    try {
+      const raw = localStorage.getItem(this.HKEY);
+      if (raw) { const a = JSON.parse(raw); if (Array.isArray(a) && a.length) { const records = a.slice(0, 30); this.setState({ records, activeId: records[0].id, view: "end" }); return; } }
+    } catch (_) {}
+  }
+  save(records) { try { localStorage.setItem(this.HKEY, JSON.stringify(records.slice(0, 30))); } catch (_) {} }
+
+  active() { return this.state.records.find(r => r.id === this.state.activeId) || null; }
+  set(k, v) { this.setState({ [k]: v }); }
+  scrollTop() { const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+
+  goStep1() { this.setState({ view: "step1", thing: "", skillPoint: "", history: null }); this.scrollTop(); }
+  goStep2() { if (!(this.state.thing || "").trim()) return; this.setState({ view: "step2" }); this.scrollTop(); }
+
+  verdictOf(history) {
+    if (history === "never") return { tag: "排除了一個假天花板", color: "#6f7f5c", text: "還沒認真練過，就不能算「天生不擅長」——這比較像是沒試過就認定不行。可以先找一個可考證的入門方法認真練一段時間，再回頭看這張卡。" };
+    if (history === "wrong") return { tag: "值得先換方法，再下結論", color: "#6f7f5c", text: "練過但沒有人指出具體錯在哪，很難判斷是真的不行還是方法不對。建議先找他人觀察、或錄影回放具體練習過程，定位錯在哪個環節，再重新判斷。" };
+    if (history === "plateau") return { tag: "需要進一步查證，不要急著下結論", color: "#9c6b52", text: "方法對、也認真練過仍沒進步，這種情況比較複雜——可能是還沒找到真正對的方法，也可能真的是天花板較低。建議找專業的人重新檢視方法設計，不要只靠自己判斷。" };
+    return { tag: "這可能是真的限制，不只是沒試過", color: "#9c6b52", text: "如果這件事已知有嚴格年齡窗口或明顯遺傳成分（例如某些感官辨識能力），這套兩問框架不足以推翻它——查證後確認，練習能改善很多能力，但不是每一項都能突破，這裡誠實標示，不強行套用「一定是練習不夠」的結論。" };
+  }
+
+  saveRecord() {
+    const thing = (this.state.thing || "").trim();
+    const skillPoint = (this.state.skillPoint || "").trim();
+    const history = this.state.history;
+    if (!thing || !history) return;
+    if (!this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "天賦迷思拆解器" }); }
+    const r = { id: "tm_" + Date.now().toString(36), thing, skillPoint, history, createdAt: new Date().toISOString() };
+    const records = [r, ...this.state.records].slice(0, 30);
+    this.save(records);
+    this.setState({ records, activeId: r.id, view: "end", recordsOpen: false });
+    if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: "天賦迷思拆解器" });
+    this.toast("拆解結果存好了");
+    this.scrollTop();
+  }
+  pickRecord(id) { this.setState({ activeId: id, recordsOpen: false, view: "end" }); this.scrollTop(); }
+  deleteRecord(id) {
+    if (!window.confirm("刪掉這筆拆解紀錄？")) return;
+    const records = this.state.records.filter(r => r.id !== id);
+    this.save(records);
+    if (id === this.state.activeId) {
+      if (records.length) this.setState({ records, activeId: records[0].id, view: "end" });
+      else this.setState({ records, activeId: null, view: "intro", recordsOpen: false });
+    } else this.setState({ records });
+  }
+
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: "天賦迷思拆解器", helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "天賦迷思拆解器"); fd.append("_subject", "Toolbook 工具回饋 · 天賦迷思拆解器"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+
+  renderVals() {
+    const s = this.state, v = s.view;
+    const r = this.active();
+    const heads = { intro: "天賦迷思拆解器", step1: "天賦迷思拆解器", step2: "問題二", end: "" };
+
+    const tagLabelOf = (h) => h === "never" ? "假天花板" : h === "wrong" ? "方法待修正" : h === "plateau" ? "待查證" : "可能是真限制";
+
+    let endThing = "", endSkillPoint = "", endTagLabel = "", endTagColor = "", endVerdict = "";
+    if (v === "end" && r) {
+      endThing = r.thing; endSkillPoint = r.skillPoint || "（未拆解）";
+      const verdict = this.verdictOf(r.history);
+      endTagLabel = verdict.tag; endTagColor = verdict.color; endVerdict = verdict.text;
+    }
+
+    let showPrimary = false, primaryLabel = "", onPrimary = () => {}, primaryDisabled = "", primaryBg = "#35456a", primaryOp = "1";
+    let showSecondary = false, secondaryLabel = "", onSecondary = () => {};
+    if (v === "intro") {
+      showPrimary = true; primaryLabel = s.records.length ? "回到我的拆解紀錄" : "開始拆解";
+      onPrimary = () => { if (s.records.length) this.pickRecord(s.records[0].id); else this.goStep1(); };
+    } else if (v === "step1") {
+      const ready = !!(s.thing || "").trim();
+      showPrimary = true; primaryLabel = "下一步：問題二";
+      onPrimary = () => this.goStep2(); primaryDisabled = ready ? "" : "disabled"; primaryOp = ready ? "1" : ".5"; primaryBg = ready ? "#35456a" : "#b7bdcb";
+    } else if (v === "step2") {
+      const ready = !!s.history;
+      showPrimary = true; primaryLabel = "看拆解結果";
+      onPrimary = () => this.saveRecord(); primaryDisabled = ready ? "" : "disabled"; primaryOp = ready ? "1" : ".5"; primaryBg = ready ? "#35456a" : "#b7bdcb";
+    } else if (v === "end") {
+      showSecondary = true; secondaryLabel = "再拆解一次"; onSecondary = () => this.goStep1();
+    }
+
+    const recRows = s.records.map(x => ({
+      thing: x.thing, tagLabel: tagLabelOf(x.history),
+      bg: x.id === s.activeId ? "#fbf9f4" : "#fff", bd: x.id === s.activeId ? "#35456a" : "#e3ddd0",
+      onPick: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.pickRecord(x.id); },
+      onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteRecord(x.id); },
+    }));
+
+    return {
+      onBack: () => { if (v === "step1" || v === "step2") { if (s.records.length) this.pickRecord(s.activeId || s.records[0].id); else this.setState({ view: "intro" }); } else { this.setState({ view: "intro" }); } this.scrollTop(); },
+      backColor: (v === "intro" || v === "end") ? "transparent" : "#938a78",
+      headTitle: heads[v] || "",
+      vIntro: v === "intro", vStep1: v === "step1", vStep2: v === "step2", vEnd: v === "end",
+
+      thing: s.thing, onThing: e => this.set("thing", e.target.value),
+      skillPoint: s.skillPoint, onSkillPoint: e => this.set("skillPoint", e.target.value),
+
+      onHistNever: () => this.set("history", "never"), onHistWrong: () => this.set("history", "wrong"), onHistPlateau: () => this.set("history", "plateau"), onHistLimit: () => this.set("history", "limit"),
+      hNeverBd: s.history === "never" ? "#35456a" : "#cec6b4", hNeverBg: s.history === "never" ? "#f3efe7" : "#fff",
+      hWrongBd: s.history === "wrong" ? "#35456a" : "#cec6b4", hWrongBg: s.history === "wrong" ? "#f3efe7" : "#fff",
+      hPlatBd: s.history === "plateau" ? "#35456a" : "#cec6b4", hPlatBg: s.history === "plateau" ? "#f3efe7" : "#fff",
+      hLimBd: s.history === "limit" ? "#35456a" : "#cec6b4", hLimBg: s.history === "limit" ? "#f3efe7" : "#fff",
+
+      endThing, endSkillPoint, endTagLabel, endTagColor, endVerdict,
+
+      showPrimary, primaryLabel, onPrimary, primaryDisabled, primaryBg, primaryOp,
+      showSecondary, secondaryLabel, onSecondary,
+      showRecordsBtn: (v === "intro" || v === "end") && s.records.length > 0,
+      recCount: s.records.length, onOpenRecords: () => this.set("recordsOpen", true),
+
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e), onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
+
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      hasRecs: s.records.length > 0, recRows, onNewOne: () => this.goStep1(),
+    };
+  }
+}
+</script>
+</body>
+</html>
