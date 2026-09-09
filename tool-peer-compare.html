@@ -46,13 +46,13 @@
         <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
           <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 38 · 起頭</div>
-          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">找出你和<br />杰出者的具體差異</h1>
-          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">你的領域如果沒有現成的訓練體系，三步驟仍然管用：<b style="color:#554d40;">找到杰出人物、確認判斷根據、找出具體做法差異</b>。這裡不比頭銜、不比人氣，答案只存在這部裝置。</p>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">找出你和<br />傑出者的具體差異</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">你的領域如果沒有現成的訓練體系，三步驟仍然管用：<b style="color:#554d40;">找到傑出人物、確認判斷根據、找出具體做法差異</b>。這裡不比頭銜、不比人氣，答案只存在這部裝置。</p>
         </div>
       </sc-if>
 
       <sc-if value="{{ vStep1 }}">
-        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第一步 · 辨別杰出人物</div>
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第一步 · 辨別傑出人物</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:21px;font-weight:600;line-height:1.6;margin-bottom:18px;">你想在哪個領域進步？</h2>
 
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:0 0 7px;">領域或技能</label>
@@ -62,7 +62,7 @@
         <input value="{{ peer }}" onInput="{{ onPeer }}" maxlength="30" placeholder="可以是具體的人，也可以是一個統稱" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:15px;color:#241f18;" />
 
         <div style="margin-top:22px;">
-          <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:0 0 9px;">你怎麼知道對方真的杰出？</label>
+          <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:0 0 9px;">你怎麼知道對方真的傑出？</label>
           <div style="display:flex;flex-direction:column;gap:9px;">
             <button onClick="{{ onEvObjective }}" style="border:1px solid {{ evObjBd }};background:{{ evObjBg }};color:#241f18;border-radius:4px;padding:13px 15px;font-size:14px;text-align:left;cursor:pointer;">有客觀數據或第三方驗證的結果</button>
             <button onClick="{{ onEvSubjective }}" style="border:1px solid {{ evSubBd }};background:{{ evSubBg }};color:#241f18;border-radius:4px;padding:13px 15px;font-size:14px;text-align:left;cursor:pointer;">大家都說他很厲害，但沒有客觀數據</button>
@@ -71,7 +71,7 @@
         </div>
 
         <sc-if value="{{ showEvWarn }}">
-          <div style="border-left:2px solid #9c6b52;background:rgba(156,107,82,.08);border-radius:0 3px 3px 0;padding:13px 15px;margin-top:18px;color:#7a4d38;font-size:13px;line-height:1.85;">這本書後段用一場品酒實驗提醒讀者：頭銜與人氣不等於判斷力，同一款酒讓同一批評審連續測，分數常常對不上。頭銜或人氣本身不是壞事，但拿它當「杰出」的唯一依據，容易學錯方向——可以先想想這個領域有沒有更客觀的指標（實際成果、可驗證的數字、第三方紀錄），找不到也沒關係，繼續往下走，工具會誠實標示這一點。</div>
+          <div style="border-left:2px solid #9c6b52;background:rgba(156,107,82,.08);border-radius:0 3px 3px 0;padding:13px 15px;margin-top:18px;color:#7a4d38;font-size:13px;line-height:1.85;">這本書後段用一場品酒實驗提醒讀者：頭銜與人氣不等於判斷力，同一款酒讓同一批評審連續測，分數常常對不上。頭銜或人氣本身不是壞事，但拿它當「傑出」的唯一依據，容易學錯方向——可以先想想這個領域有沒有更客觀的指標（實際成果、可驗證的數字、第三方紀錄），找不到也沒關係，繼續往下走，工具會誠實標示這一點。</div>
         </sc-if>
       </sc-if>
 
@@ -120,7 +120,7 @@
               <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
             </div>
           </form>
-          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這個工具啟發自《刻意練習》第4章「沒有客觀標準或導師時，退回三步驟」的框架；辨別杰出人物要找客觀指標這一點，也是這本書自己在後段用品酒實驗提醒的。工具不承諾照做就能達到對方的水準，具體效果因領域而異。</p>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這個工具啟發自《刻意練習》第4章「沒有客觀標準或導師時，退回三步驟」的框架；辨別傑出人物要找客觀指標這一點，也是這本書自己在後段用品酒實驗提醒的。工具不承諾照做就能達到對方的水準，具體效果因領域而異。</p>
         </div>
       </sc-if>
 
@@ -202,12 +202,12 @@ class Component extends DCLogic {
     const peer = (this.state.peer || "").trim();
     const diffs = [this.state.d1, this.state.d2, this.state.d3].map(x => (x || "").trim()).filter(Boolean);
     if (!skill || !peer || !diffs.length) return;
-    if (!this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "杰出人物差異分析器" }); }
+    if (!this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "傑出人物差異分析器" }); }
     const r = { id: "pc_" + Date.now().toString(36), skill, peer, evidence: this.state.evidence, diffs, createdAt: new Date().toISOString() };
     const records = [r, ...this.state.records].slice(0, 30);
     this.save(records);
     this.setState({ records, activeId: r.id, view: "end", recordsOpen: false });
-    if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: "杰出人物差異分析器" });
+    if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: "傑出人物差異分析器" });
     this.toast("比較紀錄存好了");
     this.scrollTop();
   }
@@ -223,13 +223,13 @@ class Component extends DCLogic {
   }
 
   toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
-  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: "杰出人物差異分析器", helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
-  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "杰出人物差異分析器"); fd.append("_subject", "Toolbook 工具回饋 · 杰出人物差異分析器"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: "傑出人物差異分析器", helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "傑出人物差異分析器"); fd.append("_subject", "Toolbook 工具回饋 · 傑出人物差異分析器"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
 
   renderVals() {
     const s = this.state, v = s.view;
     const r = this.active();
-    const heads = { intro: "杰出人物差異分析器", step1: "杰出人物差異分析器", step2: "找差異", end: "" };
+    const heads = { intro: "傑出人物差異分析器", step1: "傑出人物差異分析器", step2: "找差異", end: "" };
 
     const evLabelOf = (e) => e === "objective" ? "客觀可驗證" : e === "subjective" ? "主觀認定" : "尚未確認";
     const evColorOf = (e) => e === "objective" ? "#6f7f5c" : "#9c6b52";
