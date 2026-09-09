@@ -41,7 +41,7 @@
           <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
         </sc-for>
       </div>
-      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+      <a href="founders.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回創業卷">✕</a>
     </div>
 
     <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
@@ -382,7 +382,7 @@ class Component extends DCLogic {
       cardGoal: s.goal.trim() || "—",
       keepList: L.keep.map(i => ({ name: i.text })), cutList: L.cut.map(i => ({ name: i.text })), parkList: L.park.map(i => ({ name: i.text })),
       hasKeep: L.keep.length > 0, noKeep: L.keep.length === 0, hasCut: L.cut.length > 0, noCut: L.cut.length === 0, hasPark: L.park.length > 0,
-      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(), onHome: () => { window.location.href = "index.html"; },
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(), onHome: () => { window.location.href = "founders.html"; },
       feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
       onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e), onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
       showGate, gateMsg: gateBad ? (step === 1 ? "先寫下一個目標" : (s.items.length === 0 ? "先加入至少一件事" : "還有 " + (s.items.length - ratedN) + " 條沒判定")) : "",

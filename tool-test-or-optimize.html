@@ -41,7 +41,7 @@
           <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
         </sc-for>
       </div>
-      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+      <a href="founders.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回創業卷">✕</a>
     </div>
 
     <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
@@ -376,7 +376,7 @@ class Component extends DCLogic {
       cardActivity: s.activity.trim() || "—", cardChannel: s.channel.trim() || "—",
       vTitle: v.title, vMantra: v.mantra, vPlaybook: v.playbook, vColor: v.color, vBorder: v.border, vBg: v.bg,
       hasCaution: !!v.caution, cautionText: v.caution,
-      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(), onHome: () => { window.location.href = "index.html"; },
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(), onHome: () => { window.location.href = "founders.html"; },
       feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
       onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e), onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
       showGate, gateMsg: gateBad ? (step === 1 ? "先寫下這件事、和牽涉的管道" : step === 2 ? "選一個現況" : "選一個你要的答案") : "",
