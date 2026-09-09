@@ -261,7 +261,7 @@
           <div style="font-size:14px;line-height:1.7;margin-bottom:12px;white-space:pre-wrap;">{{ ocEvidence }}</div>
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">現在只做</div>
           <div style="font-size:14px;line-height:1.7;margin-bottom:12px;white-space:pre-wrap;">{{ ocMust }}</div>
-          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">暗時不做</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">暫時不做</div>
           <div style="font-size:14px;line-height:1.7;margin-bottom:14px;white-space:pre-wrap;">{{ ocLater }}</div>
           <div style="height:1px;background:#e3ddd0;margin-bottom:14px;"></div>
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">止損規則</div>
@@ -295,7 +295,7 @@ class Component extends DCLogic {
     this.setState({ cards }); this.saveCards(cards, true);
   }
   deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); this.saveCards(cards); }
-  cardTextFor(c) { return "成果鎖定卡\n\n本輪結果：" + (c.outcome || "") + "\n完成證據：" + (c.evidence || "") + "\n交付日期：" + this.fmtDate(c.deadline) + "\n\n現在只做：\n" + (c.must || "") + "\n\n暗時不做：\n" + (c.later || "本輪沒有") + "\n\n止損規則：" + (c.stopRule || "") + "\n\n先完成，再完美。"; }
+  cardTextFor(c) { return "成果鎖定卡\n\n本輪結果：" + (c.outcome || "") + "\n完成證據：" + (c.evidence || "") + "\n交付日期：" + this.fmtDate(c.deadline) + "\n\n現在只做：\n" + (c.must || "") + "\n\n暫時不做：\n" + (c.later || "本輪沒有") + "\n\n止損規則：" + (c.stopRule || "") + "\n\n先完成，再完美。"; }
   async shareCard(c) { try { if (navigator.share) await navigator.share({ title: "我的成果鎖定卡", text: this.cardTextFor(c) }); else { await navigator.clipboard.writeText(this.cardTextFor(c)); this.toast("已複製"); } } catch (_) {} }
 
   set(k, v) { this.setState({ [k]: v }); }
