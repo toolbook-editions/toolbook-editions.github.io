@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+<!-- toolbook-icons -->
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-f.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f3efe7">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#35456a!important;box-shadow:0 0 0 2px rgba(53,69,106,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(53,69,106,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="8">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">超速學習</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:26px;font-weight:600;line-height:1.65;letter-spacing:.5px;">先別急著開始，<br />花十分鐘想清楚</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">用書裡的五步驟，把一個學習計劃想清楚。<br />第一題會先問你，這套方法適不適合你現在要學的東西。<br />答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 先問對問題</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.6;margin-bottom:10px;">這個學習任務，<br />本質上是哪一種？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:16px;line-height:1.8;">書裡明講：這兩種任務需要的策略不一樣，選錯了，後面填得再仔細也沒用。</p>
+        <div onClick="{{ onGateAccum }}" style="border:1px solid {{ gateAccumBorder }};background:{{ gateAccumBg }};border-radius:4px;padding:16px 17px;margin-bottom:10px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:4px;">累積新知識</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.7;">像是背更多單字、多學幾個新知識點——範圍是一直往外擴的。</div>
+        </div>
+        <div onClick="{{ onGateRefine }}" style="border:1px solid {{ gateRefineBorder }};background:{{ gateRefineBg }};border-radius:4px;padding:16px 17px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:4px;">打掉重練／精進到更高水平</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.7;">需要先忘掉舊的做法，或把已經會的技能練得更純熟。</div>
+        </div>
+
+        <sc-if value="{{ showGateWarn }}">
+          <div style="border:1px solid #cd9a86;background:rgba(156,90,60,.06);border-radius:4px;padding:16px 17px;margin-top:16px;">
+            <p style="font-size:13.5px;line-height:1.85;color:#4d463b;margin-bottom:12px;">書裡自己畫的界線：學習若大多是累積新知識，養成習慣往往比超速學習更有效。只有需要忘掉舊行為時，這套方法才比較適合。</p>
+            <a href="tool-habit.html" style="display:block;text-align:center;border:1px solid #35456a;color:#35456a;border-radius:2px;padding:11px;font-size:13.5px;margin-bottom:8px;">改用「習慣追蹤卡」 →</a>
+            <div onClick="{{ onProceedAnyway }}" style="text-align:center;color:#938a78;font-size:12.5px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">我知道，還是想繼續填這份計劃</div>
+          </div>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 目標</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.6;margin-bottom:8px;">為什麼要學這個？<br />學完想達到什麼程度？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">兩種動機都可以：為了一個外部成果，或單純喜歡這個內容本身。寫清楚就好。</p>
+        <textarea value="{{ goal }}" onInput="{{ onGoal }}" maxlength="200" placeholder="例如：三個月內能用日語應付基本的工作簡報與問答" style="width:100%;min-height:96px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">目標寫得越具體，之後越容易判斷有沒有做到——不必追求文情並茂。</div>
+      </sc-if>
+
+      <sc-if value="{{ s3 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 範圍</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.6;margin-bottom:8px;">要學會做什麼<br />具體的事？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">先寫大概方向，不用追求完整——想太久，這步驟本身就會變成拖延的藉口。</p>
+        <textarea value="{{ scope }}" onInput="{{ onScope }}" maxlength="200" placeholder="例如：能聽懂會議內容、能寫信、能臨場問答" style="width:100%;min-height:96px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">分清楚哪些是要「理解」的、哪些是要「記住」的、哪些是要「練到不用想」的，之後排練習會更有方向。</div>
+      </sc-if>
+
+      <sc-if value="{{ s4 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 資源</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.6;margin-bottom:8px;">打算用什麼資源？<br />參考誰的做法？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">查一下別人怎麼學這個，比從零開始想省力得多。</p>
+        <textarea value="{{ resources }}" onInput="{{ onResources }}" maxlength="200" placeholder="例如：找一份業界通用的課程大綱當起點，找一個做過同樣事的人聊十五分鐘" style="width:100%;min-height:96px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">找到共同做法之後，再對照自己的目標調整——強調一致的部分，省略不一致的。</div>
+      </sc-if>
+
+      <sc-if value="{{ s5 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 05 · 練習</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.6;margin-bottom:8px;">最後會用在哪裡？<br />打算怎麼直接練？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">練習的情境跟最後要用的情境越像，效果越好——光靠抽象練習，學到的東西不一定用得出來。</p>
+        <textarea value="{{ practice }}" onInput="{{ onPractice }}" maxlength="200" placeholder="例如：每天用目標語言寫一則貼文，而不是只背單字卡" style="width:100%;min-height:96px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">如果這個技能沒辦法直接在真實情境練（例如有風險），改用最接近的模擬情境，重點放在認知特徵，不必複製表面細節。</div>
+      </sc-if>
+
+      <sc-if value="{{ s6 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 06 · 時間</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.6;margin-bottom:8px;">預計投入多少時間？</h2>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:6px 0 7px;">預計總時數</label>
+        <input value="{{ hours }}" onInput="{{ onHours }}" maxlength="40" placeholder="例如：約 60 小時" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;margin-bottom:14px;" />
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:0 0 7px;">預計完成期限<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;font-family:-apple-system,sans-serif;">可留空</span></label>
+        <input value="{{ deadline }}" onInput="{{ onDeadline }}" maxlength="40" placeholder="例如：三個月後、10月底前" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">抓個大概比例：前期研究別超過總時數的一成，多做了通常是在拖延，不是在準備。</div>
+      </sc-if>
+
+      <sc-if value="{{ s7 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 07 · 檢查</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.6;margin-bottom:8px;">開始前，<br />快速檢查九件事</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:14px;">勾越多不代表計劃越好，這只是提醒你想過這幾個面向——沒勾到的，之後卡關時回來看看是不是漏了這塊。</p>
+        <sc-for list="{{ checks }}" as="c" hint-placeholder-count="9">
+          <div onClick="{{ c.onToggle }}" style="display:flex;align-items:flex-start;gap:10px;border:1px solid #e3ddd0;border-radius:3px;padding:12px 14px;margin-bottom:8px;cursor:pointer;background:{{ c.bg }};">
+            <div style="width:16px;height:16px;flex:none;margin-top:2px;border:1px solid #35456a;border-radius:3px;background:{{ c.boxBg }};color:#fbf9f4;font-size:11px;line-height:14px;text-align:center;">{{ c.mark }}</div>
+            <div style="font-size:13.5px;line-height:1.7;color:#332f28;">{{ c.label }}</div>
+          </div>
+        </sc-for>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:16px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">這九條是書裡的九大法則，各自對應一組自我診斷問句，執行到一半卡住時最有用。</div>
+      </sc-if>
+
+      <sc-if value="{{ s8 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 08 · 之後</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.6;margin-bottom:8px;">這輪做完，<br />打算怎麼收？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:14px;">作者自己的提醒：沒有適當的維持計劃，大多數知識終究會衰退——先想好這輪結束後要走哪條路。</p>
+        <div onClick="{{ onChoiceKeep }}" style="border:1px solid {{ choiceKeepBorder }};background:{{ choiceKeepBg }};border-radius:4px;padding:14px 16px;margin-bottom:8px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:3px;">維持</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.6;">投入最低限度的固定練習，保留技能不流失。</div>
+        </div>
+        <div onClick="{{ onChoiceRelearn }}" style="border:1px solid {{ choiceRelearnBorder }};background:{{ choiceRelearnBg }};border-radius:4px;padding:14px 16px;margin-bottom:8px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:3px;">重新學習</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.6;">接受會遺忘，日後需要時再花小成本喚回。</div>
+        </div>
+        <div onClick="{{ onChoiceMaster }}" style="border:1px solid {{ choiceMasterBorder }};background:{{ choiceMasterBg }};border-radius:4px;padding:14px 16px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:3px;">精通</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.6;">開下一輪計劃繼續深入，不是這裡就停。</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s9 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 14px;">超速學習計劃卡</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">學 習 計 劃 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Ultralearning Plan</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="border:1px solid #e3ddd0;border-radius:3px;margin-bottom:14px;">
+            <div style="padding:12px 15px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">目標</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.55;white-space:pre-wrap;">{{ cardGoal }}</div></div>
+            <div style="padding:12px 15px;border-top:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">範圍</div><div style="font-size:14px;line-height:1.6;white-space:pre-wrap;">{{ cardScope }}</div></div>
+          </div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">資源與標竿</div><div style="font-size:14px;line-height:1.7;margin-bottom:12px;white-space:pre-wrap;">{{ cardResources }}</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">直接練習活動</div><div style="font-size:14px;line-height:1.7;margin-bottom:12px;white-space:pre-wrap;">{{ cardPractice }}</div>
+          <div style="height:1px;background:#e3ddd0;margin-bottom:14px;"></div>
+          <div style="display:flex;gap:14px;margin-bottom:14px;">
+            <div style="flex:1;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">總時數</div><div style="font-size:14px;">{{ cardHours }}</div></div>
+            <div style="flex:1;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">期限</div><div style="font-size:14px;">{{ cardDeadline }}</div></div>
+          </div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">開始前檢查（{{ cardCheckCount }}／9）</div>
+          <div style="font-size:13px;color:#554d40;line-height:1.8;margin-bottom:14px;">{{ cardCheckSummary }}</div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:14px 12px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">這輪結束後</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">{{ cardChoice }}</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">學得越多，越看得見還能學多少。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition · MMXXVI</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製文字</button>
+          <button onClick="{{ onShare }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">分享計劃卡</button>
+        </div>
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:24px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">這一輪做完之後</div>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">真正執行過一段時間後，拿這張卡的目標跟實際發生的對一次，用 <a href="tool-review.html">復盤卡</a>——只挑一件事改，不判對錯。</p>
+        </div>
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+          <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自 Scott H. Young《Ultralearning 超速學習》第十三章的五步驟流程。填的內容只保存在這個瀏覽器；這只是幫你把計劃想清楚一次，不保證學得成，方法是否適合你請自行判斷。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      <sc-if value="{{ s9 }}">
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">查看計劃卡紀錄簿（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有個人要學一項新技能（不是累積型任務），走完八步之後，他的計劃卡長這樣——</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">學 習 計 劃 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Ultralearning Plan</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="border:1px solid #e3ddd0;border-radius:3px;margin-bottom:14px;">
+            <div style="padding:12px 15px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">目標</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.55;">三個月內能用日語應付基本的工作簡報與問答</div></div>
+            <div style="padding:12px 15px;border-top:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">範圍</div><div style="font-size:14px;line-height:1.6;">能聽懂會議內容、能寫信、能臨場問答</div></div>
+          </div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">資源與標竿</div><div style="font-size:14px;line-height:1.7;margin-bottom:12px;">找一份業界通用的教材當起點，找同事聊十五分鐘問他怎麼學的</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">直接練習活動</div><div style="font-size:14px;line-height:1.7;margin-bottom:12px;">每天用日語寫一則工作紀錄，而不是只背單字卡</div>
+          <div style="height:1px;background:#e3ddd0;margin-bottom:14px;"></div>
+          <div style="display:flex;gap:14px;margin-bottom:14px;">
+            <div style="flex:1;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">總時數</div><div style="font-size:14px;">約 60 小時</div></div>
+            <div style="flex:1;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">期限</div><div style="font-size:14px;">三個月後</div></div>
+          </div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">開始前檢查（7／9）</div>
+          <div style="font-size:13px;color:#554d40;line-height:1.8;margin-bottom:14px;">後設學習、直截了當、反復操練、提取記憶、保留記憶、培養直覺、勇於實驗——漏了「意見回饋」「專心致志」，之後卡關可以先回來看這兩項。</div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:14px 12px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">這輪結束後</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">維持</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">學得越多，越看得見還能學多少。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">第一題先分流——這是累積型任務就會被提醒改用習慣類工具，不是每個學習需求都適合這套方法。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">九項檢查<b>沒有全勾</b>也能完成——它是提醒，不是及格標準，沒勾到的地方之後卡關時回來看。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">計劃卡做完之後，<b>真正執行過</b>再回來用復盤卡對一次——這張卡是起點，不是結案報告。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">計劃卡紀錄簿</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div onClick="{{ c.onOpen }}" style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;cursor:pointer;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:12px;"><span style="white-space:nowrap;">第 {{ c.idx }} 張 · {{ c.date }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;">目標</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-top:3px;white-space:pre-wrap;">{{ c.goal }}</div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;margin-top:10px;">這輪結束後</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#35456a;font-weight:600;margin-top:3px;">{{ c.choice }}</div>
+              <div style="text-align:right;font-size:11px;color:#35456a;margin-top:10px;letter-spacing:1px;">開啟回顧 →</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有計劃卡。<br />完成第一張後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ hasOpened }}">
+    <div onClick="{{ onCloseCard }}" style="position:fixed;inset:0;z-index:40;background:rgba(36,31,24,.5);display:flex;align-items:center;justify-content:center;padding:26px 20px;">
+      <div onClick="{{ stop }}" style="width:min(400px,100%);background:#fbf9f4;border-radius:8px;padding:24px;box-shadow:0 20px 60px rgba(36,31,24,.28);max-height:92vh;overflow-y:auto;">
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 20px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">學 習 計 劃 卡</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="border:1px solid #e3ddd0;border-radius:3px;margin-bottom:14px;">
+            <div style="padding:12px 15px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">目標</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.55;white-space:pre-wrap;">{{ ocGoal }}</div></div>
+            <div style="padding:12px 15px;border-top:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">範圍</div><div style="font-size:14px;line-height:1.6;white-space:pre-wrap;">{{ ocScope }}</div></div>
+          </div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:14px 12px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">這輪結束後</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">{{ ocChoice }}</div>
+          </div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:14px;">Edition · MMXXVI</div>
+        </div>
+        <button onClick="{{ onShareOpened }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:16px;">分享這張</button>
+        <a href="tool-review.html" style="display:block;text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;margin-top:8px;">執行過一輪了：用復盤卡對一次 →</a>
+        <button onClick="{{ onCloseCard }}" style="display:block;width:100%;border:none;background:transparent;color:#938a78;border-radius:2px;padding:10px;font-size:12px;letter-spacing:1px;cursor:pointer;margin-top:4px;">關閉</button>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    step: 0,
+    gateChoice: "", gateProceed: false,
+    goal: "", scope: "", resources: "", practice: "", hours: "", deadline: "",
+    checkSet: {}, choice: "",
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, openedCard: null, exampleOpen: false, started: false,
+  };
+  HKEY = "toolbook_ultraplan_history_v1";
+  RULES = [
+    ["meta", "後設學習：我研究過別人怎麼學這個嗎？"],
+    ["focus", "專心致志：我知道自己容易在哪裡分心嗎？"],
+    ["direct", "直截了當：我的練習方式跟最後要用的情境像不像？"],
+    ["drill", "反復操練：我知道自己最弱的環節在哪嗎？"],
+    ["retrieval", "提取記憶：我會主動測驗自己，不只是重讀？"],
+    ["feedback", "意見回饋：我有管道拿到針對「這件事」而非「我這個人」的回饋？"],
+    ["retention", "保留記憶：我想過怎麼長期留住學會的東西嗎？"],
+    ["intuition", "培養直覺：卡住時我會先逼自己講出解釋，還是直接找答案？"],
+    ["experiment", "勇於實驗：我願意試試不只一種方法嗎？"],
+  ];
+  CHOICE_LABEL = { keep: "維持", relearn: "重新學習", master: "精通" };
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  markStarted() { if (!this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "超速學習計劃產生器" }); } }
+  saveCards(cards, done) { try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if (done && typeof gtag === "function") gtag("event", "tool_complete", { tool_name: "超速學習計劃產生器" }); } catch (_) {} }
+
+  set(k, v) { this.setState({ [k]: v }); }
+  toggleCheck(key) { const cs = Object.assign({}, this.state.checkSet); cs[key] = !cs[key]; this.setState({ checkSet: cs }); }
+  checkCount() { return this.RULES.filter(([k]) => this.state.checkSet[k]).length; }
+
+  gateOk(step) {
+    const s = this.state;
+    if (step === 1) return !!s.gateChoice && (s.gateChoice === "refine" || s.gateProceed);
+    if (step === 2) return !!s.goal.trim();
+    if (step === 3) return !!s.scope.trim();
+    if (step === 4) return !!s.resources.trim();
+    if (step === 5) return !!s.practice.trim();
+    if (step === 6) return !!s.hours.trim();
+    if (step === 8) return !!s.choice;
+    return true;
+  }
+  next() {
+    this.markStarted();
+    if (!this.gateOk(this.state.step)) return;
+    const n = Math.min(9, this.state.step + 1);
+    if (n === 9) this.archive();
+    this.setState({ step: n });
+    const st = document.querySelector(".stage"); if (st) st.scrollTop = 0;
+  }
+  prev() { this.setState({ step: Math.max(0, this.state.step - 1) }); const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  newCard() {
+    if (!window.confirm("開始一張新的計劃卡？目前內容會清掉。")) return;
+    this.setState({ step: 1, gateChoice: "", gateProceed: false, goal: "", scope: "", resources: "", practice: "", hours: "", deadline: "", checkSet: {}, choice: "" });
+  }
+  fmtDate(raw) { const d = new Date(raw); return d.toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }); }
+
+  archive() {
+    const s = this.state; if (!s.goal.trim() || !s.scope.trim()) return;
+    const card = { id: "up_" + Date.now().toString(36), createdAt: new Date().toISOString(),
+      gateChoice: s.gateChoice, goal: s.goal.trim(), scope: s.scope.trim(), resources: s.resources.trim(),
+      practice: s.practice.trim(), hours: s.hours.trim(), deadline: s.deadline.trim(),
+      checkSet: s.checkSet, choice: s.choice };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards }); this.saveCards(cards, true);
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); this.saveCards(cards); }
+
+  checkSummaryOf(checkSet) {
+    const on = this.RULES.filter(([k]) => checkSet[k]).map(([, label]) => label.split("：")[0]);
+    const off = this.RULES.filter(([k]) => !checkSet[k]).map(([, label]) => label.split("：")[0]);
+    if (off.length === 0) return "九項全部想過了。";
+    if (on.length === 0) return "還沒勾任何一項，執行前可以先回頭看看。";
+    return on.join("、") + "——漏了「" + off.join("」「") + "」，之後卡關可以先回來看這幾項。";
+  }
+  cardTextOf(c) {
+    const cs = c.checkSet || {};
+    return "超速學習計劃卡\n\n目標：" + (c.goal || "") + "\n範圍：" + (c.scope || "") +
+      "\n\n資源與標竿：" + (c.resources || "—") + "\n直接練習活動：" + (c.practice || "—") +
+      "\n\n總時數：" + (c.hours || "—") + "　期限：" + (c.deadline || "—") +
+      "\n\n開始前檢查（" + this.RULES.filter(([k]) => cs[k]).length + "／9）：" + this.checkSummaryOf(cs) +
+      "\n\n這輪結束後：" + (this.CHOICE_LABEL[c.choice] || "—") +
+      "\n\n學得越多，越看得見還能學多少。";
+  }
+  cur() { const s = this.state; return { gateChoice: s.gateChoice, goal: s.goal, scope: s.scope, resources: s.resources, practice: s.practice, hours: s.hours, deadline: s.deadline, checkSet: s.checkSet, choice: s.choice }; }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardTextOf(this.cur())); this.toast("已複製計劃卡文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  async share() { try { if (navigator.share) await navigator.share({ title: "我的超速學習計劃卡", text: this.cardTextOf(this.cur()) }); else { await navigator.clipboard.writeText(this.cardTextOf(this.cur())); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  async shareCard(c) { try { if (navigator.share) await navigator.share({ title: "我的超速學習計劃卡", text: this.cardTextOf(c) }); else { await navigator.clipboard.writeText(this.cardTextOf(c)); this.toast("已複製"); } } catch (_) {} }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: "超速學習計劃產生器", helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "超速學習計劃產生器"); fd.append("_subject", "Toolbook 工具回饋 · 超速學習計劃產生器"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+
+  async _png(spec){try{const m=await import("./toolbook-card.js");const ok=await m.downloadCardPNG(spec);this.toast(ok?"卡片圖片已儲存":"圖片產生失敗");}catch(_){this.toast("圖片產生失敗");}}
+  async saveImage(){const s=this.state;await this._png({title:"超速學習計劃卡",sub:"ULTRALEARNING PLAN",filename:"超速學習計劃卡-Toolbook",mantra:"學得越多，越看得見還能學多少。",edition:"Edition · MMXXVI",blocks:[{k:"目標",v:s.goal.trim()||"—",serif:true},{k:"範圍",v:s.scope.trim()||"—"},{k:"資源與標竿",v:s.resources.trim()||"—"},{k:"直接練習活動",v:s.practice.trim()||"—"},{k:"總時數",v:s.hours.trim()||"—"},{k:"期限",v:s.deadline.trim()||"—"},{k:"開始前檢查",v:this.checkSummaryOf(s.checkSet)},{k:"這輪結束後",v:this.CHOICE_LABEL[s.choice]||"—",big:true}]});}
+
+  renderVals() {
+    const s = this.state, step = s.step;
+    const dots = [1,2,3,4,5,6,7,8].map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#35456a" : "#e3ddd0" }));
+    const showGate = step >= 1 && step <= 8;
+    const gateBad = showGate && !this.gateOk(step);
+    const nextLabel = step === 0 ? "開始" : step === 8 ? "生成計劃卡" : "下一步";
+    const checks = this.RULES.map(([key, label]) => ({
+      label, bg: s.checkSet[key] ? "rgba(53,69,106,.05)" : "#fff",
+      boxBg: s.checkSet[key] ? "#35456a" : "#fff", mark: s.checkSet[key] ? "✓" : "",
+      onToggle: () => this.toggleCheck(key),
+    }));
+    const cards = s.cards.map((c, n) => ({ idx: s.cards.length - n, date: this.fmtDate(c.createdAt), goal: c.goal || "—", choice: this.CHOICE_LABEL[c.choice] || "—", onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); }, onOpen: () => this.set("openedCard", c) }));
+    const oc = s.openedCard;
+    return {
+      dots, backColor: step === 0 ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: step === 5, s6: step === 6, s7: step === 7, s8: step === 8, s9: step === 9,
+      gateAccumBorder: s.gateChoice === "accum" ? "#35456a" : "#e3ddd0", gateAccumBg: s.gateChoice === "accum" ? "rgba(53,69,106,.05)" : "#fff",
+      gateRefineBorder: s.gateChoice === "refine" ? "#35456a" : "#e3ddd0", gateRefineBg: s.gateChoice === "refine" ? "rgba(53,69,106,.05)" : "#fff",
+      onGateAccum: () => this.setState({ gateChoice: "accum", gateProceed: false }),
+      onGateRefine: () => this.setState({ gateChoice: "refine" }),
+      showGateWarn: s.gateChoice === "accum" && !s.gateProceed,
+      onProceedAnyway: () => this.setState({ gateProceed: true }),
+      goal: s.goal, scope: s.scope, resources: s.resources, practice: s.practice, hours: s.hours, deadline: s.deadline,
+      onGoal: e => this.set("goal", e.target.value), onScope: e => this.set("scope", e.target.value),
+      onResources: e => this.set("resources", e.target.value), onPractice: e => this.set("practice", e.target.value),
+      onHours: e => this.set("hours", e.target.value), onDeadline: e => this.set("deadline", e.target.value),
+      checks,
+      choiceKeepBorder: s.choice === "keep" ? "#35456a" : "#e3ddd0", choiceKeepBg: s.choice === "keep" ? "rgba(53,69,106,.05)" : "#fff", onChoiceKeep: () => this.set("choice", "keep"),
+      choiceRelearnBorder: s.choice === "relearn" ? "#35456a" : "#e3ddd0", choiceRelearnBg: s.choice === "relearn" ? "rgba(53,69,106,.05)" : "#fff", onChoiceRelearn: () => this.set("choice", "relearn"),
+      choiceMasterBorder: s.choice === "master" ? "#35456a" : "#e3ddd0", choiceMasterBg: s.choice === "master" ? "rgba(53,69,106,.05)" : "#fff", onChoiceMaster: () => this.set("choice", "master"),
+      cardGoal: s.goal.trim() || "—", cardScope: s.scope.trim() || "—", cardResources: s.resources.trim() || "—",
+      cardPractice: s.practice.trim() || "—", cardHours: s.hours.trim() || "—", cardDeadline: s.deadline.trim() || "—",
+      cardCheckCount: this.checkCount(), cardCheckSummary: this.checkSummaryOf(s.checkSet),
+      cardChoice: this.CHOICE_LABEL[s.choice] || "—",
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(),
+      onHome: () => { window.location.href = "index.html"; },
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value),
+      onSubmitFeedback: e => this.onSubmitFeedback(e), onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
+      showGate, gateMsg: gateBad ? (step === 1 ? (s.gateChoice === "accum" ? "要繼續這份計劃，先按上面那一行" : "選一種任務類型才能繼續") : step === 8 ? "選一個才能繼續" : "填完這一步，才能繼續") : "",
+      onNext: step === 9 ? () => this.newCard() : () => this.next(),
+      nextLabel: step === 9 ? "再做一張新的計劃卡" : nextLabel,
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#b7bdcb" : "#35456a",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showRecordsBtn: (step === 0 || step === 9) && s.cards.length > 0,
+      onOpenRecords: () => this.set("recordsOpen", true),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+      hasOpened: !!oc, ocGoal: oc ? (oc.goal || "—") : "—", ocScope: oc ? (oc.scope || "—") : "—", ocChoice: oc ? (this.CHOICE_LABEL[oc.choice] || "—") : "—",
+      onCloseCard: () => this.set("openedCard", null), onShareOpened: () => { if (oc) this.shareCard(oc); },
+    };
+  }
+}
+</script>
+</body>
+</html>
