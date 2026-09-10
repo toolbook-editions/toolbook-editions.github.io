@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+<!-- toolbook-icons -->
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-f.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f3efe7">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#35456a!important;box-shadow:0 0 0 2px rgba(53,69,106,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(53,69,106,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="5">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">回饋</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:26px;font-weight:600;line-height:1.65;letter-spacing:.5px;">有人說了一句話，<br />你到現在還在想</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">五步把那句話拆開看：它講的是這件事，<br />還是你這個人。<br />答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 原話</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.6;margin-bottom:10px;">他到底說了什麼？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:16px;line-height:1.8;">照他說的抄一次，不要先幫他潤飾，也不要先加上你的解讀——後面幾步要拆的就是這句話本身。</p>
+        <textarea value="{{ quote }}" onInput="{{ onQuote }}" maxlength="300" placeholder="例如：你這個簡報邏輯不太行，聽不太懂" style="width:100%;min-height:110px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 指向</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.6;margin-bottom:10px;">這句話說的，<br />是事還是人？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:16px;line-height:1.8;">同樣是負評，指向不同，效果差很遠。這一題決定後面怎麼處理。</p>
+        <div onClick="{{ onDirTask }}" style="border:1px solid {{ dirTaskBorder }};background:{{ dirTaskBg }};border-radius:4px;padding:16px 17px;margin-bottom:10px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:4px;">在說這件事</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.7;">講的是你做的東西——哪一段、哪一步、哪個做法。</div>
+        </div>
+        <div onClick="{{ onDirPerson }}" style="border:1px solid {{ dirPersonBorder }};background:{{ dirPersonBg }};border-radius:4px;padding:16px 17px;margin-bottom:10px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:4px;">在說你這個人</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.7;">講的是你的能力、性格、程度——「你就是⋯⋯」那一類。</div>
+        </div>
+        <div onClick="{{ onDirBlur }}" style="border:1px solid {{ dirBlurBorder }};background:{{ dirBlurBg }};border-radius:4px;padding:16px 17px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:4px;">兩邊都沾一點</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.7;">聽起來像在講事，但用的是評價你的說法。</div>
+        </div>
+        <sc-if value="{{ showPersonNote }}">
+          <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:16px;color:#554d40;font-size:13.5px;line-height:1.85;">指向人的回饋，是負面效果最集中的一種。這不代表對方惡意，多半只是他沒想過怎麼講——下一步先看它裡面有沒有可用的東西。</div>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ s3 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 資訊量</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.6;margin-bottom:10px;">他有沒有指出<br />是哪裡？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:16px;line-height:1.8;">回想那句話本身，不要算上你自己補的推測。</p>
+        <div onClick="{{ onInfoSpecific }}" style="border:1px solid {{ infoSpecificBorder }};background:{{ infoSpecificBg }};border-radius:4px;padding:16px 17px;margin-bottom:10px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:4px;">有，講得出哪一處</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.7;">他指到了某一段、某個環節、某個具體時刻。</div>
+        </div>
+        <div onClick="{{ onInfoVague }}" style="border:1px solid {{ infoVagueBorder }};background:{{ infoVagueBg }};border-radius:4px;padding:16px 17px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:4px;">沒有，只有結論</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.7;">只說了好不好、行不行，沒有交代是哪裡。</div>
+        </div>
+        <sc-if value="{{ showVentNote }}">
+          <div style="border:1px solid #cd9a86;background:rgba(156,90,60,.06);border-radius:4px;padding:16px 17px;margin-top:16px;">
+            <p style="font-size:13.5px;line-height:1.85;color:#4d463b;margin-bottom:0;">指向你這個人、又講不出是哪裡——這種組合裡通常沒有可以動手的東西。下一步你還是可以試著翻譯它，但翻不出來很正常，那不是你理解力的問題。</p>
+          </div>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ s4 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 翻譯</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.6;margin-bottom:10px;">他的意思，換成<br />「哪個環節可以改」</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:16px;line-height:1.8;">給回饋的人不一定懂得怎麼講，收的人可以自己翻一次。翻得出來，這句話就還有用；翻不出來也是答案——<b>留空直接按下一步</b>。</p>
+        <textarea value="{{ translated }}" onInput="{{ onTranslated }}" maxlength="300" placeholder="例如：開場那三句在講同一件事，可以砍成一句" style="width:100%;min-height:100px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <sc-if value="{{ showAskBack }}">
+          <div style="border:1px solid #cd9a86;background:rgba(156,90,60,.06);border-radius:4px;padding:16px 17px;margin-top:14px;">
+            <b style="display:block;font-family:'Noto Serif TC',serif;font-size:13.5px;color:#9c5a3c;margin-bottom:8px;">翻不出來就不要硬猜</b>
+            <p style="font-size:13.5px;line-height:1.85;color:#4d463b;margin-bottom:10px;">自己補出來的細節是你的猜測，不是他的意思——照著猜測去改，改錯了還會以為是照回饋做的。這種時候該做的是回去問，例如：</p>
+            <div style="font-size:13px;color:#4d463b;line-height:1.9;border-left:2px solid #cec6b4;padding-left:14px;">你說的是哪一段？<br />哪個地方讓你卡住了？<br />如果只改一處，你會改哪裡？</div>
+          </div>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ s5 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 05 · 處理</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.6;margin-bottom:10px;">那這一則，<br />你打算怎麼放？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:16px;line-height:1.8;">不採納也是一種處理。放著不決定，才是它會一直佔著你的原因。</p>
+        <div onClick="{{ onActFix }}" style="border:1px solid {{ actFixBorder }};background:{{ actFixBg }};border-radius:4px;padding:14px 16px;margin-bottom:8px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:3px;">現在就改</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.6;">翻譯出來的那句夠具體，動手成本也不高。</div>
+        </div>
+        <div onClick="{{ onActAsk }}" style="border:1px solid {{ actAskBorder }};background:{{ actAskBg }};border-radius:4px;padding:14px 16px;margin-bottom:8px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:3px;">回去問清楚</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.6;">資訊不夠，先問到具體的再說。</div>
+        </div>
+        <div onClick="{{ onActPark }}" style="border:1px solid {{ actParkBorder }};background:{{ actParkBg }};border-radius:4px;padding:14px 16px;margin-bottom:8px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:3px;">先記下來</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.6;">等有第二個人也提到同一件事，再認真處理。</div>
+        </div>
+        <div onClick="{{ onActDrop }}" style="border:1px solid {{ actDropBorder }};background:{{ actDropBg }};border-radius:4px;padding:14px 16px;cursor:pointer;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:3px;">不採納</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.6;">裡面沒有可以動手的東西，放下它。</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s6 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 14px;">回饋拆解卡</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">回 饋 拆 解 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">One Piece of Feedback</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="border:1px solid #e3ddd0;border-radius:3px;padding:12px 15px;margin-bottom:14px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">他說的</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">{{ cardQuote }}</div>
+          </div>
+          <div style="display:flex;gap:14px;margin-bottom:14px;">
+            <div style="flex:1;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">指向</div><div style="font-size:14px;">{{ cardDir }}</div></div>
+            <div style="flex:1;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">資訊量</div><div style="font-size:14px;">{{ cardInfo }}</div></div>
+          </div>
+          <div style="height:1px;background:#e3ddd0;margin-bottom:14px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">能動手的版本</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:14px;white-space:pre-wrap;">{{ cardTranslated }}</div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:14px 12px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我的處理</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">{{ cardAct }}</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">問哪裡能改，不問我是不是不夠好。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition · MMXXVI</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製文字</button>
+          <button onClick="{{ onShare }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">分享這張</button>
+        </div>
+        <sc-if value="{{ showAskAgain }}">
+          <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:24px;">
+            <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">要回去問的話</div>
+            <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">問句本身會決定你拿到什麼。與其問「你覺得怎樣」，改問「哪一段讓你卡住」——把對方的注意力導向那件事，而不是導向你。</p>
+          </div>
+        </sc-if>
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:12px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">下一次求回饋之前</div>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">最不會失真的回饋來源，其實是你自己當初寫下的目標。做完一輪拿它對一次實際結果，用 <a href="tool-review.html">復盤卡</a>。</p>
+        </div>
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+          <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自 Scott H. Young《Ultralearning 超速學習》談意見回饋的那一章，判準取自教育情境的回饋研究——效果的差別主要在回饋指向任務還是指向人。填的內容只保存在這個瀏覽器；這只是幫你把一句話拆開看一次，不替你判斷對方說得對不對。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      <sc-if value="{{ s6 }}">
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">查看回饋紀錄簿（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設有人在會後丟下一句「你這個簡報邏輯不太行」，走完五步之後，卡片長這樣——</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">回 饋 拆 解 卡</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">One Piece of Feedback</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="border:1px solid #e3ddd0;border-radius:3px;padding:12px 15px;margin-bottom:14px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">他說的</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;">你這個簡報邏輯不太行，聽不太懂</div>
+          </div>
+          <div style="display:flex;gap:14px;margin-bottom:14px;">
+            <div style="flex:1;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">指向</div><div style="font-size:14px;">兩邊都沾一點</div></div>
+            <div style="flex:1;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">資訊量</div><div style="font-size:14px;">只有結論</div></div>
+          </div>
+          <div style="height:1px;background:#e3ddd0;margin-bottom:14px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">能動手的版本</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:14px;">翻不出來——他沒說是哪一段，我補的都是自己猜的</div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:14px 12px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我的處理</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">回去問清楚</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">問哪裡能改，不問我是不是不夠好。</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition · MMXXVI</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">翻譯欄<b>留空是允許的結果</b>，不是沒填完。翻不出來，代表這句話本身資訊不夠。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">這張卡<b>不判斷對方說得對不對</b>，只判斷這句話裡有沒有你能動手的東西。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">「回去問清楚」是四個選項裡最常出現的一個——多數難受的回饋，缺的不是你的抗壓力，是一個具體的位置。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，拆我自己那一句</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">回饋紀錄簿</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div onClick="{{ c.onOpen }}" style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;cursor:pointer;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:12px;"><span style="white-space:nowrap;">第 {{ c.idx }} 張 · {{ c.date }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;">他說的</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-top:3px;white-space:pre-wrap;">{{ c.quote }}</div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;margin-top:10px;">我的處理</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#35456a;font-weight:600;margin-top:3px;">{{ c.act }}</div>
+              <div style="text-align:right;font-size:11px;color:#35456a;margin-top:10px;letter-spacing:1px;">開啟回顧 →</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有拆過的回饋。<br />完成第一張後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ hasOpened }}">
+    <div onClick="{{ onCloseCard }}" style="position:fixed;inset:0;z-index:40;background:rgba(36,31,24,.5);display:flex;align-items:center;justify-content:center;padding:26px 20px;">
+      <div onClick="{{ stop }}" style="width:min(400px,100%);background:#fbf9f4;border-radius:8px;padding:24px;box-shadow:0 20px 60px rgba(36,31,24,.28);max-height:92vh;overflow-y:auto;">
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 20px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">回 饋 拆 解 卡</div>
+          <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="border:1px solid #e3ddd0;border-radius:3px;padding:12px 15px;margin-bottom:14px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">他說的</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">{{ ocQuote }}</div>
+          </div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">能動手的版本</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:14px;white-space:pre-wrap;">{{ ocTranslated }}</div>
+          <div style="text-align:center;border:1px solid #cec6b4;border-radius:2px;padding:14px 12px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我的處理</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">{{ ocAct }}</div>
+          </div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:14px;">Edition · MMXXVI</div>
+        </div>
+        <button onClick="{{ onShareOpened }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:16px;">分享這張</button>
+        <button onClick="{{ onCloseCard }}" style="display:block;width:100%;border:none;background:transparent;color:#938a78;border-radius:2px;padding:10px;font-size:12px;letter-spacing:1px;cursor:pointer;margin-top:4px;">關閉</button>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    step: 0,
+    quote: "", dir: "", info: "", translated: "", act: "",
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, openedCard: null, exampleOpen: false, started: false,
+  };
+  HKEY = "toolbook_feedbacksort_history_v1";
+  TOOL = "回饋拆解卡";
+  DIR_LABEL = { task: "在說這件事", person: "在說我這個人", blur: "兩邊都沾一點" };
+  INFO_LABEL = { specific: "講得出哪一處", vague: "只有結論" };
+  ACT_LABEL = { fix: "現在就改", ask: "回去問清楚", park: "先記下來", drop: "不採納" };
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  markStarted() { if (!this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: this.TOOL }); } }
+  saveCards(cards, done) { try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if (done && typeof gtag === "function") gtag("event", "tool_complete", { tool_name: this.TOOL }); } catch (_) {} }
+
+  set(k, v) { this.setState({ [k]: v }); }
+
+  gateOk(step) {
+    const s = this.state;
+    if (step === 1) return !!s.quote.trim();
+    if (step === 2) return !!s.dir;
+    if (step === 3) return !!s.info;
+    if (step === 5) return !!s.act;
+    return true;                       // 第 4 步刻意不擋：翻不出來也是答案
+  }
+  next() {
+    this.markStarted();
+    if (!this.gateOk(this.state.step)) return;
+    const n = Math.min(6, this.state.step + 1);
+    if (n === 6) this.archive();
+    this.setState({ step: n });
+    const st = document.querySelector(".stage"); if (st) st.scrollTop = 0;
+  }
+  prev() { this.setState({ step: Math.max(0, this.state.step - 1) }); const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  newCard() {
+    if (!window.confirm("拆下一則回饋？目前內容會清掉。")) return;
+    this.setState({ step: 1, quote: "", dir: "", info: "", translated: "", act: "" });
+  }
+  fmtDate(raw) { const d = new Date(raw); return d.toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }); }
+
+  translatedOf(c) {
+    const t = (c.translated || "").trim();
+    return t || "翻不出來——他沒說是哪一段，我補的都是自己猜的";
+  }
+  archive() {
+    const s = this.state; if (!s.quote.trim()) return;
+    const card = { id: "fb_" + Date.now().toString(36), createdAt: new Date().toISOString(),
+      quote: s.quote.trim(), dir: s.dir, info: s.info, translated: s.translated.trim(), act: s.act };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards }); this.saveCards(cards, true);
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); this.saveCards(cards); }
+
+  cardTextOf(c) {
+    return "回饋拆解卡\n\n他說的：" + (c.quote || "") +
+      "\n\n指向：" + (this.DIR_LABEL[c.dir] || "—") + "　資訊量：" + (this.INFO_LABEL[c.info] || "—") +
+      "\n\n能動手的版本：" + this.translatedOf(c) +
+      "\n\n我的處理：" + (this.ACT_LABEL[c.act] || "—") +
+      "\n\n問哪裡能改，不問我是不是不夠好。";
+  }
+  cur() { const s = this.state; return { quote: s.quote, dir: s.dir, info: s.info, translated: s.translated, act: s.act }; }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardTextOf(this.cur())); this.toast("已複製卡片文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  async share() { try { if (navigator.share) await navigator.share({ title: "我的回饋拆解卡", text: this.cardTextOf(this.cur()) }); else { await navigator.clipboard.writeText(this.cardTextOf(this.cur())); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  async shareCard(c) { try { if (navigator.share) await navigator.share({ title: "我的回饋拆解卡", text: this.cardTextOf(c) }); else { await navigator.clipboard.writeText(this.cardTextOf(c)); this.toast("已複製"); } } catch (_) {} }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: this.TOOL, helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", this.TOOL); fd.append("_subject", "Toolbook 工具回饋 · " + this.TOOL); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+
+  async _png(spec){try{const m=await import("./toolbook-card.js");const ok=await m.downloadCardPNG(spec);this.toast(ok?"卡片圖片已儲存":"圖片產生失敗");}catch(_){this.toast("圖片產生失敗");}}
+  async saveImage(){const s=this.state;await this._png({title:"回饋拆解卡",sub:"ONE PIECE OF FEEDBACK",filename:"回饋拆解卡-Toolbook",mantra:"問哪裡能改，不問我是不是不夠好。",edition:"Edition · MMXXVI",blocks:[{k:"他說的",v:s.quote.trim()||"—",serif:true},{k:"指向",v:this.DIR_LABEL[s.dir]||"—"},{k:"資訊量",v:this.INFO_LABEL[s.info]||"—"},{k:"能動手的版本",v:this.translatedOf(s)},{k:"我的處理",v:this.ACT_LABEL[s.act]||"—",big:true}]});}
+
+  renderVals() {
+    const s = this.state, step = s.step;
+    const dots = [1,2,3,4,5].map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#35456a" : "#e3ddd0" }));
+    const showGate = step >= 1 && step <= 5;
+    const gateBad = showGate && !this.gateOk(step);
+    const nextLabel = step === 0 ? "開始" : step === 5 ? "生成這張卡" : "下一步";
+    const cards = s.cards.map((c, n) => ({ idx: s.cards.length - n, date: this.fmtDate(c.createdAt), quote: c.quote || "—", act: this.ACT_LABEL[c.act] || "—", onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); }, onOpen: () => this.set("openedCard", c) }));
+    const oc = s.openedCard;
+    return {
+      dots, backColor: step === 0 ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: step === 5, s6: step === 6,
+      quote: s.quote, onQuote: e => this.set("quote", e.target.value),
+      translated: s.translated, onTranslated: e => this.set("translated", e.target.value),
+      dirTaskBorder: s.dir === "task" ? "#35456a" : "#e3ddd0", dirTaskBg: s.dir === "task" ? "rgba(53,69,106,.05)" : "#fff", onDirTask: () => this.set("dir", "task"),
+      dirPersonBorder: s.dir === "person" ? "#35456a" : "#e3ddd0", dirPersonBg: s.dir === "person" ? "rgba(53,69,106,.05)" : "#fff", onDirPerson: () => this.set("dir", "person"),
+      dirBlurBorder: s.dir === "blur" ? "#35456a" : "#e3ddd0", dirBlurBg: s.dir === "blur" ? "rgba(53,69,106,.05)" : "#fff", onDirBlur: () => this.set("dir", "blur"),
+      showPersonNote: s.dir === "person",
+      infoSpecificBorder: s.info === "specific" ? "#35456a" : "#e3ddd0", infoSpecificBg: s.info === "specific" ? "rgba(53,69,106,.05)" : "#fff", onInfoSpecific: () => this.set("info", "specific"),
+      infoVagueBorder: s.info === "vague" ? "#35456a" : "#e3ddd0", infoVagueBg: s.info === "vague" ? "rgba(53,69,106,.05)" : "#fff", onInfoVague: () => this.set("info", "vague"),
+      showVentNote: s.dir === "person" && s.info === "vague",
+      showAskBack: step === 4 && !s.translated.trim() && s.info === "vague",
+      actFixBorder: s.act === "fix" ? "#35456a" : "#e3ddd0", actFixBg: s.act === "fix" ? "rgba(53,69,106,.05)" : "#fff", onActFix: () => this.set("act", "fix"),
+      actAskBorder: s.act === "ask" ? "#35456a" : "#e3ddd0", actAskBg: s.act === "ask" ? "rgba(53,69,106,.05)" : "#fff", onActAsk: () => this.set("act", "ask"),
+      actParkBorder: s.act === "park" ? "#35456a" : "#e3ddd0", actParkBg: s.act === "park" ? "rgba(53,69,106,.05)" : "#fff", onActPark: () => this.set("act", "park"),
+      actDropBorder: s.act === "drop" ? "#35456a" : "#e3ddd0", actDropBg: s.act === "drop" ? "rgba(53,69,106,.05)" : "#fff", onActDrop: () => this.set("act", "drop"),
+      cardQuote: s.quote.trim() || "—", cardDir: this.DIR_LABEL[s.dir] || "—", cardInfo: this.INFO_LABEL[s.info] || "—",
+      cardTranslated: this.translatedOf(s), cardAct: this.ACT_LABEL[s.act] || "—",
+      showAskAgain: s.act === "ask",
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(),
+      onHome: () => { window.location.href = "index.html"; },
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value),
+      onSubmitFeedback: e => this.onSubmitFeedback(e), onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
+      showGate, gateMsg: gateBad ? (step === 1 ? "先把那句話抄下來" : step === 2 ? "選一個才能繼續" : step === 3 ? "選一個才能繼續" : "選一種處理方式") : "",
+      onNext: step === 6 ? () => this.newCard() : () => this.next(),
+      nextLabel: step === 6 ? "拆下一則回饋" : nextLabel,
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#b7bdcb" : "#35456a",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showRecordsBtn: (step === 0 || step === 6) && s.cards.length > 0,
+      onOpenRecords: () => this.set("recordsOpen", true),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+      hasOpened: !!oc, ocQuote: oc ? (oc.quote || "—") : "—", ocTranslated: oc ? this.translatedOf(oc) : "—", ocAct: oc ? (this.ACT_LABEL[oc.act] || "—") : "—",
+      onCloseCard: () => this.set("openedCard", null), onShareOpened: () => { if (oc) this.shareCard(oc); },
+    };
+  }
+}
+</script>
+</body>
+</html>
