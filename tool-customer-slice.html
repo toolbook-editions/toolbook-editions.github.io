@@ -50,7 +50,7 @@
       <sc-if value="{{ s0 }}">
         <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
-          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº F-11 · 客戶切片</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 11 · 客戶切片</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">「大家」不是客戶，<br />切到你知道去哪找他為止</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">一個太廣的客戶群沒有用——因為你<b style="color:#9c5b3f;">找不到他們去談</b>。這張卡逼你把「大家」切到「誰＋在哪裡找得到」，再多問一層：那個場所裡，誰能一次把你介紹給很多這樣的人。<br />答案只存在這部裝置。</p>
           <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#9c5b3f;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個切好的例子 →</div>
@@ -319,7 +319,7 @@ class Component extends DCLogic {
     ];
     if (s.gate.trim()) blocks.push({ k: "誰有分發權", v: s.gate.trim(), big: true });
     else blocks.push({ k: "從哪切來的", v: s.broad.trim() || "—" });
-    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "客戶切片卡", sub: "CUSTOMER SLICE · Nº F-11", filename: "客戶切片卡-Toolbook", mantra: "切到你知道明天去哪找他，才算切完。", edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "客戶切片卡", sub: "CUSTOMER SLICE · Nº 11", filename: "客戶切片卡-Toolbook", mantra: "切到你知道明天去哪找他，才算切完。", edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
 
   renderVals() {

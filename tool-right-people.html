@@ -50,7 +50,7 @@
       <sc-if value="{{ s0 }}">
         <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
-          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº F-05 · 測之前</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 05 · 測之前</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">先確認名單，<br />再挑方法</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">名單錯了，換哪一套方法都會得到一樣沒用的答案。<b style="color:#554d40;">「沒人需要這個」跟「我找錯人問」，從結果上長得一模一樣</b>——這張卡只幫你分開這兩件事。四個問題，花不到五分鐘。<br />答案只存在這部裝置。</p>
           <div style="border-left:2px solid #cec6b4;padding:11px 14px;margin-top:20px;text-align:left;background:#f3efe7;border-radius:0 3px 3px 0;">
@@ -133,7 +133,7 @@
           <sc-for list="{{ rows }}" as="r" hint-placeholder-count="4">
             <div style="display:flex;gap:8px;margin-bottom:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 74px;">{{ r.k }}</span><span style="font-size:13px;line-height:1.7;white-space:pre-wrap;">{{ r.v }}</span></div>
           </sc-for>
-          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Sampling · Nº F-05 · MMXXVI</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Sampling · Nº 05 · MMXXVI</div>
         </div>
 
         <sc-if value="{{ vMismatch }}">
@@ -222,7 +222,7 @@
           <div style="display:flex;gap:8px;margin-bottom:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 74px;">他們現在</span><span style="font-size:13px;line-height:1.7;">聽同業講的，拿試算表自己改一份來用</span></div>
           <div style="display:flex;gap:8px;margin-bottom:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 74px;">我這批人</span><span style="font-size:13px;line-height:1.7;">廣告、社群貼文</span></div>
           <div style="display:flex;gap:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 74px;">相反就改</span><span style="font-size:13px;line-height:1.7;">如果他們不介意現在的做法，我改做月底對帳那一段</span></div>
-          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Sampling · Nº F-05 · MMXXVI</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Sampling · Nº 05 · MMXXVI</div>
         </div>
 
         <div style="margin-top:20px;">
@@ -395,7 +395,7 @@ class Component extends DCLogic {
   async saveImage() {
     const v = this.verdict();
     const blocks = [{ k: "判定", v: this.VERDICTS[v].title, big: true }].concat(this.rowList());
-    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "名單自檢", sub: "SAMPLING · Nº F-05", filename: "名單自檢卡-Toolbook", mantra: "名單錯了，換哪一套方法都會得到一樣沒用的答案。", edition: "Edition Nº F-05 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "名單自檢", sub: "SAMPLING · Nº 05", filename: "名單自檢卡-Toolbook", mantra: "名單錯了，換哪一套方法都會得到一樣沒用的答案。", edition: "Edition Nº 05 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
 
   opts(list, cur, pick) {

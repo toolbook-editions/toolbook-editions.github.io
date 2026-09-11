@@ -140,7 +140,8 @@
     var m = (location.search.match(/[?&]vol=([^&#]+)/) || [])[1];
     return (m === "personal" || m === "founders") ? m : "all";
   })();
-  // 輯號自 2026-09-11 改成每卷各自從 01 起編、帶卷首字母：P＝個人卷、F＝創業卷。
+  // 輯號自 2026-09-11 改成每卷各自從 01 起編。卷別**只活在資料裡**（no 是 "P-14"／"F-05"），
+  // 畫面上只印數字——見 rowHTML 的說明。所以改 no 的格式會同時動到判卷與顯示，兩邊一起看。
   // 舊制是全站單一遞增序列，靠「>=22 視為創業卷」的數字排除清單判卷，連撞兩次反例
   // （舊 Nº36／37 習慣契約卡、若則計畫卡與舊 Nº41 冰山探索卡都是個人卷）。現在看首字母即可。
   function volOf(t) { return t.no.charAt(0) === "F" ? "founders" : "personal"; }
@@ -187,9 +188,18 @@
   }
 
   function rowHTML(r) {
+    // 輯號的卷別留在資料裡（no 是 "P-14"／"F-05"），畫面上只印數字——字母不好看，
+    // 而且在單卷分頁裡它不帶任何資訊。只有「全部」分頁兩卷會交錯（排序是「用過的排
+    // 前面」，不是按卷分段），那裡才需要標卷：否則會並排出現兩個「Nº 05」像是壞掉。
+    var isF = r.vol === "founders";
+    var col = isF ? "#9c5b3f" : "#35456a";
+    var tag = VOL === "all"
+      ? '<span style="font-size:9px;letter-spacing:1.6px;color:' + col + ';flex:none;">' + (isF ? "創業" : "個人") + '</span>'
+      : '';
     var head =
       '<div style="display:flex;align-items:baseline;gap:10px;">' +
-        '<span class="serif" style="font-size:11px;letter-spacing:1.5px;color:#35456a;flex:none;">Nº ' + r.no + '</span>' +
+        tag +
+        '<span class="serif" style="font-size:11px;letter-spacing:1.5px;color:' + col + ';flex:none;">Nº ' + r.no.slice(2) + '</span>' +
         '<span class="serif" style="font-size:17px;font-weight:600;flex:1;min-width:0;">' + esc(r.name) + '</span>' +
         '<span style="font-size:11px;color:#938a78;flex:none;letter-spacing:.5px;">' + esc(r.when) + '</span>' +
       '</div>';
@@ -227,7 +237,7 @@
       var isUsed = u.count > 0;
       var meta = isUsed && u.count > 1 ? "共 " + u.count + " " + t.unit : "";
       return {
-        no: t.no, name: t.name, href: t.file, used: isUsed,
+        no: t.no, vol: volOf(t), name: t.name, href: t.file, used: isUsed,
         when: isUsed ? fmtDate(u.lastAt) : "還沒用過",
         summaryLabel: t.label, summary: u.summary || "—", meta: meta, hasMeta: !!meta
       };

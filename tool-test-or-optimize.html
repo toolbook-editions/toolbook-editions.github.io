@@ -50,7 +50,7 @@
       <sc-if value="{{ s0 }}">
         <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
-          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº F-08 · 測試 or 優化</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 08 · 測試 or 優化</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">你手上這件事，<br />是在測試，還是在優化？</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">兩件事的做法剛好相反：測試要<b style="color:#9c5b3f;">便宜、粗篩、隨時能砍</b>；優化要<b style="color:#9c5b3f;">收斂、加碼、細量</b>。<br />混在一起，你會拿測試的心態加碼、或拿優化的耐心空等。<br />兩題就判給你看。答案只存在這部裝置。</p>
           <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#9c5b3f;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個判好的例子 →</div>
@@ -343,7 +343,7 @@ class Component extends DCLogic {
       { k: "管道", v: s.channel.trim() || "—" },
       { k: "判定", v: v.title, big: true },
     ];
-    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "測試或優化判定", sub: "TEST OR OPTIMIZE · Nº F-08", filename: "測試或優化判定卡-Toolbook", mantra: v.mantra, edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "測試或優化判定", sub: "TEST OR OPTIMIZE · Nº 08", filename: "測試或優化判定卡-Toolbook", mantra: v.mantra, edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
 
   renderVals() {

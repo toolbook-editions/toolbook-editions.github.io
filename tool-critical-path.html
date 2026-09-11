@@ -50,7 +50,7 @@
       <sc-if value="{{ s0 }}">
         <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
-          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº F-10 · 關鍵路徑</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 10 · 關鍵路徑</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">關鍵路徑，<br />是一份「不做什麼」的清單</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">先寫下一個目標，再把你手上正在做、打算做的事一條條攤開。<br />對每一條只問一句：<b style="color:#9c5b3f;">這是通往目標的必經之路嗎？</b><br />不是的，就標出來——那些才是你該砍的。<br />答案只存在這部裝置。</p>
           <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#9c5b3f;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個編好的例子 →</div>
@@ -346,7 +346,7 @@ class Component extends DCLogic {
       { k: "不在路徑上 · 砍", v: L.cut.length ? L.cut.map(i => i.text).join("、") : "（無）", big: true },
     ];
     if (L.park.length) blocks.push({ k: "存疑", v: L.park.map(i => i.text).join("、") });
-    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "關鍵路徑卡", sub: "CRITICAL PATH · Nº F-10", filename: "關鍵路徑卡-Toolbook", mantra: "關鍵路徑決定的，是不做什麼。", edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "關鍵路徑卡", sub: "CRITICAL PATH · Nº 10", filename: "關鍵路徑卡-Toolbook", mantra: "關鍵路徑決定的，是不做什麼。", edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
 
   renderVals() {

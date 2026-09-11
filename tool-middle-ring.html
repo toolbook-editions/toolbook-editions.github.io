@@ -50,7 +50,7 @@
       <sc-if value="{{ s0 }}">
         <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
-          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº F-06 · 中圈測試</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 06 · 中圈測試</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">「先便宜地測一下」<br />要測成三個數字</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">把「試試看某條管道」逼成：測多少、測多久、<b style="color:#9c5b3f;">多少算過</b>。<br />最後那個數字最容易漏，這張卡逼你測之前就填。<br />答案只存在這部裝置。</p>
           <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#9c5b3f;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
@@ -354,7 +354,7 @@ class Component extends DCLogic {
     const blocks = brand
       ? [{ k: "管道", v: s.channel.trim() || "—", serif: true }, { k: "判定", v: "這條靠累積印象發酵，小測試測不準。" }, { k: s.proxy.trim() ? "直接反應型的代理" : "沒有直接動作可測", v: s.proxy.trim() || "當長期投資，別拿小測試定案。", big: true }]
       : [{ k: "管道", v: s.channel.trim() || "—", serif: true }, { k: "測多少", v: s.amount.trim() || "—" }, { k: "測多久", v: s.period.trim() || "—" }, { k: "及格線 · 達到才深做", v: s.passline.trim() || "—", big: true }];
-    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: brand ? "誠實卡" : "中圈測試卡", sub: brand ? "NOT A CHEAP TEST · Nº F-06" : "MIDDLE RING · Nº F-06", filename: "中圈測試卡-Toolbook", mantra: brand ? "測不準的事，別用測試的口氣講。" : "先寫及格線，測試才算數。", edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: brand ? "誠實卡" : "中圈測試卡", sub: brand ? "NOT A CHEAP TEST · Nº 06" : "MIDDLE RING · Nº 06", filename: "中圈測試卡-Toolbook", mantra: brand ? "測不準的事，別用測試的口氣講。" : "先寫及格線，測試才算數。", edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
 
   renderVals() {

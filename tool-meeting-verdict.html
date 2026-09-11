@@ -50,7 +50,7 @@
       <sc-if value="{{ s0 }}">
         <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
-          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº F-01 · 對話</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 01 · 對話</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">他交出了什麼，<br />不是他說了什麼</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">一場談完，最容易記住的是他的語氣。但語氣不用付代價——<b style="color:#554d40;">他願意交出時間、名聲或錢，才是你手上真正拿到的東西</b>。這張卡幫你在散會後把它記下來，並看清下一步落在誰身上。<br />答案只存在這部裝置。</p>
           <div style="border-left:2px solid #cec6b4;padding:11px 14px;margin-top:20px;text-align:left;background:#f3efe7;border-radius:0 3px 3px 0;">
@@ -148,7 +148,7 @@
           <div style="display:flex;gap:8px;margin-bottom:9px;"><span style="font-size:11px;color:#938a78;flex:0 0 44px;">名聲</span><span style="font-size:13px;line-height:1.7;white-space:pre-wrap;">{{ repEcho }}</span></div>
           <div style="display:flex;gap:8px;margin-bottom:9px;"><span style="font-size:11px;color:#938a78;flex:0 0 44px;">錢</span><span style="font-size:13px;line-height:1.7;white-space:pre-wrap;">{{ cashEcho }}</span></div>
           <div style="display:flex;gap:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 44px;">下一步</span><span style="font-size:13px;line-height:1.7;">{{ ownerEcho }}</span></div>
-          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Verdict · Nº F-01 · MMXXVI</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Verdict · Nº 01 · MMXXVI</div>
         </div>
 
         <sc-if value="{{ nothingGiven }}">
@@ -254,7 +254,7 @@
           <div style="display:flex;gap:8px;margin-bottom:9px;"><span style="font-size:11px;color:#938a78;flex:0 0 44px;">名聲</span><span style="font-size:13px;line-height:1.7;">—</span></div>
           <div style="display:flex;gap:8px;margin-bottom:9px;"><span style="font-size:11px;color:#938a78;flex:0 0 44px;">錢</span><span style="font-size:13px;line-height:1.7;">—</span></div>
           <div style="display:flex;gap:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 44px;">下一步</span><span style="font-size:13px;line-height:1.7;">由我（我要準備一版給他看）</span></div>
-          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Verdict · Nº F-01 · MMXXVI</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Verdict · Nº 01 · MMXXVI</div>
         </div>
 
         <div style="margin-top:20px;">
@@ -433,7 +433,7 @@ class Component extends DCLogic {
       { k: "錢", v: this.cell(s.cCash, s.vCash) },
       { k: "下一步", v: this.ownerText() },
     ];
-    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: s.who.trim() ? "這一場 · " + s.who.trim() : "這一場", sub: "VERDICT · Nº F-01", filename: "會後判定器-Toolbook", mantra: "判斷一句話值多少，看它讓對方付出了什麼。", edition: "Edition Nº F-01 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: s.who.trim() ? "這一場 · " + s.who.trim() : "這一場", sub: "VERDICT · Nº 01", filename: "會後判定器-Toolbook", mantra: "判斷一句話值多少，看它讓對方付出了什麼。", edition: "Edition Nº 01 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
 
   opts(list, cur, pick) {

@@ -50,7 +50,7 @@
       <sc-if value="{{ s0 }}">
         <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
-          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº P-18 · 關係</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 18 · 關係</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">多年前那句話，<br />還在你心裡</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">一件放了很久、還是會刺一下的舊事。分三輪寫下來：<b style="color:#554d40;">當年想說的、這些年的自責、對他當時的猜測</b>。中間那一輪不能跳。<br />這不是替對方開脫——他做的不對，就是不對；這是幫<b style="color:#554d40;">你自己</b>把它放下。不需要對方在場或同意。<br />答案只存在這部裝置。</p>
           <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
@@ -103,7 +103,7 @@
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">第三輪 · 對他當時的猜測</div>
           <div style="font-size:14px;line-height:1.85;white-space:pre-wrap;">{{ round3Echo }}</div>
           <div style="background:rgba(156,90,60,.06);border-left:2px solid #9c6b52;padding:10px 13px;margin-top:14px;font-size:12.5px;color:#6b6353;line-height:1.75;">這是猜測，不是判定——它的作用是讓你放下，不是斷定對方真的那樣想。</div>
-          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Let Go · Nº P-18 · MMXXVI</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Let Go · Nº 18 · MMXXVI</div>
         </div>
 
         <div style="border-left:2px solid #cec6b4;padding:13px 16px;margin-top:16px;background:#f3efe7;border-radius:0 3px 3px 0;">
@@ -178,7 +178,7 @@
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">第三輪 · 對他當時的猜測</div>
           <div style="font-size:14px;line-height:1.85;">也許那天他自己壓力很大，急著讓全班安靜、或衝著成績說話；那句話多半是衝口而出，不是真的看透了我這個人。</div>
           <div style="background:rgba(156,90,60,.06);border-left:2px solid #9c6b52;padding:10px 13px;margin-top:14px;font-size:12.5px;color:#6b6353;line-height:1.75;">這是猜測，不是判定——它的作用是讓你放下，不是斷定對方真的那樣想。</div>
-          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Let Go · Nº P-18 · MMXXVI</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Let Go · Nº 18 · MMXXVI</div>
         </div>
 
         <div style="margin-top:20px;">
@@ -292,7 +292,7 @@ class Component extends DCLogic {
       { k: "第二輪 · 這些年的自責", v: s.round2.trim() || "—" },
       { k: "第三輪 · 對他當時的猜測", v: s.round3.trim() || "—" },
     ];
-    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: s.situation.trim() || "陳年舊怨三輪卡", sub: "LET GO · Nº P-18", filename: "陳年舊怨三輪卡-Toolbook", mantra: "讓那句話續命的，常是你自己的那一輪自責。", edition: "Edition Nº P-18 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: s.situation.trim() || "陳年舊怨三輪卡", sub: "LET GO · Nº 18", filename: "陳年舊怨三輪卡-Toolbook", mantra: "讓那句話續命的，常是你自己的那一輪自責。", edition: "Edition Nº 18 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
 
   renderVals() {
