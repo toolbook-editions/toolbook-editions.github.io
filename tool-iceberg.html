@@ -50,7 +50,7 @@
       <sc-if value="{{ s0 }}">
         <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
-          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 41 · 冰山探索卡</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº P-26 · 冰山探索卡</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">你看到的，<br />只是一角</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">拿一件還卡在心裡的事，拆成九層往下走：從發生了什麼，一路問到你自己真正在意的是什麼。<br />答案只存在這部裝置。</p>
           <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
@@ -140,7 +140,7 @@
         <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 20px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
           <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
           <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">冰 山 探 索 卡</div>
-          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Iceberg · Nº 41</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Iceberg · Nº P-26</div>
           <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:14px auto 18px;"></div>
 
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">事件</div>
@@ -170,7 +170,7 @@
           <div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.6;white-space:pre-wrap;">{{ cSelfLine }}</div>
 
           <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:13px;letter-spacing:1px;margin-top:18px;line-height:1.7;">整理了一次，不代表事情就解決了——但你比剛才更清楚一點。</div>
-          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 41 · MMXXVI</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº P-26 · MMXXVI</div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
           <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
@@ -420,7 +420,7 @@ class Component extends DCLogic {
       { k: "渴望", v: s.desire.trim() || "—", big: true },
       { k: "我是", v: s.selfLine.trim() || "—" },
     ];
-    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "冰山探索卡", sub: "ICEBERG · Nº 41", filename: "冰山探索卡-Toolbook", mantra: "整理了一次，不代表事情就解決了——但你比剛才更清楚一點。", edition: "Edition Nº 41 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "冰山探索卡", sub: "ICEBERG · Nº P-26", filename: "冰山探索卡-Toolbook", mantra: "整理了一次，不代表事情就解決了——但你比剛才更清楚一點。", edition: "Edition Nº P-26 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
 
   renderVals() {

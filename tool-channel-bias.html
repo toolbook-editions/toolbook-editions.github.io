@@ -50,7 +50,7 @@
       <sc-if value="{{ s0 }}">
         <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
-          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 30 · 管道偏見盤點</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº F-09 · 管道偏見盤點</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">你排除一條管道，<br />是想清楚的，還是偏見？</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">取得客戶的路不只你在用的那幾條。你略過其他的，常常是三種偏見：<b style="color:#9c5b3f;">沒想到、看不起、嫌麻煩</b>——不是真的判斷過它不行。<br />這張卡逼你對每一類表態一次，把偏見排除的那幾條翻出來。<br />答案只存在這部裝置。</p>
           <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#9c5b3f;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
@@ -326,7 +326,7 @@ class Component extends DCLogic {
     if (a.avoid.length) blocks.push({ k: "嫌麻煩", v: a.avoid.join("、") });
     if (!blocks.length) blocks.push({ k: "結果", v: "每一類都認真考慮過了" });
     blocks.push({ k: "先試這一條", v: a.topPick || "挑最沒把握的一條", big: true });
-    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "管道偏見盤點", sub: "CHANNEL BIAS · Nº 30", filename: "管道偏見盤點-Toolbook", mantra: "最值得試的，常是你原本沒在看的那條。", edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "管道偏見盤點", sub: "CHANNEL BIAS · Nº F-09", filename: "管道偏見盤點-Toolbook", mantra: "最值得試的，常是你原本沒在看的那條。", edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
 
   renderVals() {

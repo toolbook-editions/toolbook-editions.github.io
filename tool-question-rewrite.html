@@ -50,7 +50,7 @@
       <sc-if value="{{ s0 }}">
         <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
-          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 23 · 對話之前</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº F-02 · 對話之前</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">別問他會不會用，<br />問他上一次怎麼做</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">「你會用這個嗎」得到的答案幾乎一定是善意的——他在猜自己以後會怎樣，而人猜自己都猜得很寬。<b style="color:#554d40;">把同一件事挪回他已經做過的生活</b>，答案才有東西可以核對。這張卡幫你把手上的問題換一遍。<br />答案只存在這部裝置。</p>
           <div style="border-left:2px solid #cec6b4;padding:11px 14px;margin-top:20px;text-align:left;background:#f3efe7;border-radius:0 3px 3px 0;">
@@ -136,7 +136,7 @@
           <div style="display:flex;gap:8px;margin-bottom:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 64px;">原本想問</span><span style="font-size:13px;line-height:1.7;white-space:pre-wrap;">{{ qEcho }}</span></div>
           <div style="display:flex;gap:8px;margin-bottom:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 64px;">答相反就改</span><span style="font-size:13px;line-height:1.7;white-space:pre-wrap;">{{ changeEcho }}</span></div>
           <div style="display:flex;gap:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 64px;">價格錨</span><span style="font-size:13px;line-height:1.7;white-space:pre-wrap;">{{ anchorEcho }}</span></div>
-          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Questions · Nº 23 · MMXXVI</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Questions · Nº F-02 · MMXXVI</div>
         </div>
 
         <div style="border-left:2px solid #9c5b3f;padding:13px 16px;margin-top:18px;background:#f3efe7;border-radius:0 3px 3px 0;">
@@ -223,7 +223,7 @@
           <div style="display:flex;gap:8px;margin-bottom:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 64px;">原本想問</span><span style="font-size:13px;line-height:1.7;">如果有一個工具可以自動幫你排班，你會用嗎？</span></div>
           <div style="display:flex;gap:8px;margin-bottom:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 64px;">答相反就改</span><span style="font-size:13px;line-height:1.7;">如果他們其實不介意手動排，我就不做排班，改做月底結帳那一段。</span></div>
           <div style="display:flex;gap:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 64px;">價格錨</span><span style="font-size:13px;line-height:1.7;">當「自己熬夜手動做」的替代品</span></div>
-          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Questions · Nº 23 · MMXXVI</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Questions · Nº F-02 · MMXXVI</div>
         </div>
 
         <div style="margin-top:20px;">
@@ -356,7 +356,7 @@ class Component extends DCLogic {
     const blocks = this.askLines().map((t, i) => ({ k: String(i + 1), v: t, big: i === 0 }));
     blocks.push({ k: "原本想問", v: s.q.trim() || "—" });
     blocks.push({ k: "價格錨", v: this.anchorLabel() || "—" });
-    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "要問的話", sub: "QUESTIONS · Nº 23", filename: "問句改寫器-Toolbook", mantra: "問他上一次怎麼做，不是問他將來會不會做。", edition: "Edition Nº 23 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "要問的話", sub: "QUESTIONS · Nº F-02", filename: "問句改寫器-Toolbook", mantra: "問他上一次怎麼做，不是問他將來會不會做。", edition: "Edition Nº F-02 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
 
   opts(list, cur, pick) {

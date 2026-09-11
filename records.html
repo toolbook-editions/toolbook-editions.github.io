@@ -89,61 +89,61 @@
 <script>
 (function () {
   var TOOLS = [
-    { no: "01", name: "目標釐清器", key: "toolbook_direction_cards_v1", file: "tool.html", unit: "張", label: "想朝的方向", pick: function (c) { return c.want; } },
-    { no: "02", name: "成果鎖定卡", key: "toolbook_result_lock_history_v1", file: "tool-result-lock.html", unit: "張", label: "本輪結果", pick: function (c) { return c.outcome; } },
-    { no: "03", name: "復盤卡", key: "toolbook_review_history_v1", file: "tool-review.html", unit: "張", label: "下一輪只改這一件", pick: function (c) { return c.onething; } },
-    { no: "04", name: "恐懼拆解卡", key: "toolbook_fear_history_v1", file: "tool-fear.html", unit: "張", label: "這星期先做這一小步", pick: function (c) { return c.ministep; } },
-    { no: "05", name: "小規模試驗卡", key: "toolbook_pilot_history_v1", file: "tool-pilot.html", unit: "張", label: "先試的那件小事", pick: function (c) { return c.pilot; } },
-    { no: "06", name: "空下來之後", key: "toolbook_leisure_history_v1", file: "tool-leisure.html", unit: "張", label: "想做的那件事", pick: function (c) { return c.thing; } },
-    { no: "07", name: "減法掃描卡", key: "toolbook_subtract_history_v1", file: "tool-subtract.html", unit: "張", label: "這週動的那一項", pick: function (c) { return c.action; } },
-    { no: "08", name: "今天兩格", key: "toolbook_two_v1", file: "tool-two.html", unit: "天", daymap: true, label: "最近一天", pick: function (d) { return [d.one, d.two].filter(Boolean).join("／"); } },
-    { no: "09", name: "週期執行器", key: "toolbook_cycle_history_v1", file: "tool-cycle.html", unit: "輪", label: "這一輪要交付", pick: function (c) { return c.deliver; } },
-    { no: "10", name: "講完話之後", key: "toolbook_after_talk_history_v1", file: "tool-after-talk.html", unit: "則", label: "上次答的", pick: function (c) { return c.answer; } },
-    { no: "11", name: "學習筆記卡", key: "toolbook_studynote_history_v1", file: "tool-study-note.html", unit: "張", label: "這次學的", pick: function (c) { return c.topic; } },
-    { no: "12", name: "承諾成本卡", key: "toolbook_commitcost_history_v1", file: "tool-commit-cost.html", unit: "張", label: "想做的事", pick: function (c) { return c.wish; } },
-    { no: "13", name: "內在對話改寫器", key: "toolbook_innervoice_history_v1", file: "tool-inner-voice.html", unit: "張", label: "最後想要的", pick: function (c) { return c.want; } },
-    { no: "14", name: "習慣追蹤卡", key: "toolbook_habit_history_v1", file: "tool-habit.html", unit: "個", label: "在追蹤", pick: function (c) { return c.name; } },
-    { no: "15", name: "重新解讀卡", key: "toolbook_reframe_history_v1", file: "tool-reframe.html", unit: "張", label: "那句話", pick: function (c) { return c.line; } },
-    { no: "17", name: "人生七面向自評", key: "toolbook_lifebalance_history_v1", file: "tool-life-balance.html", unit: "次", label: "這一季先顧", pick: function (c) { return c.focusName || "（未指定）"; } },
-    { no: "18", name: "並排找雙贏", key: "toolbook_winwin_history_v1", file: "tool-win-win.html", unit: "張", label: "卡住的僵局", pick: function (c) { return c.situation; } },
-    { no: "19", name: "陳年舊怨三輪卡", key: "toolbook_grudge_history_v1", file: "tool-old-grudge.html", unit: "張", label: "那件事", pick: function (c) { return c.situation; } },
-    { no: "20", name: "慶祝型卡", key: "toolbook_gratitude_history_v1", file: "tool-gratitude.html", unit: "張", label: "想謝的人", pick: function (c) { return c.who || c.behavior; } },
-    { no: "21", name: "複述造句器", key: "toolbook_paraphrase_history_v1", file: "tool-paraphrase.html", unit: "則", label: "對方的話", pick: function (c) { return c.otherSaid; } },
-    { no: "22", name: "會後判定器", key: "toolbook_meeting_verdict_history_v1", file: "tool-meeting-verdict.html", unit: "張", label: "他交出了什麼", pick: function (c) { return c.given; } },
-    { no: "23", name: "問句改寫器", key: "toolbook_question_rewrite_history_v1", file: "tool-question-rewrite.html", unit: "張", label: "第一句要問的話", pick: function (c) { return c.first || c.q; } },
-    { no: "24", name: "兩張臉卡", key: "toolbook_vanity_history_v1", file: "tool-vanity-check.html", unit: "張", label: "檢視的指標", pick: function (c) { return c.metric; } },
-    { no: "25", name: "數據自檢卡", key: "toolbook_datacheck_history_v1", file: "tool-data-check.html", unit: "張", label: "想宣布的那句", pick: function (c) { return c.claim; } },
-    { no: "26", name: "名單自檢卡", key: "toolbook_right_people_history_v1", file: "tool-right-people.html", unit: "張", label: "要弄清楚的名單", pick: function (c) { return c.topic; } },
-    { no: "27", name: "中圈測試設定器", key: "toolbook_middlering_history_v1", file: "tool-middle-ring.html", unit: "張", label: "及格線", pick: function (c) { return c.passline || c.channel; } },
-    { no: "28", name: "替代方案盤點器", key: "toolbook_alternatives_history_v1", file: "tool-alternatives.html", unit: "張", label: "客戶會改用的", pick: function (c) { return c.mainAlt; } },
-    { no: "29", name: "測試或優化判定器", key: "toolbook_testoptimize_history_v1", file: "tool-test-or-optimize.html", unit: "張", label: "判定", pick: function (c) { return c.verdict; } },
-    { no: "30", name: "管道偏見盤點器", key: "toolbook_channelbias_history_v1", file: "tool-channel-bias.html", unit: "張", label: "先試這條", pick: function (c) { return c.topPick; } },
-    { no: "31", name: "關鍵路徑編輯器", key: "toolbook_criticalpath_history_v1", file: "tool-critical-path.html", unit: "張", label: "目標", pick: function (c) { return c.goal; } },
-    { no: "32", name: "客戶切片器", key: "toolbook_customerslice_history_v1", file: "tool-customer-slice.html", unit: "張", label: "切到的一小群", pick: function (c) { return c.who; } },
-    { no: "33", name: "類別存在檢查器", key: "toolbook_categorycheck_history_v1", file: "tool-category-check.html", unit: "張", label: "想宣稱的類別", pick: function (c) { return c.cat; } },
-    { no: "34", name: "第三方證明盤點器", key: "toolbook_proofcheck_history_v1", file: "tool-proof-check.html", unit: "條", label: "這條能力", pick: function (c) { return c.attr; } },
-    { no: "35", name: "市場打法判定器", key: "toolbook_marketplay_history_v1", file: "tool-market-play.html", unit: "張", label: "判定", pick: function (c) { return c.verdictLabel || c.verdict; } },
-    { no: "36", name: "習慣契約卡", key: "toolbook_habitcontract_history_v1", file: "tool-habit-contract.html", unit: "張", label: "契約行為", pick: function (c) { return c.behavior; } },
-    { no: "37", name: "若則計畫卡", key: "toolbook_ifthen_history_v1", file: "tool-if-then.html", unit: "張", label: "動作", pick: function (c) { return c.action; } },
-    { no: "38", name: "傑出人物差異分析器", key: "toolbook_peercompare_history_v1", file: "tool-peer-compare.html", unit: "次", label: "領域", pick: function (c) { return c.skill; } },
-    { no: "39", name: "天賦迷思拆解器", key: "toolbook_talentmyth_history_v1", file: "tool-talent-myth.html", unit: "次", label: "拆解的事", pick: function (c) { return c.thing; } },
-    { no: "40", name: "停滯期弱點定位工具", key: "toolbook_plateau_history_v1", file: "tool-plateau.html", unit: "次", label: "卡關技能", pick: function (c) { return c.skill; } },
-    { no: "41", name: "冰山探索卡", key: "toolbook_iceberg_history_v1", file: "tool-iceberg.html", unit: "張", label: "事件", vol: "personal", pick: function (c) { return c.event; } },
-    { no: "42", name: "雙人衝突對照卡", key: "toolbook_conflict_compare_history_v1", file: "tool-conflict-compare.html", unit: "組", label: "事件", vol: "personal", pick: function (c) { return c.event; } },
-    { no: "43", name: "超速學習計劃產生器", key: "toolbook_ultraplan_history_v1", file: "tool-ultraplan.html", unit: "張", label: "學習目標", vol: "personal", pick: function (c) { return c.goal; } },
-    { no: "44", name: "回饋拆解卡", key: "toolbook_feedbacksort_history_v1", file: "tool-feedback-sort.html", unit: "張", label: "他說的", vol: "personal", pick: function (c) { return c.quote; } },
-    { no: "45", name: "分心診斷卡", key: "toolbook_distraction_history_v1", file: "tool-distraction.html", unit: "次", label: "要做的事", vol: "personal", pick: function (c) { return c.task; } },
-    { no: "46", name: "練習設計器", key: "toolbook_practicedesign_history_v1", file: "tool-practice-design.html", unit: "張", label: "要練的環節", vol: "personal", pick: function (c) { return c.skill; } }
+    { no: "P-01", name: "目標釐清器", key: "toolbook_direction_cards_v1", file: "tool.html", unit: "張", label: "想朝的方向", pick: function (c) { return c.want; } },
+    { no: "P-02", name: "成果鎖定卡", key: "toolbook_result_lock_history_v1", file: "tool-result-lock.html", unit: "張", label: "本輪結果", pick: function (c) { return c.outcome; } },
+    { no: "P-03", name: "復盤卡", key: "toolbook_review_history_v1", file: "tool-review.html", unit: "張", label: "下一輪只改這一件", pick: function (c) { return c.onething; } },
+    { no: "P-04", name: "恐懼拆解卡", key: "toolbook_fear_history_v1", file: "tool-fear.html", unit: "張", label: "這星期先做這一小步", pick: function (c) { return c.ministep; } },
+    { no: "P-05", name: "小規模試驗卡", key: "toolbook_pilot_history_v1", file: "tool-pilot.html", unit: "張", label: "先試的那件小事", pick: function (c) { return c.pilot; } },
+    { no: "P-06", name: "空下來之後", key: "toolbook_leisure_history_v1", file: "tool-leisure.html", unit: "張", label: "想做的那件事", pick: function (c) { return c.thing; } },
+    { no: "P-07", name: "減法掃描卡", key: "toolbook_subtract_history_v1", file: "tool-subtract.html", unit: "張", label: "這週動的那一項", pick: function (c) { return c.action; } },
+    { no: "P-08", name: "今天兩格", key: "toolbook_two_v1", file: "tool-two.html", unit: "天", daymap: true, label: "最近一天", pick: function (d) { return [d.one, d.two].filter(Boolean).join("／"); } },
+    { no: "P-09", name: "週期執行器", key: "toolbook_cycle_history_v1", file: "tool-cycle.html", unit: "輪", label: "這一輪要交付", pick: function (c) { return c.deliver; } },
+    { no: "P-10", name: "講完話之後", key: "toolbook_after_talk_history_v1", file: "tool-after-talk.html", unit: "則", label: "上次答的", pick: function (c) { return c.answer; } },
+    { no: "P-11", name: "學習筆記卡", key: "toolbook_studynote_history_v1", file: "tool-study-note.html", unit: "張", label: "這次學的", pick: function (c) { return c.topic; } },
+    { no: "P-12", name: "承諾成本卡", key: "toolbook_commitcost_history_v1", file: "tool-commit-cost.html", unit: "張", label: "想做的事", pick: function (c) { return c.wish; } },
+    { no: "P-13", name: "內在對話改寫器", key: "toolbook_innervoice_history_v1", file: "tool-inner-voice.html", unit: "張", label: "最後想要的", pick: function (c) { return c.want; } },
+    { no: "P-14", name: "習慣追蹤卡", key: "toolbook_habit_history_v1", file: "tool-habit.html", unit: "個", label: "在追蹤", pick: function (c) { return c.name; } },
+    { no: "P-15", name: "重新解讀卡", key: "toolbook_reframe_history_v1", file: "tool-reframe.html", unit: "張", label: "那句話", pick: function (c) { return c.line; } },
+    { no: "P-16", name: "人生七面向自評", key: "toolbook_lifebalance_history_v1", file: "tool-life-balance.html", unit: "次", label: "這一季先顧", pick: function (c) { return c.focusName || "（未指定）"; } },
+    { no: "P-17", name: "並排找雙贏", key: "toolbook_winwin_history_v1", file: "tool-win-win.html", unit: "張", label: "卡住的僵局", pick: function (c) { return c.situation; } },
+    { no: "P-18", name: "陳年舊怨三輪卡", key: "toolbook_grudge_history_v1", file: "tool-old-grudge.html", unit: "張", label: "那件事", pick: function (c) { return c.situation; } },
+    { no: "P-19", name: "慶祝型卡", key: "toolbook_gratitude_history_v1", file: "tool-gratitude.html", unit: "張", label: "想謝的人", pick: function (c) { return c.who || c.behavior; } },
+    { no: "P-20", name: "複述造句器", key: "toolbook_paraphrase_history_v1", file: "tool-paraphrase.html", unit: "則", label: "對方的話", pick: function (c) { return c.otherSaid; } },
+    { no: "F-01", name: "會後判定器", key: "toolbook_meeting_verdict_history_v1", file: "tool-meeting-verdict.html", unit: "張", label: "他交出了什麼", pick: function (c) { return c.given; } },
+    { no: "F-02", name: "問句改寫器", key: "toolbook_question_rewrite_history_v1", file: "tool-question-rewrite.html", unit: "張", label: "第一句要問的話", pick: function (c) { return c.first || c.q; } },
+    { no: "F-03", name: "兩張臉卡", key: "toolbook_vanity_history_v1", file: "tool-vanity-check.html", unit: "張", label: "檢視的指標", pick: function (c) { return c.metric; } },
+    { no: "F-04", name: "數據自檢卡", key: "toolbook_datacheck_history_v1", file: "tool-data-check.html", unit: "張", label: "想宣布的那句", pick: function (c) { return c.claim; } },
+    { no: "F-05", name: "名單自檢卡", key: "toolbook_right_people_history_v1", file: "tool-right-people.html", unit: "張", label: "要弄清楚的名單", pick: function (c) { return c.topic; } },
+    { no: "F-06", name: "中圈測試設定器", key: "toolbook_middlering_history_v1", file: "tool-middle-ring.html", unit: "張", label: "及格線", pick: function (c) { return c.passline || c.channel; } },
+    { no: "F-07", name: "替代方案盤點器", key: "toolbook_alternatives_history_v1", file: "tool-alternatives.html", unit: "張", label: "客戶會改用的", pick: function (c) { return c.mainAlt; } },
+    { no: "F-08", name: "測試或優化判定器", key: "toolbook_testoptimize_history_v1", file: "tool-test-or-optimize.html", unit: "張", label: "判定", pick: function (c) { return c.verdict; } },
+    { no: "F-09", name: "管道偏見盤點器", key: "toolbook_channelbias_history_v1", file: "tool-channel-bias.html", unit: "張", label: "先試這條", pick: function (c) { return c.topPick; } },
+    { no: "F-10", name: "關鍵路徑編輯器", key: "toolbook_criticalpath_history_v1", file: "tool-critical-path.html", unit: "張", label: "目標", pick: function (c) { return c.goal; } },
+    { no: "F-11", name: "客戶切片器", key: "toolbook_customerslice_history_v1", file: "tool-customer-slice.html", unit: "張", label: "切到的一小群", pick: function (c) { return c.who; } },
+    { no: "F-12", name: "類別存在檢查器", key: "toolbook_categorycheck_history_v1", file: "tool-category-check.html", unit: "張", label: "想宣稱的類別", pick: function (c) { return c.cat; } },
+    { no: "F-13", name: "第三方證明盤點器", key: "toolbook_proofcheck_history_v1", file: "tool-proof-check.html", unit: "條", label: "這條能力", pick: function (c) { return c.attr; } },
+    { no: "F-14", name: "市場打法判定器", key: "toolbook_marketplay_history_v1", file: "tool-market-play.html", unit: "張", label: "判定", pick: function (c) { return c.verdictLabel || c.verdict; } },
+    { no: "P-21", name: "習慣契約卡", key: "toolbook_habitcontract_history_v1", file: "tool-habit-contract.html", unit: "張", label: "契約行為", pick: function (c) { return c.behavior; } },
+    { no: "P-22", name: "若則計畫卡", key: "toolbook_ifthen_history_v1", file: "tool-if-then.html", unit: "張", label: "動作", pick: function (c) { return c.action; } },
+    { no: "P-23", name: "傑出人物差異分析器", key: "toolbook_peercompare_history_v1", file: "tool-peer-compare.html", unit: "次", label: "領域", pick: function (c) { return c.skill; } },
+    { no: "P-24", name: "天賦迷思拆解器", key: "toolbook_talentmyth_history_v1", file: "tool-talent-myth.html", unit: "次", label: "拆解的事", pick: function (c) { return c.thing; } },
+    { no: "P-25", name: "停滯期弱點定位工具", key: "toolbook_plateau_history_v1", file: "tool-plateau.html", unit: "次", label: "卡關技能", pick: function (c) { return c.skill; } },
+    { no: "P-26", name: "冰山探索卡", key: "toolbook_iceberg_history_v1", file: "tool-iceberg.html", unit: "張", label: "事件", vol: "personal", pick: function (c) { return c.event; } },
+    { no: "P-27", name: "雙人衝突對照卡", key: "toolbook_conflict_compare_history_v1", file: "tool-conflict-compare.html", unit: "組", label: "事件", vol: "personal", pick: function (c) { return c.event; } },
+    { no: "P-28", name: "超速學習計劃產生器", key: "toolbook_ultraplan_history_v1", file: "tool-ultraplan.html", unit: "張", label: "學習目標", vol: "personal", pick: function (c) { return c.goal; } },
+    { no: "P-29", name: "回饋拆解卡", key: "toolbook_feedbacksort_history_v1", file: "tool-feedback-sort.html", unit: "張", label: "他說的", vol: "personal", pick: function (c) { return c.quote; } },
+    { no: "P-30", name: "分心診斷卡", key: "toolbook_distraction_history_v1", file: "tool-distraction.html", unit: "次", label: "要做的事", vol: "personal", pick: function (c) { return c.task; } },
+    { no: "P-31", name: "練習設計器", key: "toolbook_practicedesign_history_v1", file: "tool-practice-design.html", unit: "張", label: "要練的環節", vol: "personal", pick: function (c) { return c.skill; } }
   ];
 
   var VOL = (function () {
     var m = (location.search.match(/[?&]vol=([^&#]+)/) || [])[1];
     return (m === "personal" || m === "founders") ? m : "all";
   })();
-  // ⚠️ Nº22–35 是創業卷，但 Nº36 起（習慣契約卡／若則計畫卡）又回到個人卷——
-  // 序號是全站單一遞增序列，不是「>=22 全部創業卷」，純數字判斷會誤判。
-  var FOUNDERS_NOS = { "22":1,"23":1,"24":1,"25":1,"26":1,"27":1,"28":1,"29":1,"30":1,"31":1,"32":1,"33":1,"34":1,"35":1 };
-  function volOf(t) { return FOUNDERS_NOS[t.no] ? "founders" : "personal"; }
+  // 輯號自 2026-09-11 改成每卷各自從 01 起編、帶卷首字母：P＝個人卷、F＝創業卷。
+  // 舊制是全站單一遞增序列，靠「>=22 視為創業卷」的數字排除清單判卷，連撞兩次反例
+  // （舊 Nº36／37 習慣契約卡、若則計畫卡與舊 Nº41 冰山探索卡都是個人卷）。現在看首字母即可。
+  function volOf(t) { return t.no.charAt(0) === "F" ? "founders" : "personal"; }
   var ACCENT = VOL === "founders" ? "#9c5b3f" : "#35456a";
   var POOL = TOOLS.filter(function (t) { return VOL === "all" || volOf(t) === VOL; });
 
@@ -216,6 +216,10 @@
       var au = a.u.count > 0, bu = b.u.count > 0;
       if (au !== bu) return au ? -1 : 1;
       if (au && bu) return (b.u.lastAt || 0) - (a.u.lastAt || 0);
+      // 「全部」分頁要個人卷在前、創業卷在後（照站上的主卷／姊妹卷次序）。純字串比較會
+      // 把 F- 排到 P- 前面，所以先比卷、再比卷內輯號。
+      var av = volOf(a.t) === "founders" ? 1 : 0, bv = volOf(b.t) === "founders" ? 1 : 0;
+      if (av !== bv) return av - bv;
       return a.t.no.localeCompare(b.t.no);
     });
     var rows = sorted.map(function (o) {

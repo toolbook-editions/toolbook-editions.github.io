@@ -50,7 +50,7 @@
       <sc-if value="{{ s0 }}">
         <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
-          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 18 · 關係</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº P-17 · 關係</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">我要 A、對方要 B，<br />真的只能二選一嗎</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">把兩邊要的<b style="color:#554d40;">並排放著、停一下</b>，先別急著讓一方壓過另一方。很多僵局其實不是搶同一樣東西——看清各自<b style="color:#554d40;">背後的需要</b>，第三條路常會自己浮現。<br />真的沒有雙贏（零和、沒時間），這張卡也會帶你直接談妥協。<br />答案只存在這部裝置。</p>
           <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
@@ -155,7 +155,7 @@
             </sc-if>
             <div style="font-size:12px;color:#938a78;line-height:1.7;margin-top:10px;">沒有雙贏時，妥協也是一種解——而且你保住了關係。</div>
           </sc-if>
-          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Win-Win · Nº 18 · MMXXVI</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Win-Win · Nº P-17 · MMXXVI</div>
         </div>
 
         <div style="border-left:2px solid #cec6b4;padding:13px 16px;margin-top:16px;background:#f3efe7;border-radius:0 3px 3px 0;">
@@ -237,7 +237,7 @@
           <div style="height:1px;background:#e3ddd0;margin:16px 0;"></div>
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#6f7f5c;margin-bottom:6px;">兩邊都成立的方案</div>
           <div style="font-size:14.5px;line-height:1.9;">週末待在家，但兩人一起做點輕鬆的事——傍晚一起散步、晚上窩著看一部電影。放空了，也有相處。原來爭的不是「家還是外面」，是「放空」和「相處」，這兩個並不衝突。</div>
-          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Win-Win · Nº 18 · MMXXVI</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Win-Win · Nº P-17 · MMXXVI</div>
         </div>
 
         <div style="margin-top:20px;">
@@ -377,7 +377,7 @@ class Component extends DCLogic {
     } else {
       blocks.push({ k: "兩邊都成立的方案", v: s.solution.trim() || "—", big: true });
     }
-    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: s.situation.trim() || "並排找雙贏", sub: "WIN-WIN · Nº 18", filename: "並排找雙贏-Toolbook", mantra: "先看背後的需要，第三條路常會浮現。", edition: "Edition Nº 18 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: s.situation.trim() || "並排找雙贏", sub: "WIN-WIN · Nº P-17", filename: "並排找雙贏-Toolbook", mantra: "先看背後的需要，第三條路常會浮現。", edition: "Edition Nº P-17 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
 
   renderVals() {

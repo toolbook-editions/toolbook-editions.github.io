@@ -50,7 +50,7 @@
       <sc-if value="{{ s0 }}">
         <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
-          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 33 · 類別存在檢查</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº F-12 · 類別存在檢查</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">你說的那個類別，<br />買家腦裡有嗎？</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">書要你把定位放進一個<b style="color:#9c5b3f;">客戶腦中已經存在</b>的類別，卻沒說怎麼確認它真的存在。搜尋量那把尺壞了——這支改用買家今天實際在用的地方量一次：<b style="color:#9c5b3f;">AI 助理、評論站、銷售對話</b>。<br />答案只存在這部裝置。</p>
           <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#9c5b3f;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個做完的例子 →</div>
@@ -394,7 +394,7 @@ class Component extends DCLogic {
       { k: "買家怎麼找方案", v: this.SITU[s.situation] || "—" },
       { k: "判定", v: v[0] },
     ];
-    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "類別存在檢查", sub: "CATEGORY REALITY CHECK · Nº 33", filename: "類別存在檢查卡-Toolbook", mantra: this.MANTRA[vk], edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "類別存在檢查", sub: "CATEGORY REALITY CHECK · Nº F-12", filename: "類別存在檢查卡-Toolbook", mantra: this.MANTRA[vk], edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
 
   renderVals() {

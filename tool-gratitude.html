@@ -50,7 +50,7 @@
       <sc-if value="{{ s0 }}">
         <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
-          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 20 · 關係</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº P-19 · 關係</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">有人幫了你，<br />別只在心裡說謝謝</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">「你真好」「謝啦」太輕，很快就過去。換一種說法，把三件事講清楚：<b style="color:#554d40;">他做了什麼、滿足了你什麼、你因此有什麼感受</b>。具體的感激比空泛的稱讚有力得多，而且——這張卡填完可以<b style="color:#554d40;">直接傳給對方</b>。<br />答案只存在這部裝置。</p>
           <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
@@ -91,7 +91,7 @@
           <div style="display:flex;gap:8px;margin-bottom:7px;"><span style="font-size:11px;color:#938a78;flex:0 0 30px;">行為</span><span style="font-size:13px;line-height:1.7;white-space:pre-wrap;">{{ behaviorEcho }}</span></div>
           <div style="display:flex;gap:8px;margin-bottom:7px;"><span style="font-size:11px;color:#938a78;flex:0 0 30px;">需要</span><span style="font-size:13px;line-height:1.7;white-space:pre-wrap;">{{ needEcho }}</span></div>
           <div style="display:flex;gap:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 30px;">感受</span><span style="font-size:13px;line-height:1.7;white-space:pre-wrap;">{{ feelingEcho }}</span></div>
-          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Gratitude · Nº 20 · MMXXVI</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Gratitude · Nº P-19 · MMXXVI</div>
         </div>
 
         <div style="border-left:2px solid #cec6b4;padding:13px 16px;margin-top:16px;background:#f3efe7;border-radius:0 3px 3px 0;">
@@ -162,7 +162,7 @@
           <div style="display:flex;gap:8px;margin-bottom:7px;"><span style="font-size:11px;color:#938a78;flex:0 0 30px;">行為</span><span style="font-size:13px;line-height:1.7;">你主動接手，把我趕不及的那段報告做完。</span></div>
           <div style="display:flex;gap:8px;margin-bottom:7px;"><span style="font-size:11px;color:#938a78;flex:0 0 30px;">需要</span><span style="font-size:13px;line-height:1.7;">快開天窗時有人搭把手、準時交出去。</span></div>
           <div style="display:flex;gap:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 30px;">感受</span><span style="font-size:13px;line-height:1.7;">鬆了一大口氣，也很感動。</span></div>
-          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Gratitude · Nº 20 · MMXXVI</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Gratitude · Nº P-19 · MMXXVI</div>
         </div>
 
         <div style="margin-top:20px;">
@@ -277,7 +277,7 @@ class Component extends DCLogic {
       { k: "需要", v: s.need.trim() || "—" },
       { k: "感受", v: s.feeling.trim() || "—" },
     ];
-    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: s.who.trim() ? "謝謝" + s.who.trim() : "一句感激", sub: "GRATITUDE · Nº 20", filename: "慶祝型卡-Toolbook", mantra: "具體說出他做了什麼，比一句『你真好』有力得多。", edition: "Edition Nº 20 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: s.who.trim() ? "謝謝" + s.who.trim() : "一句感激", sub: "GRATITUDE · Nº P-19", filename: "慶祝型卡-Toolbook", mantra: "具體說出他做了什麼，比一句『你真好』有力得多。", edition: "Edition Nº P-19 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
 
   renderVals() {

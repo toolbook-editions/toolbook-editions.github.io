@@ -50,7 +50,7 @@
       <sc-if value="{{ s0 }}">
         <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
-          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 11 · 筆記</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº P-11 · 筆記</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">把剛讀完的，<br />變成一張能考自己的卡</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">康奈爾筆記法：筆記、提問、總結，最後<b style="color:#554d40;">講給一個沒學過的人聽</b>。真正讓你記住的不是抄得漂亮，是遮住筆記把它答出來、再用自己的話教一遍——回想與教別人，都比重讀有效得多。<br />答案只存在這部裝置。</p>
           <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
@@ -130,7 +130,7 @@
             <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">講給別人聽</div>
             <div style="font-size:14px;line-height:1.85;white-space:pre-wrap;">{{ teachEcho }}</div>
           </sc-if>
-          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Study Note · Nº 11 · MMXXVI</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Study Note · Nº P-11 · MMXXVI</div>
         </div>
 
         <div style="border-left:2px solid #cec6b4;padding:13px 16px;margin-top:16px;background:#f3efe7;border-radius:0 3px 3px 0;">
@@ -209,7 +209,7 @@
           <div style="height:1px;background:#e3ddd0;margin:16px 0;"></div>
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">講給別人聽</div>
           <div style="font-size:14px;line-height:1.85;">「你把錢存著，它生的利息明年也會一起生利息——像滾雪球。所以愈早開始滾，到後面雪球大得愈快，早幾年比多存一點更有用。」</div>
-          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Study Note · Nº 11 · MMXXVI</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Study Note · Nº P-11 · MMXXVI</div>
         </div>
 
         <div style="margin-top:20px;">
@@ -325,7 +325,7 @@ class Component extends DCLogic {
     ];
     if (s.summary.trim()) blocks.push({ k: "一句話總結", v: s.summary.trim(), big: true });
     if (s.teach.trim()) blocks.push({ k: "講給別人聽", v: s.teach.trim() });
-    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: s.topic.trim() || "學習筆記卡", sub: "STUDY NOTE · Nº 11", filename: "學習筆記卡-Toolbook", mantra: "遮住筆記自己答，再講給一個人聽。", edition: "Edition Nº 11 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: s.topic.trim() || "學習筆記卡", sub: "STUDY NOTE · Nº P-11", filename: "學習筆記卡-Toolbook", mantra: "遮住筆記自己答，再講給一個人聽。", edition: "Edition Nº P-11 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
 
   renderVals() {

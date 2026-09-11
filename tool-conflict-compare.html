@@ -50,7 +50,7 @@
       <sc-if value="{{ s0 }}">
         <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
-          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 42 · 雙人衝突對照卡</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº P-27 · 雙人衝突對照卡</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">同一件事，<br />兩座冰山</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">先填你自己的感受、觀點、期待、渴望，再試著猜對方的——猜的那一半全程會標明是你猜的，不是他／她本人確認過的。填完並排看一次，哪裡一樣、哪裡不同，交給你自己判斷。</p>
           <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
@@ -151,7 +151,7 @@
         <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 20px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
           <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#35456a;">❦</div>
           <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:6px;padding-left:6px;margin-top:4px;">雙 人 衝 突 對 照 卡</div>
-          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Conflict Compare · Nº 42</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Conflict Compare · Nº P-27</div>
           <div style="width:30px;height:1px;background:#35456a;opacity:.6;margin:14px auto 18px;"></div>
 
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">事件</div>
@@ -171,7 +171,7 @@
 
           <div style="height:1px;background:#e3ddd0;margin-bottom:14px;"></div>
           <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:13px;letter-spacing:1px;line-height:1.7;">哪裡一樣、哪裡不同，這裡不會替你下結論——那是你自己看的部分。有時候會發現彼此其實在意的是同一件事，但不保證每次都是這樣。</div>
-          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 42 · MMXXVI</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº P-27 · MMXXVI</div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
           <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
@@ -396,7 +396,7 @@ class Component extends DCLogic {
       { k: "我猜" + who + "的期待（猜的）", v: s.otherExpect.trim() || "—" },
       { k: "我猜" + who + "的渴望（猜的）", v: s.otherDesire.trim() || "—", big: true },
     ];
-    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "雙人衝突對照卡", sub: "CONFLICT COMPARE · Nº 42", filename: "雙人衝突對照卡-Toolbook", mantra: "哪裡一樣、哪裡不同，交給你自己判斷。", edition: "Edition Nº 42 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "雙人衝突對照卡", sub: "CONFLICT COMPARE · Nº P-27", filename: "雙人衝突對照卡-Toolbook", mantra: "哪裡一樣、哪裡不同，交給你自己判斷。", edition: "Edition Nº P-27 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
 
   renderVals() {

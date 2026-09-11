@@ -50,7 +50,7 @@
       <sc-if value="{{ s0 }}">
         <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
-          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 28 · 替代方案盤點</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº F-07 · 替代方案盤點</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">你列的競品表，<br />客戶一個都沒在看</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">別從你認定的對手出發。問一句話：<b style="color:#9c5b3f;">如果你不存在，客戶明天會改用什麼？</b><br />這張卡幫你盤出他心裡真正在比的東西。<br />答案只存在這部裝置。</p>
           <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#9c5b3f;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
@@ -329,7 +329,7 @@ class Component extends DCLogic {
     if (s.otherAlt.trim()) blocks.push({ k: "其他也在考慮", v: s.otherAlt.trim() });
     blocks.push({ k: "你贏在替代方案給不了的", v: s.edge.trim() || "—", big: true });
     blocks.push({ k: "你在打哪種仗", v: v[0] });
-    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "替代方案盤點卡", sub: "ALTERNATIVES INVENTORY · Nº 28", filename: "替代方案盤點卡-Toolbook", mantra: "先看清他在比什麼，再談你贏在哪。", edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "替代方案盤點卡", sub: "ALTERNATIVES INVENTORY · Nº F-07", filename: "替代方案盤點卡-Toolbook", mantra: "先看清他在比什麼，再談你贏在哪。", edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
 
   renderVals() {

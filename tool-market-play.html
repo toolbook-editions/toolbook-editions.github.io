@@ -50,7 +50,7 @@
       <sc-if value="{{ s0 }}">
         <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
-          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 35 · 市場打法判定</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº F-14 · 市場打法判定</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">三種打法看似三選一，<br />你其實只有一條路</h1>
           <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">正面對決、小池大魚、另開新局——書給了三選一的自由感，但實際多數新創走不通其中兩條。這支<b style="color:#9c5b3f;">用答得出、會被市場打臉的硬門</b>，一題一題砍掉走不通的，剩下那一條就是你的。<br />答案只存在這部裝置。</p>
           <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#9c5b3f;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個走完的例子 →</div>
@@ -424,7 +424,7 @@ class Component extends DCLogic {
     const vk = this.verdictKey(); const rows = this.gateRows();
     const blocks = [{ k: "你走過的門", v: rows.map(r => r.name + "：" + r.val).join("　·　"), serif: false }];
     blocks.push({ k: "你的打法", v: this.V_TITLE[vk], big: true });
-    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "市場打法判定", sub: "MARKET PLAY · Nº 35", filename: "市場打法判定卡-Toolbook", mantra: this.V_MANTRA[vk], edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "市場打法判定", sub: "MARKET PLAY · Nº F-14", filename: "市場打法判定卡-Toolbook", mantra: this.V_MANTRA[vk], edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
 
   renderVals() {
