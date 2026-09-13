@@ -301,7 +301,7 @@ class Component extends DCLogic {
   state = {
     step: 0, planned: "", actual: "", missed: "", extra: "", reason: "", onething: "", lesson: "",
     toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
-    cards: [], recordsOpen: false, openedCard: null, lockCards: [], exampleOpen: false,
+    cards: [], recordsOpen: false, openedCard: null, lockCards: [], exampleOpen: false, started: false,
   };
   HKEY = "toolbook_review_history_v1";
   LOCKKEY = "toolbook_result_lock_history_v1";
@@ -310,6 +310,7 @@ class Component extends DCLogic {
     try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
     try { const raw = localStorage.getItem(this.LOCKKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ lockCards: a.slice(0, 5) }); } } catch (_) {}
   }
+  markStarted() { if (this.state.started || this._started) return; this._started = true; this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "復盤卡" }); }
   saveCards(cards, done) { try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if(done&&typeof gtag==='function')gtag('event','tool_complete',{tool_name:'復盤卡'}); } catch (_) {} }
 
   set(k, v) { this.setState({ [k]: v }); }
@@ -323,6 +324,7 @@ class Component extends DCLogic {
   }
   next() {
     if (!this.gateOk(this.state.step)) return;
+    if (this.state.step === 0) this.markStarted();
     const n = Math.min(7, this.state.step + 1);
     if (n === 7) this.archive();
     this.setState({ step: n });

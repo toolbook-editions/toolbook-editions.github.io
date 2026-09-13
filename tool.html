@@ -312,13 +312,14 @@ class Component extends DCLogic {
   state = {
     step: 0, s1field: "", s1when: "", body: [], s1body: "", s1want: "",
     concerns: [], c2input: "", who: "", why: "", costs: ["", "", "", "", ""],
-    email: "", feedbackText: "", subLabel: "通知我", recordsOpen: false, openedCard: null, cards: [], exampleOpen: false,
+    email: "", feedbackText: "", subLabel: "通知我", recordsOpen: false, openedCard: null, cards: [], exampleOpen: false, started: false,
   };
   HKEY = "toolbook_direction_cards_v1";
 
   componentDidMount() {
     try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
   }
+  markStarted() { if (this.state.started || this._started) return; this._started = true; this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "目標釐清器" }); }
   saveCards(cards, done) { try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if(done&&typeof gtag==='function')gtag('event','tool_complete',{tool_name:'目標釐清器'}); } catch (_) {} }
 
   set(k, v) { this.setState({ [k]: v }); }
@@ -335,6 +336,7 @@ class Component extends DCLogic {
     return true;
   }
   next() {
+    if (this.state.step === 0) this.markStarted();
     const n = this.state.step + 1;
     if (n === 6) this.archive();
     this.setState({ step: Math.min(7, n) });

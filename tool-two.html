@@ -155,7 +155,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:460,&quot;height&quot;:900}}">
 class Component extends DCLogic {
-  state = { store: {}, today: "", one: "", two: "", locked: false, toastOn: false, toastMsg: "", exampleOpen: false };
+  state = { store: {}, today: "", one: "", two: "", locked: false, toastOn: false, toastMsg: "", exampleOpen: false, started: false };
   KEY = "toolbook_two_v1";
 
   componentDidMount() {
@@ -167,6 +167,8 @@ class Component extends DCLogic {
   }
   componentWillUnmount() { clearInterval(this._iv); }
 
+  markStarted() { if (this.state.started || this._started) return; this._started = true; this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: "今天兩格" }); }
+
   load() { try { const o = JSON.parse(localStorage.getItem(this.KEY) || "{}"); return o && typeof o === "object" ? o : {}; } catch (_) { return {}; } }
   save(o) { try { localStorage.setItem(this.KEY, JSON.stringify(o)); } catch (_) {} }
   prune(o) { const keys = Object.keys(o).sort().reverse().slice(0, 14); const out = {}; keys.forEach(k => out[k] = o[k]); return out; }
@@ -177,8 +179,8 @@ class Component extends DCLogic {
     const store = this.prune({ ...this.state.store, [this.state.today]: { one, two, locked } });
     this.setState({ store, one, two, locked }); this.save(store); if(locked&&typeof gtag==='function')gtag('event','tool_complete',{tool_name:'今天兩格'});
   }
-  onOne(v) { if (this.state.locked) return; this.writeDay(v, this.state.two, false); }
-  onTwo(v) { if (this.state.locked) return; this.writeDay(this.state.one, v, false); }
+  onOne(v) { if (this.state.locked) return; if (String(v).trim()) this.markStarted(); this.writeDay(v, this.state.two, false); }
+  onTwo(v) { if (this.state.locked) return; if (String(v).trim()) this.markStarted(); this.writeDay(this.state.one, v, false); }
   lock() {
     const one = this.state.one.trim(), two = this.state.two.trim();
     if (!one && !two) return;
