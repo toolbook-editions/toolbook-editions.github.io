@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>/* 測試流量開關：?qa=1 起、?qa=0 還原 */(function(){try{var s=location.search,k="toolbook_qa";if(/[?&]qa=1(&|$)/.test(s))localStorage.setItem(k,"1");if(/[?&]qa=0(&|$)/.test(s))localStorage.removeItem(k);if(localStorage.getItem(k)==="1")window["ga-disable-G-CKM6MRRVBM"]=true;}catch(e){}})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+<!-- toolbook-icons -->
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-f.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f3efe7">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#9c5b3f;text-decoration:none;transition:.18s;}
+  a:hover{color:#7a4530;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#9c5b3f!important;box-shadow:0 0 0 2px rgba(156,91,63,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(156,91,63,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="4">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="founders.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回創業卷">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 15 · 策略文件檢查</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">這份策略文件，<br />有沒有在做事？</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">三道只讀文件的檢查，不需要你懂那個行業、也不需要預測未來。<b style="color:#9c5b3f;">它判得出一份文件是不是空的，判不出它會不會成功</b>——後者沒有任何工具做得到。<br />答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#9c5b3f;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個做完的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 先確認這支幫不幫得上</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你手上這份文件，<br />是要拿來做決定的嗎？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:10px;">這一題不是暖身。有幾種文件用這三道檢查會得到錯的結論——與其讓你做完才發現，不如現在就講。</p>
+        <sc-for list="{{ useOpts }}" as="t" hint-placeholder-count="4">
+          <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:13px 16px;margin-bottom:9px;cursor:pointer;">
+            <div style="font-family:'Noto Serif TC',serif;font-size:15.5px;margin-bottom:2px;color:{{ t.fg }};">{{ t.label }}</div>
+            <div style="font-size:12.5px;color:#938a78;line-height:1.6;">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 第一道 · 刪詞</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">把那一句抄下來，<br />然後刪掉大詞</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">找文件裡最像「這就是我們的策略」的那一句，抄進來。接著在心裡刪掉「策略／戰略」，連同「創新」「賦能」「數位轉型」「以客戶為中心」這類詞。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:14px 0 7px;">文件裡最像結論的那一句</label>
+        <textarea value="{{ line }}" onInput="{{ onLine }}" maxlength="180" placeholder="例如：我們的核心策略是以客戶為中心，持續創新，提升整體滿意度。" style="width:100%;min-height:76px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <p style="color:#938a78;font-size:13px;margin:14px 0 10px;">刪完之後再讀一次，意思有沒有變？</p>
+        <sc-for list="{{ cutOpts }}" as="t" hint-placeholder-count="3">
+          <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:12px 15px;margin-bottom:8px;cursor:pointer;">
+            <div style="font-size:14.5px;color:{{ t.fg }};margin-bottom:1px;">{{ t.label }}</div>
+            <div style="font-size:12px;color:#938a78;line-height:1.55;">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+      </sc-if>
+
+      <sc-if value="{{ s3 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 第二道 · 找困難</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">文件裡有沒有寫出<br />繞不開的那個障礙？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:10px;">不是市場多大、不是願景多遠、不是今年要做幾件事。是那個擋在路中間的東西。<b style="color:#9c5b3f;">沒有它，後面的行動就無從評價</b>——沒有靶，談不上準不準。</p>
+        <sc-for list="{{ chOpts }}" as="t" hint-placeholder-count="3">
+          <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:12px 15px;margin-bottom:8px;cursor:pointer;">
+            <div style="font-size:14.5px;color:{{ t.fg }};margin-bottom:1px;">{{ t.label }}</div>
+            <div style="font-size:12px;color:#938a78;line-height:1.55;">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+        <sc-if value="{{ needChallengeText }}">
+          <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:14px 0 7px;">照文件的說法寫下來</label>
+          <input value="{{ challengeText }}" onInput="{{ onChallengeText }}" maxlength="80" placeholder="例如：新用戶前三天流失掉七成" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        </sc-if>
+        <sc-if value="{{ chNone }}">
+          <div style="border-left:2px solid #a6552f;background:#f6efe9;padding:12px 15px;margin-top:8px;border-radius:0 3px 3px 0;color:#554d40;font-size:13px;line-height:1.8;"><b style="color:#a6552f;">這一道就不用往下走了。</b>沒有寫出困難，第三道（換掉判斷）也無從檢查——沒有判斷可以換。直接看判定。</div>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ s4 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 第三道 · 換掉判斷</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">換一個說得通的困難，<br />行動會不會跟著變？</h2>
+        <div style="border-left:2px solid #9c5b3f;background:rgba(156,91,63,.05);padding:10px 15px;margin:2px 0 12px;border-radius:0 3px 3px 0;">
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:2px;">文件說的困難是</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#9c5b3f;white-space:pre-wrap;">{{ mirrorChallenge }}</div>
+        </div>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">現在動手改一次：換一個<b>同樣說得通</b>的困難寫進去。不用是真的，只要別人聽了不會馬上反駁。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:12px 0 7px;">換成這一個</label>
+        <input value="{{ alt }}" onInput="{{ onAlt }}" maxlength="80" placeholder="例如：業務談得到但簽不下來" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <p style="color:#938a78;font-size:13px;margin:16px 0 10px;">把這一句放回文件開頭，後面列的那幾項行動，需不需要跟著改？</p>
+        <sc-for list="{{ acOpts }}" as="t" hint-placeholder-count="2">
+          <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:13px 16px;margin-bottom:9px;cursor:pointer;">
+            <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:2px;color:{{ t.fg }};">{{ t.label }}</div>
+            <div style="font-size:12.5px;color:#938a78;line-height:1.6;">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+      </sc-if>
+
+      <sc-if value="{{ sExit }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;color:#a6552f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">這支幫不上你</div>
+          <h2 style="font-family:'Noto Serif TC',serif;font-size:24px;font-weight:600;line-height:1.6;margin-bottom:14px;">{{ exitTitle }}</h2>
+          <p style="color:#554d40;font-size:14px;line-height:1.95;margin-bottom:16px;">{{ exitBody }}</p>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">{{ exitNext }}</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s5 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 14px;">你的策略文件檢查卡</div>
+
+        <div style="position:relative;border:1px solid {{ cardBd }};border-radius:3px;padding:28px 24px 22px;background:{{ cardBg }};box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px {{ cardBd }};">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:{{ cardAccent }};">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:5px;padding-left:5px;margin-top:4px;">策 略 文 件 檢 查</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Document Check · 創業卷</div>
+          <div style="width:30px;height:1px;background:{{ cardAccent }};opacity:.6;margin:16px auto 20px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">你檢查的那一句</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.6;margin-bottom:16px;white-space:pre-wrap;">{{ cardLine }}</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">三道分開看</div>
+          <sc-for list="{{ cardGates }}" as="g" hint-placeholder-count="3">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:5px 0;border-bottom:1px dotted #e3ddd0;">
+              <span style="font-size:13px;color:#554d40;">{{ g.name }}</span>
+              <span style="font-size:13px;color:{{ g.fg }};white-space:nowrap;text-align:right;">{{ g.val }}</span>
+            </div>
+          </sc-for>
+          <div style="border:1px solid {{ cardBd }};border-radius:2px;padding:14px 14px;margin-top:16px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">判定</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:17px;color:{{ cardAccent }};line-height:1.5;">{{ verdictTitle }}</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:{{ cardAccent }};font-size:13.5px;letter-spacing:1px;margin-top:16px;">{{ cardMantra }}</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Toolbook · MMXXVI</div>
+        </div>
+
+        <div style="border:1px solid {{ cardBd }};border-radius:4px;background:#fbf9f4;padding:16px 18px;margin-top:16px;">
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">這代表什麼、下一步做什麼</div>
+          <p style="color:#554d40;font-size:13px;line-height:1.8;margin:0;">{{ verdictBody }}</p>
+        </div>
+
+        <div style="border-left:2px solid #9c6b52;background:#f6efe9;padding:14px 16px;margin-top:14px;border-radius:0 3px 3px 0;">
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">這張卡不能告訴你的事</div>
+          <p style="color:#554d40;font-size:12.5px;line-height:1.8;margin:0 0 8px;"><b>三道全過不等於這份策略會成功。</b>有一項研究拿四千多份匿名的商業計劃書給受過訓練的評審打分，三年後回頭看：分數與存活、雇用、營收、利潤全都不相關。文件品質預測不了成敗。</p>
+          <p style="color:#554d40;font-size:12.5px;line-height:1.8;margin:0;"><b>還有兩件事這支工具做不到。</b>「把目標當成策略」和「目標本身訂錯了」要先知道真正的難題是什麼——那是你手上的資訊，不是文件裡的。帶一個問句進會議室比較實在：<b style="color:#9c5b3f;">這幾件事，各自是在解決哪一個困難？</b></p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製文字</button>
+          <button onClick="{{ onShare }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">分享這張</button>
+        </div>
+
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:24px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">這條線的下一步</div>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">這份文件如果要往下走，接著要判的是「這幾件事值不值得先試」——那是 <a href="tool-middle-ring.html">中圈測試設定器</a> 的題目。想知道這三道檢查是怎麼來的、以及它們判不出什麼，讀 <a href="article-delete-the-word.html">把「策略」兩個字刪掉，這段話還剩什麼</a>。</p>
+        </div>
+
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+          <div style="min-height:16px;text-align:center;color:#9c5b3f;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《Good Strategy Bad Strategy 好策略．壞策略》第 3 章與第 5 章。書列了壞策略的四個特徵，本站逐條查證後只取光讀文件判得出的那兩項；第三道「換掉判斷看行動變不變」出自書中對現況分析的一段檢驗，由本站整理成一個步驟。書裡另有一句承諾「學會認出壞策略，制定能力就會大幅提高」——查無研究支持，本工具不採用。方法是否適合你，請自行判斷。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      <sc-if value="{{ showHomeBtn }}">
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">查看策略文件檢查卡紀錄簿（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個做完的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">主管交來一份明年度規劃。第一句是「我們的核心策略是以客戶為中心，持續創新」。刪掉大詞之後只剩「我們對客戶好、我們做新東西」——意思沒變。文件裡確實寫了一個困難，但寫的是「市場競爭加劇」。填出來的卡長這樣：</p>
+
+        <div style="position:relative;border:1px solid #cd9a86;border-radius:3px;padding:26px 22px 20px;background:#f6efe9;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cd9a86;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#a6552f;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:5px;padding-left:5px;margin-top:4px;">策 略 文 件 檢 查</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Document Check · 創業卷</div>
+          <div style="width:30px;height:1px;background:#a6552f;opacity:.6;margin:14px auto 18px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">你檢查的那一句</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.6;margin-bottom:16px;">我們的核心策略是以客戶為中心，持續創新，提升整體滿意度。</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">三道分開看</div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dotted #e3ddd0;"><span style="font-size:13px;color:#554d40;">刪詞</span><span style="font-size:13px;color:#b06a45;">刪完意思沒變</span></div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dotted #e3ddd0;"><span style="font-size:13px;color:#554d40;">找困難</span><span style="font-size:13px;color:#9c7b3f;">有，但誰都適用</span></div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dotted #e3ddd0;"><span style="font-size:13px;color:#554d40;">換掉判斷</span><span style="font-size:13px;color:#b06a45;">行動完全不用改</span></div>
+          <div style="border:1px solid #cd9a86;border-radius:2px;padding:14px 14px;margin-top:16px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">判定</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:17px;color:#a6552f;line-height:1.5;">三道都沒過：這是一份願望清單</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#a6552f;font-size:13.5px;letter-spacing:1px;margin-top:16px;">先問困難，再談做什麼。</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>三道分開看，不加總。</b>這裡三道都沒過，但如果只有第一道沒過，那是措辭問題，不是內容問題——把它們加總成一個分數，你就分不出來了。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>第三道最容易被騙過去。</b>「市場競爭加劇」寫在那裡很像有寫困難。但把它換成「新用戶前三天流失掉七成」，後面那幾項行動一項都不用改——那就表示第一句沒有在做事。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>結論是「不值得往下討論」，不是「這個方向錯了」。</b>這三道判得出文件有沒有在做事，判不出它對不對。要判對錯，得先知道真正的難題——那件事沒有捷徑。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，檢查我手上這份</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">策略文件檢查卡紀錄簿</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:12px;"><span style="white-space:nowrap;">第 {{ c.idx }} 張 · {{ c.date }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;">檢查的那一句</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-top:3px;white-space:pre-wrap;">{{ c.line }}</div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;margin-top:10px;">判定</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;color:#9c5b3f;font-weight:600;margin-top:3px;white-space:pre-wrap;">{{ c.verdict }}</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有卡片。<br />完成第一張後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    step: 0, use: "", line: "", cut: "", challenge: "", challengeText: "", alt: "", actionChange: "",
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, started: false, exampleOpen: false,
+  };
+  HKEY = "toolbook_doccheck_history_v1";
+  TOOL = "策略文件檢查器";
+
+  USE = {
+    decision: ["是，要拿來決定做什麼、不做什麼", "年度規劃、提案、部門策略——有人會照它分配時間或預算。"],
+    report: ["不是，是進度報告或預算表", "它本來就不必寫困難，這三道會誤判它。"],
+    pr: ["不是，是要給外面看的稿", "空話在那裡是刻意的，判它「空」沒有意義。"],
+    direction: ["我想知道的是這個方向對不對", "這三道判得出空，判不出對——會給你錯誤的安心。"],
+  };
+  CUT = {
+    same: ["刪完意思沒變", "拿掉那些詞，剩下的句子一樣成立。"],
+    broken: ["變了，句子講不下去", "那些詞在做事，不是拿來墊高的。"],
+    nowords: ["那句話裡本來就沒有這些詞", "沒有大詞可刪——這一道等於過了。"],
+  };
+  CH = {
+    named: ["有，指得出是哪一個", "文件裡寫了那個擋在路中間的東西。"],
+    generic: ["有類似的，但誰都適用", "像「市場競爭加劇」「環境快速變化」這種。"],
+    none: ["沒有，直接從目標開始講", "通篇是要做什麼，沒有寫為什麼難。"],
+  };
+  AC = {
+    changes: ["要，至少有一項會不一樣", "那句困難在做事——它讓某些選項出局。"],
+    same: ["不用，完全一樣", "換了也不影響，那句困難沒有在做事。"],
+  };
+  CUT_SHORT = { same: "刪完意思沒變", broken: "刪不掉，有內容", nowords: "沒有大詞可刪" };
+  CH_SHORT = { named: "有，指得出來", generic: "有，但誰都適用", none: "沒有" };
+  AC_SHORT = { changes: "行動會跟著改", same: "行動完全不用改" };
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  set(k, v) { this.setState({ [k]: v }); }
+  isExit() { return !!this.state.use && this.state.use !== "decision"; }
+  hasChallenge() { return this.state.challenge === "named" || this.state.challenge === "generic"; }
+  flow() {
+    if (this.isExit()) return [0, 1, 8];
+    if (this.state.challenge === "none") return [0, 1, 2, 3, 5];
+    return [0, 1, 2, 3, 4, 5];
+  }
+  gateOk(step) {
+    const s = this.state;
+    if (step === 1) return !!s.use;
+    if (step === 2) return !!s.line.trim() && !!s.cut;
+    if (step === 3) return !!s.challenge && (s.challenge === "none" || !!s.challengeText.trim());
+    if (step === 4) return !!s.alt.trim() && !!s.actionChange;
+    return true;
+  }
+  next() {
+    if (!this.gateOk(this.state.step)) return;
+    if (this.state.step === 0 && !this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: this.TOOL }); }
+    const fl = this.flow(); const i = fl.indexOf(this.state.step); const n = fl[Math.min(fl.length - 1, i + 1)];
+    if (n === 5) this.archive();
+    this.setState({ step: n });
+    const st = document.querySelector(".stage"); if (st) st.scrollTop = 0;
+  }
+  prev() { const fl = this.flow(); const i = fl.indexOf(this.state.step); const p = fl[Math.max(0, i - 1)]; this.setState({ step: p }); const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  pick(k, v) { this.setState({ [k]: v }); }
+
+  EXITS = {
+    report: ["這三道會誤判進度報告與預算表", "刪詞測試假設那份文件想說服你某件事該做；進度報告與預算表不必寫困難、也不必寫方向，它們本來就只是在報數字。拿這三道去量它，過不了也不代表它有問題。", "如果你真正想問的是「這些數字代表什麼」，那是另一種工作——先找出哪一欄跟你的決定有關，再問寫的人為什麼是這個數。"],
+    pr: ["對外的稿子，空話是刻意的", "給客戶、投資人或媒體看的稿，本來就要留餘地、不得罪人、什麼都不排除。判它「空」是對的，但沒有用——它不是拿來做決定的。", "如果你想檢查的是這份稿背後那個真正的決定，去找那份沒有對外的版本，再回來跑這三道。"],
+    direction: ["這三道判得出空，判不出對", "工具能告訴你一份文件有沒有在做事，不能告訴你它的方向對不對。一項研究拿四千多份匿名商業計劃書給受訓評審打分，三年後的存活、雇用、營收、利潤與分數全都不相關——文件品質預測不了成敗。", "方向對不對，要先知道真正的難題是什麼，那件事沒有捷徑。可以做的是把問題換掉：不要問「這個方向好不好」，問「這份文件說我們要做這幾件事，它們各自在解決哪一個困難」。"],
+  };
+
+  verdictKey() {
+    const s = this.state;
+    if (s.challenge === "none") return "notarget";
+    if (s.actionChange === "same") return "toosafe";
+    if (s.cut === "same") return "empty";
+    return "working";
+  }
+  VERDICTS = {
+    notarget: ["沒有靶：文件裡沒寫出困難", "沒有寫出繞不開的障礙，後面所有的行動就沒辦法評價——你無法問「這幾件事有沒有打在那個困難上」。這類文件讀起來總是四平八穩，因為不指出問題就不必得罪任何人。⚠️ 這不代表寫的人偷懶：有時候是他自己也還不知道困難是什麼，那就先回去找困難，別急著往下排行動。"],
+    toosafe: ["困難寫得太安全，等於沒寫", "文件裡有一句困難，但你換成另一個同樣說得通的之後，行動一項都不用改——那就表示那句話沒有在做事，它只是把「情況不太好」講得體面一點。⚠️ 一個有用的判斷會讓某些選項自動出局；不會讓任何東西出局的判斷，等於沒判斷。"],
+    empty: ["困難寫得出來，但那句結論是空的", "好消息是這份文件知道自己在對付什麼，而且那個判斷有在做事。要修的只是措辭：最像結論的那一句拿掉大詞就塌了。這是可以當場改的——把它重寫成「因為困難是 X，所以我們選擇做 A、不做 B」。"],
+    working: ["三道都過：這份文件在做事", "它寫出了困難、那個判斷會讓選項出局、而且結論那句經得起刪詞。值得往下討論。⚠️ 往下討論的意思不是「這個策略會成功」——三道都過只代表它不是一份願望清單。"],
+  };
+  MANTRA = { notarget: "先問困難，再談做什麼。", toosafe: "換掉它，行動不變，那就是沒寫。", empty: "把大詞拿掉再寫一次。", working: "可以往下討論了，但還不是保證。" };
+
+  newCard() {
+    if (!window.confirm("檢查下一份文件？目前內容會清掉。")) return;
+    this.setState({ step: 1, use: "", line: "", cut: "", challenge: "", challengeText: "", alt: "", actionChange: "" });
+  }
+  archive() {
+    const s = this.state; if (!s.line.trim()) return;
+    const vk = this.verdictKey();
+    const card = { id: "doc_" + Date.now().toString(36), createdAt: new Date().toISOString(),
+      line: s.line.trim(), cut: s.cut, challenge: s.challenge, challengeText: s.challengeText.trim(), alt: s.alt.trim(), actionChange: s.actionChange, verdict: vk };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards });
+    try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: this.TOOL }); } catch (_) {}
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); try { localStorage.setItem(this.HKEY, JSON.stringify(cards)); } catch (_) {} }
+
+  gateRows() {
+    const s = this.state;
+    const rows = [
+      { name: "刪詞", val: this.CUT_SHORT[s.cut] || "—", key: "cut_" + s.cut },
+      { name: "找困難", val: this.CH_SHORT[s.challenge] || "—", key: "ch_" + s.challenge },
+    ];
+    if (s.challenge === "none") rows.push({ name: "換掉判斷", val: "沒有判斷可換", key: "ac_skip" });
+    else rows.push({ name: "換掉判斷", val: this.AC_SHORT[s.actionChange] || "—", key: "ac_" + s.actionChange });
+    return rows;
+  }
+  cardText() {
+    const s = this.state; const vk = this.verdictKey(); const v = this.VERDICTS[vk];
+    const rows = this.gateRows().map(r => "· " + r.name + "：" + r.val).join("\n");
+    const ch = s.challengeText.trim() ? "\n文件說的困難：" + s.challengeText.trim() : "";
+    return "策略文件檢查\n\n檢查的那一句：" + s.line.trim() + ch + "\n\n" + rows + "\n\n判定：" + v[0] + "\n" + v[1] + "\n\n" + this.MANTRA[vk] + "\n\n（三道判得出文件有沒有在做事，判不出它會不會成功。）";
+  }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製卡片文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  async share() { try { if (navigator.share) await navigator.share({ title: "我的策略文件檢查卡", text: this.cardText() }); else { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: this.TOOL, helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", this.TOOL); fd.append("_subject", "Toolbook 工具回饋 · 策略文件檢查器"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+  async saveImage() {
+    const s = this.state; const vk = this.verdictKey(); const v = this.VERDICTS[vk];
+    const rows = this.gateRows();
+    const blocks = [{ k: "你檢查的那一句", v: s.line.trim() || "—", serif: true, big: true }];
+    if (s.challengeText.trim()) blocks.push({ k: "文件說的困難", v: s.challengeText.trim() });
+    blocks.push({ k: "三道分開看", v: rows.map(r => r.name + "：" + r.val).join("　·　") });
+    blocks.push({ k: "判定", v: v[0] });
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "策略文件檢查", sub: "DOCUMENT CHECK · Nº 15", filename: "策略文件檢查卡-Toolbook", mantra: this.MANTRA[vk], edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+  }
+
+  renderVals() {
+    const s = this.state, step = s.step;
+    const fl = this.flow(); const inner = fl.filter(n => n > 0 && n < 5);
+    const dots = inner.map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#9c5b3f" : "#e3ddd0" }));
+    const isResult = step === 5;
+    const isExitScreen = step === 8;
+    const showGate = step >= 1 && step <= 4;
+    const gateBad = showGate && !this.gateOk(step);
+
+    const mkCards = (key, cur, dict, order) => order.map(k => ({
+      label: dict[k][0], desc: dict[k][1],
+      bd: cur === k ? "#9c5b3f" : "#e3ddd0", bg: cur === k ? "rgba(156,91,63,.06)" : "#fbf9f4",
+      fg: cur === k ? "#9c5b3f" : "#241f18", onClick: () => this.pick(key, k),
+    }));
+    const useOpts = mkCards("use", s.use, this.USE, ["decision", "report", "pr", "direction"]);
+    const cutOpts = mkCards("cut", s.cut, this.CUT, ["same", "broken", "nowords"]);
+    const chOpts = mkCards("challenge", s.challenge, this.CH, ["named", "generic", "none"]);
+    const acOpts = mkCards("actionChange", s.actionChange, this.AC, ["changes", "same"]);
+
+    const cards = s.cards.map((c, n) => ({
+      idx: s.cards.length - n, date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }),
+      line: c.line || "—", verdict: (this.VERDICTS[c.verdict] ? this.VERDICTS[c.verdict][0] : "—"),
+      onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); },
+    }));
+
+    const vk = this.verdictKey(); const v = this.VERDICTS[vk];
+    const tone = vk === "working" ? { bd: "#cec6b4", bg: "#f3efe7", ac: "#9c5b3f" }
+      : vk === "empty" ? { bd: "#cdb98a", bg: "#f5f0e4", ac: "#9c7b3f" }
+      : { bd: "#cd9a86", bg: "#f6efe9", ac: "#a6552f" };
+    const gFg = { cut_same: "#b06a45", cut_broken: "#6f7f5c", cut_nowords: "#6f7f5c", ch_named: "#6f7f5c", ch_generic: "#9c7b3f", ch_none: "#b06a45", ac_changes: "#6f7f5c", ac_same: "#b06a45", ac_skip: "#938a78" };
+    const cardGates = this.gateRows().map(r => ({ name: r.name, val: r.val, fg: gFg[r.key] || "#554d40" }));
+    const ex = this.EXITS[s.use] || ["", "", ""];
+
+    return {
+      dots, backColor: step === 0 ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: isResult, sExit: isExitScreen,
+      useOpts,
+      line: s.line, onLine: e => this.set("line", e.target.value), cutOpts,
+      chOpts, needChallengeText: this.hasChallenge(), chNone: s.challenge === "none",
+      challengeText: s.challengeText, onChallengeText: e => this.set("challengeText", e.target.value),
+      mirrorChallenge: s.challengeText.trim() || "（還沒填）",
+      alt: s.alt, onAlt: e => this.set("alt", e.target.value), acOpts,
+      exitTitle: ex[0], exitBody: ex[1], exitNext: ex[2],
+      cardLine: s.line.trim() || "—", cardGates,
+      verdictTitle: v[0], verdictBody: v[1], cardMantra: this.MANTRA[vk],
+      cardBd: tone.bd, cardBg: tone.bg, cardAccent: tone.ac,
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(), onHome: () => { window.location.href = "founders.html"; },
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e),
+      onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
+      showGate, gateMsg: gateBad ? (step === 1 ? "選一個再繼續" : step === 2 ? (s.line.trim() ? "刪完之後，選一個" : "先抄下那一句") : step === 3 ? (s.challenge ? "把那個困難寫下來" : "選一個") : (s.alt.trim() ? "選一個" : "先寫一個替代的困難")) : "",
+      onNext: isResult ? () => this.newCard() : isExitScreen ? () => this.newCard() : () => this.next(),
+      nextLabel: step === 0 ? "開始" : isResult ? "檢查下一份" : isExitScreen ? "換一份文件" : (step === 3 && s.challenge === "none") ? "看判定" : step === 4 ? "看判定" : "下一步",
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#cbb9ac" : "#9c5b3f",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showHomeBtn: isResult || isExitScreen,
+      showRecordsBtn: (step === 0 || isResult) && s.cards.length > 0,
+      onOpenRecords: () => this.set("recordsOpen", true),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+    };
+  }
+}
+</script>
+</body>
+</html>

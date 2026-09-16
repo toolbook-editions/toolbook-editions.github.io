@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>/* 測試流量開關：?qa=1 起、?qa=0 還原 */(function(){try{var s=location.search,k="toolbook_qa";if(/[?&]qa=1(&|$)/.test(s))localStorage.setItem(k,"1");if(/[?&]qa=0(&|$)/.test(s))localStorage.removeItem(k);if(localStorage.getItem(k)==="1")window["ga-disable-G-CKM6MRRVBM"]=true;}catch(e){}})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+<!-- toolbook-icons -->
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-f.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f3efe7">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#9c5b3f;text-decoration:none;transition:.18s;}
+  a:hover{color:#7a4530;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  textarea:focus,input:focus{outline:none;border-color:#9c5b3f!important;box-shadow:0 0 0 2px rgba(156,91,63,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(156,91,63,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none;">
+        <sc-for list="{{ dots }}" as="d" hint-placeholder-count="4">
+          <span style="height:5px;border-radius:3px;transition:.3s;width:{{ d.w }};background:{{ d.bg }};"></span>
+        </sc-for>
+      </div>
+      <a href="founders.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回創業卷">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ s0 }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 16 · 判斷記錄</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">把這次的判斷寫下來，<br />連同兩條理由</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">回頭的時候，你要問的不是「我猜對了嗎」，是<b style="color:#9c5b3f;">「我當初哪一條理由被推翻了」</b>。所以這張卡逼你寫下理由，還要寫下別人怎麼看。<br />答案只存在這部裝置。</p>
+          <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#9c5b3f;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個做完的例子 →</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s1 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 先看這張卡適不適用</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這個決定，<br />大概多久會看到結果？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:10px;">回饋來得越慢，這張卡的價值就越集中在「寫下來的當下」，而不是「翻回去的那天」。</p>
+        <sc-for list="{{ fbOpts }}" as="t" hint-placeholder-count="4">
+          <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:12px 15px;margin-bottom:8px;cursor:pointer;">
+            <div style="font-size:14.5px;color:{{ t.fg }};margin-bottom:1px;">{{ t.label }}</div>
+            <div style="font-size:12px;color:#938a78;line-height:1.55;">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+        <p style="color:#938a78;font-size:13px;margin:18px 0 10px;">這個決定回得了頭嗎？</p>
+        <sc-for list="{{ rvOpts }}" as="t" hint-placeholder-count="3">
+          <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:12px 15px;margin-bottom:8px;cursor:pointer;">
+            <div style="font-size:14.5px;color:{{ t.fg }};margin-bottom:1px;">{{ t.label }}</div>
+            <div style="font-size:12px;color:#938a78;line-height:1.55;">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+        <sc-if value="{{ showHeavyNote }}">
+          <div style="border-left:2px solid #9c6b52;background:#f6efe9;padding:12px 15px;margin-top:8px;border-radius:0 3px 3px 0;color:#554d40;font-size:13px;line-height:1.8;"><b style="color:#9c6b52;">這張卡還是可以寫，但要知道它的底。</b>支持這套做法的研究做的是小公司、低成本的試錯，<b>沒有測過不可逆的大賭注</b>。在這種決定上，它幫得上的是逼你把理由講清楚，不是幫你判得更準。</div>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ s2 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 判斷與預期</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你現在的判斷是什麼？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">一句話就好，要能被日後的事實推翻。「我們應該做 A」不夠，「做 A 之後三個月內某件事會發生」才夠。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:14px 0 7px;">這次的判斷</label>
+        <input value="{{ claim }}" onInput="{{ onClaim }}" maxlength="90" placeholder="例如：把定價提高三成，現有客戶流失不會超過一成" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">如果你是對的，你會先看到什麼？</label>
+        <input value="{{ expect }}" onInput="{{ onExpect }}" maxlength="90" placeholder="例如：第一個月續約率跌不到五個百分點" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:16px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">這一格是整本書的一個論點：<b>沒有事前寫下的預期，反常的事情就不會被看見</b>——因為你沒有東西可以拿來比。</div>
+      </sc-if>
+
+      <sc-if value="{{ s3 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 兩條理由，只要兩條</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你為什麼這樣判斷？</h2>
+        <div style="border-left:2px solid #9c5b3f;background:rgba(156,91,63,.05);padding:10px 15px;margin:2px 0 12px;border-radius:0 3px 3px 0;">
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:2px;">你的判斷是</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#9c5b3f;white-space:pre-wrap;">{{ mirrorClaim }}</div>
+        </div>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">寫兩條就好。<b style="color:#9c5b3f;">這不是偷懶，是刻意的</b>——有實驗發現要人列兩個理由有效，列十個反而讓人更確信原本的判斷，因為「想不出那麼多」會被誤讀成「反面的理由本來就少」。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:14px 0 7px;">理由一</label>
+        <input value="{{ r1 }}" onInput="{{ onR1 }}" maxlength="80" placeholder="例如：去年小幅調價時幾乎沒人走" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">理由二</label>
+        <input value="{{ r2 }}" onInput="{{ onR2 }}" maxlength="80" placeholder="例如：最接近的替代品貴我們兩成" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:16px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">如果你一條理由都寫不出來、只有直覺，這張卡幫不上忙——沒有理由可以被推翻，事後那一步就只剩下對答案，而那正是效果最弱的一種。</div>
+      </sc-if>
+
+      <sc-if value="{{ s4 }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 別人怎麼看</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">同一件事，<br />別人的判斷是什麼？</h2>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">同事、對手、或者市場現在的共識都算。<b style="color:#9c5b3f;">這一格是整張卡的重點</b>：原書要你對照的是別人的評估，不是日後的結果。少了它，你只是在跟三個月前的自己說話。</p>
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:14px 0 7px;">他們的判斷（誰＋怎麼看）</label>
+        <input value="{{ other }}" onInput="{{ onOther }}" maxlength="90" placeholder="例如：業務主管認為會走掉三成" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <p style="color:#938a78;font-size:13px;margin:16px 0 10px;">你們差在哪裡？</p>
+        <sc-for list="{{ gapOpts }}" as="t" hint-placeholder-count="4">
+          <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:12px 15px;margin-bottom:8px;cursor:pointer;">
+            <div style="font-size:14.5px;color:{{ t.fg }};margin-bottom:1px;">{{ t.label }}</div>
+            <div style="font-size:12px;color:#938a78;line-height:1.55;">{{ t.desc }}</div>
+          </div>
+        </sc-for>
+        <div onClick="{{ onNoRef }}" style="margin-top:14px;color:#938a78;font-size:12.5px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">我找不到任何人的判斷可以對照 →</div>
+      </sc-if>
+
+      <sc-if value="{{ sExit }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;color:#a6552f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">這張卡現在幫不上你</div>
+          <h2 style="font-family:'Noto Serif TC',serif;font-size:24px;font-weight:600;line-height:1.6;margin-bottom:14px;">{{ exitTitle }}</h2>
+          <p style="color:#554d40;font-size:14px;line-height:1.95;margin-bottom:16px;">{{ exitBody }}</p>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">{{ exitNext }}</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ s5 }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 14px;">你的判斷記錄卡</div>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:28px 24px 22px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#9c5b3f;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:5px;padding-left:5px;margin-top:4px;">判 斷 記 錄</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Judgment Log · 創業卷</div>
+          <div style="width:30px;height:1px;background:#9c5b3f;opacity:.6;margin:16px auto 20px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">這次的判斷</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.6;margin-bottom:14px;white-space:pre-wrap;">{{ cardClaim }}</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">我會先看到</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:14px;color:#554d40;white-space:pre-wrap;">{{ cardExpect }}</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">兩條理由</div>
+          <div style="display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px dotted #e3ddd0;"><span style="font-size:13px;color:#554d40;">一</span><span style="font-size:13px;color:#241f18;text-align:right;">{{ cardR1 }}</span></div>
+          <div style="display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px dotted #e3ddd0;"><span style="font-size:13px;color:#554d40;">二</span><span style="font-size:13px;color:#241f18;text-align:right;">{{ cardR2 }}</span></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin:14px 0 5px;">別人的判斷</div>
+          <div style="font-size:14px;line-height:1.7;color:#554d40;white-space:pre-wrap;">{{ cardOther }}</div>
+          <div style="font-size:13px;line-height:1.7;color:#9c5b3f;margin-top:4px;">差在：{{ cardGap }}</div>
+          <div style="border:1px solid #cec6b4;border-radius:2px;padding:14px 14px;margin-top:16px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">回顧那天只問這一句</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:17px;color:#9c5b3f;line-height:1.5;">我當初哪一條理由被推翻了？</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:13.5px;letter-spacing:1px;margin-top:16px;">{{ cardMantra }}</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Toolbook · MMXXVI</div>
+        </div>
+
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fbf9f4;padding:16px 18px;margin-top:16px;">
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">什麼時候回來看</div>
+          <p style="color:#554d40;font-size:13px;line-height:1.8;margin:0;">{{ reviewAdvice }}</p>
+        </div>
+
+        <div style="border-left:2px solid #9c6b52;background:#f6efe9;padding:14px 16px;margin-top:14px;border-radius:0 3px 3px 0;">
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">這張卡承諾什麼、不承諾什麼</div>
+          <p style="color:#554d40;font-size:12.5px;line-height:1.8;margin:0 0 8px;"><b>不承諾讓你判斷得更準。</b>「記錄判斷會提升判斷力」這句話查無研究支持，我不會拿它當賣點。</p>
+          <p style="color:#554d40;font-size:12.5px;line-height:1.8;margin:0;"><b>有證據的是兩件事。</b>一，事前留下的紀錄能削弱事後之明——知道結果之後，人會不自覺覺得自己早就料到了。二，這是書自己的論點：沒有事前寫下的預期，反常的事情就不會被看見。</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
+          <button onClick="{{ onSaveImage }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">儲存為圖片</button>
+          <button onClick="{{ onCopy }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">複製文字</button>
+          <button onClick="{{ onShare }}" style="border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;cursor:pointer;">分享這張</button>
+        </div>
+
+        <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:24px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">別跟另一張卡搞混</div>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">個人卷有一張 <a href="tool-review.html">復盤卡</a>，做的是另一件事：一輪做完之後，拿當初訂的目標對一次實際結果，問「做到了沒、時間花到哪」。<b>這一張比的不是計劃與產出，是你的理由與別人的判斷。</b>兩張可以一起用，但不要拿其中一張當另一張。</p>
+        </div>
+
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#9c5b3f;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+          <div style="min-height:16px;text-align:center;color:#9c5b3f;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《Good Strategy Bad Strategy 好策略．壞策略》最後一章。書要你在做決定之前先把判斷記下來，而它給的用途是去發現自己的想法與別人的評估差在哪裡——本站照這個機制做，不做成「日後對答案」。理由限兩條、回顧只問一句，是本站依文獻加的限制，書裡沒有列成步驟。方法是否適合你，請自行判斷。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showGate }}">
+        <div style="text-align:center;font-size:11px;color:#938a78;margin-bottom:8px;height:15px;letter-spacing:.5px;">{{ gateMsg }}</div>
+      </sc-if>
+      <button onClick="{{ onNext }}" disabled="{{ nextDisabled }}" style="display:block;width:100%;border:none;background:{{ nextBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ nextOp }};">{{ nextLabel }}</button>
+      <sc-if value="{{ showHomeBtn }}">
+        <button onClick="{{ onHome }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">返回主頁</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#9c5b3f;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">查看判斷記錄卡紀錄簿（{{ recordsCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ exampleOpen }}">
+    <div onClick="{{ onCloseExample }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個做完的例子</div>
+          <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">你要把定價提高三成，業務主管反對。三個月後會知道結果，而且真的走人了也可以再調回來。填出來的卡長這樣：</p>
+
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px 20px;background:#f3efe7;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#9c5b3f;">❦</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:5px;padding-left:5px;margin-top:4px;">判 斷 記 錄</div>
+          <div style="text-align:center;font-size:8.5px;letter-spacing:3px;color:#938a78;text-transform:uppercase;margin-top:5px;">Judgment Log · 創業卷</div>
+          <div style="width:30px;height:1px;background:#9c5b3f;opacity:.6;margin:14px auto 18px;"></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">這次的判斷</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.6;margin-bottom:14px;">把定價提高三成，現有客戶流失不會超過一成</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">我會先看到</div>
+          <div style="font-size:14px;line-height:1.7;margin-bottom:14px;color:#554d40;">第一個月續約率跌不到五個百分點</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">兩條理由</div>
+          <div style="display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px dotted #e3ddd0;"><span style="font-size:13px;color:#554d40;">一</span><span style="font-size:13px;color:#241f18;text-align:right;">去年小幅調價時幾乎沒人走</span></div>
+          <div style="display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px dotted #e3ddd0;"><span style="font-size:13px;color:#554d40;">二</span><span style="font-size:13px;color:#241f18;text-align:right;">最接近的替代品貴我們兩成</span></div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin:14px 0 5px;">別人的判斷</div>
+          <div style="font-size:14px;line-height:1.7;color:#554d40;">業務主管認為會走掉三成</div>
+          <div style="font-size:13px;line-height:1.7;color:#9c5b3f;margin-top:4px;">差在：同一批事實，解讀不同</div>
+          <div style="border:1px solid #cec6b4;border-radius:2px;padding:14px 14px;margin-top:16px;">
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">回顧那天只問這一句</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:17px;color:#9c5b3f;line-height:1.5;">我當初哪一條理由被推翻了？</div>
+          </div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:13.5px;letter-spacing:1px;margin-top:16px;">差在解讀，就去把事實補齊。</div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>真正有用的一格是「別人的判斷」。</b>業務主管說會走三成、你說不到一成——這個落差本身就告訴你要去查什麼：去年那次調價幅度多少、替代品的價差近期有沒有變。沒有這一格，你只會在三個月後看到一個數字，然後替自己解釋。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>兩條理由是拿來被推翻的，不是拿來說服人的。</b>三個月後如果客戶真的走了三成，你要問的是哪一條垮了——是去年那次調價幅度根本不能比，還是替代品悄悄降價了。這兩個答案會讓你下次改不同的東西。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>卡上不會出現「你猜對了嗎」。</b>猜對可能只是運氣好。一條被推翻的理由，才是下次真的能改掉的東西。</div>
+        </div>
+
+        <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，寫我自己的</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">判斷記錄卡紀錄簿</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。回來的時候，先讀兩條理由，再問哪一條被推翻了。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cards }}" as="c" hint-placeholder-count="0">
+            <div style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:18px;margin-bottom:12px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;color:#938a78;font-size:11px;margin-bottom:12px;"><span style="white-space:nowrap;">第 {{ c.idx }} 張 · {{ c.date }}</span><span onClick="{{ c.onDel }}" style="cursor:pointer;">刪除</span></div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;">這次的判斷</div><div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-top:3px;white-space:pre-wrap;">{{ c.claim }}</div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;margin-top:10px;">兩條理由</div><div style="font-size:13.5px;margin-top:3px;color:#554d40;white-space:pre-wrap;">{{ c.reasons }}</div>
+              <div style="font-size:9px;letter-spacing:2px;color:#938a78;margin-top:10px;">別人的判斷</div><div style="font-size:13.5px;margin-top:3px;color:#554d40;white-space:pre-wrap;">{{ c.other }}</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <sc-if value="{{ noCards }}">
+          <div style="text-align:center;color:#938a78;font-size:13px;padding:60px 10px;">還沒有卡片。<br />完成第一張後，會保存在這裡。</div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    step: 0, feedback: "", revers: "", claim: "", expect: "", r1: "", r2: "", other: "", gap: "", noRef: false,
+    toastOn: false, toastMsg: "", feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    cards: [], recordsOpen: false, started: false, exampleOpen: false,
+  };
+  HKEY = "toolbook_judgmentlog_history_v1";
+  TOOL = "判斷記錄卡";
+
+  FB = {
+    weeks: ["幾週內", "回饋快而明確，這是這套做法最站得住的處境。"],
+    months: ["幾個月內", "還來得及在你記得當時想法的時候回頭看。"],
+    years: ["一年以上", "回饋期越長，這張卡的價值越集中在寫下來的當下。"],
+    never: ["可能永遠不會有明確結果", "沒有可辨認的結果，就沒有東西可以檢討。"],
+  };
+  RV = {
+    easy: ["回得了頭，代價不大", "錯了可以調回來。"],
+    costly: ["回得來，但代價不小", "改回去要花錢或花時間。"],
+    heavy: ["不可逆，而且成本極高", "一旦做了就沒有退路。"],
+  };
+  GAP = {
+    facts: ["我們看的事實不一樣", "有人手上有對方沒有的資料。"],
+    reading: ["同一批事實，解讀不同", "數字一樣，推論不同。"],
+    weight: ["在意的東西不一樣", "一個怕流失、一個怕賺太少。"],
+    unknown: ["我說不出來差在哪", "只知道結論不同，理由沒問過。"],
+  };
+  GAP_SHORT = { facts: "看的事實不一樣", reading: "同一批事實，解讀不同", weight: "在意的東西不一樣", unknown: "還沒問出差在哪" };
+
+  componentDidMount() {
+    try { const raw = localStorage.getItem(this.HKEY); if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) this.setState({ cards: a.slice(0, 50) }); } } catch (_) {}
+  }
+  set(k, v) { this.setState({ [k]: v }); }
+  isExit() { return this.state.feedback === "never" || this.state.noRef; }
+  flow() {
+    if (this.state.feedback === "never") return [0, 1, 8];
+    if (this.state.noRef) return [0, 1, 2, 3, 4, 8];
+    return [0, 1, 2, 3, 4, 5];
+  }
+  gateOk(step) {
+    const s = this.state;
+    if (step === 1) return !!s.feedback && !!s.revers;
+    if (step === 2) return !!s.claim.trim() && !!s.expect.trim();
+    if (step === 3) return !!s.r1.trim() && !!s.r2.trim();
+    if (step === 4) return !!s.other.trim() && !!s.gap;
+    return true;
+  }
+  next() {
+    if (!this.gateOk(this.state.step)) return;
+    if (this.state.step === 0 && !this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: this.TOOL }); }
+    const fl = this.flow(); const i = fl.indexOf(this.state.step); const n = fl[Math.min(fl.length - 1, i + 1)];
+    if (n === 5) this.archive();
+    this.setState({ step: n });
+    const st = document.querySelector(".stage"); if (st) st.scrollTop = 0;
+  }
+  prev() { const fl = this.flow(); const i = fl.indexOf(this.state.step); const p = fl[Math.max(0, i - 1)]; this.setState({ step: p, noRef: false }); const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  pick(k, v) { this.setState({ [k]: v }); }
+  noRef() { this.setState({ noRef: true, step: 8 }); const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+
+  EXITS() {
+    if (this.state.noRef) return ["找不到參照，這張卡就退回一般的決策日記",
+      "這一格不是裝飾。原書要你記下判斷，是為了發現自己的想法跟別人的評估差在哪裡——那個落差才是可以學的東西。沒有它，三個月後你只會看到一個結果，然後替自己找一個解釋。",
+      "先去要一個判斷再回來：問一個會受這個決定影響的同事、找一個做過類似決定的人、或者寫下對手現在的做法代表他們怎麼看。花十分鐘，比這張卡本身值錢。"];
+    return ["沒有可辨認的結果，就沒有東西可以檢討",
+      "這套做法要成立，需要環境有規律可學、而且回饋來得快又明確。如果這個決定永遠不會有一個你認得出來的結果，那寫下判斷不會讓你學到東西——它只會變成一份留言。",
+      "可以換一個問法：這個決定底下有沒有一個小一點、看得到結果的部分？把那一塊單獨拿出來記，比記整件事有用。"];
+  }
+
+  reviewAdvice() {
+    const s = this.state;
+    if (s.feedback === "weeks") return "幾週後回來。這是這套做法最站得住的處境——回饋快而明確，你還記得當時怎麼想。先讀兩條理由，再問哪一條被推翻了。";
+    if (s.feedback === "months") return "幾個月後回來，把這張卡先讀完再去看結果。順序很重要：先看到結果再讀理由，你會不自覺地替自己解釋。";
+    return "一年以上才會知道結果的決定，多半不會有人真的回來翻。所以這張卡對你的用處，大半已經在剛才寫的時候發生了——你被迫把理由講清楚，也看見了自己跟別人差在哪。真的回來的時候，先讀理由再看結果。";
+  }
+  mantra() {
+    const s = this.state;
+    if (s.gap === "unknown") return "去把那個差異問出來。";
+    if (s.gap === "facts") return "差在事實，就去補資料。";
+    if (s.gap === "reading") return "差在解讀，就去把事實補齊。";
+    return "差在在意什麼，那是取捨不是對錯。";
+  }
+
+  newCard() {
+    if (!window.confirm("寫下一張？目前內容會清掉。")) return;
+    this.setState({ step: 1, feedback: "", revers: "", claim: "", expect: "", r1: "", r2: "", other: "", gap: "", noRef: false });
+  }
+  archive() {
+    const s = this.state; if (!s.claim.trim()) return;
+    const card = { id: "jdg_" + Date.now().toString(36), createdAt: new Date().toISOString(),
+      claim: s.claim.trim(), expect: s.expect.trim(), r1: s.r1.trim(), r2: s.r2.trim(),
+      other: s.other.trim(), gap: s.gap, feedback: s.feedback, revers: s.revers };
+    const cards = [card, ...this.state.cards].slice(0, 50);
+    this.setState({ cards });
+    try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 50))); if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: this.TOOL }); } catch (_) {}
+  }
+  deleteCard(id) { const cards = this.state.cards.filter(c => c.id !== id); this.setState({ cards }); try { localStorage.setItem(this.HKEY, JSON.stringify(cards)); } catch (_) {} }
+
+  cardText() {
+    const s = this.state;
+    return "判斷記錄\n\n這次的判斷：" + s.claim.trim() +
+      "\n我會先看到：" + s.expect.trim() +
+      "\n\n理由一：" + s.r1.trim() + "\n理由二：" + s.r2.trim() +
+      "\n\n別人的判斷：" + s.other.trim() + "\n差在：" + (this.GAP_SHORT[s.gap] || "—") +
+      "\n\n回顧那天只問這一句：我當初哪一條理由被推翻了？\n\n" + this.mantra();
+  }
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  async copy() { try { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製卡片文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
+  async share() { try { if (navigator.share) await navigator.share({ title: "我的判斷記錄卡", text: this.cardText() }); else { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製，可貼到其他地方"); } } catch (_) {} }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: this.TOOL, helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", this.TOOL); fd.append("_subject", "Toolbook 工具回饋 · 判斷記錄卡"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+  async saveImage() {
+    const s = this.state;
+    const blocks = [{ k: "這次的判斷", v: s.claim.trim() || "—", serif: true, big: true }];
+    blocks.push({ k: "我會先看到", v: s.expect.trim() || "—" });
+    blocks.push({ k: "兩條理由", v: "一、" + (s.r1.trim() || "—") + "　二、" + (s.r2.trim() || "—") });
+    blocks.push({ k: "別人的判斷", v: (s.other.trim() || "—") + "（差在：" + (this.GAP_SHORT[s.gap] || "—") + "）" });
+    blocks.push({ k: "回顧那天只問這一句", v: "我當初哪一條理由被推翻了？" });
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "判斷記錄", sub: "JUDGMENT LOG · Nº 16", filename: "判斷記錄卡-Toolbook", mantra: this.mantra(), edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+  }
+
+  renderVals() {
+    const s = this.state, step = s.step;
+    const fl = this.flow(); const inner = fl.filter(n => n > 0 && n < 5);
+    const dots = inner.map(n => ({ w: n === step ? "16px" : "5px", bg: n === step ? "#9c5b3f" : "#e3ddd0" }));
+    const isResult = step === 5;
+    const isExitScreen = step === 8;
+    const showGate = step >= 1 && step <= 4;
+    const gateBad = showGate && !this.gateOk(step);
+
+    const mkCards = (key, cur, dict, order) => order.map(k => ({
+      label: dict[k][0], desc: dict[k][1],
+      bd: cur === k ? "#9c5b3f" : "#e3ddd0", bg: cur === k ? "rgba(156,91,63,.06)" : "#fbf9f4",
+      fg: cur === k ? "#9c5b3f" : "#241f18", onClick: () => this.pick(key, k),
+    }));
+    const fbOpts = mkCards("feedback", s.feedback, this.FB, ["weeks", "months", "years", "never"]);
+    const rvOpts = mkCards("revers", s.revers, this.RV, ["easy", "costly", "heavy"]);
+    const gapOpts = mkCards("gap", s.gap, this.GAP, ["facts", "reading", "weight", "unknown"]);
+
+    const cards = s.cards.map((c, n) => ({
+      idx: s.cards.length - n, date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }),
+      claim: c.claim || "—", reasons: "一、" + (c.r1 || "—") + "\n二、" + (c.r2 || "—"),
+      other: (c.other || "—") + "（差在：" + (this.GAP_SHORT[c.gap] || "—") + "）",
+      onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(c.id); },
+    }));
+
+    const ex = this.EXITS();
+
+    return {
+      dots, backColor: step === 0 ? "transparent" : "#938a78", onBack: () => this.prev(),
+      s0: step === 0, s1: step === 1, s2: step === 2, s3: step === 3, s4: step === 4, s5: isResult, sExit: isExitScreen,
+      fbOpts, rvOpts, showHeavyNote: s.revers === "heavy",
+      claim: s.claim, onClaim: e => this.set("claim", e.target.value),
+      expect: s.expect, onExpect: e => this.set("expect", e.target.value),
+      mirrorClaim: s.claim.trim() || "（還沒填）",
+      r1: s.r1, onR1: e => this.set("r1", e.target.value),
+      r2: s.r2, onR2: e => this.set("r2", e.target.value),
+      other: s.other, onOther: e => this.set("other", e.target.value), gapOpts,
+      onNoRef: () => this.noRef(),
+      exitTitle: ex[0], exitBody: ex[1], exitNext: ex[2],
+      cardClaim: s.claim.trim() || "—", cardExpect: s.expect.trim() || "—",
+      cardR1: s.r1.trim() || "—", cardR2: s.r2.trim() || "—",
+      cardOther: s.other.trim() || "—", cardGap: this.GAP_SHORT[s.gap] || "—",
+      cardMantra: this.mantra(), reviewAdvice: this.reviewAdvice(),
+      onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(), onHome: () => { window.location.href = "founders.html"; },
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e),
+      onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
+      showGate, gateMsg: gateBad ? (step === 1 ? "兩題都選一個" : step === 2 ? "兩格都要填" : step === 3 ? "兩條理由都要寫" : (s.other.trim() ? "選一個差在哪" : "先寫下別人的判斷")) : "",
+      onNext: (isResult || isExitScreen) ? () => this.newCard() : () => this.next(),
+      nextLabel: step === 0 ? "開始" : isResult ? "寫下一張" : isExitScreen ? "重寫一張" : step === 4 ? "產生卡片" : "下一步",
+      nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#cbb9ac" : "#9c5b3f",
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      cards, recordsCount: s.cards.length, hasCards: s.cards.length > 0, noCards: s.cards.length === 0,
+      showHomeBtn: isResult || isExitScreen,
+      showRecordsBtn: (step === 0 || isResult) && s.cards.length > 0,
+      onOpenRecords: () => this.set("recordsOpen", true),
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      exampleOpen: s.exampleOpen, onOpenExample: () => this.set("exampleOpen", true), onCloseExample: () => this.set("exampleOpen", false),
+    };
+  }
+}
+</script>
+</body>
+</html>
