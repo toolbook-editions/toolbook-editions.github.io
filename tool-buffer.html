@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>/* 測試流量開關：?qa=1 起、?qa=0 還原 */(function(){try{var s=location.search,k="toolbook_qa";if(/[?&]qa=1(&|$)/.test(s))localStorage.setItem(k,"1");if(/[?&]qa=0(&|$)/.test(s))localStorage.removeItem(k);if(localStorage.getItem(k)==="1")window["ga-disable-G-CKM6MRRVBM"]=true;}catch(e){}})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+<!-- toolbook-icons -->
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-f.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f3efe7">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  input:focus,textarea:focus{outline:none;border-color:#35456a!important;box-shadow:0 0 0 2px rgba(53,69,106,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(53,69,106,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;text-align:center;pointer-events:none;font-family:'Noto Serif TC',serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#938a78;">{{ headTitle }}</div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ vIntro }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº P-34 · 起頭</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">留白要留在<br />會被打斷的那一段裡</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">排滿會塌，這點沒什麼爭議。比較少人問的是<b style="color:#554d40;">那些留白該放在哪裡</b>——另外空出一整天，接不住週三上午冒出來的事。這張卡不給你任何百分比，只幫你決定留在哪一段、以及怎麼不讓它被自己填掉。答案只存在這部裝置。</p>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ vSort }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第一步 · 先分一刀</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:21px;font-weight:600;line-height:1.6;margin-bottom:14px;">挑一段最近被打亂過的時間</h2>
+
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:18px 0 7px;">那一段是</label>
+        <input value="{{ block }}" onInput="{{ onBlock }}" maxlength="40" placeholder="例如：週二整個上午 / 每天下午的客戶時段" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:15px;color:#241f18;" />
+
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:22px 0 7px;">這段時間裡，會不會有人臨時來找你？</label>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <button onClick="{{ onKindOpen }}" style="border:1px solid {{ kOpenBd }};background:{{ kOpenBg }};color:#241f18;border-radius:4px;padding:14px 16px;font-size:14.5px;text-align:left;cursor:pointer;">會　<span style="color:#938a78;font-size:12.5px;">客戶、同事、家人、值班、帶小孩</span></button>
+          <button onClick="{{ onKindSolo }}" style="border:1px solid {{ kSoloBd }};background:{{ kSoloBg }};color:#241f18;border-radius:4px;padding:14px 16px;font-size:14.5px;text-align:left;cursor:pointer;">不會　<span style="color:#938a78;font-size:12.5px;">只有我自己，事情是我排進去的</span></button>
+        </div>
+
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:22px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">這一刀很重要。留緩衝只對「有人會臨時插進來」的時段有用；沒有人插進來卻還是做不完，那是另一個問題，留再多空白也補不上。</div>
+
+        <sc-if value="{{ kindIsSolo }}">
+          <div style="border-left:2px solid #b0563c;background:#f7f0ec;border-radius:0 3px 3px 0;padding:13px 16px;margin-top:18px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>那這張卡幫不上。</b>沒有人插進來的時段會拖，多半是你估錯了那件事要花多久——該做的是回頭看上一次做同類的事實際花了多少時間，不是預留更多空白。</div>
+          <a href="tool-review.html" style="display:flex;align-items:center;justify-content:space-between;border:1px solid #cec6b4;border-radius:4px;padding:15px 17px;margin-top:12px;background:#fff;">
+            <span style="font-size:13.5px;color:#554d40;line-height:1.7;">把計畫與實際產出擺在一起比一次</span>
+            <span style="color:#35456a;font-size:13px;white-space:nowrap;margin-left:12px;">復盤卡 →</span>
+          </a>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ vWhere }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第二步 · 留在裡面</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:21px;font-weight:600;line-height:1.6;margin-bottom:10px;">在這一段的<b style="color:#35456a;">裡面</b>留一塊，<br />不要另外空出一整天</h2>
+        <p style="color:#938a78;font-size:13px;line-height:1.9;margin-bottom:18px;">同樣多的空白，散在每一段裡面比集中成一大塊有用——因為插進來的事不會等到你那一大塊空白的那天才發生。</p>
+
+        <div style="display:flex;gap:10px;margin-bottom:20px;">
+          <div style="flex:1;border:1px solid #e3ddd0;border-radius:4px;padding:12px 13px;background:#fff;">
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#b9b09a;margin-bottom:8px;">集中留</div>
+            <div style="display:flex;flex-direction:column;gap:3px;">
+              <div style="height:9px;background:#cec6b4;border-radius:1px;"></div>
+              <div style="height:9px;background:#cec6b4;border-radius:1px;"></div>
+              <div style="height:9px;background:#cec6b4;border-radius:1px;"></div>
+              <div style="height:9px;background:#f3efe7;border:1px dashed #cec6b4;border-radius:1px;"></div>
+            </div>
+            <div style="font-size:11.5px;color:#b9b09a;line-height:1.6;margin-top:9px;">前三段照樣被推倒</div>
+          </div>
+          <div style="flex:1;border:1px solid #35456a;border-radius:4px;padding:12px 13px;background:#fbf9f4;">
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#35456a;margin-bottom:8px;">分散留</div>
+            <div style="display:flex;flex-direction:column;gap:3px;">
+              <div style="height:9px;background:linear-gradient(to right,#cec6b4 72%,#f3efe7 72%);border-radius:1px;"></div>
+              <div style="height:9px;background:linear-gradient(to right,#cec6b4 72%,#f3efe7 72%);border-radius:1px;"></div>
+              <div style="height:9px;background:linear-gradient(to right,#cec6b4 72%,#f3efe7 72%);border-radius:1px;"></div>
+              <div style="height:9px;background:linear-gradient(to right,#cec6b4 72%,#f3efe7 72%);border-radius:1px;"></div>
+            </div>
+            <div style="font-size:11.5px;color:#554d40;line-height:1.6;margin-top:9px;">每段自己接得住</div>
+          </div>
+        </div>
+
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:0 0 7px;">在「{{ blockEcho }}」裡面，要留空的是</label>
+        <input value="{{ slot }}" onInput="{{ onSlot }}" maxlength="40" placeholder="例如：最後那 20 分鐘 / 十點半到十一點" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:15px;color:#241f18;" />
+
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">留多少沒有標準答案，這張卡也不會給你一個數字——那種數字是從醫院的排程研究來的，沒有人拿個人行事曆做過同樣的事。先留一塊你捨得的，被打斷幾次之後你自己會知道夠不夠。</div>
+      </sc-if>
+
+      <sc-if value="{{ vGuard }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第三步 · 擋住自己</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:21px;font-weight:600;line-height:1.6;margin-bottom:10px;">留白通常不是被別人搶走的</h2>
+        <p style="color:#938a78;font-size:13px;line-height:1.9;margin-bottom:18px;">是你自己覺得空著很浪費，順手填掉的。先把你會用的那個理由寫下來——下次它冒出來的時候，你至少認得出它。</p>
+
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:0 0 7px;">我會用來把它填掉的理由是</label>
+        <input value="{{ excuse }}" onInput="{{ onExcuse }}" maxlength="40" placeholder="例如：反正只是空著，順便把信回一回" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:15px;color:#241f18;" />
+
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:22px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">一旦你在那塊空白上寫了「順便處理一下什麼」，它就不再是緩衝，只是一件排得比較晚的事。</div>
+      </sc-if>
+
+      <sc-if value="{{ vEnd }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 16px;">存好了</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">會被打斷的那一段</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:17px;font-weight:600;line-height:1.7;">{{ endBlock }}</div>
+          <div style="height:1px;background:#e3ddd0;margin:16px 0;"></div>
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">留在它裡面的那一塊</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:17px;font-weight:600;line-height:1.7;color:#35456a;">{{ endSlot }}</div>
+          <div style="height:1px;background:#e3ddd0;margin:16px 0;"></div>
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">會把它填掉的那個理由</div>
+          <div style="font-size:14.5px;line-height:1.7;color:#b0563c;">{{ endExcuse }}</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:18px;">Buffer · Nº P-34 · MMXXVI</div>
+        </div>
+
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:18px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">這不會讓你做更多事，<b>也沒有研究說它會</b>。它換到的是另一件事：那一段被插進來的時候，不會連帶把後面整天推倒。</div>
+
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+          <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《Scarcity 稀缺》談組織時間的那一章，但支撐它的不是那本書——是排隊論：需求隨機到達、產能固定的系統，等候時間會隨著排得越滿而非線性地爆起來。「分散留勝過集中留」來自一份直接比較兩種做法的手術室排程研究（Wullink 等，Journal of Medical Systems, 2007），那間醫院據此把專用的急症手術室關掉了。⚠️ 那些研究量的是病床與手術室，不是行事曆，所以這裡不給任何比例數字。這裡不引用書中原文，也不沿用書中案例。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showPrimary }}">
+        <button onClick="{{ onPrimary }}" disabled="{{ primaryDisabled }}" style="display:block;width:100%;border:none;background:{{ primaryBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ primaryOp }};">{{ primaryLabel }}</button>
+      </sc-if>
+      <sc-if value="{{ showSecondary }}">
+        <button onClick="{{ onSecondary }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">{{ secondaryLabel }}</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">我留過的（{{ cardCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">我留過的</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。點一個就切到它。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cardRows }}" as="c" hint-placeholder-count="0">
+            <div onClick="{{ c.onPick }}" style="background:{{ c.bg }};border:1px solid {{ c.bd }};border-radius:4px;padding:16px 18px;margin-bottom:12px;cursor:pointer;">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+                <span style="font-family:'Noto Serif TC',serif;font-size:15px;font-weight:600;white-space:pre-wrap;line-height:1.6;">{{ c.slot }}</span>
+                <span onClick="{{ c.onDel }}" style="color:#b9b09a;font-size:12px;cursor:pointer;white-space:nowrap;margin-left:10px;">刪除</span>
+              </div>
+              <div style="color:#938a78;font-size:12px;line-height:1.7;">留在：{{ c.block }}</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <button onClick="{{ onNewCard }}" style="display:block;width:100%;border:1px dashed #cec6b4;background:transparent;color:#35456a;border-radius:4px;padding:14px;font-size:14px;cursor:pointer;margin-top:4px;">＋ 再留一段</button>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    view: "intro", cards: [], activeId: null,
+    block: "", kind: null, slot: "", excuse: "",
+    toastOn: false, toastMsg: "",
+    feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    recordsOpen: false, started: false,
+  };
+  HKEY = "toolbook_buffer_history_v1";
+  TOOLNAME = "緩衝配置卡";
+
+  componentDidMount() {
+    try {
+      const raw = localStorage.getItem(this.HKEY);
+      if (raw) { const a = JSON.parse(raw); if (Array.isArray(a) && a.length) { const cards = a.slice(0, 30); this.setState({ cards, activeId: cards[0].id, view: "end" }); return; } }
+    } catch (_) {}
+  }
+  save(cards) { try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 30))); } catch (_) {} }
+
+  active() { return this.state.cards.find(c => c.id === this.state.activeId) || null; }
+  set(k, v) { this.setState({ [k]: v }); }
+  scrollTop() { const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  markStart() { if (!this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: this.TOOLNAME }); } }
+
+  goSort() { this.setState({ view: "sort", block: "", kind: null, slot: "", excuse: "" }); this.scrollTop(); }
+
+  saveCard() {
+    const block = (this.state.block || "").trim();
+    const slot = (this.state.slot || "").trim();
+    const excuse = (this.state.excuse || "").trim();
+    if (!block || !slot || !excuse) return;
+    this.markStart();
+    const c = { id: "bf_" + Date.now().toString(36), block, slot, excuse, createdAt: new Date().toISOString() };
+    const cards = [c, ...this.state.cards].slice(0, 30);
+    this.save(cards);
+    this.setState({ cards, activeId: c.id, view: "end", recordsOpen: false });
+    if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: this.TOOLNAME });
+    this.toast("存好了");
+    this.scrollTop();
+  }
+  pickCard(id) { this.setState({ activeId: id, recordsOpen: false, view: "end" }); this.scrollTop(); }
+  deleteCard(id) {
+    if (!window.confirm("刪掉這一張？")) return;
+    const cards = this.state.cards.filter(c => c.id !== id);
+    this.save(cards);
+    if (id === this.state.activeId) {
+      if (cards.length) this.setState({ cards, activeId: cards[0].id, view: "end" });
+      else this.setState({ cards, activeId: null, view: "intro", recordsOpen: false });
+    } else this.setState({ cards });
+  }
+
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: this.TOOLNAME, helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", this.TOOLNAME); fd.append("_subject", "Toolbook 工具回饋 · " + this.TOOLNAME); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+
+  renderVals() {
+    const s = this.state, v = s.view;
+    const c = this.active();
+    const heads = { intro: this.TOOLNAME, sort: this.TOOLNAME, where: "留在裡面", guard: "擋住自己", end: "" };
+
+    const sel = (on) => on ? "#35456a" : "#cec6b4";
+    const selBg = (on) => on ? "#f3efe7" : "#fff";
+
+    const hasBlock = !!(s.block || "").trim();
+    const kindIsSolo = s.kind === "solo";
+    const hasSlot = !!(s.slot || "").trim();
+    const hasExcuse = !!(s.excuse || "").trim();
+
+    let endBlock = "", endSlot = "", endExcuse = "";
+    if (v === "end" && c) { endBlock = c.block; endSlot = c.slot; endExcuse = c.excuse; }
+
+    let showPrimary = false, primaryLabel = "", onPrimary = () => {}, primaryDisabled = "", primaryBg = "#35456a", primaryOp = "1";
+    let showSecondary = false, secondaryLabel = "", onSecondary = () => {};
+    if (v === "intro") {
+      showPrimary = true; primaryLabel = s.cards.length ? "回到我留過的" : "開始";
+      onPrimary = () => { if (s.cards.length) this.pickCard(s.cards[0].id); else this.goSort(); };
+    } else if (v === "sort") {
+      const ok = hasBlock && s.kind === "open";
+      showPrimary = true; primaryLabel = "下一步";
+      onPrimary = () => { this.markStart(); this.setState({ view: "where" }); this.scrollTop(); };
+      primaryDisabled = ok ? "" : "disabled"; primaryOp = ok ? "1" : ".5"; primaryBg = ok ? "#35456a" : "#b7bdcb";
+    } else if (v === "where") {
+      showPrimary = true; primaryLabel = "下一步";
+      onPrimary = () => { this.setState({ view: "guard" }); this.scrollTop(); };
+      primaryDisabled = hasSlot ? "" : "disabled"; primaryOp = hasSlot ? "1" : ".5"; primaryBg = hasSlot ? "#35456a" : "#b7bdcb";
+    } else if (v === "guard") {
+      showPrimary = true; primaryLabel = "存起來";
+      onPrimary = () => this.saveCard();
+      primaryDisabled = hasExcuse ? "" : "disabled"; primaryOp = hasExcuse ? "1" : ".5"; primaryBg = hasExcuse ? "#35456a" : "#b7bdcb";
+    } else if (v === "end") {
+      showSecondary = true; secondaryLabel = "再留一段"; onSecondary = () => this.goSort();
+    }
+
+    const cardRows = s.cards.map(x => ({
+      block: x.block, slot: x.slot,
+      bg: x.id === s.activeId ? "#fbf9f4" : "#fff", bd: x.id === s.activeId ? "#35456a" : "#e3ddd0",
+      onPick: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.pickCard(x.id); },
+      onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(x.id); },
+    }));
+
+    return {
+      onBack: () => {
+        if (v === "sort") { if (s.cards.length) this.pickCard(s.activeId || s.cards[0].id); else this.setState({ view: "intro" }); }
+        else if (v === "where") this.setState({ view: "sort" });
+        else if (v === "guard") this.setState({ view: "where" });
+        else this.setState({ view: "intro" });
+        this.scrollTop();
+      },
+      backColor: (v === "intro" || v === "end") ? "transparent" : "#938a78",
+      headTitle: heads[v] || "",
+      vIntro: v === "intro", vSort: v === "sort", vWhere: v === "where", vGuard: v === "guard", vEnd: v === "end",
+
+      block: s.block, onBlock: e => this.set("block", e.target.value),
+      onKindOpen: () => this.set("kind", "open"), onKindSolo: () => this.set("kind", "solo"),
+      kOpenBd: sel(s.kind === "open"), kOpenBg: selBg(s.kind === "open"),
+      kSoloBd: sel(s.kind === "solo"), kSoloBg: selBg(s.kind === "solo"),
+      kindIsSolo,
+
+      blockEcho: (s.block || "").trim() || "那一段",
+      slot: s.slot, onSlot: e => this.set("slot", e.target.value),
+      excuse: s.excuse, onExcuse: e => this.set("excuse", e.target.value),
+
+      endBlock, endSlot, endExcuse,
+
+      showPrimary, primaryLabel, onPrimary, primaryDisabled, primaryBg, primaryOp,
+      showSecondary, secondaryLabel, onSecondary,
+      showRecordsBtn: (v === "intro" || v === "end") && s.cards.length > 0,
+      cardCount: s.cards.length, onOpenRecords: () => this.set("recordsOpen", true),
+
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e),
+      onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
+
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      hasCards: s.cards.length > 0, cardRows, onNewCard: () => this.goSort(),
+    };
+  }
+}
+</script>
+</body>
+</html>

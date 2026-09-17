@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>/* 測試流量開關：?qa=1 起、?qa=0 還原 */(function(){try{var s=location.search,k="toolbook_qa";if(/[?&]qa=1(&|$)/.test(s))localStorage.setItem(k,"1");if(/[?&]qa=0(&|$)/.test(s))localStorage.removeItem(k);if(localStorage.getItem(k)==="1")window["ga-disable-G-CKM6MRRVBM"]=true;}catch(e){}})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<script src="./support.js"></script>
+<!-- toolbook-icons -->
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-f.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f3efe7">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#e9e3d6;color:#241f18;font-family:-apple-system,"PingFang TC","PingFang SC",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  input,textarea,button{font-family:inherit;}
+  input::placeholder,textarea::placeholder{color:#b9b09a;}
+  input:focus,textarea:focus{outline:none;border-color:#35456a!important;box-shadow:0 0 0 2px rgba(53,69,106,.08);}
+  .stage::-webkit-scrollbar{width:0;}
+  ::selection{background:rgba(53,69,106,.15);}
+</style>
+</helmet>
+<div style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E&quot;);background-color:#e9e3d6;">
+
+  <div style="width:min(440px,100%);height:min(860px,94vh);display:flex;flex-direction:column;background:#fbf9f4;border:1px solid #cec6b4;border-radius:8px;box-shadow:0 20px 60px rgba(36,31,24,.16);overflow:hidden;position:relative;">
+
+    <div style="flex:none;height:52px;display:flex;align-items:center;padding:0 20px;position:relative;border-bottom:1px solid #efe9dd;">
+      <span onClick="{{ onBack }}" style="font-size:24px;line-height:1;width:24px;cursor:pointer;color:{{ backColor }};">‹</span>
+      <div style="position:absolute;left:0;right:0;text-align:center;pointer-events:none;font-family:'Noto Serif TC',serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#938a78;">{{ headTitle }}</div>
+      <a href="index.html" style="margin-left:auto;color:#938a78;font-size:16px;line-height:1;" title="回首頁">✕</a>
+    </div>
+
+    <div class="stage" style="flex:1;overflow-y:auto;padding:22px 26px 8px;">
+
+      <sc-if value="{{ vIntro }}">
+        <div style="display:flex;flex-direction:column;justify-content:center;min-height:100%;text-align:center;padding:20px 0;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº P-33 · 起頭</div>
+          <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">一件事要做對幾次，<br />你多半沒算過</h1>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">一件事要做對一百次，就有一百次漏掉的機會；要做對一次，就只有一次。<b style="color:#554d40;">這是算術，不是意志力。</b>這張卡幫你找那個「做一次就不用再想」的上游動作——找不到也會誠實告訴你。答案只存在這部裝置。</p>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ vThing }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第一步 · 那件事</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:21px;font-weight:600;line-height:1.6;margin-bottom:14px;">挑一件你反覆失敗、<br />而且每次都覺得是自己不夠自律的事</h2>
+
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:18px 0 7px;">那件事是</label>
+        <input value="{{ thing }}" onInput="{{ onThing }}" maxlength="40" placeholder="例如：每天都想少看手機 / 每個月都想退掉那個訂閱" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:15px;color:#241f18;" />
+
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:22px 0 7px;">你希望它</label>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <button onClick="{{ onDirWant }}" style="border:1px solid {{ dirWantBd }};background:{{ dirWantBg }};color:#241f18;border-radius:4px;padding:14px 16px;font-size:14.5px;text-align:left;cursor:pointer;">發生　<span style="color:#938a78;font-size:12.5px;">我想做到，但常常沒做</span></button>
+          <button onClick="{{ onDirAvoid }}" style="border:1px solid {{ dirAvoidBd }};background:{{ dirAvoidBg }};color:#241f18;border-radius:4px;padding:14px 16px;font-size:14.5px;text-align:left;cursor:pointer;">不要發生　<span style="color:#938a78;font-size:12.5px;">我想忍住，但常常沒忍住</span></button>
+        </div>
+
+        <sc-if value="{{ hasDir }}">
+          <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:22px 0 7px;">你多久要重新做對一次</label>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <button onClick="{{ onFreqHigh }}" style="border:1px solid {{ fHighBd }};background:{{ fHighBg }};color:#241f18;border-radius:4px;padding:12px 15px;font-size:14px;text-align:left;cursor:pointer;">一天好幾次</button>
+            <button onClick="{{ onFreqMid }}" style="border:1px solid {{ fMidBd }};background:{{ fMidBg }};color:#241f18;border-radius:4px;padding:12px 15px;font-size:14px;text-align:left;cursor:pointer;">大概每週一次</button>
+            <button onClick="{{ onFreqLow }}" style="border:1px solid {{ fLowBd }};background:{{ fLowBg }};color:#241f18;border-radius:4px;padding:12px 15px;font-size:14px;text-align:left;cursor:pointer;">一年才一兩次</button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ freqTooLow }}">
+          <div style="border-left:2px solid #b0563c;background:#f7f0ec;border-radius:0 3px 3px 0;padding:13px 16px;margin-top:18px;color:#554d40;font-size:13.5px;line-height:1.85;">一年才一兩次的事，本來就沒有「每次都要重新做對」的問題——<b>這張卡幫不上，換一張比較有用。</b>要讓它在該發生的時候真的發生，去寫一張若則計畫卡。</div>
+          <a href="tool-if-then.html" style="display:flex;align-items:center;justify-content:space-between;border:1px solid #cec6b4;border-radius:4px;padding:15px 17px;margin-top:12px;background:#fff;">
+            <span style="font-size:13.5px;color:#554d40;line-height:1.7;">把它綁到一個具體的觸發情境上</span>
+            <span style="color:#35456a;font-size:13px;white-space:nowrap;margin-left:12px;">若則計畫卡 →</span>
+          </a>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ vSwap }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第二步 · 上游那一步</div>
+
+        <sc-if value="{{ dirIsWant }}">
+          <h2 style="font-family:'Noto Serif TC',serif;font-size:21px;font-weight:600;line-height:1.6;margin-bottom:10px;">有沒有一個動作，<br />做一次就讓你不必再重複？</h2>
+          <p style="color:#938a78;font-size:13px;line-height:1.9;margin-bottom:16px;">要換掉的通常不是那個行為，是它出現的條件。三個常見方向：<b style="color:#554d40;">改掉某個預設值</b>、<b style="color:#554d40;">一次把東西準備好</b>、<b style="color:#554d40;">交給一套會自己跑的系統</b>。</p>
+        </sc-if>
+        <sc-if value="{{ dirIsAvoid }}">
+          <h2 style="font-family:'Noto Serif TC',serif;font-size:21px;font-weight:600;line-height:1.6;margin-bottom:10px;">有沒有一個動作，<br />做一次就讓它不再輕易發生？</h2>
+          <p style="color:#938a78;font-size:13px;line-height:1.9;margin-bottom:16px;">方向相反：讓它<b style="color:#554d40;">需要多做幾個動作</b>才做得成。例如把東西從隨手可得的地方移走、把自動填入關掉、多加一道確認。</p>
+        </sc-if>
+
+        <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:0 0 7px;">做一次的那個動作是</label>
+        <input value="{{ swap }}" onInput="{{ onSwap }}" maxlength="50" placeholder="{{ swapPlaceholder }}" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:15px;color:#241f18;" />
+
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:22px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">想不出來是正常的，也是有用的答案——它告訴你這件事確實只能靠重複，而重複需要的東西跟一次性設定不一樣。</div>
+
+        <button onClick="{{ onNoSwap }}" style="display:block;width:100%;border:1px dashed #cec6b4;background:transparent;color:#35456a;border-radius:4px;padding:13px;font-size:13.5px;cursor:pointer;margin-top:14px;">想不出來，這件事只能靠重複</button>
+      </sc-if>
+
+      <sc-if value="{{ vNoSwap }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">誠實的結果</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:21px;font-weight:600;line-height:1.6;margin-bottom:14px;">這件事只能靠重複</h2>
+        <p style="color:#554d40;font-size:14px;line-height:1.95;margin-bottom:18px;">這張卡到這裡就幫不上了，硬要生出一個「一次性版本」只是自我欺騙。<b>找不到上游動作，不代表你不夠努力</b>——有些行為本來就只能一次一次做對。</p>
+        <p style="color:#554d40;font-size:14px;line-height:1.95;margin-bottom:6px;">接下來要處理的是另一個問題：怎麼讓它比較不容易漏掉。</p>
+        <a href="tool-if-then.html" style="display:flex;align-items:center;justify-content:space-between;border:1px solid #cec6b4;border-radius:4px;padding:16px 18px;margin-top:14px;background:#fff;">
+          <span style="font-size:13.5px;color:#554d40;line-height:1.7;">把行為綁到一個具體的觸發情境上，不靠當下想起來</span>
+          <span style="color:#35456a;font-size:13px;white-space:nowrap;margin-left:12px;">若則計畫卡 →</span>
+        </a>
+        <a href="tool-two.html" style="display:flex;align-items:center;justify-content:space-between;border:1px solid #cec6b4;border-radius:4px;padding:16px 18px;margin-top:10px;background:#fff;">
+          <span style="font-size:13.5px;color:#554d40;line-height:1.7;">如果真正的問題是每天要決定的事太多</span>
+          <span style="color:#35456a;font-size:13px;white-space:nowrap;margin-left:12px;">今天兩格 →</span>
+        </a>
+      </sc-if>
+
+      <sc-if value="{{ vKeeper }}">
+        <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第三步 · 誰在維持</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:21px;font-weight:600;line-height:1.6;margin-bottom:10px;">設完之後，<br />誰在幫你維持它？</h2>
+        <p style="color:#938a78;font-size:13px;line-height:1.9;margin-bottom:18px;">這一題不能跳過。一個「一次性」設定之所以持久，多半不是因為你做了聰明的決定，是因為有某個東西在替你執行它。</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <button onClick="{{ onKeepSystem }}" style="border:1px solid {{ kSysBd }};background:{{ kSysBg }};color:#241f18;border-radius:4px;padding:14px 16px;font-size:14.5px;text-align:left;cursor:pointer;">一套會自己跑的系統　<span style="color:#938a78;font-size:12.5px;">銀行、公司的流程、裝置設定</span></button>
+          <button onClick="{{ onKeepPerson }}" style="border:1px solid {{ kPerBd }};background:{{ kPerBg }};color:#241f18;border-radius:4px;padding:14px 16px;font-size:14.5px;text-align:left;cursor:pointer;">另一個人　<span style="color:#938a78;font-size:12.5px;">家人、同事、服務提供者</span></button>
+          <button onClick="{{ onKeepSelf }}" style="border:1px solid {{ kSelfBd }};background:{{ kSelfBg }};color:#241f18;border-radius:4px;padding:14px 16px;font-size:14.5px;text-align:left;cursor:pointer;">只有我自己記得</button>
+        </div>
+        <sc-if value="{{ keeperIsSelf }}">
+          <div style="border-left:2px solid #b0563c;background:#f7f0ec;border-radius:0 3px 3px 0;padding:13px 16px;margin-top:18px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>那這一條還沒完成。</b>只靠自己記得的設定不是一次性的，只是把要警醒的時刻往後推了。回上一步想想，有沒有辦法把它交給某個會自己跑的東西——想不到也可以照樣存起來，卡片上會標明這一點。</div>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{ vEnd }}">
+        <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:4px 0 16px;">存好了</div>
+        <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:26px 22px;background:#f3efe7;box-shadow:inset 0 0 0 5px #fbf9f4,inset 0 0 0 6px #cec6b4;">
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">原本每次都要重新做對的</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:17px;font-weight:600;line-height:1.7;">{{ endThing }}</div>
+          <div style="height:1px;background:#e3ddd0;margin:16px 0;"></div>
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">做一次就好的那個動作</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:17px;font-weight:600;line-height:1.7;color:#35456a;">{{ endSwap }}</div>
+          <div style="height:1px;background:#e3ddd0;margin:16px 0;"></div>
+          <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">維持它的是</div>
+          <div style="font-size:14.5px;line-height:1.7;color:{{ endKeeperColor }};">{{ endKeeperLabel }}</div>
+          <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:18px;">Once · Nº P-33 · MMXXVI</div>
+        </div>
+
+        <sc-if value="{{ endKeeperIsSelf }}">
+          <div style="border-left:2px solid #b0563c;background:#f7f0ec;border-radius:0 3px 3px 0;padding:13px 16px;margin-top:14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>這一張還沒完成。</b>只靠自己記得的設定，效果會在你忙起來或換環境的時候消失。有機會再回來，把它交給某個會自己跑的東西。</div>
+        </sc-if>
+
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:18px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">過一陣子回來，不要問「這個動作有沒有改變」——要問<b>「我真正在意的那個數字有沒有改變」</b>。人很會在你沒設防的地方把差額補回來。</div>
+
+        <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>
+          <div style="display:flex;gap:8px;">
+            <button onClick="{{ onRateYes }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">有用</button>
+            <button onClick="{{ onRateMid }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">還好</button>
+            <button onClick="{{ onRateNo }}" style="flex:1;border:1px solid #cec6b4;background:#fff;color:#35456a;border-radius:2px;padding:11px 0;font-size:14px;cursor:pointer;">沒用</button>
+          </div>
+          <div style="min-height:16px;text-align:center;color:#35456a;font-size:11px;margin:8px 0 16px;">{{ subStatus }}</div>
+          <p style="font-size:12px;color:#b9b09a;margin-bottom:8px;line-height:1.7;">想多說一句，或留 Email 收新工具上線通知？以下都可留空。</p>
+          <form onSubmit="{{ onSubmitFeedback }}">
+            <textarea value="{{ feedbackText }}" onInput="{{ onFeedbackText }}" maxlength="500" placeholder="你希望下一個工具處理什麼？" style="width:100%;min-height:64px;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;line-height:1.7;resize:vertical;outline:none;margin-bottom:8px;"></textarea>
+            <div style="display:flex;gap:8px;">
+              <input value="{{ email }}" onInput="{{ onEmail }}" type="email" placeholder="你的 Email（可留空）" style="flex:1;border:1px solid #cec6b4;background:#fff;border-radius:2px;padding:12px 14px;font-size:14px;color:#241f18;outline:none;" />
+              <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
+            </div>
+          </form>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《Scarcity 稀缺》談日常對策那一章的一個分法：有些事做對一次就固定，有些事每次都要重新做對。「誰在維持它」這一題不是書裡的，是我從幾份追蹤研究的共同點歸納的——自動加入退休金的效果在三十六個月就衰減大半（Choukhmane, American Economic Review, 2025），而衰減的路徑幾乎都發生在人離開那個制度之後。這裡不引用書中原文，也不沿用書中案例；書中一個常被引用的機制說法（把它歸因於心智容量被佔用）目前證據不足，所以這張卡的理由寫成次數，不寫成心理容量。</p>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <div style="flex:none;padding:12px 26px 22px;background:linear-gradient(transparent,#fbf9f4 30%);">
+      <sc-if value="{{ showPrimary }}">
+        <button onClick="{{ onPrimary }}" disabled="{{ primaryDisabled }}" style="display:block;width:100%;border:none;background:{{ primaryBg }};color:#fbf9f4;border-radius:2px;padding:15px;font-size:15px;font-weight:600;letter-spacing:1px;cursor:pointer;opacity:{{ primaryOp }};">{{ primaryLabel }}</button>
+      </sc-if>
+      <sc-if value="{{ showSecondary }}">
+        <button onClick="{{ onSecondary }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">{{ secondaryLabel }}</button>
+      </sc-if>
+      <sc-if value="{{ showRecordsBtn }}">
+        <button onClick="{{ onOpenRecords }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:12px;font-size:13px;letter-spacing:1px;cursor:pointer;margin-top:8px;">我換過的（{{ cardCount }}）</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ toastOn }}">
+      <div style="position:absolute;bottom:96px;left:50%;transform:translateX(-50%);background:#241f18;color:#fbf9f4;padding:10px 18px;border-radius:3px;font-size:12px;letter-spacing:.5px;white-space:nowrap;">{{ toastMsg }}</div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ recordsOpen }}">
+    <div onClick="{{ onCloseRecords }}" style="position:fixed;inset:0;z-index:30;background:rgba(36,31,24,.4);display:flex;justify-content:center;">
+      <div onClick="{{ stop }}" style="width:min(440px,100%);height:100%;background:#f3efe7;padding:22px 24px 34px;overflow-y:auto;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">我換過的</div>
+          <span onClick="{{ onCloseRecords }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
+        </div>
+        <p style="font-size:12px;color:#938a78;margin-bottom:18px;">紀錄只保存在這部裝置的目前瀏覽器。點一個就切到它。</p>
+        <sc-if value="{{ hasCards }}">
+          <sc-for list="{{ cardRows }}" as="c" hint-placeholder-count="0">
+            <div onClick="{{ c.onPick }}" style="background:{{ c.bg }};border:1px solid {{ c.bd }};border-radius:4px;padding:16px 18px;margin-bottom:12px;cursor:pointer;">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+                <span style="font-family:'Noto Serif TC',serif;font-size:15px;font-weight:600;white-space:pre-wrap;line-height:1.6;">{{ c.swap }}</span>
+                <span onClick="{{ c.onDel }}" style="color:#b9b09a;font-size:12px;cursor:pointer;white-space:nowrap;margin-left:10px;">刪除</span>
+              </div>
+              <div style="color:#938a78;font-size:12px;line-height:1.7;">原本：{{ c.thing }}<br />維持它的是{{ c.keeperLabel }}</div>
+            </div>
+          </sc-for>
+        </sc-if>
+        <button onClick="{{ onNewCard }}" style="display:block;width:100%;border:1px dashed #cec6b4;background:transparent;color:#35456a;border-radius:4px;padding:14px;font-size:14px;cursor:pointer;margin-top:4px;">＋ 換一件新的</button>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = {
+    view: "intro", cards: [], activeId: null,
+    thing: "", dir: null, freq: null, swap: "", keeper: null,
+    toastOn: false, toastMsg: "",
+    feedbackText: "", email: "", subLabel: "傳給創作者", subStatus: "",
+    recordsOpen: false, started: false,
+  };
+  HKEY = "toolbook_once_history_v1";
+  TOOLNAME = "換成一次性";
+
+  componentDidMount() {
+    try {
+      const raw = localStorage.getItem(this.HKEY);
+      if (raw) { const a = JSON.parse(raw); if (Array.isArray(a) && a.length) { const cards = a.slice(0, 30); this.setState({ cards, activeId: cards[0].id, view: "end" }); return; } }
+    } catch (_) {}
+  }
+  save(cards) { try { localStorage.setItem(this.HKEY, JSON.stringify(cards.slice(0, 30))); } catch (_) {} }
+
+  active() { return this.state.cards.find(c => c.id === this.state.activeId) || null; }
+  set(k, v) { this.setState({ [k]: v }); }
+  scrollTop() { const st = document.querySelector(".stage"); if (st) st.scrollTop = 0; }
+  markStart() { if (!this.state.started) { this.setState({ started: true }); if (typeof gtag === "function") gtag("event", "tool_start", { tool_name: this.TOOLNAME }); } }
+
+  goThing() { this.setState({ view: "thing", thing: "", dir: null, freq: null, swap: "", keeper: null }); this.scrollTop(); }
+
+  saveCard() {
+    const thing = (this.state.thing || "").trim();
+    const swap = (this.state.swap || "").trim();
+    if (!thing || !swap || !this.state.keeper) return;
+    this.markStart();
+    const c = { id: "on_" + Date.now().toString(36), thing, dir: this.state.dir, freq: this.state.freq, swap, keeper: this.state.keeper, createdAt: new Date().toISOString() };
+    const cards = [c, ...this.state.cards].slice(0, 30);
+    this.save(cards);
+    this.setState({ cards, activeId: c.id, view: "end", recordsOpen: false });
+    if (typeof gtag === "function") gtag("event", "tool_complete", { tool_name: this.TOOLNAME });
+    this.toast("存好了");
+    this.scrollTop();
+  }
+  pickCard(id) { this.setState({ activeId: id, recordsOpen: false, view: "end" }); this.scrollTop(); }
+  deleteCard(id) {
+    if (!window.confirm("刪掉這一張？")) return;
+    const cards = this.state.cards.filter(c => c.id !== id);
+    this.save(cards);
+    if (id === this.state.activeId) {
+      if (cards.length) this.setState({ cards, activeId: cards[0].id, view: "end" });
+      else this.setState({ cards, activeId: null, view: "intro", recordsOpen: false });
+    } else this.setState({ cards });
+  }
+
+  toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
+  rate(v) { if (typeof gtag === "function") gtag("event", "tool_feedback", { tool_name: this.TOOLNAME, helped: v }); this.setState({ subStatus: "已收到你的回饋，謝謝 ✓" }); }
+  onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", this.TOOLNAME); fd.append("_subject", "Toolbook 工具回饋 · " + this.TOOLNAME); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
+
+  keeperLabelOf(k) { return k === "system" ? "一套會自己跑的系統" : k === "person" ? "另一個人" : "只有我自己記得"; }
+
+  renderVals() {
+    const s = this.state, v = s.view;
+    const c = this.active();
+    const heads = { intro: this.TOOLNAME, thing: this.TOOLNAME, swap: "上游那一步", noswap: "只能靠重複", keeper: "誰在維持", end: "" };
+
+    const sel = (on) => on ? "#35456a" : "#cec6b4";
+    const selBg = (on) => on ? "#f3efe7" : "#fff";
+
+    const hasThing = !!(s.thing || "").trim();
+    const hasDir = !!s.dir;
+    const freqTooLow = s.freq === "low";
+    const hasSwap = !!(s.swap || "").trim();
+
+    let endThing = "", endSwap = "", endKeeperLabel = "", endKeeperIsSelf = false;
+    if (v === "end" && c) {
+      endThing = c.thing; endSwap = c.swap;
+      endKeeperLabel = this.keeperLabelOf(c.keeper);
+      endKeeperIsSelf = c.keeper === "self";
+    }
+
+    let showPrimary = false, primaryLabel = "", onPrimary = () => {}, primaryDisabled = "", primaryBg = "#35456a", primaryOp = "1";
+    let showSecondary = false, secondaryLabel = "", onSecondary = () => {};
+    if (v === "intro") {
+      showPrimary = true; primaryLabel = s.cards.length ? "回到我換過的" : "開始";
+      onPrimary = () => { if (s.cards.length) this.pickCard(s.cards[0].id); else this.goThing(); };
+    } else if (v === "thing") {
+      const ok = hasThing && hasDir && s.freq && !freqTooLow;
+      showPrimary = true; primaryLabel = "下一步";
+      onPrimary = () => { this.markStart(); this.setState({ view: "swap" }); this.scrollTop(); };
+      primaryDisabled = ok ? "" : "disabled"; primaryOp = ok ? "1" : ".5"; primaryBg = ok ? "#35456a" : "#b7bdcb";
+    } else if (v === "swap") {
+      showPrimary = true; primaryLabel = "下一步";
+      onPrimary = () => { this.setState({ view: "keeper" }); this.scrollTop(); };
+      primaryDisabled = hasSwap ? "" : "disabled"; primaryOp = hasSwap ? "1" : ".5"; primaryBg = hasSwap ? "#35456a" : "#b7bdcb";
+    } else if (v === "keeper") {
+      showPrimary = true; primaryLabel = "存起來";
+      onPrimary = () => this.saveCard();
+      primaryDisabled = s.keeper ? "" : "disabled"; primaryOp = s.keeper ? "1" : ".5"; primaryBg = s.keeper ? "#35456a" : "#b7bdcb";
+    } else if (v === "noswap") {
+      showSecondary = true; secondaryLabel = "回上一步再想想"; onSecondary = () => { this.setState({ view: "swap" }); this.scrollTop(); };
+    } else if (v === "end") {
+      showSecondary = true; secondaryLabel = "換一件新的"; onSecondary = () => this.goThing();
+    }
+
+    const cardRows = s.cards.map(x => ({
+      thing: x.thing, swap: x.swap, keeperLabel: this.keeperLabelOf(x.keeper),
+      bg: x.id === s.activeId ? "#fbf9f4" : "#fff", bd: x.id === s.activeId ? "#35456a" : "#e3ddd0",
+      onPick: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.pickCard(x.id); },
+      onDel: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.deleteCard(x.id); },
+    }));
+
+    return {
+      onBack: () => {
+        if (v === "thing") { if (s.cards.length) this.pickCard(s.activeId || s.cards[0].id); else this.setState({ view: "intro" }); }
+        else if (v === "swap") this.setState({ view: "thing" });
+        else if (v === "noswap") this.setState({ view: "swap" });
+        else if (v === "keeper") this.setState({ view: "swap" });
+        else this.setState({ view: "intro" });
+        this.scrollTop();
+      },
+      backColor: (v === "intro" || v === "end") ? "transparent" : "#938a78",
+      headTitle: heads[v] || "",
+      vIntro: v === "intro", vThing: v === "thing", vSwap: v === "swap", vNoSwap: v === "noswap", vKeeper: v === "keeper", vEnd: v === "end",
+
+      thing: s.thing, onThing: e => this.set("thing", e.target.value),
+      onDirWant: () => this.set("dir", "want"), onDirAvoid: () => this.set("dir", "avoid"),
+      dirWantBd: sel(s.dir === "want"), dirWantBg: selBg(s.dir === "want"),
+      dirAvoidBd: sel(s.dir === "avoid"), dirAvoidBg: selBg(s.dir === "avoid"),
+      hasDir,
+      onFreqHigh: () => this.set("freq", "high"), onFreqMid: () => this.set("freq", "mid"), onFreqLow: () => this.set("freq", "low"),
+      fHighBd: sel(s.freq === "high"), fHighBg: selBg(s.freq === "high"),
+      fMidBd: sel(s.freq === "mid"), fMidBg: selBg(s.freq === "mid"),
+      fLowBd: sel(s.freq === "low"), fLowBg: selBg(s.freq === "low"),
+      freqTooLow,
+
+      dirIsWant: s.dir === "want", dirIsAvoid: s.dir === "avoid",
+      swap: s.swap, onSwap: e => this.set("swap", e.target.value),
+      swapPlaceholder: s.dir === "avoid" ? "例如：把付款資料從瀏覽器的自動填入刪掉" : "例如：把日曆的預設會議長度改成 25 分鐘",
+      onNoSwap: () => { this.setState({ view: "noswap" }); this.scrollTop(); },
+
+      onKeepSystem: () => this.set("keeper", "system"), onKeepPerson: () => this.set("keeper", "person"), onKeepSelf: () => this.set("keeper", "self"),
+      kSysBd: sel(s.keeper === "system"), kSysBg: selBg(s.keeper === "system"),
+      kPerBd: sel(s.keeper === "person"), kPerBg: selBg(s.keeper === "person"),
+      kSelfBd: sel(s.keeper === "self"), kSelfBg: selBg(s.keeper === "self"),
+      keeperIsSelf: s.keeper === "self",
+
+      endThing, endSwap, endKeeperLabel, endKeeperIsSelf,
+      endKeeperColor: endKeeperIsSelf ? "#b0563c" : "#554d40",
+
+      showPrimary, primaryLabel, onPrimary, primaryDisabled, primaryBg, primaryOp,
+      showSecondary, secondaryLabel, onSecondary,
+      showRecordsBtn: (v === "intro" || v === "end") && s.cards.length > 0,
+      cardCount: s.cards.length, onOpenRecords: () => this.set("recordsOpen", true),
+
+      feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
+      onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e),
+      onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
+
+      toastOn: s.toastOn, toastMsg: s.toastMsg,
+      recordsOpen: s.recordsOpen, onCloseRecords: () => this.set("recordsOpen", false), stop: e => e.stopPropagation(),
+      hasCards: s.cards.length > 0, cardRows, onNewCard: () => this.goThing(),
+    };
+  }
+}
+</script>
+</body>
+</html>

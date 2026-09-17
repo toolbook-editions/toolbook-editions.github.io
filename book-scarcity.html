@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>/* 測試流量開關：?qa=1 起、?qa=0 還原 */(function(){try{var s=location.search,k="toolbook_qa";if(/[?&]qa=1(&|$)/.test(s))localStorage.setItem(k,"1");if(/[?&]qa=0(&|$)/.test(s))localStorage.removeItem(k);if(localStorage.getItem(k)==="1")window["ga-disable-G-CKM6MRRVBM"]=true;}catch(e){}})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKM6MRRVBM"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CKM6MRRVBM');</script>
+<title>《Scarcity 稀缺》工具地圖 · Toolbook</title>
+<meta name="description" content="這本書最有名的那個說法，是它證據最薄的一塊；而它最少被引用的那一塊，複製得最漂亮。七條命題逐一判過，附兩支工具與兩篇考據。">
+<link rel="stylesheet" href="fonts.css?v=2">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:#f3efe7;color:#241f18;font-family:"Noto Serif TC",-apple-system,"PingFang TC",serif;line-height:1.9;-webkit-font-smoothing:antialiased;}
+  a{color:#35456a;text-decoration:none;transition:.18s;}
+  a:hover{color:#26324f;}
+  ::selection{background:rgba(53,69,106,.15);}
+  @media(max-width:600px){
+    nav{flex-direction:column !important;align-items:flex-start !important;gap:11px !important;padding:16px 0 14px !important;}
+    nav > a{letter-spacing:clamp(2px,1.4vw,4px) !important;font-size:clamp(17px,5vw,19px) !important;}
+    nav > a .ed{font-size:10px !important;letter-spacing:2px !important;margin-left:8px !important;display:inline !important;}
+    nav > div{gap:20px !important;}
+    nav > div a{font-size:12px !important;letter-spacing:1px !important;}
+  }
+</style>
+<!-- toolbook-icons -->
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-f.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-a.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f3efe7">
+</head>
+<body>
+<div style="position:relative;min-height:100vh;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E&quot;);">
+  <div style="max-width:760px;margin:0 auto;padding:0 26px;">
+
+    <nav style="display:flex;justify-content:space-between;align-items:center;padding:18px 0;position:sticky;top:0;z-index:5;background:#f3efe7;border-bottom:1px solid #e3ddd0;">
+      <a href="index.html" style="font-family:'Noto Serif TC',serif;font-size:clamp(15px,4.2vw,17px);letter-spacing:clamp(1px,1.2vw,4px);font-weight:600;color:#241f18;white-space:nowrap;">TOOLBOOK<span style="color:#35456a;">.</span><span class="ed" style="font-size:10px;letter-spacing:clamp(1px,0.8vw,3px);color:#35456a;text-transform:uppercase;font-weight:400;margin-left:clamp(4px,1.5vw,7px);">Editions</span></a>
+      <div style="display:flex;gap:clamp(14px,4.5vw,22px);flex-shrink:0;">
+        <a href="index.html#appendix" style="color:#938a78;font-size:13px;letter-spacing:1px;">附錄</a>
+        <a href="index.html#tools" style="color:#938a78;font-size:13px;letter-spacing:1px;">工具</a>
+      </div>
+    </nav>
+
+    <header style="padding:44px 0 30px;border-bottom:1px solid #e3ddd0;margin-bottom:36px;">
+      <div style="color:#35456a;font-size:12px;letter-spacing:4px;text-transform:uppercase;margin-bottom:18px;">工具地圖 · 個人卷</div>
+      <h1 style="font-family:'Noto Serif TC',serif;font-size:clamp(27px,4.6vw,34px);line-height:1.35;font-weight:600;margin-bottom:16px;text-wrap:balance;">《Scarcity 稀缺》<br>讀完之後，接下來做什麼</h1>
+      <div style="font-family:'EB Garamond','Noto Serif TC',serif;font-size:19px;color:#554d40;line-height:1.7;margin-bottom:20px;">這本書最有名的那個說法，是它證據最薄的一塊；而它最少被引用的那一塊，在高標準的重做實驗下複製得最漂亮。</div>
+      <p style="font-size:17px;color:#332f28;margin-bottom:18px;line-height:1.95;">大多數人記得這本書是因為一個比喻：缺錢缺時間會佔用你的心智容量，所以人在匱乏中會變笨。查下來，<b>缺與表現的關聯是真的，但「容量被佔用」這個解釋沒有站穩</b>——一份整合了二十九個資料集、超過十一萬人的分析發現，控制教育程度後效果縮掉約六成，而且吃記憶力的任務並沒有受創更重；那正是這個解釋預測不該發生的。</p>
+      <p style="font-size:17px;color:#332f28;margin-bottom:0;line-height:1.95;">真正撐得住的是另外一塊：<b>資源少本身就足以讓人過度借用</b>，跟性格、知識、放貸商都沒關係。這一塊在原作者自己做的高標準重做實驗裡複製得很乾淨，而它在書外幾乎沒有被引用。這一頁把七條主張逐一判過的結果列出來，並說明哪兩條做成了工具。</p>
+    </header>
+
+    <div style="background:#fbf9f4;border:1px solid #e3ddd0;border-radius:4px;padding:22px 24px;margin:0 0 40px;">
+      <h3 style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:14px;color:#241f18;">四種判定</h3>
+      <div style="font-size:15px;color:#5a5344;line-height:1.85;padding:5px 0;"><b style="font-family:'Noto Serif TC',serif;margin-right:8px;color:#6f7f5c;">● 站得住</b>有書以外的研究撐著，可以照用。</div>
+      <div style="font-size:15px;color:#5a5344;line-height:1.85;padding:5px 0;"><b style="font-family:'Noto Serif TC',serif;margin-right:8px;color:#9c6b52;">◐ 核心可用，包裝要拆</b>結論留得下來，但它給的理由、量級或處方要改。</div>
+      <div style="font-size:15px;color:#5a5344;line-height:1.85;padding:5px 0;"><b style="font-family:'Noto Serif TC',serif;margin-right:8px;color:#8c4636;">× 站不住</b>目前撐不起來。⚠️ 這本書的兩條「站不住」都是<b>沒有人直接測過</b>，不是測過了不成立——差別很大，下面會講。</div>
+      <div style="font-size:15px;color:#5a5344;line-height:1.85;padding:5px 0;"><b style="font-family:'Noto Serif TC',serif;margin-right:8px;color:#9a927e;">◌ 換了載體</b>做法本身沒過期，但它當年預設的那個世界已經不同了。</div>
+    </div>
+
+    <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.4;margin:0 0 8px;">這本書天生是什麼形狀</h2>
+    <div style="font-size:15px;color:#6b6353;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid #e3ddd0;line-height:1.85;">它看起來像兩條並排的主線，讀起來也是這樣安排的。但查完之後會發現兩條的地基差很多——而書把它們寫得一樣硬。</div>
+
+    <div style="border-left:2px solid #cec6b4;padding-left:26px;margin-bottom:36px;">
+      <div style="margin-bottom:22px;">
+        <div style="font-size:12px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-bottom:4px;">主線一 · 地基比較硬</div>
+        <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:600;margin-bottom:6px;">缺會把注意力吸過去，於是你只看得見眼前</h3>
+        <p style="font-size:15px;color:#4d463b;line-height:1.85;">被吸過去有好處——那件事你會做得更快更準；也有代價——視野之外的東西被排掉了。從這裡推出「借用」：把未來的資源挪到現在用，於是未來更缺。<b>這條線的行為層觀察撐得住</b>，而且借用那一段是全書複製得最好的部分。</p>
+      </div>
+      <div style="margin-bottom:22px;">
+        <div style="font-size:12px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-bottom:4px;">主線二 · 地基比較鬆</div>
+        <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:600;margin-bottom:6px;">缺會佔掉你的心智容量，於是你想得比較差</h3>
+        <p style="font-size:15px;color:#4d463b;line-height:1.85;">這是流傳最廣的一條，後面幾章的解釋幾乎都預設它成立。<b>但它的機制部分目前撐不起來</b>：整合分析裡任務型態不影響效果（該受創更重的沒有更重），而一份預先登記、四千多人的大型實驗測到一個尷尬的結果——線索確實讓受試者在作業中更常想到缺錢的事，但表現完全沒有下降。<b>念頭被佔用了，表現沒掉。</b></p>
+      </div>
+      <div>
+        <div style="font-size:12px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-bottom:4px;">收口 · 也是最好用的一句</div>
+        <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:600;margin-bottom:6px;">閉環的入口不在你最缺的時候</h3>
+        <p style="font-size:15px;color:#4d463b;line-height:1.85;">書把兩條線收成一個循環：缺 → 只看得見眼前 → 借 → 更缺。而它真正值錢的一句是循環的入口位置——<b>讓你下個月更缺的那個決定，多半是你這個月還不缺的時候做的</b>。兩支工具都是從這一句長出來的。</p>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.4;margin:0 0 8px;">查證結果：七條逐一判過</h2>
+    <div style="font-size:15px;color:#6b6353;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid #e3ddd0;line-height:1.85;">每條先派兩個人各自上網查，一個找支持、一個找反證，互相不知道對方在寫什麼；另有一個人單獨查「這條在今天還做得到嗎」。最關鍵的六篇論文我自己下載全文核對。查完再回原書對一次——因為查證階段最容易批到作者沒說過的話，這一輪就有一條是我批錯了。</div>
+
+    <div style="border:1px solid #e3ddd0;background:#fbf9f4;border-radius:4px;padding:22px 24px;margin-bottom:16px;">
+      <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:600;margin-bottom:8px;"><i style="font-style:normal;color:#6f7f5c;margin-right:8px;">●</i>資源少本身就會讓人過度借用</h3>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:10px;">這是全書最硬的一塊，而且硬得有點出乎意料。原作者自己在二○一九年做了一次預先登記、每個實驗約一千人的重做，把當年的實驗整批再跑一次——<b>過度借用那幾組全部複製成功，而且兩組差距很大</b>。受試者沒有貧窮背景、沒有放貸商、沒有財務知識落差，只有預算多寡是隨機分派的。</p>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:0;">要拆掉的只有句式。書寫成「不是短視性格、不是財務知識不足、不是掠奪性放貸」，而這三個否定句逐條站不住——這三者各自都有獨立的因果證據。<b>正確的說法是「不必靠這些來解釋」，不是「這些都不是原因」。</b>「足以」不等於「唯一」。</p>
+    </div>
+
+    <div style="border:1px solid #e3ddd0;background:#fbf9f4;border-radius:4px;padding:22px 24px;margin-bottom:16px;">
+      <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:600;margin-bottom:8px;"><i style="font-style:normal;color:#8c4636;margin-right:8px;">×</i>專注與忽略是同一個開關的兩面</h3>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:10px;">書主張專注的好處與忽略的代價出自同一個機制，這是第一章的核心。<b>而打斷這條線的是原作者自己那次重做。</b>原論文十三個分析裡有九個複製成功，沒複製成功的兩個之一，正好是唯一一條把「更專注」與「更忽略未來」連起來的關聯——原始值是 0.34，重做之後變成 −0.007。</p>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:0;">作者在同一篇裡誠實寫下這個假設的證據變弱了，需要更多檢驗才能定案。<b>所以這一條該當成假說讀，不是當成已查明的機制。</b>前半段（缺會把注意力吸過去、專注確實帶來好處）複製得很漂亮，要降級的只有「兩者同源」那一句。</p>
+    </div>
+
+    <div style="border:1px solid #e3ddd0;background:#fbf9f4;border-radius:4px;padding:22px 24px;margin-bottom:16px;">
+      <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:600;margin-bottom:8px;"><i style="font-style:normal;color:#8c4636;margin-right:8px;">×</i>機制是心智容量被缺的念頭佔住</h3>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:10px;">見上面「主線二」。要補一句很重要的限定：<b>這一條是「沒有人直接測過」，不是「測過了不成立」。</b>兩輪各自獨立的查證都回報，找不到任何研究直接量出「缺的念頭佔掉了多少工作記憶」並證明它是中間那一環。現有的全是相容的旁證。</p>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:0;">這個差別會改變你該怎麼用它：<b>可以把它當成一個還沒被驗收的說法，不要當成已經確定的機制去向別人解釋。</b>另外，書中那個「相當於十幾個智商點」的量級跟後來整合分析算出來的殘差差了一個等級，那個數字不要再轉述。</p>
+    </div>
+
+    <div style="border:1px solid #e3ddd0;background:#fbf9f4;border-radius:4px;padding:22px 24px;margin-bottom:16px;">
+      <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:600;margin-bottom:8px;"><i style="font-style:normal;color:#6f7f5c;margin-right:8px;">●</i>一次把債清掉，人會回到原處</h3>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:10px;">書寫作時作者自承這一條沒有直接證據。<b>那句自承現在過期了</b>——二○一九年有一個隨機實驗直接做了這件事，替攤販代償高利貸，多數人六週內就回到負債，一到兩年後借貸行為與沒被代償的那一組幾乎相同，附加的財務訓練也擋不住。</p>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:0;">但兩處要改。一是範圍：一次性大額資產移轉的十年追蹤顯示效果不但沒消失還在前七年持續放大——<b>會回到原處的是低於某個門檻、又沒有補上保險缺口的小額清債</b>。二是原因：書把它歸給心智容量，而<b>那篇論文全文提到「心智容量」的次數是零</b>，它自己指的是缺乏保險機制。</p>
+    </div>
+
+    <div style="border:1px solid #e3ddd0;background:#fbf9f4;border-radius:4px;padding:22px 24px;margin-bottom:16px;">
+      <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:600;margin-bottom:8px;"><i style="font-style:normal;color:#9c6b52;margin-right:8px;">◐</i>把要做的事換成做一次就好</h3>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:10px;">留得下來，而且不依賴上面那條有問題的機制——它只需要一件誰都同意的事：人會漏掉事情。一件事要做對一百次，就有一百次漏掉的機會。<b>書自己在這裡也很謹慎，寫的是「很可能」持久，不是斷言。</b></p>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:0;">後來的研究說明了為什麼要留那兩個字：退休金自動加入這類做法，十二個月的效果可以複製，到三十六個月就衰減掉大半，因為沒被自動加入的人後來自己補了上來。<b>更值得記的是衰減發生在哪裡——幾乎都在人離開那個制度之後。</b>所以持久的不是那個動作，是替你執行它的東西。這一句不是書裡的，是幾份追蹤研究的共同點，它直接變成了下面那支工具的必答題。</p>
+    </div>
+
+    <div style="border:1px solid #e3ddd0;background:#fbf9f4;border-radius:4px;padding:22px 24px;margin-bottom:16px;">
+      <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:600;margin-bottom:8px;"><i style="font-style:normal;color:#9c6b52;margin-right:8px;">◐</i>把決定挪到手頭寬鬆的時候做</h3>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:10px;">方向對：同一個補助，在收成剛結束時給有效，在幾個月後的耕作期給就沒有效果——<b>時點本身就是有效成分</b>。但這一條有三處要改，其中一處是書的數字錯了。</p>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:0;">書寫使用率從百分之二十九升到四十五。<b>回原論文核對，跟四十五相比的那一組是三十四，而二十九是方案開始前的基線</b>——真正的效果是十一個百分點，書把兩個不同的數字配成了一組。同一篇論文還逐字寫了效果不延續到下一季，書沒有提。第三處是機制：論文的模型講的是缺乏承諾工具，不是心智容量。<b>能照用的是「綁外部可觀察的時點」，不是「挑自己狀態好的時候」——後者沒有證據。</b></p>
+    </div>
+
+    <div style="border:1px solid #e3ddd0;background:#fbf9f4;border-radius:4px;padding:22px 24px;margin-bottom:40px;">
+      <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:600;margin-bottom:8px;"><i style="font-style:normal;color:#9c6b52;margin-right:8px;">◐</i>刻意留下用不到的餘裕</h3>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:10px;">「排得最滿的計畫不是好計畫」站得住，但這不是這本書的發現——<b>排隊論比它早十四年就給出了數字</b>，而且給得出這本書給不出的界線。書自己承認留白不能太多也不能太少，卻沒有給任何判準。</p>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:10px;">更有意思的是形狀。有一份研究直接比較了「把餘裕集中成一個專用單位」與「平均散在每一個單位裡」，<b>分散那一種大勝</b>：急事等候從七十四分鐘降到八分鐘，加班少了兩成，整體使用率反而上升。那間醫院看完把專用單位收掉了。</p>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:0;">⚠️ <b>而這本書給個人的建議恰好是分散那一種</b>——它要你在一週裡挑幾個固定的小時段空著，而不是空出一整天。書沒有討論這兩種形狀的差別，但它交給讀者的那個版本，正好是被證據支持的那一個。另外那些數字全部來自醫院排程，沒有人拿個人行事曆做過同樣的研究，所以下面那支工具刻意不給你任何比例。</p>
+    </div>
+
+    <div style="border:1px solid #cec6b4;border-radius:4px;padding:32px;text-align:center;margin:44px 0 14px;background:#fbf9f4;box-shadow:inset 0 0 0 4px #f3efe7,inset 0 0 0 5px #cec6b4;">
+      <div style="font-family:'Noto Serif TC',serif;font-size:20px;color:#35456a;margin-bottom:8px;">❦</div>
+      <div style="font-family:'Noto Serif TC',serif;font-size:19px;font-weight:600;margin-bottom:8px;">兩篇文章</div>
+      <p style="font-size:15px;color:#554d40;margin-bottom:20px;line-height:1.85;font-family:'EB Garamond','Noto Serif TC',serif;">一篇講怎麼把「每次都要忍住」的事換掉，以及為什麼那個換法有期限；一篇講留白該留多少、留在哪裡，以及為什麼醫院的數字不能直接搬到你的行事曆上。</p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <a href="article-once-is-enough.html" style="display:inline-block;background:#35456a;color:#fbf9f4;padding:14px 26px;border-radius:2px;font-size:14px;letter-spacing:2px;">只需要做對一次 →</a>
+        <a href="article-eighty-five.html" style="display:inline-block;background:transparent;color:#35456a;border:1px solid #35456a;padding:14px 26px;border-radius:2px;font-size:14px;letter-spacing:2px;">排到八成就滿了 →</a>
+      </div>
+    </div>
+
+    <div style="border:1px solid #cec6b4;background:#fbf9f4;border-radius:4px;padding:22px 24px;margin:40px 0;">
+      <h3 style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:10px;color:#241f18;">工具一：換成一次性（Nº 33）</h3>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:12px;">挑一件你反覆失敗、每次都歸咎自己不夠自律的事，問三句：我到底要做對幾次？有沒有一個上游動作，做一次就讓它不再出現？設完之後誰在幫我維持它？</p>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:12px;">第三句是查文獻才浮出來的，也是整支工具最要緊的一格：<b>如果答案是「只有我自己記得」，那它根本不是一次性的</b>，只是把要警醒的時刻往後推了。工具會當場標明這一張還沒完成，不給你打勾。</p>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:0;">另外兩條規格同樣來自查證：<b>想不出上游動作也是有用的答案</b>，工具會誠實說這張卡幫不上，然後把你交給另一張；完成之後的回顧問題是「我真正在意的那個數字有沒有變」，不是「這個動作有沒有變」——因為人很會在沒設防的地方把差額補回來。</p>
+      <div style="margin-top:18px;"><a href="tool-once.html" style="display:inline-block;background:#35456a;color:#fbf9f4;padding:13px 24px;border-radius:2px;font-size:14px;letter-spacing:2px;">打開換成一次性 →</a></div>
+    </div>
+
+    <div style="border:1px solid #cec6b4;background:#fbf9f4;border-radius:4px;padding:22px 24px;margin:40px 0;">
+      <h3 style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:10px;color:#241f18;">工具二：緩衝配置卡（Nº 34）</h3>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:12px;">挑一段最近被打亂過的時間，先分一刀：那段時間會不會有人臨時來找你？<b>會，才往下走。</b>沒有人插進來卻還是做不完，那是估算問題不是緩衝問題，留再多空白也補不上——工具會在這裡把你擋下來，換一張卡給你。</p>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:12px;">往下兩步都是規格從查證直接長出來的：在那一段的<b>裡面</b>留一塊（不是另外空出一整天），然後寫下你日後會用來把它填掉的那個理由——留白多半不是被別人搶走的，是自己覺得空著浪費而填掉的。</p>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:0;">⚠️ 這支工具刻意<b>不給你任何比例數字</b>。那些數字量的是病床與手術室，沒有人拿個人行事曆做過同樣的研究，把它搬過來就是把一個特定場域的結果當成通則——那正是這類書最常被詬病的動作。工具也不承諾你會做更多事，只承諾那一段被插進來時不會把後面整天推倒。</p>
+      <div style="margin-top:18px;"><a href="tool-buffer.html" style="display:inline-block;background:#35456a;color:#fbf9f4;padding:13px 24px;border-radius:2px;font-size:14px;letter-spacing:2px;">打開緩衝配置卡 →</a></div>
+    </div>
+
+    <div style="border:1px solid #cec6b4;background:#fbf9f4;border-radius:4px;padding:22px 24px;margin:40px 0;">
+      <h3 style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:10px;color:#241f18;">沒有做成新工具的那幾條</h3>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:16px;">這本書最後一章給了九條做法。兩條做成了上面的工具，一條是給政策制定者的，其餘幾條站上早就有對應的卡——每一支都是為別的書做的，理由不同，做的事一樣。</p>
+      <div style="border-top:1px solid #e3ddd0;padding-top:14px;margin-bottom:14px;">
+        <div style="font-size:15px;color:#241f18;font-weight:600;margin-bottom:5px;">把重要但不急的事拉回眼前　→　<a href="tool-if-then.html">若則計畫卡<span style="white-space:nowrap;">（Nº 22）</span></a></div>
+        <p style="font-size:14.5px;color:#4d463b;line-height:1.85;margin:0;">把行為綁到一個具體的觸發情境上。⚠️ 書在這裡舉的是簡訊提醒那一類的做法，而那個通道十幾年來已經完全不同了——訊息要合規、而且人每天收到的推播多到以百計。方向還在，但當年那個百分比不能照抄。</p>
+      </div>
+      <div style="border-top:1px solid #e3ddd0;padding-top:14px;margin-bottom:14px;">
+        <div style="font-size:15px;color:#241f18;font-weight:600;margin-bottom:5px;">減少要權衡的次數　→　<a href="tool-two.html">今天兩格<span style="white-space:nowrap;">（Nº 08）</span></a></div>
+        <p style="font-size:14.5px;color:#4d463b;line-height:1.85;margin:0;">一天只有兩個格子，用位置不夠逼出取捨，不靠每次重新決定。這支比書裡那一條講得更具體。</p>
+      </div>
+      <div style="border-top:1px solid #e3ddd0;padding-top:14px;margin-bottom:16px;">
+        <div style="font-size:15px;color:#241f18;font-weight:600;margin-bottom:5px;">把一次性的長期限切成階段　→　<a href="tool-cycle.html">週期執行器<span style="white-space:nowrap;">（Nº 09）</span></a></div>
+        <p style="font-size:14.5px;color:#4d463b;line-height:1.85;margin:0;">開一輪十二週、每週回來記兩個數字。這一條書與另一本書講的是同一件事，工具做在那一本底下。</p>
+      </div>
+      <p style="font-size:15px;color:#4d463b;line-height:1.85;margin-bottom:0;">⚠️ 還有一件對讀者有用的事：<b>最後那一章的核心證據多半不是這本書自己的研究</b>。退休金自動加入、把儲蓄率綁到未來加薪、農民的補助時點——這些都是別人做的，而中譯本刪掉了全部的註釋，所以書上看不出來。上面兩篇文章各自把真正的出處標了出來。</p>
+    </div>
+
+    <div style="font-size:13px;color:#938a78;line-height:1.8;border-top:1px solid #e3ddd0;padding-top:20px;margin-top:38px;">這一頁是我讀《Scarcity 稀缺》之後自行整理的判斷與取捨，不代表原書立場，頁內未引用書中原文，也未沿用書中案例。查證用到的文獻列在上面兩篇文章的末尾，其中我親自讀過原文的有哪幾篇、只讀到出版社摘要的有哪幾篇，都在那裡逐條標明了。<b>另外要說清楚一件事</b>：這一輪回頭核對原書時，我自己有一條判斷被推翻、兩條理由要改，修正後的版本就是上面這些。書中方法是否適合你，請自行判斷。</div>
+
+    <div style="border-top:1px solid #e3ddd0;margin-top:34px;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+      <a href="index.html#appendix" style="font-size:13px;letter-spacing:1px;color:#938a78;">← 回書目</a>
+      <a href="index.html" style="font-size:13px;letter-spacing:1px;color:#35456a;">回目錄首頁 →</a>
+    </div>
+
+    <footer style="color:#938a78;font-size:12px;text-align:center;padding:44px 0 48px;letter-spacing:.5px;">
+      <span style="font-family:'Noto Serif TC',serif;">TOOLBOOK<span style="color:#35456a;">.</span> EDITIONS</span> · 把好書變成工具
+          <div style="margin-top:8px;font-size:11px;color:#a89f8c;letter-spacing:.5px;">© 2026 Toolbook · 內容著作權所有，轉載請註明出處</div>
+    </footer>
+
+  </div>
+</div>
+</body>
+</html>
