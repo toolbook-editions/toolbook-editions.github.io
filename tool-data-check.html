@@ -88,7 +88,7 @@
         <p style="color:#938a78;font-size:13px;margin-bottom:12px;">這四條是自省用的。先確認你在做的是哪一件事：</p>
         <div onClick="{{ onGuardSelf }}" style="border:1px solid {{ selfBd }};background:{{ selfBg }};border-radius:4px;padding:14px 15px;margin-bottom:9px;cursor:pointer;">
           <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:2px;color:{{ selfFg }};">我在檢查我自己要宣布的東西</div>
-          <div style="font-size:12.5px;color:#938a78;line-height:1.6;">這句話是我要拿去說服人的，我想先確認它站不站得住</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.6;">這句話是我要拿去說服人的，我想先確認它成不成立</div>
         </div>
         <div onClick="{{ onGuardNotClaim }}" style="border:1px solid {{ ncBd }};background:{{ ncBg }};border-radius:4px;padding:14px 15px;margin-bottom:9px;cursor:pointer;">
           <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:2px;color:{{ ncFg }};">這不算「宣稱數據證明了什麼」</div>
@@ -103,7 +103,7 @@
 
       <sc-if value="{{ s4 }}">
         <sc-if value="{{ modePass }}">
-          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 讓它站得住</div>
+          <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 讓它成立</div>
           <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">{{ stressTitle }}</h2>
           <div style="border-left:2px solid #35456a;background:rgba(53,69,106,.05);padding:12px 15px;margin:0 0 14px;border-radius:0 3px 3px 0;">
             <div style="font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">你這句話最容易掉進的陷阱</div>
@@ -112,7 +112,7 @@
           <p style="color:#554d40;font-size:14px;line-height:1.85;margin-bottom:10px;white-space:pre-wrap;">{{ stressQuestion }}</p>
           <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:8px 0 7px;">{{ stressLabel }}</label>
           <textarea value="{{ answer }}" onInput="{{ onAnswer }}" maxlength="240" placeholder="{{ stressPlaceholder }}" style="width:100%;min-height:104px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
-          <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:18px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">寫得出來，你的宣稱就從「感覺」升級成「站得住」；寫不出來，那就先別宣布——它還不是一個經得起檢驗的結論。</div>
+          <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:18px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">寫得出來，你的宣稱就從「感覺」升級成「成立」；寫不出來，那就先別宣布——它還不是一個經得起檢驗的結論。</div>
         </sc-if>
         <sc-if value="{{ modeNotApp }}">
           <div style="font-family:'Noto Serif TC',serif;color:#9c5a3c;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 這次先擱著</div>
@@ -169,7 +169,7 @@
               <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
             </div>
           </form>
-          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡的四條標準出自《精實創業》第 13 章，我用自己的話重寫。一句宣稱算不算站得住，請自行判斷。</p>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡的四條標準出自《精實創業》第 13 章，我用自己的話重寫。一句宣稱算不算成立，請自行判斷。</p>
         </div>
       </sc-if>
 
@@ -214,7 +214,7 @@
           <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#9c5a3c;line-height:1.6;margin-bottom:14px;">在總量圖上畫因果</div>
           <div style="height:1px;background:#e3ddd0;margin-bottom:16px;"></div>
           <div style="border:1px solid #cec6b4;border-radius:2px;padding:14px 14px;">
-            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">讓它站得住的條件</div>
+            <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">讓它成立的條件</div>
             <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">同月剛好碰上開學旺季，我要先比「沒看到改版的舊用戶」這個月有沒有一樣漲——漲了，就不是改版的功勞。</div>
           </div>
           <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:1px;margin-top:16px;line-height:1.7;">最會拆穿別人的那四條，<br />先拿來照自己。</div>
@@ -225,7 +225,7 @@
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>不是打勾清單。</b>它只針對你這一句話，挑出它最容易掉進的那一個陷阱，逼你正面回答。</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>是拿來照自己的。</b>如果你想用它去反駁別人，第一關就會把你擋下來——這面鏡子照別人只會變成吵架。</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">寫得出讓它站得住的條件，就宣布；<b>寫不出來，就先別宣布</b>——它還不是一個經得起檢驗的結論。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">寫得出讓它成立的條件，就宣布；<b>寫不出來，就先別宣布</b>——它還不是一個經得起檢驗的結論。</div>
         </div>
 
         <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，換我自己的那句話</button>
@@ -346,7 +346,7 @@ class Component extends DCLogic {
   }
   cardBottom() {
     const s = this.state;
-    if (this.isPass()) return { k: "讓它站得住的條件", val: s.answer.trim() || "—" };
+    if (this.isPass()) return { k: "讓它成立的條件", val: s.answer.trim() || "—" };
     const g = this.GUARDS[s.guard];
     return { k: "為什麼擱著", val: g ? g.title : "—" };
   }
@@ -397,7 +397,7 @@ class Component extends DCLogic {
     const b = this.cardBottom();
     const cards = s.cards.map((c, n) => {
       const lab = c.guard === "self" ? (this.TRAPS[c.trap] ? this.TRAPS[c.trap].name : "—") : (c.guard === "notclaim" ? "不是數據宣稱" : "先照自己");
-      const bk = c.guard === "self" ? "讓它站得住的條件" : "為什麼擱著";
+      const bk = c.guard === "self" ? "讓它成立的條件" : "為什麼擱著";
       const bv = c.guard === "self" ? (c.answer || "—") : (this.GUARDS[c.guard] ? this.GUARDS[c.guard].title : "—");
       return { idx: s.cards.length - n, date: new Date(c.createdAt).toLocaleDateString("zh-HK", { year: "numeric", month: "2-digit", day: "2-digit" }),
         tag: c.guard === "self" ? "已過關" : "擱著", claim: c.claim || "—", bottomK: bk, bottomV: bv,
@@ -424,7 +424,7 @@ class Component extends DCLogic {
       onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(), onHome: () => { window.location.href = "founders.html"; },
       feedbackText: s.feedbackText, email: s.email, subLabel: s.subLabel, subStatus: s.subStatus,
       onFeedbackText: e => this.set("feedbackText", e.target.value), onEmail: e => this.set("email", e.target.value), onSubmitFeedback: e => this.onSubmitFeedback(e), onRateYes: () => this.rate("yes"), onRateMid: () => this.rate("half"), onRateNo: () => this.rate("no"),
-      showGate, gateMsg: gateBad ? (step === 1 ? "先寫下那句話，才能繼續" : step === 2 ? "選一個最接近的" : step === 3 ? "先選一個" : "寫下讓它站得住的條件") : "",
+      showGate, gateMsg: gateBad ? (step === 1 ? "先寫下那句話，才能繼續" : step === 2 ? "選一個最接近的" : step === 3 ? "先選一個" : "寫下讓它成立的條件") : "",
       onNext: step === 5 ? () => this.newCard() : () => this.next(),
       nextLabel: step === 0 ? "開始" : step === 4 ? "生成卡片" : step === 5 ? "再檢查一句話" : "下一步",
       nextDisabled: gateBad ? "disabled" : "", nextOp: gateBad ? ".5" : "1", nextBg: gateBad ? "#b7bdcb" : "#35456a",

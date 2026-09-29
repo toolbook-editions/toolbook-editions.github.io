@@ -163,7 +163,7 @@
 
         <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:24px;">
           <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">這條線的下一步</div>
-          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">確認了類別站得住，接著要決定在裡面打哪一種仗（正面搶整個、還是切一塊）——那要看有沒有明確領導者、你的資源撐不撐得起。想先看清楚差異化從哪長出來，回頭做 <a href="tool-alternatives.html">替代方案盤點器</a>。</p>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">確認了類別成立，接著要決定在裡面打哪一種仗（正面搶整個、還是切一塊）——那要看有沒有明確領導者、你的資源撐不撐得起。想先看清楚差異化從哪長出來，回頭做 <a href="tool-alternatives.html">替代方案盤點器</a>。</p>
         </div>
 
         <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
@@ -346,11 +346,11 @@ class Component extends DCLogic {
     return "unclear";
   }
   VERDICTS = {
-    exists: ["類別存在：地基站得住", "買家腦裡有這個類別，你可以放心把定位建上去。下一步是決定在裡面打哪一種仗——看這個類別有沒有明確領導者、你的資源撐不撐得起快速確立領先。"],
+    exists: ["類別存在：地基成立", "買家腦裡有這個類別，你可以放心把定位建上去。下一步是決定在裡面打哪一種仗——看這個類別有沒有明確領導者、你的資源撐不撐得起快速確立領先。"],
     unclear: ["類別模糊：詞在你腦中，還沒在買家腦中", "問題出在命名，類別本身是存在的。買家還要你解釋這個詞，代表它接不上他們已經在用的字。換一個他們在 AI／評論站／對話裡實際會打的說法，再測一次；先別把這個詞印到官網上。"],
     absent: ["類別不存在於買家腦中", "兩條路：(a) 你可能選錯詞——回去找買家真的在用的類別再測；(b) 你是在做類別創造——那是最難最貴的一條（先賣問題再賣方案、還要守住領導位）。若是後者，回到第一步改走「創造新類別」。"],
   };
-  MANTRA = { exists: "類別站得住，接著挑打法。", unclear: "換一個他們已經在用的詞，再測一次。", absent: "不是選錯詞，就是你在創類別。" };
+  MANTRA = { exists: "類別成立，接著挑打法。", unclear: "換一個他們已經在用的詞，再測一次。", absent: "不是選錯詞，就是你在創類別。" };
 
   newCard() {
     if (!window.confirm("開始一張新的檢查？目前內容會清掉。")) return;
