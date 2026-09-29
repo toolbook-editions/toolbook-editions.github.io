@@ -108,7 +108,7 @@
       <sc-if value="{{ s5 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Q5 · 名單門</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你要切的那一塊，<br />列得出一份買家名單嗎？</h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:12px;">小池大魚要切一塊——但「一塊」得是列得出具體潛在買家的。書的鋒利反例：「重視設計的公司」「員工開心的公司」列不出名單，那不是切分，是形容詞。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:12px;">小池大魚要切一塊——但「一塊」得是列得出具體潛在買家的。書的鋒利反例：「重視設計的公司」「員工開心的公司」列不出名單，就還只是形容詞。</p>
         <sc-for list="{{ listOpts }}" as="t" hint-placeholder-count="2">
           <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:13px 16px;margin-bottom:9px;cursor:pointer;">
             <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:2px;color:{{ t.fg }};">{{ t.label }}</div>
@@ -365,7 +365,7 @@ class Component extends DCLogic {
     newgame_go: "先賣問題，再守住領導位。",
     newgame_stop: "你只是還沒找到買家的詞。",
     headtohead: "符合買家既有定義，才配搶整個市場。",
-    list_fail: "列不出名單的，不是切分，是形容詞。",
+    list_fail: "列不出名單，就還只是形容詞。",
     pond_impossible: "這塊選錯了，打法沒錯。",
     pond_toosmall: "另找一塊更大的，或放寬定義。",
     pond_tight: "邊緣——把這塊放大，或確認你真的夠強。",
