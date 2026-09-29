@@ -73,7 +73,7 @@
           <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:2px;">你寫的是</div>
           <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#9c5b3f;white-space:pre-wrap;">{{ mirrorAttr }}</div>
         </div>
-        <p style="color:#938a78;font-size:13px;margin-bottom:10px;">「好用」「客服好」「快」「可靠」「彈性」都是評價，不是能力——每家公司都會這樣說自己。能力是「產品／公司具體有什麼、會做什麼」。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:10px;">「好用」「客服好」「快」「可靠」「彈性」都是評價，還不算能力——每家公司都會這樣說自己。能力是「產品／公司具體有什麼、會做什麼」。</p>
         <sc-for list="{{ kindOpts }}" as="t" hint-placeholder-count="2">
           <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:13px 16px;margin-bottom:9px;cursor:pointer;">
             <div style="font-family:'Noto Serif TC',serif;font-size:15.5px;margin-bottom:2px;color:{{ t.fg }};">{{ t.label }}</div>
@@ -100,7 +100,7 @@
       <sc-if value="{{ s4 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 只有你有嗎</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你查過對手<br />真的沒有嗎？</h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:10px;">書只要你證「有價值」，卻沒要你證「只有你有」——而後者才是「獨有」的定義。你查不完對手的內部能力，所以誠實一點：你到底查過沒有？</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:10px;">書只要你證「有價值」，卻沒要你證「只有你有」——而後者才是「獨有」的定義。你查不完對手的內部能力，所以問問自己：你到底查過沒有？</p>
         <sc-for list="{{ puOpts }}" as="t" hint-placeholder-count="3">
           <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:12px 15px;margin-bottom:8px;cursor:pointer;">
             <div style="font-size:14.5px;color:{{ t.fg }};margin-bottom:1px;">{{ t.label }}</div>
@@ -215,7 +215,7 @@
           <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個做完的例子</div>
           <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
         </div>
-        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">你做筆記軟體，想拿「端到端加密的協作筆記」當賣點。它是事實（不是形容詞）；一篇獨立評測點名過你的加密協作，所以有價值有第三方證明。但你其實沒真的去查對手——填出來的卡長這樣：</p>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">你做筆記軟件，想拿「端到端加密的協作筆記」當賣點。它是事實（不是形容詞）；一篇獨立評測點名過你的加密協作，所以有價值有第三方證明。但你沒真的去查對手——填出來的卡長這樣：</p>
 
         <div style="position:relative;border:1px solid #cdb98a;border-radius:3px;padding:26px 22px 20px;background:#f5f0e4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cdb98a;">
           <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#9c7b3f;">❦</div>
@@ -237,9 +237,9 @@
 
         <div style="margin-top:20px;">
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>「有價值」不等於「只有你有」。</b>評測說你的加密協作好，證的是它有價值；沒人證過「只有你有」——而很多筆記軟體也在做加密協作。</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>這正是書漏掉的一格。</b>書要你證有價值，卻沒要你證獨有——所以你的清單真名是「就我所知，替代方案沒有的」，不是「獨有」。</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>下一步很具體。</b>去查三家最像的對手有沒有這條；查完再回來，這條就能升成「真獨有」或被誠實地劃掉。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>「有價值」不等於「只有你有」。</b>評測說你的加密協作好，證的是它有價值；沒人證過「只有你有」——而很多筆記軟件也在做加密協作。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>這正是書漏掉的一格。</b>書要你證有價值，卻沒要你證獨有——所以你的清單真名是「就我所知，替代方案沒有的」，還不能叫「獨有」。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>下一步很具體。</b>去查三家最像的對手有沒有這條；查完再回來，這條就能升成「真獨有」或被劃掉。</div>
         </div>
 
         <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始盤我自己的</button>
@@ -284,7 +284,7 @@ class Component extends DCLogic {
   TOOL = "第三方證明盤點器";
   KINDS = {
     fact: ["是具體事實", "產品／公司有什麼、會做什麼——查得到、指得出。"],
-    adj: ["其實是一句評價", "好用／客服好／快／可靠／彈性——每家都這樣說自己。"],
+    adj: ["只是一句評價", "好用／客服好／快／可靠／彈性——每家都這樣說自己。"],
   };
   PV = {
     yes: ["有，說得出是誰", "獨立評測、分析師、或授權引用的客戶推薦語。"],
@@ -339,13 +339,13 @@ class Component extends DCLogic {
     return "trueunique";
   }
   VERDICTS = {
-    adjective: ["還是形容詞，不是能力", "「好用」「客服好」這種話每家都會講，等於沒說。先把它逼回可查的事實——誰說的、能不能量化（例如上手時間、要不要教育訓練），再回來盤。逼不出事實，這條就先別拿來定位。"],
+    adjective: ["還是形容詞，還不算能力", "「好用」「客服好」這種話每家都會講，等於沒說。先把它逼回可查的事實——誰說的、能不能量化（例如上手時間、要不要教育訓練），再回來盤。逼不出事實，這條就先別拿來定位。"],
     unproven: ["還沒證明：你自己說不算數", "沒有證明的自我評價不算數。去拿第三方的說法——獨立評測、分析師、或授權引用的客戶推薦語。⚠️ 拿不到不代表你沒這能力：最需要定位的早期公司天生最缺這些，那就先去拿證明，別急著把它印上官網、也別因此判自己沒有。"],
-    notunique: ["不是獨有：對手也有", "你查過、對手也做得到——這條就不能當差異點。留著它當「基本盤」可以，但定位要建在別條真正只有你有的能力上。回到替代方案清單，找那條對手給不了的。"],
-    asfaras: ["就我所知：證了有價值，沒證只有你有", "這正是書漏掉、而你最容易自我感覺良好的一格。你證了它有價值，卻沒證「只有你有」——它真正的名字是「就我們所知，替代方案沒有的」。下一步很具體：去查最像的三家對手有沒有這條，查完再回來，這條會升成「真獨有」或被誠實劃掉。"],
+    notunique: ["不算獨有：對手也有", "你查過、對手也做得到——這條就不能當差異點。留著它當「基本盤」可以，但定位要建在別條真正只有你有的能力上。回到替代方案清單，找那條對手給不了的。"],
+    asfaras: ["就我所知：證了有價值，沒證只有你有", "這正是書漏掉、而你最容易自我感覺良好的一格。你證了它有價值，卻沒證「只有你有」——它真正的名字是「就我們所知，替代方案沒有的」。下一步很具體：去查最像的三家對手有沒有這條，查完再回來，這條會升成「真獨有」或被劃掉。"],
     trueunique: ["真獨有能力：可進定位地基", "有第三方證明有價值、你也查過對手沒有——這條站得住，可以拿它當定位的地基。⚠️ 獨有會過期：對手隨時可能補上，每隔一段時間回來重盤一次。"],
   };
-  MANTRA = { adjective: "先逼回事實，再回來盤。", unproven: "你自己說不算，去拿第三方的。", notunique: "對手也有的，不是差異點。", asfaras: "去查對手，別當鐵打的獨有。", trueunique: "站得住，但會過期，記得回來重盤。" };
+  MANTRA = { adjective: "先逼回事實，再回來盤。", unproven: "你自己說不算，去拿第三方的。", notunique: "對手也有的，不算差異點。", asfaras: "去查對手，別當鐵打的獨有。", trueunique: "站得住，但會過期，記得回來重盤。" };
 
   timingNote() {
     const s = this.state;

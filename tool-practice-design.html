@@ -60,7 +60,7 @@
       <sc-if value="{{ s1 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 練哪一環</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.6;margin-bottom:10px;">你要練的是<br />哪一個具體環節？</h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:16px;line-height:1.8;">不是「英文」「簡報」，是那一小塊——現場問答接不住、開場抓不住人、和弦轉換卡頓。愈小愈好練。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:16px;line-height:1.8;">挑那一小塊，比「英文」「簡報」小得多——現場問答接不住、開場抓不住人、和弦轉換卡頓。愈小愈好練。</p>
         <textarea value="{{ skill }}" onInput="{{ onSkill }}" maxlength="200" placeholder="例如：被追問時撐不住，會開始語無倫次" style="width:100%;min-height:100px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
         <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:16px;color:#554d40;font-size:13.5px;line-height:1.85;">還不確定弱在哪？先用 <a href="tool-plateau.html">停滯期弱點定位工具</a> 找出來，再回這裡排練習。</div>
       </sc-if>
@@ -101,7 +101,7 @@
       <sc-if value="{{ s4 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 四項檢查</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.6;margin-bottom:10px;">這樣排，<br />四項齊了嗎？</h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:16px;line-height:1.8;">不是及格標準，是提醒。四項裡最容易漏的是回饋——少了它，練習會退化成重複。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:16px;line-height:1.8;">這是提醒，沒有及格線。四項裡最容易漏的是回饋——少了它，練習會退化成重複。</p>
         <sc-for list="{{ checks }}" as="c" hint-placeholder-count="4">
           <div onClick="{{ c.onToggle }}" style="display:flex;align-items:flex-start;gap:10px;border:1px solid #e3ddd0;border-radius:3px;padding:12px 14px;margin-bottom:8px;cursor:pointer;background:{{ c.bg }};">
             <div style="width:16px;height:16px;flex:none;margin-top:2px;border:1px solid #35456a;border-radius:3px;background:{{ c.boxBg }};color:#fbf9f4;font-size:11px;line-height:14px;text-align:center;">{{ c.mark }}</div>
@@ -110,7 +110,7 @@
         </sc-for>
         <sc-if value="{{ showNoFeedback }}">
           <div style="border:1px solid #cd9a86;background:rgba(156,90,60,.06);border-radius:4px;padding:16px 17px;margin-top:14px;">
-            <p style="font-size:13.5px;line-height:1.85;color:#4d463b;margin-bottom:0;">沒有勾「知道自己做得對不對」這一項，練下去多半只會把現在的做法練得更熟——包括做錯的那部分。先想一個當下就看得到結果的方式：錄下來回看、對答案、找一個人在旁邊指出來。</p>
+            <p style="font-size:13.5px;line-height:1.85;color:#4d463b;margin-bottom:0;">沒有勾「知道自己做得對不對」這一項，練下去只會把現在的做法練得更熟——包括做錯的那部分。先想一個當下就看得到結果的方式：錄下來回看、對答案、找一個人在旁邊指出來。</p>
           </div>
         </sc-if>
       </sc-if>
@@ -147,7 +147,7 @@
             <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">第一次</div>
             <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">{{ cardWhen }}</div>
           </div>
-          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">練那一環，不是又練一次整首。</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">練那一環，不必又練一次整首。</div>
           <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition · MMXXVI</div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
@@ -233,7 +233,7 @@
             <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">第一次</div>
             <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">週四晚上，四十分鐘</div>
           </div>
-          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">練那一環，不是又練一次整首。</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">練那一環，不必又練一次整首。</div>
           <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition · MMXXVI</div>
         </div>
 
@@ -320,9 +320,9 @@ class Component extends DCLogic {
     ["先預測，再對答案", "看範例前先自己寫一次你會怎麼做，再對照真實做法，只檢討差異。"],
   ];
   CHECKS = [
-    ["hard", "有點難，做起來不太舒服", "太順的練習多半是在原地重複。"],
+    ["hard", "有點難，做起來不太舒服", "太順的練習是在原地重複。"],
     ["feedback", "當下知道自己做得對不對", "最容易漏的一項——錄影、對答案、找人看都算。"],
-    ["model", "看過做得好的人怎麼做這一環", "不是看誰有名，是看得出他這一環具體做了什麼。"],
+    ["model", "看過做得好的人怎麼做這一環", "看得出他這一環具體做了什麼，有名與否不重要。"],
     ["narrow", "只練這一環，不順便練別的", "一次練兩件事，等於兩件都沒練到。"],
   ];
 
@@ -383,7 +383,7 @@ class Component extends DCLogic {
       "\n\n四項檢查（" + this.CHECKS.filter(([k]) => cs[k]).length + "／4）：" + this.checkSummaryOf(cs) +
       "\n\n怎麼知道有進步：" + (c.signal || "—") +
       "\n第一次：" + (c.when || "—") +
-      "\n\n練那一環，不是又練一次整首。";
+      "\n\n練那一環，不必又練一次整首。";
   }
   cur() { const s = this.state; return { skill: s.skill, method: s.method, checkSet: s.checkSet, when: s.when, signal: s.signal }; }
   toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
@@ -394,7 +394,7 @@ class Component extends DCLogic {
   onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", this.TOOL); fd.append("_subject", "Toolbook 工具回饋 · " + this.TOOL); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
 
   async _png(spec){try{const m=await import("./toolbook-card.js");const ok=await m.downloadCardPNG(spec);this.toast(ok?"卡片圖片已儲存":"圖片產生失敗");}catch(_){this.toast("圖片產生失敗");}}
-  async saveImage(){const s=this.state;await this._png({title:"練習設計卡",sub:"ONE DRILL",filename:"練習設計卡-Toolbook",mantra:"練那一環，不是又練一次整首。",edition:"Edition · MMXXVI",blocks:[{k:"要練的環節",v:s.skill.trim()||"—",serif:true},{k:"練法",v:s.method||"—"},{k:"四項檢查",v:this.checkSummaryOf(s.checkSet)},{k:"怎麼知道有進步",v:s.signal.trim()||"—"},{k:"第一次",v:s.when.trim()||"—",big:true}]});}
+  async saveImage(){const s=this.state;await this._png({title:"練習設計卡",sub:"ONE DRILL",filename:"練習設計卡-Toolbook",mantra:"練那一環，不必又練一次整首。",edition:"Edition · MMXXVI",blocks:[{k:"要練的環節",v:s.skill.trim()||"—",serif:true},{k:"練法",v:s.method||"—"},{k:"四項檢查",v:this.checkSummaryOf(s.checkSet)},{k:"怎麼知道有進步",v:s.signal.trim()||"—"},{k:"第一次",v:s.when.trim()||"—",big:true}]});}
 
   renderVals() {
     const s = this.state, step = s.step;

@@ -395,7 +395,7 @@ class Component extends DCLogic {
     if (v === "end" && h) {
       endCount = this.doneCountOf(h); endName = h.name;
       const rate = h.len ? endCount / h.len : 0;
-      endWord = rate >= 0.6 ? "這一輪你做到的比沒做到的多——這已經是把它帶進生活了。" : (endCount > 0 ? "有做到就算數。養成沒有及格線，接著走下一輪就好。" : "這一輪先走到這。換個更小、更容易做的說法，常常就接得回去。");
+      endWord = rate >= 0.6 ? "這一輪你做到的比沒做到的多——這已經是把它帶進生活了。" : (endCount > 0 ? "有做到就算數。養成沒有及格線，接著走下一輪就好。" : "這一輪先走到這。換個更小、更容易做的說法，就接得回去。");
     }
 
     // 底部主鈕

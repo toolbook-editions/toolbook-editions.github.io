@@ -133,7 +133,7 @@
         </div>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">有沒有條件比你差的人，已經做成這件事？<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;">可留空</span></label>
         <input value="{{ precedent }}" onInput="{{ onPrecedent }}" maxlength="120" placeholder="例如：有，我前同事三十八歲轉行，沒有存款" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
-        <div style="border-left:2px solid #cec6b4;padding:11px 0 11px 16px;margin-top:20px;color:#655e51;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">這一格不是要你比較，是要你確認：<b style="color:#35456a;">這條路上有沒有腳印。</b></div>
+        <div style="border-left:2px solid #cec6b4;padding:11px 0 11px 16px;margin-top:20px;color:#655e51;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">這一格要你確認：<b style="color:#35456a;">這條路上有沒有腳印。</b></div>
       </sc-if>
 
       <sc-if value="{{ s4 }}">
@@ -167,14 +167,14 @@
           <h4 style="font-family:'Noto Serif TC',serif;font-size:16px;margin-bottom:7px;color:{{ verdictTitleCol }};">{{ verdictTitle }}</h4>
           <p style="font-size:13px;color:#5d564a;line-height:1.85;white-space:pre-line;">{{ verdictBody }}</p>
         </div>
-        <p style="font-size:11.5px;color:#938a78;line-height:1.8;margin-top:14px;border-top:1px solid #e3ddd0;padding-top:12px;">這兩個分數都是你自己給的，沒有客觀標準。它的用處是把說不清楚的害怕變成看得見的東西，不是幫你算出正確答案。</p>
+        <p style="font-size:11.5px;color:#938a78;line-height:1.8;margin-top:14px;border-top:1px solid #e3ddd0;padding-top:12px;">這兩個分數都是你自己給的，沒有客觀標準。它的用處是把說不清楚的害怕變成看得見的東西。</p>
         <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:16px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">那兩個空心圈是什麼</b>那是書裡那組對照：作者算出來的壞處是「暫時的、三四分」，好處是「永久的、九十分」，所以他說值得。你的兩個點跟它像不像，決定了那本書的結論適不適合搬到你身上。</div>
       </sc-if>
 
       <sc-if value="{{ s5 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第四問 · 演習</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">如果今天收入就沒了，<br />你靠什麼撐下去？</h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">這一題不是嚇自己，是把答案先找出來，之後就不用再怕它。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">這一題把答案先找出來，之後就不用再怕它。</p>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我會這樣撐過去</label>
         <textarea value="{{ survive }}" onInput="{{ onSurvive }}" maxlength="300" placeholder="例如：先靠存款兩個月，同時接以前那種案子，一個月大概能補回一半" style="width:100%;min-height:100px;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
         <div style="border-left:2px solid #cec6b4;padding:11px 0 11px 16px;margin-top:20px;color:#655e51;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">寫得出來，這件事就從「不敢想」變成「已經想過」。<b style="color:#35456a;">差別只在這裡。</b></div>
@@ -188,7 +188,7 @@
         <textarea value="{{ delayed }}" onInput="{{ onDelayed }}" maxlength="200" placeholder="例如：跟主管說我想調整工作範圍" style="width:100%;min-height:70px;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">這星期可以先做的一小步</label>
         <input value="{{ ministep }}" onInput="{{ onMinistep }}" maxlength="120" placeholder="例如：先把要說的三句話寫下來" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
-        <div style="border-left:2px solid #cec6b4;padding:11px 0 11px 16px;margin-top:20px;color:#655e51;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">挑小到今天就能做完的那種。<b style="color:#35456a;">這一格的目的不是解決它，是讓它動一下。</b></div>
+        <div style="border-left:2px solid #cec6b4;padding:11px 0 11px 16px;margin-top:20px;color:#655e51;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">挑小到今天就能做完的那種。<b style="color:#35456a;">這一格的目的是讓它動一下。</b></div>
       </sc-if>
 
       <sc-if value="{{ s7 }}">
@@ -234,10 +234,10 @@
           </div>
         </div>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我的退路具體是什麼<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;">可留空</span></label>
-        <textarea value="{{ backText }}" onInput="{{ onBackText }}" maxlength="200" placeholder="例如：證照還在，前公司主管說過隨時可以回去談" style="width:100%;min-height:70px;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <textarea value="{{ backText }}" onInput="{{ onBackText }}" maxlength="200" placeholder="例如：證書還在，前公司主管說過隨時可以回去談" style="width:100%;min-height:70px;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">沒有收入的話，你能撐幾個月？<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;">可留空</span></label>
         <input value="{{ backMonths }}" onInput="{{ onBackMonths }}" type="number" min="0" max="600" placeholder="例如：8" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:4px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
-        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">為什麼加這一題</b>書裡每個敢跳的人，其實都有退路——執照還在、原本的生意還在轉。書把退路寫進了故事，卻沒有寫進方法。少了這一欄，這套練習就是把有安全網的人的算法，賣給沒有安全網的人。沒有退路不代表不能做，它代表這一步要走得小一點、留得住回頭的餘地。</div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">為什麼加這一題</b>書裡每個敢跳的人，都有退路——執照還在、原本的生意還在轉。書把退路寫進了故事，卻沒有寫進方法。少了這一欄，這套練習就是把有安全網的人的算法，賣給沒有安全網的人。沒有退路不代表不能做，它代表這一步要走得小一點、留得住回頭的餘地。</div>
         <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:14px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">有些擋路的東西，寫下來也不會消失</b>如果你的最壞情況來自簽證或居留身分、要照顧的家人、沒有任何存款緩衝、或是還不完的債——那不是心理練習能解決的。那些需要真正的資源：法律或移民諮詢、社福與照護支援、債務協商、一筆先存起來的緊急金。這張卡能幫你看清楚它們是什麼，但下一步是去找資源，不是再寫一次。</div>
       </sc-if>
 
@@ -284,7 +284,7 @@
         </div>
         <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:24px;">
           <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">卷 III · 抉擇 · 這條線的下一步</div>
-          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">把「這星期先做這一小步」帶進 <a href="tool-result-lock.html">成果鎖定卡</a> 給它一個交付日期。害怕最怕的就是被排進行事曆。</p>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">把「這星期先做這一小步」帶進 <a href="tool-result-lock.html">成果鎖定卡</a> 給它一個交付日期。害怕最怕的就是被排進日程表。</p>
         </div>
         <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
           <div style="font-family:'Noto Serif TC',serif;font-size:16px;font-weight:600;margin-bottom:10px;">這個工具對你有用嗎？</div>

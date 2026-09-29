@@ -96,7 +96,7 @@
       <sc-if value="{{ s4 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Q4 · 資源門（搶領先）</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你能快到在對手<br />反應過來前搶下領先嗎？</h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:12px;">類別沒龍頭，正面搶整個市場才有機會——但前提是你要能「快速」確立領先。硬問：這通常意味著<b style="color:#9c5b3f;">現在就有外部資金能砸下去</b>，不是靠營收慢慢滾。你是哪一種？</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:12px;">類別沒龍頭，正面搶整個市場才有機會——但前提是你要能「快速」確立領先。硬問：這通常意味著<b style="color:#9c5b3f;">現在就有外部資金能砸下去</b>，不是靠營收慢慢滾。</p>
         <sc-for list="{{ res2Opts }}" as="t" hint-placeholder-count="2">
           <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:13px 16px;margin-bottom:9px;cursor:pointer;">
             <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:2px;color:{{ t.fg }};">{{ t.label }}</div>
@@ -363,10 +363,10 @@ class Component extends DCLogic {
   };
   V_MANTRA = {
     newgame_go: "先賣問題，再守住領導位。",
-    newgame_stop: "多半你只是還沒找到買家的詞。",
+    newgame_stop: "你只是還沒找到買家的詞。",
     headtohead: "符合買家既有定義，才配搶整個市場。",
     list_fail: "列不出名單的，不是切分，是形容詞。",
-    pond_impossible: "不是打法錯，是這塊選錯了。",
+    pond_impossible: "這塊選錯了，打法沒錯。",
     pond_toosmall: "另找一塊更大的，或放寬定義。",
     pond_tight: "邊緣——把這塊放大，或確認你真的夠強。",
     pond_ok: "切一塊規則不太一樣的，口碑在裡面傳最快。",
@@ -376,13 +376,13 @@ class Component extends DCLogic {
     const bhNote = bh ? "（你沒有現成的領導者可切，所以要自己界定第一塊、當那塊的第一——先在灘頭站穩，再談擴張。）" : "";
     switch (k) {
       case "newgame_go": return "你要教市場一個還不存在的類別。書講最重的三件：先賣問題再賣方案、要答得出「為什麼是現在」、市場教熟的那一刻正是資源更多的後進者搶領導位的時候——守住它。";
-      case "newgame_stop": return "創類別是最貴最慢的一條，沒有耐心的深口袋資金多半撐不到守住領導位那天。兩條路：多半你只是還沒找到買家已經在用的詞（回類別存在檢查器重測），或真要創類別，先去找願意陪你的耐心資金，沒有就別硬走。";
+      case "newgame_stop": return "創類別是最貴最慢的一條，沒有耐心的深口袋資金很難撐到守住領導位那天。兩條路：你只是還沒找到買家已經在用的詞（回類別存在檢查器重測），或真要創類別，先去找願意陪你的耐心資金，沒有就別硬走。";
       case "headtohead": return "類別買家懂、又還沒有明確龍頭，加上你有資源快速確立領先——這是新創少數能用正面對決的情形。但你依賴買家既有的認知，就必須符合他們既有的定義；達不到某條他們預設的標準，你就只是某一塊的好方案，不是整個市場的贏家。";
       case "list_fail": return "小池大魚要切一塊，而「一塊」得列得出具體潛在買家名單——列不出來（像「重視設計的公司」），那還是形容詞不是切分。先做客戶切片器，切到說得出去哪找人，再回來算這塊夠不夠大。";
-      case "pond_impossible": return "你今年要成交 " + d + " 單，但這一塊只有 " + p + "——整塊都成交也不夠。這不是打法問題，是這塊選錯了：另找一塊更大的，或放寬客群定義。" + bhNote;
+      case "pond_impossible": return "你今年要成交 " + d + " 單，但這一塊只有 " + p + "——整塊都成交也不夠。打法沒有問題，問題在這塊選錯了：另找一塊更大的，或放寬客群定義。" + bhNote;
       case "pond_toosmall": return "要達標，你得讓約 " + pct + " 的人都跟你成交（" + d + " ÷ " + p + "）——這個成交率幾乎沒人做得到。另找一塊更大的，或把客群定義放寬一點再算一次。" + bhNote;
       case "pond_tight": return "要達標你得讓約 " + pct + " 的人成交（" + d + " ÷ " + p + "），偏高。除非你的優勢極強、口碑在這塊傳得夠快，否則邊緣：要嘛把這塊放大一點，要嘛先確認你真的強到撐得起這個成交率。" + bhNote;
-      case "pond_ok": return "需要約 " + pct + " 的成交率就達標（" + d + " ÷ " + p + "），這個規模撐得起。書對多數新創的實際建議就是這條——切一塊規則不太一樣的地方，收窄不是變小，是把本來就不會買的人取消勾選。" + bhNote;
+      case "pond_ok": return "需要約 " + pct + " 的成交率就達標（" + d + " ÷ " + p + "），這個規模撐得起。書對多數新創的實際建議就是這條——切一塊規則不太一樣的地方，收窄就是把本來就不會買的人取消勾選。" + bhNote;
       default: return "";
     }
   }

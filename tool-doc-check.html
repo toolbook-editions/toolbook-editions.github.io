@@ -60,7 +60,7 @@
       <sc-if value="{{ s1 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 先確認這支幫不幫得上</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你手上這份文件，<br />是要拿來做決定的嗎？</h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:10px;">這一題不是暖身。有幾種文件用這三道檢查會得到錯的結論——與其讓你做完才發現，不如現在就講。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:10px;">這一題要先答。有幾種文件用這三道檢查會得到錯的結論——現在先問，免得你做完才發現。</p>
         <sc-for list="{{ useOpts }}" as="t" hint-placeholder-count="4">
           <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:13px 16px;margin-bottom:9px;cursor:pointer;">
             <div style="font-family:'Noto Serif TC',serif;font-size:15.5px;margin-bottom:2px;color:{{ t.fg }};">{{ t.label }}</div>
@@ -87,7 +87,7 @@
       <sc-if value="{{ s3 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 第二道 · 找困難</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">文件裡有沒有寫出<br />繞不開的那個障礙？</h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:10px;">不是市場多大、不是願景多遠、不是今年要做幾件事。是那個擋在路中間的東西。<b style="color:#9c5b3f;">沒有它，後面的行動就無從評價</b>——沒有靶，談不上準不準。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:10px;">寫那個擋在路中間的東西。<b style="color:#9c5b3f;">沒有它，後面的行動就無從評價</b>——沒有靶，談不上準不準。</p>
         <sc-for list="{{ chOpts }}" as="t" hint-placeholder-count="3">
           <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:12px 15px;margin-bottom:8px;cursor:pointer;">
             <div style="font-size:14.5px;color:{{ t.fg }};margin-bottom:1px;">{{ t.label }}</div>

@@ -90,20 +90,20 @@
         </div>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:8px 0 7px;">在哪找得到他們</label>
         <input value="{{ where }}" onInput="{{ onWhere }}" maxlength="70" placeholder="例如：某個餐飲創業社團、某條街的店家、某個記帳 App 的社群" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
-        <div style="border-left:2px solid #cd9a86;background:rgba(166,85,47,.06);padding:12px 15px;margin-top:16px;border-radius:0 3px 3px 0;font-size:13.5px;color:#6b5347;line-height:1.8;">如果你只寫得出「網路上」「很多地方」這種——那不是地方，是還沒切夠。回上一步，把那一小群再切細一點，細到你能指著一個具體的門進去。</div>
+        <div style="border-left:2px solid #cd9a86;background:rgba(166,85,47,.06);padding:12px 15px;margin-top:16px;border-radius:0 3px 3px 0;font-size:13.5px;color:#6b5347;line-height:1.8;">如果你只寫得出「網絡上」「很多地方」這種——回上一步，把那一小群再切細一點，細到你能指著一個具體的門進去。</div>
       </sc-if>
 
       <sc-if value="{{ s4 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 分發權</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">那個場所裡，<br />誰能一次介紹你給很多人？</h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">這是書之外多問的一層。與其一個一個找，不如找到那個握著「分發權」的人：社團管理員、電子報主筆、某個大家都信的前輩、某個窗口。找得到就寫，還沒有就留空。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">這是書之外多問的一層。找到那個握著「分發權」的人：社團管理員、電子報主筆、某個大家都信的前輩、某個窗口。找得到就寫，還沒有就留空。</p>
         <div style="border-left:2px solid #9c5b3f;background:rgba(156,91,63,.05);padding:10px 14px;margin:6px 0 12px;border-radius:0 3px 3px 0;">
           <div style="font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:#938a78;margin-bottom:3px;">你找他們的場所</div>
           <div style="font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.5;white-space:pre-wrap;">{{ mirrorWhere }}</div>
         </div>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:8px 0 7px;">誰有分發權（可留空）</label>
         <input value="{{ gate }}" onInput="{{ onGate }}" maxlength="70" placeholder="例如：那個社團的版主、那份電子報的作者" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
-        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:16px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">找不到分發權的人也沒關係——那代表你得先一個一個去談，把前幾個談成了，他們往往就成了你的分發權。</div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:16px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">找不到分發權的人也沒關係——那代表你得先一個一個去談，把前幾個談成了，他們就成了你的分發權。</div>
       </sc-if>
 
       <sc-if value="{{ s5 }}">
@@ -218,7 +218,7 @@
         <div style="margin-top:20px;">
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到兩件事</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>「在哪找得到」是照妖鏡。</b>「想學理財的人」答不出這一題；「餐飲二代接班社團裡的人」一答就出來。答得出，才算切夠。</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>先找分發權的人。</b>與其一個個加好友，不如先跟版主聊——他一句話，抵你自己找一個月。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>先找分發權的人。</b>先跟版主聊——他一句話，抵你自己找一個月。</div>
         </div>
 
         <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，切我自己的</button>

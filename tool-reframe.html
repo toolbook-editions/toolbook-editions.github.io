@@ -86,7 +86,7 @@
           <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:2px;">應該是我讀過頭了</div>
           <div style="font-size:12.5px;color:#938a78;line-height:1.6;">冷靜想想，好像沒那麼嚴重</div>
         </div>
-        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;"><b style="color:#35456a;">為什麼先問這個</b><br />重新解讀不是叫你什麼都往好處想。真警報要去處理，不能靠「換個想法」蓋過去——那等於把煙霧警報器拆了。</div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;"><b style="color:#35456a;">為什麼先問這個</b><br />重新解讀不用什麼都往好處想。真警報要去處理，不能靠「換個想法」蓋過去——蓋過去的只是感覺，事情還在。</div>
       </sc-if>
 
       <sc-if value="{{ s3 }}">
@@ -225,7 +225,7 @@
           <div style="height:1px;background:#e3ddd0;margin-bottom:16px;"></div>
           <div style="border:1px solid #cec6b4;border-radius:2px;padding:14px 14px;">
             <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">換一個解讀</div>
-            <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">他今天從早上就在救一個燒起來的專案，八成沒心思細看。那句「就這樣」比較像順口，未必是衝著我的東西來。</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">他今天從早上就在救一個燒起來的項目，八成沒心思細看。那句「就這樣」比較像順口，未必是衝著我的東西來。</div>
           </div>
           <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">換個解讀，火小一半。</div>
           <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 15 · MMXXVI</div>
@@ -234,7 +234,7 @@
         <div style="margin-top:20px;">
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>先分辨，再翻解讀。</b>開場第一題一定先問你「這火是不是在提醒一件真該處理的事」——是真的就去處理，這張卡不套翻法。</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">翻解讀<b>不是把壞的想成好的</b>，是找一個「同樣說得通、但你剛才沒往那想」的版本——它未必是真相，只要鬆得動你的火。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">翻解讀<b>不用把壞的想成好的</b>，只需找一個「同樣說得通、但你剛才沒往那想」的版本——它未必是真相，只要鬆得動你的火。</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">它<b>不承諾你就不生氣了</b>，只給你一個沒往那想過的解釋——火小一半，剩下的你自己決定怎麼回。</div>
         </div>
 
@@ -278,10 +278,10 @@ class Component extends DCLogic {
   };
   HKEY = "toolbook_reframe_history_v1";
   READS = {
-    against: ["他在針對我", "他是故意的、在跟我作對", "他多半只是在顧自己的利益，跟你未必有關。"],
+    against: ["他在針對我", "他是故意的、在跟我作對", "他只是在顧自己的利益，跟你未必有關。"],
     scare: ["他想讓我怕", "他在威脅我、想壓我一頭", "會拿話壓人的，常是他自己先怕了，才需要虛張聲勢。"],
-    hurt: ["他想傷害我", "他這話就是要弄疼我", "一個人越有攻擊性，往往越是他自己正在難受。"],
-    look: ["他看不起我", "他瞧不上我、覺得我不行", "最愛擺高姿態的，多半在補自己心裡的虛。"],
+    hurt: ["他想傷害我", "他這話就是要弄疼我", "一個人越有攻擊性，越可能是他自己正在難受。"],
+    look: ["他看不起我", "他瞧不上我、覺得我不行", "最愛擺高姿態的人，可能在補自己心裡的虛。"],
     other: ["說不清，就是一股火", "講不出具體是哪一種", "先問一句：如果這不是針對你，還能怎麼解釋？"],
   };
 
@@ -325,7 +325,7 @@ class Component extends DCLogic {
 
   cardText() {
     const s = this.state;
-    if (this.isReal()) return "提醒卡\n\n那句話：" + s.line.trim() + "\n\n這不是誤讀，是真警報。\n\n該處理的事：" + s.matter.trim() + "\n打算：" + s.resp.trim() + "\n\n真的越界了，就去處理。";
+    if (this.isReal()) return "提醒卡\n\n那句話：" + s.line.trim() + "\n\n這是真警報。\n\n該處理的事：" + s.matter.trim() + "\n打算：" + s.resp.trim() + "\n\n真的越界了，就去處理。";
     const rd = this.READS[s.read] ? this.READS[s.read][0] : "—";
     return "重新解讀卡\n\n那句話：" + s.line.trim() + "\n\n你原本的讀法：" + rd + "\n換一個解讀：" + s.resp.trim() + "\n\n換個解讀，火小一半。";
   }
@@ -338,7 +338,7 @@ class Component extends DCLogic {
     const s = this.state; const real = this.isReal();
     const rd = this.READS[s.read] ? this.READS[s.read][0] : "—";
     const blocks = real
-      ? [{ k: "那句話", v: s.line.trim() || "—", serif: true }, { k: "這不是誤讀", v: "是真警報——該處理，不是該重讀。" }, { k: "該處理的事", v: s.matter.trim() || "—", big: true }, { k: "你的打算", v: s.resp.trim() || "—" }]
+      ? [{ k: "那句話", v: s.line.trim() || "—", serif: true }, { k: "這是真警報", v: "該處理——不用重讀。" }, { k: "該處理的事", v: s.matter.trim() || "—", big: true }, { k: "你的打算", v: s.resp.trim() || "—" }]
       : [{ k: "那句話", v: s.line.trim() || "—", serif: true }, { k: "你原本的讀法", v: rd }, { k: "換一個解讀", v: s.resp.trim() || "—", big: true }];
     try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: real ? "提醒卡" : "重新解讀卡", sub: "REFRAME · Nº 15", filename: "重新解讀卡-Toolbook", mantra: real ? "真的越界了，就去處理。" : "換個解讀，火小一半。", edition: "Edition Nº 15 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
@@ -379,7 +379,7 @@ class Component extends DCLogic {
       resp: s.resp, onResp: e => this.set("resp", e.target.value), flipText,
       resultKicker: real ? "這是一張提醒卡" : "你的重新解讀卡",
       cardName: real ? "提 醒 卡" : "重 新 解 讀 卡", cardLine: s.line.trim() || "—",
-      readK: real ? "這不是誤讀" : "你原本的讀法", readV: real ? "是真警報——該處理，不是該重讀。" : rd,
+      readK: real ? "這是真警報" : "你原本的讀法", readV: real ? "該處理——不用重讀。" : rd,
       respK: real ? "該處理的事 · 你的打算" : "換一個解讀", respV: real ? ((s.matter.trim() || "—") + "\n→ " + (s.resp.trim() || "—")) : (s.resp.trim() || "—"),
       mantra: real ? "真的越界了，就去處理。" : "換個解讀，火小一半。",
       onCopy: () => this.copy(), onShare: () => this.share(), onSaveImage: () => this.saveImage(), onHome: () => { window.location.href = "index.html"; },

@@ -74,7 +74,7 @@
         <sc-if value="{{ srcAlert }}">
           <div style="border:1px solid #9c6b52;background:rgba(156,107,82,.07);border-radius:4px;padding:15px 17px;margin-top:18px;font-size:13.5px;line-height:1.85;color:#7a4f3c;">
             <b style="font-family:'Noto Serif TC',serif;display:block;margin-bottom:4px;font-size:14.5px;color:#9c6b52;">那這張卡幫不上真正的忙</b>
-            失業、被裁、生病、被迫提早退休——這些帶來的難受，來源多半不是「時間太多」，而是收入不穩、跟人斷了聯繫、或是突然不知道自己是誰。研究上這幾件事是分得很開的。<br /><br />把時間安排滿，解決不了那幾件事。真正有用的通常是：先處理收入與現實安排，保住一兩個固定會見到面的人，需要的話找專業的人談談。<br /><br />你還是可以繼續填，它或許能幫你整理一點頭緒。但請不要把「安排得不夠好」當成自己的問題。
+            失業、被裁、生病、被迫提早退休——這些帶來的難受，來源不是「時間太多」，而是收入不穩、跟人斷了聯繫、或是突然不知道自己是誰。研究上這幾件事是分得很開的。<br /><br />把時間安排滿，解決不了那幾件事。真正有用的通常是：先處理收入與現實安排，保住一兩個固定會見到面的人，需要的話找專業的人談談。<br /><br />你還是可以繼續填，它或許能幫你整理一點頭緒。但請不要把「安排得不夠好」當成自己的問題。
           </div>
         </sc-if>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">這段空白大概有多長</label>
@@ -86,8 +86,8 @@
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這幾天，<br />它實際上都怎麼過？</h2>
         <p style="color:#938a78;font-size:13px;margin-bottom:8px;">不用美化，也不用檢討。寫實際發生的樣子就好。</p>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">實際上都在做</label>
-        <textarea value="{{ actual }}" onInput="{{ onActual }}" maxlength="200" placeholder="例如：滑手機、追劇、想著應該做點什麼但沒動" style="width:100%;min-height:96px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
-        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">先講清楚一件事</b>空閒本身不是問題。有研究追蹤過三萬多人，發現可支配的時間太少會不快樂，但太多之後，快樂也會往下掉——<b style="color:#35456a;">關鍵不在時間多少，而在那段時間裡有沒有一件你在乎的事</b>。所以這張卡要找的不是「怎麼把時間用好」，是那件你在乎的事。</div>
+        <textarea value="{{ actual }}" onInput="{{ onActual }}" maxlength="200" placeholder="例如：玩手機、追劇、想著應該做點什麼但沒動" style="width:100%;min-height:96px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">關於空閒</b>空閒本身不是問題。有研究追蹤過三萬多人，發現可支配的時間太少會不快樂，但太多之後，快樂也會往下掉——<b style="color:#35456a;">關鍵不在時間多少，而在那段時間裡有沒有一件你在乎的事</b>。所以這張卡要找的是那件你在乎的事。</div>
       </sc-if>
 
       <sc-if value="{{ s3 }}">
@@ -113,7 +113,7 @@
         <textarea value="{{ firstStep }}" onInput="{{ onFirstStep }}" maxlength="160" placeholder="例如：把裝照片的那個箱子從櫃子上拿下來" style="width:100%;min-height:76px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">什麼時候做</label>
         <input value="{{ whenv }}" onInput="{{ onWhen }}" maxlength="40" placeholder="例如：今天晚上、這個週六早上" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
-        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">先做一個小到不會失敗的動作，比先想清楚整件事要怎麼做更容易開始。<b style="color:#35456a;">整理不出頭緒的時候，通常是還沒開始，不是還沒想好。</b></div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">先做一個小到不會失敗的動作，比先想清楚整件事要怎麼做更容易開始。<b style="color:#35456a;">整理不出頭緒的時候，通常是還沒開始。</b></div>
       </sc-if>
 
       <sc-if value="{{ s5 }}">
@@ -122,16 +122,16 @@
         <p style="color:#938a78;font-size:13px;margin-bottom:8px;">這一格跟前面相反：它是要你保護一段不做任何事的時間。</p>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我要留下不安排的時間</label>
         <input value="{{ blank }}" onInput="{{ onBlank }}" maxlength="60" placeholder="例如：每個週日整天，誰也不約" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
-        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">為什麼要特地留</b>空閒不需要被填滿。有實驗發現，先做一段無聊的事，之後在需要想點子的任務上反而表現更好——放空是有用處的，只是那個用處不會馬上出現。而且這張卡最怕變成一件事：把休息也變成待辦清單。<b style="color:#35456a;">留白不是還沒安排，它本身就是安排。</b></div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">為什麼要特地留</b>空閒不需要被填滿。有實驗發現，先做一段無聊的事，之後在需要想點子的任務上反而表現更好——放空是有用處的，只是那個用處不會馬上出現。而且這張卡最怕變成一件事：把休息也變成待辦清單。<b style="color:#35456a;">留白也算安排。</b></div>
       </sc-if>
 
       <sc-if value="{{ s6 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 06 · 怎麼算好</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">過完這段時間，<br />你希望回頭是<br />什麼感覺？</h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">不是「完成了幾件事」，是你希望自己回頭看的時候，覺得這段時間怎麼樣。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">你希望自己回頭看的時候，覺得這段時間怎麼樣。</p>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我希望回頭的時候</label>
         <textarea value="{{ feel }}" onInput="{{ onFeel }}" maxlength="160" placeholder="例如：覺得自己有好好休息，而且做了一件真的想做的事" style="width:100%;min-height:80px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
-        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">寫下來是為了之後對得上。<b style="color:#35456a;">不要寫「有效率」——那是工作的判準，不是生活的。</b></div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">寫下來是為了之後對得上。<b style="color:#35456a;">不要寫「有效率」——那是工作的判準。</b></div>
       </sc-if>
 
       <sc-if value="{{ s7 }}">
@@ -230,9 +230,9 @@
 
         <div style="margin-top:20px;">
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">空出來的晚上<b>不是拿來塞更多待辦</b>——這張卡只安排一件事，其餘的時間刻意留白。</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">挑的是「畫畫」這種<b>真正想做、卻沒什麼用處</b>的事，不是又一項「應該去補」的進修。</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">不寫「開始畫畫」這種空願望，而是給它一個<b>這週就能起步的具體小動作</b>——小到今晚就能動。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">空出來的晚上<b>不用塞更多待辦</b>——這張卡只安排一件事，其餘的時間刻意留白。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">挑的是「畫畫」這種<b>真正想做、卻沒什麼用處</b>的事。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">不寫「開始畫畫」這種空願望，改給它一個<b>這週就能起步的具體小動作</b>——小到今晚就能動。</div>
         </div>
 
         <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>

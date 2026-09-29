@@ -52,7 +52,7 @@
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
           <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 13 · 內言</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">腦中有兩個聲音<br />在互相撕扯？</h1>
-          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">把它們原樣寫下來，逐句翻成你真正要的東西。<br />這不是要解決問題——是先看清楚你在跟自己說什麼。</p>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">把它們原樣寫下來，逐句翻成你真正要的東西。<br />先不解決問題——只看清楚你在跟自己說什麼。</p>
           <p style="color:#b9b09a;font-size:12px;line-height:1.8;margin-top:16px;">大約 8 分鐘 · 只有你看得到 · 隨時可以停</p>
           <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
           <div style="margin-top:16px;"><span onClick="{{ onQuit }}" style="color:#938a78;font-size:12.5px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">這不是我要的</span></div>
@@ -67,13 +67,13 @@
         <textarea value="{{ voiceA }}" onInput="{{ onVoiceA }}" maxlength="200" placeholder="例如：我應該早就做出點成績了" style="width:100%;min-height:78px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">聲音 B</label>
         <textarea value="{{ voiceB }}" onInput="{{ onVoiceB }}" maxlength="200" placeholder="例如：你想太多了，能力就這樣，認命吧" style="width:100%;min-height:78px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
-        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">兩個聲音不必分對錯。這張卡不是要你選一邊，是要看清楚它們各自在替你擔心什麼。</div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">兩個聲音不必分對錯。這張卡要看清楚它們各自在替你擔心什麼。</div>
       </sc-if>
 
       <sc-if value="{{ s2 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 藏起來的評判</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">有幾個詞，<br />通常是評判躲的地方</h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:14px;">「應該 · 不得不 · 必須 · 不能 · 理應 · 總是 · 永遠 · 從來 · 每次」——這些詞出現時，往往表示你正在論斷，而還沒說出自己要什麼。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:14px;">「應該 · 不得不 · 必須 · 不能 · 理應 · 總是 · 永遠 · 從來 · 每次」——這些詞出現時，代表你正在論斷，而還沒說出自己要什麼。</p>
         <sc-if value="{{ hasHits }}">
           <div style="border-left:2px solid #35456a;background:rgba(53,69,106,.05);padding:13px 15px;margin:0 0 12px;border-radius:0 3px 3px 0;">
             <div style="font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:#938a78;margin-bottom:7px;">你剛才寫的句子裡出現了</div>
@@ -92,7 +92,7 @@
 
       <sc-if value="{{ s3 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 翻成你要的</div>
-        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">撕扯的底下，<br />你其實在要什麼？</h2>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">撕扯的底下，<br />你真正在要什麼？</h2>
         <div style="border-left:2px solid #cec6b4;background:#f3efe7;padding:11px 14px;margin:6px 0 16px;border-radius:0 3px 3px 0;">
           <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:4px;">你剛才寫的兩個聲音</div>
           <div style="font-family:'Noto Serif TC',serif;font-size:13.5px;line-height:1.7;white-space:pre-wrap;color:#554d40;">A｜{{ mirrorA }}
@@ -129,7 +129,7 @@ B｜{{ mirrorB }}</div>
         <sc-if value="{{ feelNeutral }}">
           <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-bottom:16px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">只有你知道這個感受對不對。這裡不替你判定——你覺得就是它，就往下。</div>
         </sc-if>
-        <p style="color:#938a78;font-size:12.5px;line-height:1.8;margin-bottom:16px;">這只是一個提示，不是判定。是不是這個感受，你說了算。</p>
+        <p style="color:#938a78;font-size:12.5px;line-height:1.8;margin-bottom:16px;">這只是一個提示，不作判定。是不是這個感受，你說了算。</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
           <button onClick="{{ onFeelBack }}" style="border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:13px;font-size:14px;cursor:pointer;">回去看看</button>
           <button onClick="{{ onFeelPass }}" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:13px;font-size:14px;cursor:pointer;">就是「{{ feelEcho }}」，往下</button>
@@ -156,7 +156,7 @@ B｜{{ mirrorB }}</div>
         </div>
 
         <div style="border-left:2px solid #cec6b4;padding:14px 16px;margin-top:18px;background:#f3efe7;border-radius:0 3px 3px 0;">
-          <p style="font-size:13.5px;color:#554d40;line-height:1.85;margin:0 0 10px;">看清楚要什麼，不等於問題就解決了——接下來是怎麼安排的問題，不是想通不想通的問題。</p>
+          <p style="font-size:13.5px;color:#554d40;line-height:1.85;margin:0 0 10px;">看清楚要什麼，問題還沒解決——接下來是怎麼安排。</p>
           <label style="display:flex;align-items:flex-start;gap:9px;cursor:pointer;font-size:13px;color:#554d40;line-height:1.7;">
             <input type="checkbox" checked="{{ noChoice }}" onChange="{{ onNoChoice }}" style="margin-top:4px;flex:none;width:15px;height:15px;accent-color:#35456a;cursor:pointer;" />
             <span>這件事我目前<b>沒有選擇的空間</b>（勾了也不算失敗——有些限制是真的，看清楚它是什麼本身就有用）</span>
@@ -261,7 +261,7 @@ B｜{{ mirrorB }}</div>
 
         <div style="margin-top:20px;">
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">兩個聲音<b>不必選一邊</b>。它們各自在替你擔心一件事——這張卡不是要你分對錯，是把它們翻成你要什麼。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">兩個聲音<b>不必選一邊</b>。它們各自在替你擔心一件事——這張卡把它們翻成你要什麼，不分對錯。</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">「應該、必須、總是」這種詞，通常是評判躲的地方。把「<b>應該怎樣</b>」換成「<b>我要什麼</b>」。</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">「因為我需要」不指向某個人做某件事——不是「他該回我訊息」，是「<b>被在乎</b>」。填不出來就先空著，空著本身也告訴你還沒想清楚。</div>
         </div>

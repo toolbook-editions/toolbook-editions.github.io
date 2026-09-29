@@ -52,7 +52,7 @@
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
           <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 18 · 關係</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">多年前那句話，<br />還在你心裡</h1>
-          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">一件放了很久、還是會刺一下的舊事。分三輪寫下來：<b style="color:#554d40;">當年想說的、這些年的自責、對他當時的猜測</b>。中間那一輪不能跳。<br />這不是替對方開脫——他做的不對，就是不對；這是幫<b style="color:#554d40;">你自己</b>把它放下。不需要對方在場或同意。<br />答案只存在這部裝置。</p>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">一件放了很久、還是會刺一下的舊事。分三輪寫下來：<b style="color:#554d40;">當年想說的、這些年的自責、對他當時的猜測</b>。中間那一輪不能跳。<br />這張卡不替對方開脫——他做的不對，就是不對；目的是幫<b style="color:#554d40;">你自己</b>把它放下。不需要對方在場或同意。<br />答案只存在這部裝置。</p>
           <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
         </div>
       </sc-if>
@@ -63,13 +63,13 @@
         <p style="color:#938a78;font-size:13px;margin-bottom:8px;">誰、在什麼時候、說了或做了什麼。一句話就好。</p>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">那件事</label>
         <input value="{{ situation }}" onInput="{{ onSituation }}" maxlength="90" placeholder="例如：高中導師當著全班說「你不是讀書的料」" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:15px;color:#241f18;" />
-        <div style="border-left:2px solid #9c6b52;background:rgba(156,90,60,.05);padding:12px 0 12px 16px;margin-top:20px;color:#6b6353;font-size:13px;line-height:1.85;">如果這件事牽涉的是<b style="color:#5a5344;">持續的傷害或危險</b>，這張卡幫不上，也不該幫——那需要的是實際的處理與求助，不是自己一個人放下。</div>
+        <div style="border-left:2px solid #9c6b52;background:rgba(156,90,60,.05);padding:12px 0 12px 16px;margin-top:20px;color:#6b6353;font-size:13px;line-height:1.85;">如果這件事牽涉的是<b style="color:#5a5344;">持續的傷害或危險</b>，這張卡幫不上，也不該幫——那需要實際的處理與求助，不能只靠自己一個人放下。</div>
       </sc-if>
 
       <sc-if value="{{ s2 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第一輪 · 當年</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">當年想說、<br />卻沒說出口的話</h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">那個當下，你其實想回他什麼？現在把它寫出來——沒有人會看到，想怎麼講都可以。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">那個當下，你想回他什麼？現在把它寫出來——沒有人會看到，想怎麼講都可以。</p>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">當年沒說出口的話</label>
         <textarea value="{{ round1 }}" onInput="{{ onRound1 }}" maxlength="500" placeholder="那時候我真正想說的是……" style="width:100%;min-height:150px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.9;resize:vertical;"></textarea>
       </sc-if>
@@ -77,7 +77,7 @@
       <sc-if value="{{ s3 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第二輪 · 這些年</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這些年，<br />你怎麼責備自己？</h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">這件事之所以還在，往往不只因為對方那句話，還因為你<b style="color:#554d40;">拿它反覆責備自己</b>。這一輪不能跳過——把那些自責寫出來，看清楚是它在替那句話續命。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">這件事之所以還在，不只因為對方那句話，還因為你<b style="color:#554d40;">拿它反覆責備自己</b>。這一輪不能跳過——把那些自責寫出來，看清楚是它在替那句話續命。</p>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">這些年我怎麼責備自己</label>
         <textarea value="{{ round2 }}" onInput="{{ onRound2 }}" maxlength="500" placeholder="每次想起這件事，我就對自己說……" style="width:100%;min-height:150px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.9;resize:vertical;"></textarea>
       </sc-if>
@@ -85,10 +85,10 @@
       <sc-if value="{{ s4 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">第三輪 · 猜一猜</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">他當時，<br />可能是要什麼？</h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">試著猜猜看：他那樣說、那樣做的當下，自己可能正需要什麼、或正在怕什麼？不是替他找藉口，是換一個角度看那一刻。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">試著猜猜看：他那樣說、那樣做的當下，自己可能正需要什麼、或正在怕什麼？換一個角度看那一刻，不必替他找藉口。</p>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我猜他當時要的是</label>
         <textarea value="{{ round3 }}" onInput="{{ onRound3 }}" maxlength="500" placeholder="也許那時候他其實是……" style="width:100%;min-height:130px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.9;resize:vertical;"></textarea>
-        <div style="border-left:2px solid #9c6b52;background:rgba(156,90,60,.05);padding:12px 0 12px 16px;margin-top:18px;color:#6b6353;font-size:13.5px;line-height:1.85;">這只是<b style="color:#5a5344;">猜測</b>，而且多半永遠不會被證實。它的作用是<b style="color:#5a5344;">讓你放下</b>，不是判定對方真的那樣想。放下的是你心裡的重量，不是他該負的責任。</div>
+        <div style="border-left:2px solid #9c6b52;background:rgba(156,90,60,.05);padding:12px 0 12px 16px;margin-top:18px;color:#6b6353;font-size:13.5px;line-height:1.85;">這只是<b style="color:#5a5344;">猜測</b>，而且很難被證實。它的作用是<b style="color:#5a5344;">讓你放下</b>，並不判定對方真的那樣想。放下的是你心裡的重量，他該負的責任仍是他的。</div>
       </sc-if>
 
       <sc-if value="{{ s5 }}">
@@ -102,12 +102,12 @@
           <div style="height:1px;background:#e3ddd0;margin:15px 0;"></div>
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">第三輪 · 對他當時的猜測</div>
           <div style="font-size:14px;line-height:1.85;white-space:pre-wrap;">{{ round3Echo }}</div>
-          <div style="background:rgba(156,90,60,.06);border-left:2px solid #9c6b52;padding:10px 13px;margin-top:14px;font-size:12.5px;color:#6b6353;line-height:1.75;">這是猜測，不是判定——它的作用是讓你放下，不是斷定對方真的那樣想。</div>
+          <div style="background:rgba(156,90,60,.06);border-left:2px solid #9c6b52;padding:10px 13px;margin-top:14px;font-size:12.5px;color:#6b6353;line-height:1.75;">這是猜測，不作判定——它的作用是讓你放下，並不斷定對方真的那樣想。</div>
           <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Let Go · Nº 18 · MMXXVI</div>
         </div>
 
         <div style="border-left:2px solid #cec6b4;padding:13px 16px;margin-top:16px;background:#f3efe7;border-radius:0 3px 3px 0;">
-          <p style="font-size:13px;color:#554d40;line-height:1.8;margin:0;">寫完不代表立刻就放下了。過一陣子再回來看一次——你會發現那句話的重量，多半是你自己加上去的那一輪。</p>
+          <p style="font-size:13px;color:#554d40;line-height:1.8;margin:0;">寫完不代表立刻就放下了。過一陣子再回來看一次——你會發現那句話的重量，有一部分是你自己加上去的那一輪。</p>
         </div>
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;">
@@ -165,7 +165,7 @@
           <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個填好的例子</div>
           <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
         </div>
-        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">有個人高中時被導師當眾說「不是讀書的料」，這句話跟了他很多年。他沒有去找老師理論，而是自己分三輪寫了一次——寫完那件事的重量，落在了他沒想到的地方。</p>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">有個人高中時被導師當眾說「不是讀書的料」，這句話跟了他很多年。他沒有去找老師理論，自己分三輪寫了一次——寫完那件事的重量，落在了他沒想到的地方。</p>
 
         <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#938a78;margin:0 0 12px;">放下 · 老師說我不是讀書的料</div>
         <div style="position:relative;border:1px solid #cec6b4;border-radius:3px;padding:22px 20px 20px;background:#fbf9f4;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cec6b4;">
@@ -176,16 +176,16 @@
           <div style="font-size:14px;line-height:1.85;">每次遇到難一點的東西，我就想「他是不是說對了」，然後不敢試。我把一句話變成了不去嘗試的藉口。</div>
           <div style="height:1px;background:#e3ddd0;margin:15px 0;"></div>
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">第三輪 · 對他當時的猜測</div>
-          <div style="font-size:14px;line-height:1.85;">也許那天他自己壓力很大，急著讓全班安靜、或衝著成績說話；那句話多半是衝口而出，不是真的看透了我這個人。</div>
-          <div style="background:rgba(156,90,60,.06);border-left:2px solid #9c6b52;padding:10px 13px;margin-top:14px;font-size:12.5px;color:#6b6353;line-height:1.75;">這是猜測，不是判定——它的作用是讓你放下，不是斷定對方真的那樣想。</div>
+          <div style="font-size:14px;line-height:1.85;">也許那天他自己壓力很大，急著讓全班安靜、或衝著成績說話；那句話是衝口而出，沒有真的看透我這個人。</div>
+          <div style="background:rgba(156,90,60,.06);border-left:2px solid #9c6b52;padding:10px 13px;margin-top:14px;font-size:12.5px;color:#6b6353;line-height:1.75;">這是猜測，不作判定——它的作用是讓你放下，並不斷定對方真的那樣想。</div>
           <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Let Go · Nº 18 · MMXXVI</div>
         </div>
 
         <div style="margin-top:20px;">
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">第一輪把<b>當年憋著的話</b>放出來——沒說出口的話會一直卡著，寫出來就先鬆一格。</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">第二輪最關鍵、也最不能跳：讓那句話續命的，常常是<b>你這些年的自責</b>，不是對方那一句。</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">第三輪的猜測<b>不必是真的</b>——它的作用是讓你放下，不是替他脫罪，也不是斷定他當時真的那樣想。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">第二輪最關鍵、也最不能跳：讓那句話續命的，是<b>你這些年的自責</b>。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">第三輪的猜測<b>不必是真的</b>——它的作用是讓你放下，不替他脫罪，也不斷定他當時真的那樣想。</div>
         </div>
 
         <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，寫我自己的那件事</button>
@@ -278,7 +278,7 @@ class Component extends DCLogic {
     t += "\n\n【第一輪 · 當年想說的】\n" + (s.round1.trim() || "—");
     t += "\n\n【第二輪 · 這些年的自責】\n" + (s.round2.trim() || "—");
     t += "\n\n【第三輪 · 對他當時的猜測】\n" + (s.round3.trim() || "—");
-    t += "\n\n（這是猜測，不是判定——它的作用是讓你放下，不是斷定對方真的那樣想。）";
+    t += "\n\n（這是猜測，不作判定——它的作用是讓你放下，並不斷定對方真的那樣想。）";
     return t;
   }
   toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }

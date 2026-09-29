@@ -77,7 +77,7 @@
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你會把自己<br />叫做哪個類別？</h2>
         <p style="color:#938a78;font-size:13px;margin-bottom:8px;">寫下你想放進官網、對外一句話介紹裡的那個類別詞。就是你希望買家腦中亮起來的那個框。</p>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:12px 0 7px;">類別詞</label>
-        <input value="{{ cat }}" onInput="{{ onCat }}" maxlength="40" placeholder="例如：自動對帳工具／AI 筆記軟體／無程式碼網站生成器" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <input value="{{ cat }}" onInput="{{ onCat }}" maxlength="40" placeholder="例如：自動對帳工具／AI 筆記軟件／無程式碼網站生成器" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:18px 0 7px;">你的買家實際上怎麼找方案？</label>
         <p style="color:#938a78;font-size:12px;margin-bottom:8px;line-height:1.7;">這決定哪一把尺對你最準——不是每個人的買家都 AI 優先，別假設。</p>
         <sc-for list="{{ situOpts }}" as="t" hint-placeholder-count="4">
@@ -115,12 +115,12 @@
           <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#a6552f;">❦</div>
           <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:17px;color:#a6552f;font-weight:600;line-height:1.6;margin:8px 0 4px;">這支不適用：<br />你要的類別本來就還不存在</div>
           <div style="width:30px;height:1px;background:#a6552f;opacity:.5;margin:14px auto 16px;"></div>
-          <p style="color:#554d40;font-size:13.5px;line-height:1.85;margin-bottom:12px;">檢查「類別存不存在」對你沒意義——不存在正是你的前提。你要做的不是證明類別已在買家腦中，是<b style="color:#a6552f;">先賣問題</b>：讓夠多人先認同「這是個值得解決的問題」，你才有機會當這個新類別的領導者。</p>
-          <p style="color:#554d40;font-size:13.5px;line-height:1.85;margin:0;">這是書裡說最難、最慢、也最貴的一條路。動手前先誠實回答兩題：<b style="color:#a6552f;">有沒有夠多人已經在為這件事煩惱？為什麼是現在？</b></p>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.85;margin-bottom:12px;">檢查「類別存不存在」對你沒意義——不存在正是你的前提。你要做的是<b style="color:#a6552f;">先賣問題</b>：讓夠多人先認同「這是個值得解決的問題」，你才有機會當這個新類別的領導者。</p>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.85;margin:0;">這是書裡說最難、最慢、也最貴的一條路。動手前先回答兩題：<b style="color:#a6552f;">有沒有夠多人已經在為這件事煩惱？為什麼是現在？</b></p>
         </div>
         <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:20px;">
-          <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">如果你其實不確定</div>
-          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">很多人以為自己在創新類別，其實只是還沒找到買家已經在用的那個詞。<span onClick="{{ onRestartExisting }}" style="color:#9c5b3f;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">回去用「進既有類別」測一次</span>，先排除「只是命名問題」再說。</p>
+          <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">如果你不確定</div>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">你以為自己在創新類別，也可能只是還沒找到買家已經在用的那個詞。<span onClick="{{ onRestartExisting }}" style="color:#9c5b3f;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">回去用「進既有類別」測一次</span>，先排除「只是命名問題」再說。</p>
         </div>
       </sc-if>
 
@@ -214,7 +214,7 @@
           <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個做完的例子</div>
           <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
         </div>
-        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設你做了一個會自動對帳的 AI 小工具，想把自己叫做「AI 對帳助手」。你進既有類別、買家多半在 AI 助理裡找方案。你真的去查了三處：</p>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">假設你做了一個會自動對帳的 AI 小工具，想把自己叫做「AI 對帳助手」。你進既有類別、買家在 AI 助理裡找方案。你真的去查了三處：</p>
 
         <div style="position:relative;border:1px solid #cd9a86;border-radius:3px;padding:26px 22px 20px;background:#f6efe9;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cd9a86;">
           <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#a6552f;">❦</div>
@@ -236,7 +236,7 @@
 
         <div style="margin-top:20px;">
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>「模糊」不是「不存在」。</b>潛客其實在找這種東西（他主動講了），只是他打的字不是「AI 對帳助手」——他打的是「能自動對帳的工具」。問題在名字，不在需求。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>「模糊」不是「不存在」。</b>潛客在找這種東西（他主動講了），只是他打的字不是「AI 對帳助手」——他打的是「能自動對帳的工具」。問題在名字，不在需求。</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>別讓一個漂亮的新詞害你。</b>「AI 對帳助手」聽起來很潮，但買家腦裡沒有這個框。換成他們已經在用的「自動對帳工具」，你才接得上他們的搜尋。</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>三處要一起看。</b>只看銷售對話你會以為「有」，只看評論站你會以為「沒有」——一致才算數，分歧就是「模糊」的訊號。</div>
         </div>
@@ -347,8 +347,8 @@ class Component extends DCLogic {
   }
   VERDICTS = {
     exists: ["類別存在：地基站得住", "買家腦裡有這個類別，你可以放心把定位建上去。下一步是決定在裡面打哪一種仗——看這個類別有沒有明確領導者、你的資源撐不撐得起快速確立領先。"],
-    unclear: ["類別模糊：詞在你腦中，還沒在買家腦中", "多半是命名問題，不是類別不存在。買家還要你解釋這個詞，代表它接不上他們已經在用的字。換一個他們在 AI／評論站／對話裡實際會打的說法，再測一次；先別把這個詞印到官網上。"],
-    absent: ["類別不存在於買家腦中", "兩條路：(a) 你可能選錯詞——回去找買家真的在用的類別再測；(b) 你其實在做類別創造——那是最難最貴的一條（先賣問題再賣方案、還要守住領導位）。若是後者，回到第一步改走「創造新類別」。"],
+    unclear: ["類別模糊：詞在你腦中，還沒在買家腦中", "問題出在命名，類別本身是存在的。買家還要你解釋這個詞，代表它接不上他們已經在用的字。換一個他們在 AI／評論站／對話裡實際會打的說法，再測一次；先別把這個詞印到官網上。"],
+    absent: ["類別不存在於買家腦中", "兩條路：(a) 你可能選錯詞——回去找買家真的在用的類別再測；(b) 你是在做類別創造——那是最難最貴的一條（先賣問題再賣方案、還要守住領導位）。若是後者，回到第一步改走「創造新類別」。"],
   };
   MANTRA = { exists: "類別站得住，接著挑打法。", unclear: "換一個他們已經在用的詞，再測一次。", absent: "不是選錯詞，就是你在創類別。" };
 

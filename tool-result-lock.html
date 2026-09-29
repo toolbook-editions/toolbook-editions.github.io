@@ -74,7 +74,7 @@
         <textarea value="{{ evidence }}" onInput="{{ onEvidence }}" maxlength="140" placeholder="例如：輸出最終影片檔，並完成發布前檢查" style="width:100%;min-height:90px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">交付日期</label>
         <input value="{{ deadline }}" onInput="{{ onDeadline }}" type="date" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;color-scheme:light;" />
-        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">沒有外部期限，也替這一輪設一個。期限不是催促，是幫你看見取捨。</div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">沒有外部期限，也替這一輪設一個。期限的用處是看見取捨。</div>
       </sc-if>
 
       <sc-if value="{{ s3 }}">
@@ -101,7 +101,7 @@
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">什麼情況出現，<br />你就停止研究或修改？</h2>
         <p style="color:#938a78;font-size:13px;margin-bottom:8px;">替容易無限延長的行為，預先設定停止條件。</p>
         <textarea value="{{ stopRule }}" onInput="{{ onStopRule }}" maxlength="160" placeholder="例如：研究超過 45 分鐘仍未改變必要行動，就停止" style="width:100%;min-height:100px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.9;resize:vertical;"></textarea>
-        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">止損不是草率，而是把時間重新交給真正影響結果的事情。</div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">止損是把時間重新交給真正影響結果的事情。</div>
       </sc-if>
 
       <sc-if value="{{ s6 }}">
@@ -213,8 +213,8 @@
 
         <div style="margin-top:20px;">
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">一輪只鎖<b>一個</b>成果——不是列一長串待辦，而是先講清楚「這一輪到底要交付什麼」。</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">把工作分成<b>非做不可</b>和<b>錦上添花</b>兩堆；後者不是不做，是先擱著，免得它偷走核心成果的時間。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">一輪只鎖<b>一個</b>成果——先講清楚「這一輪到底要交付什麼」。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">把工作分成<b>非做不可</b>和<b>錦上添花</b>兩堆；後者先擱著，免得它佔用核心成果的時間。</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">事先寫好<b>「做到什麼程度就收手」</b>的止損規則，否則挑版型、改配色這種事會無止境打磨下去。</div>
         </div>
 

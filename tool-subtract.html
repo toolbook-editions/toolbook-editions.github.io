@@ -74,7 +74,7 @@
         <sc-if value="{{ powerAlert }}">
           <div style="border:1px solid #9c6b52;background:rgba(156,107,82,.07);border-radius:4px;padding:15px 17px;margin-top:18px;font-size:13.5px;line-height:1.85;color:#7a4f3c;">
             <b style="font-family:'Noto Serif TC',serif;display:block;margin-bottom:4px;font-size:14.5px;color:#9c6b52;">那就先不要用「砍」這個字</b>
-            書裡示範的是砍客戶、砍會議、每天只做兩件事——那些是老闆或自僱者的權限。受雇的人照著做去推掉主管交辦的事，代價可能是考核不利，甚至丟工作。<br /><br />這張卡接下來會把「砍掉」換成<b style="color:#7a4f3c;">「哪一項值得提出來談」</b>。減法一樣做得到，但路徑不同：先讓對方看見取捨，而不是自己單方面停掉。
+            書裡示範的是砍客戶、砍會議、每天只做兩件事——那些是老闆或自僱者的權限。受雇的人照著做去推掉主管交辦的事，代價可能是考核不利，甚至丟工作。<br /><br />這張卡接下來會把「砍掉」換成<b style="color:#7a4f3c;">「哪一項值得提出來談」</b>。減法一樣做得到，但路徑不同：先讓對方看見取捨。
           </div>
         </sc-if>
       </sc-if>
@@ -83,8 +83,8 @@
         <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 攤開來</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這陣子，<br />你的時間都花在<br />哪些事上？</h2>
         <p style="color:#938a78;font-size:13px;margin-bottom:8px;">一行一項，八到十項就夠。先不要判斷好壞，先寫出來。</p>
-        <textarea value="{{ items }}" onInput="{{ onItems }}" maxlength="600" placeholder="例如：&#10;每週例會&#10;回客戶訊息&#10;做月報&#10;帶新人&#10;主要專案&#10;臨時插件" style="width:100%;min-height:150px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.9;resize:vertical;"></textarea>
-        <div style="border:1px dashed #cec6b4;border-radius:4px;padding:13px 15px;margin-top:16px;font-size:12.5px;color:#6b6353;line-height:1.8;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;">這張卡只掃工作與專案。</b>不要把家人、朋友、伴侶放進來——把關係拿去算投入產出比，是這個方法最容易出事的地方，而且沒有任何研究支持那樣做有好處。</div>
+        <textarea value="{{ items }}" onInput="{{ onItems }}" maxlength="600" placeholder="例如：&#10;每週例會&#10;回客戶訊息&#10;做月報&#10;帶新人&#10;主要項目&#10;臨時插件" style="width:100%;min-height:150px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.9;resize:vertical;"></textarea>
+        <div style="border:1px dashed #cec6b4;border-radius:4px;padding:13px 15px;margin-top:16px;font-size:12.5px;color:#6b6353;line-height:1.8;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;">這張卡只掃工作與項目。</b>不要把家人、朋友、伴侶放進來——把關係拿去算投入產出比，是這個方法最容易出事的地方，而且沒有任何研究支持那樣做有好處。</div>
       </sc-if>
 
       <sc-if value="{{ s3 }}">
@@ -102,13 +102,13 @@
         <p style="color:#938a78;font-size:13px;margin-bottom:8px;">同一份清單，這次挑真正推動事情前進的那幾項。</p>
         <div style="border-left:2px solid #35456a;background:rgba(53,69,106,.05);padding:12px 15px;margin:14px 0 4px;border-radius:0 3px 3px 0;"><div style="font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">你剛才寫的</div><div style="font-family:'Noto Serif TC',serif;font-size:14px;line-height:1.75;white-space:pre-wrap;">{{ mirrorItems }}</div></div>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">最有成果的兩三項</label>
-        <textarea value="{{ gain }}" onInput="{{ onGain }}" maxlength="300" placeholder="例如：&#10;主要專案&#10;帶新人" style="width:100%;min-height:100px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.9;resize:vertical;"></textarea>
+        <textarea value="{{ gain }}" onInput="{{ onGain }}" maxlength="300" placeholder="例如：&#10;主要項目&#10;帶新人" style="width:100%;min-height:100px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.9;resize:vertical;"></textarea>
         <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">為什麼要分開問</b>少數事情帶來多數成果，這個現象在很多領域都量得到。但「剛好八成」是後來被講順口的說法，不是規律——真正的比例每個人、每份工作都不一樣。所以這裡不算百分比，只挑出你自己那幾項。</div>
       </sc-if>
 
       <sc-if value="{{ s5 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 05 · 先別急</div>
-        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你想減掉的那些，<br />有沒有哪一項<br />其實撐著別的？</h2>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你想減掉的那些，<br />有沒有哪一項<br />撐著別的？</h2>
         <p style="color:#938a78;font-size:13px;margin-bottom:8px;">這一步是煞車。減法最常見的失敗，是砍掉了看起來沒產出、但別的事靠它撐著的那一項。</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;border:1px solid #e3ddd0;border-radius:3px;margin-bottom:18px;">
           <div style="padding:13px 14px;"><div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">最消耗</div><div style="font-size:13.5px;line-height:1.7;white-space:pre-wrap;">{{ mirrorDrain }}</div></div>
@@ -116,14 +116,14 @@
         </div>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">有沒有哪一項是別的事的基礎<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;">可留空</span></label>
         <textarea value="{{ support }}" onInput="{{ onSupport }}" maxlength="240" placeholder="例如：例會很煩，但我大部分的資訊都是在那裡拿到的；停掉之後我會變成最後一個知道的人" style="width:100%;min-height:90px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
-        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">為什麼要問</b>有研究看科學論文的產出分布，發現那些被引用最多的頂尖成果，是靠大量看起來平庸的研究墊起來的——把「產出低的多數」砍掉，頂尖的那些也就不會出現。<br />所以判準不是「這件事本身有沒有產出」，是<b style="color:#35456a;">「少了它，別的事還轉得動嗎」</b>。</div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#655e51;font-size:12.5px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;display:block;margin-bottom:3px;">為什麼要問</b>有研究看科學論文的產出分布，發現那些被引用最多的頂尖成果，是靠大量看起來平庸的研究墊起來的——把「產出低的多數」砍掉，頂尖的那些也就不會出現。<br />所以判準是<b style="color:#35456a;">「少了它，別的事還轉得動嗎」</b>。</div>
       </sc-if>
 
       <sc-if value="{{ s6 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 06 · 只動一項</div>
         <sc-if value="{{ powerNone }}">
           <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這一週，<br />你要把哪一項<br />提出來談？</h2>
-          <p style="color:#938a78;font-size:13px;margin-bottom:8px;">只挑一項。你要的不是自己停掉它，是讓決定的人看見取捨。</p>
+          <p style="color:#938a78;font-size:13px;margin-bottom:8px;">只挑一項。你要的是讓決定的人看見取捨。</p>
         </sc-if>
         <sc-if value="{{ powerNotNone }}">
           <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這一週，<br />你要動哪一項？</h2>
@@ -132,8 +132,8 @@
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">{{ actLabel }}</label>
         <textarea value="{{ action }}" onInput="{{ onAction }}" maxlength="240" placeholder="{{ actPlaceholder }}" style="width:100%;min-height:90px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">省下來的時間要給誰<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;">可留空</span></label>
-        <input value="{{ freed }}" onInput="{{ onFreed }}" maxlength="60" placeholder="例如：給主要專案，不要又被填滿" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
-        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">省下來的時間如果沒有先講好去處，它通常會自己被填滿——而且填進去的多半是最吵的那件事，不是最重要的。</div>
+        <input value="{{ freed }}" onInput="{{ onFreed }}" maxlength="60" placeholder="例如：給主要項目，不要又被填滿" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">省下來的時間如果沒有先講好去處，它通常會自己被填滿——而且填進去的是最吵的那件事。</div>
       </sc-if>
 
       <sc-if value="{{ s7 }}">
@@ -231,9 +231,9 @@
 
         <div style="margin-top:20px;">
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">這張卡不問你「還該加什麼」，而是<b>先掃出哪些其實可以停掉</b>——先做減法，不是加法。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">這張卡<b>先掃出哪些可以停掉</b>——先做減法。</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">把「最消耗」和「最有成果」擺在一起看，常會發現<b>兩者不是同一件事</b>——這就是 80／20：少數事帶來多數結果，其餘可以砍。</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">不是一次砍光，<b>這週只挑一項真的動它</b>——而且動之前先確認它沒有撐著別的東西。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>這週只挑一項真的動它</b>——而且動之前先確認它沒有撐著別的東西。</div>
         </div>
 
         <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>

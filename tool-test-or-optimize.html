@@ -182,7 +182,7 @@
           <div style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;white-space:nowrap;">一個判好的例子</div>
           <span onClick="{{ onCloseExample }}" style="color:#938a78;font-size:22px;cursor:pointer;">✕</span>
         </div>
-        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">你想「把某社群的廣告加碼投更多」。現況：這條你只隨手試過一兩次，還沒真的跑出結果。你要的答案：其實是想知道「值不值得繼續」。判出來是——</p>
+        <p style="font-size:12.5px;color:#938a78;margin-bottom:18px;line-height:1.75;">你想「把某社群的廣告加碼投更多」。現況：這條你只隨手試過一兩次，還沒真的跑出結果。你要的答案：是想知道「值不值得繼續」。判出來是——</p>
 
         <div style="position:relative;border:1px solid #cd9a86;border-radius:3px;padding:28px 24px 22px;background:#f6efe9;box-shadow:inset 0 0 0 5px #f3efe7,inset 0 0 0 6px #cd9a86;">
           <div style="text-align:center;font-family:'Noto Serif TC',serif;font-size:22px;color:#a6552f;">❦</div>
@@ -246,7 +246,7 @@ class Component extends DCLogic {
   };
   HKEY = "toolbook_testoptimize_history_v1";
   TRACTION = {
-    none: ["幾乎沒有／從沒認真跑過", "還沒有可信的結果，你其實不知道它行不行。"],
+    none: ["幾乎沒有／從沒認真跑過", "還沒有可信的結果，你不知道它行不行。"],
     some: ["有一些，但還不確定值不值得加碼", "跑過但沒定案，卡在中間地帶。"],
     main: ["它已經是我主要的客戶來源之一", "已經證明行，而且在撐著現在的成長。"],
   };
@@ -269,7 +269,7 @@ class Component extends DCLogic {
         color: "#6f7f5c", border: "#a7b58f", bg: "#f1f2e9",
         mantra: "這條已經行，別把它當新的來重測。",
         playbook: "別重跑 go/no-go——它已經是主力。改成：一次只動一個變因（文案、受眾、落地頁其中一項），量它有沒有明顯把數字往上推。沒有明顯提升就停手，別纏著小數點。優化的收益是遞減的，做到明顯變平就夠。",
-        caution: s.want === "gonogo" ? "你的現況說它是主力管道，卻想問它「行不行」——若你其實是在試這條管道的一個新玩法（新受眾、新素材），那個新玩法要當成一條新管道，另外便宜地測，別拿主力的既有成績替它背書。" : "",
+        caution: s.want === "gonogo" ? "你的現況說它是主力管道，卻想問它「行不行」——若你是在試這條管道的一個新玩法（新受眾、新素材），那個新玩法要當成一條新管道，另外便宜地測，別拿主力的既有成績替它背書。" : "",
       };
     }
     if (s.traction === "some") {
@@ -277,7 +277,7 @@ class Component extends DCLogic {
         key: "test", title: "先做一次測試",
         color: "#a6552f", border: "#cd9a86", bg: "#f6efe9",
         mantra: "卡在中間，就先用一次測試定生死。",
-        playbook: "它跑過但沒定案——現在最該做的不是加碼，是補一次乾淨的 go/no-go：設好「測多少、測多久、多少算過」，跑一輪。明顯過就進入優化、加碼；明顯不過就換一條；卡在及格線附近就當平手，別把小差距讀成希望。",
+        playbook: "它跑過但沒定案——現在最該做的是補一次乾淨的 go/no-go：設好「測多少、測多久、多少算過」，跑一輪。明顯過就進入優化、加碼；明顯不過就換一條；卡在及格線附近就當平手，別把小差距讀成希望。",
         caution: s.want === "more" ? "你想的是「怎麼擠出更多」（優化），但這條還沒證明行。在沒定案的管道上優化，等於把力氣花在調一個可能整條都該砍的東西。先定生死，再談更好。" : "",
       };
     }
@@ -286,7 +286,7 @@ class Component extends DCLogic {
       key: "test", title: "測試",
       color: "#9c5b3f", border: "#cd9a86", bg: "#f6efe9",
       mantra: "還沒證明行的東西，先便宜地問它行不行。",
-      playbook: "把它當一次測試：便宜、短、設好及格線，明顯不過就砍。這個階段的目標不是做到最好，是用最小成本拿到一個「值不值得深做」的訊號。先別調細節、別加預算——那些是它過關之後的事。",
+      playbook: "把它當一次測試：便宜、短、設好及格線，明顯不過就砍。這個階段的目標是用最小成本拿到一個「值不值得深做」的訊號。先別調細節、別加預算——那些是它過關之後的事。",
       caution: s.want === "more" ? "你想的是「怎麼擠出更多」，但這條你還沒認真跑過。優化一個還沒證明行的管道，是把最貴的力氣放在最不確定的地方。先做 go/no-go。" : "",
     };
   }

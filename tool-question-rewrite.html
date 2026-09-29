@@ -67,10 +67,10 @@
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">你原本想問的那句話</label>
         <textarea value="{{ q }}" onInput="{{ onQ }}" maxlength="300" placeholder="例如：如果有一個工具可以自動幫你排班，你會用嗎？" style="width:100%;min-height:92px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.85;resize:vertical;"></textarea>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:18px 0 7px;">如果答案跟我想的相反，我會改掉<span style="color:#b9b09a;font-weight:400;font-family:sans-serif;font-size:12px;">　填不出來也可以往下</span></label>
-        <textarea value="{{ change }}" onInput="{{ onChange }}" maxlength="300" placeholder="例如：如果他們其實不介意手動對表，我就不做自動排班，改做月底結帳那一段。" style="width:100%;min-height:92px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.85;resize:vertical;"></textarea>
+        <textarea value="{{ change }}" onInput="{{ onChange }}" maxlength="300" placeholder="例如：如果他們不介意手動對表，我就不做自動排班，改做月底結帳那一段。" style="width:100%;min-height:92px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.85;resize:vertical;"></textarea>
         <sc-if value="{{ noChange }}">
           <div style="border-left:2px solid #cec6b4;padding:11px 14px;margin-top:10px;background:#f3efe7;border-radius:0 3px 3px 0;">
-            <p style="font-size:12.5px;color:#554d40;line-height:1.8;margin:0;">這一格空著，意思是<b style="color:#9c5b3f;">這一題不管答什麼你都會照原計畫走</b>——那它就不是重要的問題。往下改寫還是有用（問法會變好），但先知道這件事：真正值得問的那一題，是答案有可能推翻你正在做的事的那一題。</p>
+            <p style="font-size:12.5px;color:#554d40;line-height:1.8;margin:0;">這一格空著，意思是<b style="color:#9c5b3f;">這一題不管答什麼你都會照原計畫走</b>——那它就不是重要的問題。往下改寫仍可讓問法變好。真正值得問的那一題，是答案有可能推翻你正在做的事的那一題。</p>
           </div>
         </sc-if>
       </sc-if>
@@ -99,7 +99,7 @@
       <sc-if value="{{ s3 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 換成已經發生的事</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">寫三句<br />你真的問得出口的話</h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:6px;">骨架給你，<b style="color:#554d40;">空格自己填</b>——填的是你要問的那件事，不是我猜的那件事。三句都可以留空，留一句也夠用。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:6px;">骨架給你，<b style="color:#554d40;">空格自己填</b>——填的是你要問的那件事。三句都可以留空，留一句也夠用。</p>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">現在怎麼做</label>
         <textarea value="{{ r1 }}" onInput="{{ onR1 }}" maxlength="200" placeholder="你現在怎麼處理＿＿？" style="width:100%;min-height:70px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.85;resize:vertical;"></textarea>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">釘成具體的那一次</label>
@@ -114,7 +114,7 @@
       <sc-if value="{{ s4 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 04 · 價格錨</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">他現在為這件事<br />付出多少？</h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:6px;">問「現在花多少」是順手拿到的一個錨。<b style="color:#554d40;">但錨不是一個數字，是一個位置</b>——同一個人身上常常兩種支出並存（自己熬夜做，也付錢給別人做），所以要你自己選要當誰的替代品。這一步可以整格留空。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:6px;">問「現在花多少」是順手拿到的一個錨。<b style="color:#554d40;">但錨是一個位置，不只是數字</b>——同一個人身上可以兩種支出並存（自己熬夜做，也付錢給別人做），所以要你自己選要當誰的替代品。這一步可以整格留空。</p>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">要問的那一句<span style="color:#b9b09a;font-weight:400;font-family:sans-serif;font-size:12px;">　可留空</span></label>
         <textarea value="{{ cost }}" onInput="{{ onCost }}" maxlength="200" placeholder="例如：這件事現在一個月佔你多少時間？有沒有花錢在上面？" style="width:100%;min-height:70px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.85;resize:vertical;"></textarea>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:18px 0 7px;">我要當誰的替代品<span style="color:#b9b09a;font-weight:400;font-family:sans-serif;font-size:12px;">　可留空</span></label>
@@ -221,7 +221,7 @@
           <div style="display:flex;gap:10px;"><span style="font-family:'Noto Serif TC',serif;font-size:12px;color:#9c5b3f;flex:0 0 14px;line-height:1.9;">＋</span><span style="font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.9;">那後來怎麼解決的？</span></div>
           <div style="height:1px;background:#e3ddd0;margin:14px 0 12px;"></div>
           <div style="display:flex;gap:8px;margin-bottom:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 64px;">原本想問</span><span style="font-size:13px;line-height:1.7;">如果有一個工具可以自動幫你排班，你會用嗎？</span></div>
-          <div style="display:flex;gap:8px;margin-bottom:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 64px;">答相反就改</span><span style="font-size:13px;line-height:1.7;">如果他們其實不介意手動排，我就不做排班，改做月底結帳那一段。</span></div>
+          <div style="display:flex;gap:8px;margin-bottom:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 64px;">答相反就改</span><span style="font-size:13px;line-height:1.7;">如果他們不介意手動排，我就不做排班，改做月底結帳那一段。</span></div>
           <div style="display:flex;gap:8px;"><span style="font-size:11px;color:#938a78;flex:0 0 64px;">價格錨</span><span style="font-size:13px;line-height:1.7;">當「自己熬夜手動做」的替代品</span></div>
           <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:16px;">Questions · Nº 02 · MMXXVI</div>
         </div>
@@ -230,7 +230,7 @@
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>「答相反就改」那一格是關卡</b>——他填得出來（改做結帳），所以這一題值得問。填不出來的題目，問法再好也不會改變他接下來做什麼。</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>第 3 句最容易被跳過，卻最值錢</b>——「試過什麼、後來為什麼沒用」講的是真正的門檻在哪裡，那是他已經付出過代價的事。</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>價格錨是一個位置，不是一個數字</b>——同一家診所可能既熬夜手動做、又付錢給外面的人做。你要先決定自己站在哪一格。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>價格錨是一個位置，不只是數字</b>——同一家診所可能既熬夜手動做、又付錢給外面的人做。你要先決定自己站在哪一格。</div>
         </div>
 
         <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#9c5b3f;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，換我的問題</button>
@@ -356,7 +356,7 @@ class Component extends DCLogic {
     const blocks = this.askLines().map((t, i) => ({ k: String(i + 1), v: t, big: i === 0 }));
     blocks.push({ k: "原本想問", v: s.q.trim() || "—" });
     blocks.push({ k: "價格錨", v: this.anchorLabel() || "—" });
-    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "要問的話", sub: "QUESTIONS · Nº 02", filename: "問句改寫器-Toolbook", mantra: "問他上一次怎麼做，不是問他將來會不會做。", edition: "Edition Nº 02 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "要問的話", sub: "QUESTIONS · Nº 02", filename: "問句改寫器-Toolbook", mantra: "問他上一次怎麼做。", edition: "Edition Nº 02 · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
 
   opts(list, cur, pick) {

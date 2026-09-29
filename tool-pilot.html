@@ -66,7 +66,7 @@
         <textarea value="{{ decision }}" onInput="{{ onDecision }}" maxlength="200" placeholder="例如：要不要轉去做設計" style="width:100%;min-height:90px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
         <div style="border:1px solid #e3ddd0;background:rgba(53,69,106,.03);border-radius:4px;padding:15px 16px;margin-top:18px;">
           <div style="font-family:'Noto Serif TC',serif;font-size:14.5px;margin-bottom:3px;">如果做了之後想回頭，回得去嗎？</div>
-          <div style="font-size:11.5px;color:#938a78;margin-bottom:11px;line-height:1.7;">先誠實回答這一格，它決定這張卡適不適合你。</div>
+          <div style="font-size:11.5px;color:#938a78;margin-bottom:11px;line-height:1.7;">先回答這一格，它決定這張卡適不適合你。</div>
           <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;">
             <sc-for list="{{ revOpts }}" as="o" hint-placeholder-count="3">
               <button onClick="{{ o.onClick }}" style="border:1px solid {{ o.bd }};background:{{ o.bg }};color:{{ o.col }};border-radius:3px;padding:11px 6px;font-size:13px;cursor:pointer;line-height:1.4;font-weight:{{ o.w }};">{{ o.label }}</button>
@@ -76,7 +76,7 @@
         <sc-if value="{{ revAlert }}">
           <div style="border:1px solid #9c6b52;background:rgba(156,107,82,.07);border-radius:4px;padding:15px 17px;margin-top:18px;font-size:13.5px;line-height:1.85;color:#7a4f3c;">
             <b style="font-family:'Noto Serif TC',serif;display:block;margin-bottom:4px;font-size:14.5px;color:#9c6b52;">這張卡不適合這個決定</b>
-            有些事情一旦做了就沒有回頭路——移民身分、生育、動用一輩子的積蓄、放棄年資或執照。這類決定沒辦法用「先試小的」來預演，因為根本沒有小的版本。<br /><br />你還是可以繼續往下填，但請把它當成整理思緒，不要當成「試過了所以安全」。這種決定需要的是把不可逆的部分弄清楚，而不是試一次。
+            有些事情一旦做了就沒有回頭路——移民身分、生育、動用一輩子的積蓄、放棄年資或執照。這類決定沒辦法用「先試小的」來預演，因為根本沒有小的版本。<br /><br />你還是可以繼續往下填，但請把它當成整理思緒，不要當成「試過了所以安全」。這種決定要先把不可逆的部分弄清楚，試一次幫不上忙。
           </div>
         </sc-if>
         <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13px;line-height:1.9;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;">為什麼先問這一題</b><br />這個做法在書裡出現過六次，每一次都是可以回頭的事——先試航一個月、先在家工作兩天、先花一筆小錢測市場。書沒有說的是：它挑的全是可逆的例子。不可逆的決定，這套方法本來就不適用。</div>
@@ -85,7 +85,7 @@
       <sc-if value="{{ s2 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 02 · 縮小</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">有沒有一個很小的版本，<br />可以先做做看？</h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">不是「準備」，是真的做一次小的。目標是用最低的代價，換到一手的實感。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">這一步要真的做一次小的；光做「準備」不算。目標是用最低的代價，換到一手的實感。</p>
         <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:10px;">
           <sc-for list="{{ chips }}" as="c" hint-placeholder-count="6">
             <button onClick="{{ c.onClick }}" style="border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:9px 12px;font-size:13px;color:#554d40;cursor:pointer;" style-hover="border-color:#35456a;color:#35456a;">{{ c.label }}</button>
@@ -94,7 +94,7 @@
         <p style="color:#938a78;font-size:11.5px;margin:9px 0 0;">點一個當開頭，再改成你的版本。</p>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">我要先試的那件小事</label>
         <textarea value="{{ pilot }}" onInput="{{ onPilot }}" maxlength="200" placeholder="例如：接一個小的設計案，晚上做，不辭職" style="width:100%;min-height:96px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
-        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">好的試驗有一個特徵：<b style="color:#35456a;">做完之後，你會知道一些現在不知道的事。</b>如果做完只是「感覺比較踏實」，那還是準備，不是試驗。</div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">好的試驗有一個特徵：<b style="color:#35456a;">做完之後，你會知道一些現在不知道的事。</b>如果做完只是「感覺比較踏實」，那還是準備，還不算試驗。</div>
       </sc-if>
 
       <sc-if value="{{ s3 }}">
@@ -126,9 +126,9 @@
       <sc-if value="{{ s5 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 05 · 誠實</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這次試驗<br />回答不了什麼？<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;font-family:-apple-system,sans-serif;vertical-align:2px;">可留空</span></h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">這一步不是潑冷水，是先標出試驗照不到的地方。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">這一步先標出試驗照不到的地方。</p>
         <textarea value="{{ unknown }}" onInput="{{ onUnknown }}" maxlength="200" placeholder="例如：做三個案子很新鮮，但做三年會不會膩，我還是不知道" style="width:100%;min-height:100px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
-        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;">試驗告訴你的是什麼</b><br />研究上有兩件事很清楚：小規模試的結果放大之後常常會縮水；而人預測「一個月後的心情」相當準，預測「三年後快不快樂」就很不準。<br /><br />所以一次試驗能回答的是<b style="color:#35456a;">「我做不做得下去、我喜不喜歡做這件事本身」</b>，不是「這個選擇會不會讓我長期滿意」。前者已經很有用了。</div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13px;line-height:1.85;"><b style="font-family:'Noto Serif TC',serif;color:#35456a;">試驗告訴你的是什麼</b><br />研究上有兩件事很清楚：小規模試的結果放大之後常常會縮水；而人預測「一個月後的心情」相當準，預測「三年後快不快樂」就很不準。<br /><br />所以一次試驗能回答的是<b style="color:#35456a;">「我做不做得下去、我喜不喜歡做這件事本身」</b>，答不了「這個選擇會不會讓我長期滿意」。前者已經很有用了。</div>
       </sc-if>
 
       <sc-if value="{{ s6 }}">

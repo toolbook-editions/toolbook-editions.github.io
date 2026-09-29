@@ -52,7 +52,7 @@
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#35456a;margin-bottom:20px;">❦</div>
           <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">延遲檢驗</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:26px;font-weight:600;line-height:1.65;letter-spacing:.5px;">當下最有感的那一句，<br />幾天後還在嗎</h1>
-          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">記下來，放幾天，再回來問自己兩題。<br />這是一把篩子，不是一台記憶機——<br />它幫你挑得更準，不會幫你記得更多。<br />答案只存在這部裝置。</p>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">記下來，放幾天，再回來問自己兩題。<br />這是一把篩子，只負責挑選——<br />它幫你挑得更準，不會幫你記得更多。<br />答案只存在這部裝置。</p>
           <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#35456a;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個填好的例子 →</div>
         </div>
       </sc-if>
@@ -60,7 +60,7 @@
       <sc-if value="{{ s1 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 那一句</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.6;margin-bottom:10px;">剛才打到你的<br />是哪一件事？</h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:16px;line-height:1.8;">用你自己的話寫，不要照抄原文。抄下來的句子幾天後你多半認不出它為什麼重要——你自己的話才認得出。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:16px;line-height:1.8;">用你自己的話寫，不要照抄原文。抄下來的句子幾天後你認不出它為什麼重要——你自己的話才認得出。</p>
         <textarea value="{{ line }}" onInput="{{ onLine }}" maxlength="300" placeholder="例如：我一直以為自己是拖延，其實是每次都不知道下一步具體要做什麼" style="width:100%;min-height:120px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
       </sc-if>
 
@@ -266,7 +266,7 @@
           <sc-if value="{{ ocTooEarly }}">
             <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:16px;">
               <div style="font-family:'Noto Serif TC',serif;font-size:15px;font-weight:600;margin-bottom:6px;">{{ ocWaitTitle }}</div>
-              <p style="font-size:13px;color:#554d40;line-height:1.8;">現在回答，測到的是你剛才讀過的記憶，不是它有沒有留下來。等到日子再回來，這張卡會自己標成可以檢驗。</p>
+              <p style="font-size:13px;color:#554d40;line-height:1.8;">現在回答，測到的是你剛才讀過的記憶，測不到它有沒有留下來。等到日子再回來，這張卡會自己標成可以檢驗。</p>
               <button onClick="{{ onReviewAnyway }}" style="display:block;width:100%;border:1px solid #cec6b4;background:transparent;color:#35456a;border-radius:2px;padding:11px;font-size:13px;cursor:pointer;margin-top:14px;">還是現在就檢驗</button>
             </div>
           </sc-if>
@@ -459,7 +459,7 @@ class Component extends DCLogic {
       showVerdictHint: bothAnswered,
       verdictHint: bothAnswered ? (wouldKeep
         ? "這一張會留下來。它通過了唯一那道檢驗——過了這些天，它還在。"
-        : "這一張會被放掉。想不起來、也沒用過，代表當時打動你的是那個說法本身，不是它對你有用。這不是你沒做到，是這張卡正在幫你篩掉用不上的話。") : "",
+        : "這一張會被放掉。想不起來、也沒用過，代表當時打動你的只是那個說法本身。這張卡正在幫你篩掉用不上的話。") : "",
       reviewDisabled: bothAnswered ? "" : "disabled",
       reviewBg: bothAnswered ? "#35456a" : "#b7bdcb",
       reviewOp: bothAnswered ? "1" : ".5",

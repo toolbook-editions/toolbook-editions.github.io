@@ -81,14 +81,14 @@
         <textarea value="{{ cur }}" onInput="{{ onCur }}" maxlength="300" placeholder="例如：他們幾乎都是聽同業講的，然後拿試算表自己改一份來用。" style="width:100%;min-height:100px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.85;resize:vertical;"></textarea>
         <div onClick="{{ onToggleNoSolve }}" style="border:1px solid {{ nsBd }};background:{{ nsBg }};border-radius:3px;padding:12px 15px;margin-top:12px;cursor:pointer;">
           <div style="font-size:14px;color:{{ nsFg }};margin-bottom:2px;">他們根本沒在解決這件事</div>
-          <div style="font-size:12px;color:#938a78;line-height:1.7;">全新的事、還沒有人這樣做過——這是一個正當答案，不是失敗。選了它，這張卡會直接告訴你下一步該做什麼。</div>
+          <div style="font-size:12px;color:#938a78;line-height:1.7;">全新的事、還沒有人這樣做過——這是一個正當答案。選了它，這張卡會直接告訴你下一步該做什麼。</div>
         </div>
       </sc-if>
 
       <sc-if value="{{ s3 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 03 · 第二問</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">你手上這批人，<br />是怎麼來的？</h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:10px;">可以複選，<b style="color:#554d40;">而且多半不只一條</b>——一批人幾乎不會只有一個來源，勾成一條反而會讓後面那一問失真。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:10px;">可以複選，<b style="color:#554d40;">而且不只一條</b>——一批人幾乎不會只有一個來源，勾成一條反而會讓後面那一問失真。</p>
         <sc-for list="{{ chanOpts }}" as="o" hint-placeholder-count="7">
           <div onClick="{{ o.onPick }}" style="border:1px solid {{ o.bd }};background:{{ o.bg }};border-radius:3px;padding:10px 15px;margin-bottom:7px;cursor:pointer;display:flex;gap:10px;align-items:baseline;">
             <span style="color:{{ o.fg }};font-size:13px;flex:0 0 14px;">{{ o.mark }}</span>
@@ -119,7 +119,7 @@
         <textarea value="{{ flip }}" onInput="{{ onFlip }}" maxlength="300" placeholder="例如：如果他們其實不介意現在的做法，我就不做排班，改做月底對帳那一段。" style="width:100%;min-height:84px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;line-height:1.85;resize:vertical;"></textarea>
         <sc-if value="{{ noFlip }}">
           <div style="border-left:2px solid #cec6b4;padding:11px 14px;margin-top:10px;background:#f3efe7;border-radius:0 3px 3px 0;">
-            <p style="font-size:12.5px;color:#554d40;line-height:1.8;margin:0;">這一格空著也可以往下。但先知道它的意思：<b style="color:#9c5b3f;">不管測出什麼你都會照原計畫走</b>——那你要的不是答案，是同意。</p>
+            <p style="font-size:12.5px;color:#554d40;line-height:1.8;margin:0;">這一格空著也可以往下。但先知道它的意思：<b style="color:#9c5b3f;">不管測出什麼你都會照原計畫走</b>——那你要的是同意。</p>
           </div>
         </sc-if>
       </sc-if>
@@ -138,7 +138,7 @@
 
         <sc-if value="{{ vMismatch }}">
           <div style="border-left:2px solid #9c5b3f;padding:13px 16px;margin-top:18px;background:#f3efe7;border-radius:0 3px 3px 0;">
-            <div style="font-family:'Noto Serif TC',serif;font-size:14.5px;font-weight:600;color:#9c5b3f;margin-bottom:5px;">最快的修法通常不是換方法，是換管道</div>
+            <div style="font-family:'Noto Serif TC',serif;font-size:14.5px;font-weight:600;color:#9c5b3f;margin-bottom:5px;">最快的修法通常是換管道</div>
             <p style="font-size:12.5px;color:#554d40;line-height:1.8;margin:0;">去那群人本來就會出現的地方找他們——<b style="color:#241f18;">他們現在拿來解決這件事的那個東西旁邊，就是最好的位置</b>。你剛才在第一問寫下的那句話，已經指出那個位置在哪裡了。</p>
           </div>
         </sc-if>
@@ -228,7 +228,7 @@
         <div style="margin-top:20px;">
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>第一問寫得越具體，第三問才判得動</b>——「聽同業講的」這五個字，直接說明了廣告為什麼接不到這群人。</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>判成「不必解讀」不是判這個點子死了</b>，剛好相反：它把你從一個假的死刑判決裡撈出來，代價是要再測一次。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>判成「不必解讀」只是先不下結論</b>，代價是要再測一次。</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>換管道的方向就藏在第一問裡</b>——同業會聚集的地方（公會、群組、研討會、進修課），才是他本來就該去的位置。</div>
         </div>
 
@@ -334,7 +334,7 @@ class Component extends DCLogic {
       ? "你找到他們的路，跟他們解決這件事的路是兩條——這一輪測的是另一群人。「沒人需要這個」跟「我找錯人問」，在這種結果上分不出來。"
       : "你找到他們的路，跟他們解決這件事的路是兩條——照這批人測下去，拿到的答案是關於另一群人的。先換管道，再測。";
     return mode === "after"
-      ? "兩條路對得上，這一輪的答案確實是關於你想了解的那群人。名單這一格過了——接下來要看的是問法與樣本量，不是名單。"
+      ? "兩條路對得上，這一輪的答案確實是關於你想了解的那群人。名單這一格過了——接下來要看的是問法與樣本量。"
       : "兩條路對得上，可以開始測了。名單這一格過了——但它不保證你問得對，也不保證結論站得住。";
   }
   next() {

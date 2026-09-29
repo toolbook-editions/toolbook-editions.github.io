@@ -61,7 +61,7 @@
         <input value="{{ thing }}" onInput="{{ onThing }}" maxlength="40" placeholder="例如：我天生不會唱歌 / 他天生反應就是快" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:15px;color:#241f18;margin-bottom:18px;" />
 
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:0 0 7px;">拆成更具體的技能點</label>
-        <input value="{{ skillPoint }}" onInput="{{ onSkillPoint }}" maxlength="50" placeholder="例如：不是「唱歌」，是「抓不到旋律音準」" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
+        <input value="{{ skillPoint }}" onInput="{{ onSkillPoint }}" maxlength="50" placeholder="例如：「抓不到旋律音準」" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
       </sc-if>
 
       <sc-if value="{{ vStep2 }}">
@@ -103,7 +103,7 @@
               <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
             </div>
           </form>
-          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這個工具啟發自《刻意練習》第8章拆解「天才傳說」的兩問框架。查證後要誠實補一句：基因可能同時影響能力上限與練習意願本身，這套框架只能排除「沒試過就認定不行」的假天花板，不能證明任何天花板都是後天可突破的。</p>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這個工具啟發自《刻意練習》第8章拆解「天才傳說」的兩問框架。查證後補一句：基因可能同時影響能力上限與練習意願本身，這套框架只能排除「沒試過就認定不行」的假天花板，不能證明任何天花板都是後天可突破的。</p>
         </div>
       </sc-if>
 
@@ -183,7 +183,7 @@ class Component extends DCLogic {
     if (history === "never") return { tag: "排除了一個假天花板", color: "#6f7f5c", text: "還沒認真練過，就不能算「天生不擅長」——這比較像是沒試過就認定不行。可以先找一個可考證的入門方法認真練一段時間，再回頭看這張卡。" };
     if (history === "wrong") return { tag: "值得先換方法，再下結論", color: "#6f7f5c", text: "練過但沒有人指出具體錯在哪，很難判斷是真的不行還是方法不對。建議先找他人觀察、或錄影回放具體練習過程，定位錯在哪個環節，再重新判斷。" };
     if (history === "plateau") return { tag: "需要進一步查證，不要急著下結論", color: "#9c6b52", text: "方法對、也認真練過仍沒進步，這種情況比較複雜——可能是還沒找到真正對的方法，也可能真的是天花板較低。建議找專業的人重新檢視方法設計，不要只靠自己判斷。" };
-    return { tag: "這可能是真的限制，不只是沒試過", color: "#9c6b52", text: "如果這件事已知有嚴格年齡窗口或明顯遺傳成分（例如某些感官辨識能力），這套兩問框架不足以推翻它——查證後確認，練習能改善很多能力，但不是每一項都能突破，這裡誠實標示，不強行套用「一定是練習不夠」的結論。" };
+    return { tag: "這可能是真的限制，不只是沒試過", color: "#9c6b52", text: "如果這件事已知有嚴格年齡窗口或明顯遺傳成分（例如某些感官辨識能力），這套兩問框架不足以推翻它——查證後確認，練習能改善很多能力，但不是每一項都能突破，這裡不強行套用「一定是練習不夠」的結論。" };
   }
 
   saveRecord() {

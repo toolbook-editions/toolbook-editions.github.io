@@ -68,7 +68,7 @@
         <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:22px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">這一刀很重要。留緩衝只對「有人會臨時插進來」的時段有用；沒有人插進來卻還是做不完，那是另一個問題，留再多空白也補不上。</div>
 
         <sc-if value="{{ kindIsSolo }}">
-          <div style="border-left:2px solid #b0563c;background:#f7f0ec;border-radius:0 3px 3px 0;padding:13px 16px;margin-top:18px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>那這張卡幫不上。</b>沒有人插進來的時段會拖，多半是你估錯了那件事要花多久——該做的是回頭看上一次做同類的事實際花了多少時間，不是預留更多空白。</div>
+          <div style="border-left:2px solid #b0563c;background:#f7f0ec;border-radius:0 3px 3px 0;padding:13px 16px;margin-top:18px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>那這張卡幫不上。</b>沒有人插進來的時段會拖，是你估錯了那件事要花多久——該做的是回頭看上一次做同類的事實際花了多少時間。</div>
           <a href="tool-review.html" style="display:flex;align-items:center;justify-content:space-between;border:1px solid #cec6b4;border-radius:4px;padding:15px 17px;margin-top:12px;background:#fff;">
             <span style="font-size:13.5px;color:#554d40;line-height:1.7;">把計畫與實際產出擺在一起比一次</span>
             <span style="color:#35456a;font-size:13px;white-space:nowrap;margin-left:12px;">復盤卡 →</span>
@@ -107,7 +107,7 @@
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:0 0 7px;">在「{{ blockEcho }}」裡面，要留空的是</label>
         <input value="{{ slot }}" onInput="{{ onSlot }}" maxlength="40" placeholder="例如：最後那 20 分鐘 / 十點半到十一點" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:15px;color:#241f18;" />
 
-        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">留多少沒有標準答案，這張卡也不會給你一個數字——那種數字是從醫院的排程研究來的，沒有人拿個人行事曆做過同樣的事。先留一塊你捨得的，被打斷幾次之後你自己會知道夠不夠。</div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:13.5px;line-height:1.9;">留多少沒有標準答案，這張卡也不會給你一個數字——那種數字是從醫院的排程研究來的，沒有人拿個人日程表做過同樣的事。先留一塊你捨得的，被打斷幾次之後你自己會知道夠不夠。</div>
       </sc-if>
 
       <sc-if value="{{ vGuard }}">
@@ -153,7 +153,7 @@
               <button type="submit" style="border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:0 20px;font-size:13px;letter-spacing:1px;cursor:pointer;white-space:nowrap;">{{ subLabel }}</button>
             </div>
           </form>
-          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《Scarcity 稀缺》談組織時間的那一章，但支撐它的不是那本書——是排隊論：需求隨機到達、產能固定的系統，等候時間會隨著排得越滿而非線性地爆起來。「分散留勝過集中留」來自一份直接比較兩種做法的手術室排程研究（Wullink 等，Journal of Medical Systems, 2007），那間醫院據此把專用的急症手術室關掉了。⚠️ 那些研究量的是病床與手術室，不是行事曆，所以這裡不給任何比例數字。這裡不引用書中原文，也不沿用書中案例。</p>
+          <p style="font-size:11px;color:#b9b09a;line-height:1.7;margin-top:10px;">這張卡啟發自《Scarcity 稀缺》談組織時間的那一章，但支撐它的不是那本書——是排隊論：需求隨機到達、產能固定的系統，等候時間會隨著排得越滿而非線性地爆起來。「分散留勝過集中留」來自一份直接比較兩種做法的手術室排程研究（Wullink 等，Journal of Medical Systems, 2007），那間醫院據此把專用的急症手術室關掉了。⚠️ 那些研究量的是病床與手術室，不是日程表，所以這裡不給任何比例數字。這裡不引用書中原文，也不沿用書中案例。</p>
         </div>
       </sc-if>
 

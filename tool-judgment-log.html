@@ -52,7 +52,7 @@
           <div style="font-family:'Noto Serif TC',serif;font-size:30px;color:#9c5b3f;margin-bottom:20px;">❦</div>
           <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">工具 Nº 16 · 判斷記錄</div>
           <h1 style="font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;line-height:1.7;letter-spacing:.5px;">把這次的判斷寫下來，<br />連同兩條理由</h1>
-          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">回頭的時候，你要問的不是「我猜對了嗎」，是<b style="color:#9c5b3f;">「我當初哪一條理由被推翻了」</b>。所以這張卡逼你寫下理由，還要寫下別人怎麼看。<br />答案只存在這部裝置。</p>
+          <p style="color:#938a78;font-size:13.5px;line-height:1.9;margin-top:18px;">回頭的時候，你要問的是<b style="color:#9c5b3f;">「我當初哪一條理由被推翻了」</b>。所以這張卡逼你寫下理由，還要寫下別人怎麼看。<br />答案只存在這部裝置。</p>
           <div onClick="{{ onOpenExample }}" style="margin-top:22px;color:#9c5b3f;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;">看一個做完的例子 →</div>
         </div>
       </sc-if>
@@ -60,7 +60,7 @@
       <sc-if value="{{ s1 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 先看這張卡適不適用</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">這個決定，<br />大概多久會看到結果？</h2>
-        <p style="color:#938a78;font-size:13px;margin-bottom:10px;">回饋來得越慢，這張卡的價值就越集中在「寫下來的當下」，而不是「翻回去的那天」。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:10px;">回饋來得越慢，這張卡的價值就越集中在「寫下來的當下」。</p>
         <sc-for list="{{ fbOpts }}" as="t" hint-placeholder-count="4">
           <div onClick="{{ t.onClick }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};border-radius:4px;padding:12px 15px;margin-bottom:8px;cursor:pointer;">
             <div style="font-size:14.5px;color:{{ t.fg }};margin-bottom:1px;">{{ t.label }}</div>
@@ -75,7 +75,7 @@
           </div>
         </sc-for>
         <sc-if value="{{ showHeavyNote }}">
-          <div style="border-left:2px solid #9c6b52;background:#f6efe9;padding:12px 15px;margin-top:8px;border-radius:0 3px 3px 0;color:#554d40;font-size:13px;line-height:1.8;"><b style="color:#9c6b52;">這張卡還是可以寫，但要知道它的底。</b>支持這套做法的研究做的是小公司、低成本的試錯，<b>沒有測過不可逆的大賭注</b>。在這種決定上，它幫得上的是逼你把理由講清楚，不是幫你判得更準。</div>
+          <div style="border-left:2px solid #9c6b52;background:#f6efe9;padding:12px 15px;margin-top:8px;border-radius:0 3px 3px 0;color:#554d40;font-size:13px;line-height:1.8;"><b style="color:#9c6b52;">這張卡還是可以寫，但要知道它的底。</b>支持這套做法的研究做的是小公司、低成本的試錯，<b>沒有測過不可逆的大賭注</b>。在這種決定上，它幫得上的是逼你把理由講清楚。</div>
         </sc-if>
       </sc-if>
 
@@ -97,7 +97,7 @@
           <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:2px;">你的判斷是</div>
           <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#9c5b3f;white-space:pre-wrap;">{{ mirrorClaim }}</div>
         </div>
-        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">寫兩條就好。<b style="color:#9c5b3f;">這不是偷懶，是刻意的</b>——有實驗發現要人列兩個理由有效，列十個反而讓人更確信原本的判斷，因為「想不出那麼多」會被誤讀成「反面的理由本來就少」。</p>
+        <p style="color:#938a78;font-size:13px;margin-bottom:8px;">寫兩條就好。<b style="color:#9c5b3f;">這是刻意的</b>——有實驗發現要人列兩個理由有效，列十個反而讓人更確信原本的判斷，因為「想不出那麼多」會被誤讀成「反面的理由本來就少」。</p>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:14px 0 7px;">理由一</label>
         <input value="{{ r1 }}" onInput="{{ onR1 }}" maxlength="80" placeholder="例如：去年小幅調價時幾乎沒人走" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:16px 0 7px;">理由二</label>
@@ -175,7 +175,7 @@
 
         <div style="border:1px solid #cec6b4;border-radius:4px;background:#fff;padding:20px;margin-top:24px;">
           <div style="font-family:'Noto Serif TC',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#938a78;margin-bottom:8px;">別跟另一張卡搞混</div>
-          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">個人卷有一張 <a href="tool-review.html">復盤卡</a>，做的是另一件事：一輪做完之後，拿當初訂的目標對一次實際結果，問「做到了沒、時間花到哪」。<b>這一張比的不是計劃與產出，是你的理由與別人的判斷。</b>兩張可以一起用，但不要拿其中一張當另一張。</p>
+          <p style="color:#554d40;font-size:13.5px;line-height:1.8;font-family:'EB Garamond','Noto Serif TC',serif;">個人卷有一張 <a href="tool-review.html">復盤卡</a>，做的是另一件事：一輪做完之後，拿當初訂的目標對一次實際結果，問「做到了沒、時間花到哪」。<b>這一張比的是你的理由與別人的判斷。</b>兩張可以一起用，但不要拿其中一張當另一張。</p>
         </div>
 
         <div style="border-top:1px solid #e3ddd0;margin-top:24px;padding-top:22px;">
@@ -253,7 +253,7 @@
         <div style="margin-top:20px;">
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>真正有用的一格是「別人的判斷」。</b>業務主管說會走三成、你說不到一成——這個落差本身就告訴你要去查什麼：去年那次調價幅度多少、替代品的價差近期有沒有變。沒有這一格，你只會在三個月後看到一個數字，然後替自己解釋。</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>兩條理由是拿來被推翻的，不是拿來說服人的。</b>三個月後如果客戶真的走了三成，你要問的是哪一條垮了——是去年那次調價幅度根本不能比，還是替代品悄悄降價了。這兩個答案會讓你下次改不同的東西。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>兩條理由是拿來被推翻的。</b>三個月後如果客戶真的走了三成，你要問的是哪一條垮了——是去年那次調價幅度根本不能比，還是替代品悄悄降價了。這兩個答案會讓你下次改不同的東西。</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;"><b>卡上不會出現「你猜對了嗎」。</b>猜對可能只是運氣好。一條被推翻的理由，才是下次真的能改掉的東西。</div>
         </div>
 
@@ -361,7 +361,7 @@ class Component extends DCLogic {
     const s = this.state;
     if (s.feedback === "weeks") return "幾週後回來。這是這套做法最站得住的處境——回饋快而明確，你還記得當時怎麼想。先讀兩條理由，再問哪一條被推翻了。";
     if (s.feedback === "months") return "幾個月後回來，把這張卡先讀完再去看結果。順序很重要：先看到結果再讀理由，你會不自覺地替自己解釋。";
-    return "一年以上才會知道結果的決定，多半不會有人真的回來翻。所以這張卡對你的用處，大半已經在剛才寫的時候發生了——你被迫把理由講清楚，也看見了自己跟別人差在哪。真的回來的時候，先讀理由再看結果。";
+    return "一年以上才會知道結果的決定，不太會有人真的回來翻。所以這張卡對你的用處，大半已經在剛才寫的時候發生了——你被迫把理由講清楚，也看見了自己跟別人差在哪。真的回來的時候，先讀理由再看結果。";
   }
   mantra() {
     const s = this.state;

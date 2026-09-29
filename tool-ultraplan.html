@@ -107,7 +107,7 @@
         <div style="font-family:'Noto Serif TC',serif;color:#35456a;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 05 · 練習</div>
         <h2 style="font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;line-height:1.6;margin-bottom:8px;">最後會用在哪裡？<br />打算怎麼直接練？</h2>
         <p style="color:#938a78;font-size:13px;margin-bottom:8px;">練習的情境跟最後要用的情境越像，效果越好——光靠抽象練習，學到的東西不一定用得出來。</p>
-        <textarea value="{{ practice }}" onInput="{{ onPractice }}" maxlength="200" placeholder="例如：每天用目標語言寫一則貼文，而不是只背單字卡" style="width:100%;min-height:96px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
+        <textarea value="{{ practice }}" onInput="{{ onPractice }}" maxlength="200" placeholder="例如：每天用目標語言寫一則貼文" style="width:100%;min-height:96px;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:14px 15px;font-size:14.5px;color:#241f18;line-height:1.8;resize:vertical;"></textarea>
         <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">如果這個技能沒辦法直接在真實情境練（例如有風險），改用最接近的模擬情境，重點放在認知特徵，不必複製表面細節。</div>
       </sc-if>
 
@@ -118,7 +118,7 @@
         <input value="{{ hours }}" onInput="{{ onHours }}" maxlength="40" placeholder="例如：約 60 小時" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;margin-bottom:14px;" />
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:0 0 7px;">預計完成期限<span style="font-size:11px;color:#938a78;letter-spacing:1px;border:1px solid #e3ddd0;border-radius:2px;padding:1px 7px;margin-left:8px;font-family:-apple-system,sans-serif;">可留空</span></label>
         <input value="{{ deadline }}" onInput="{{ onDeadline }}" maxlength="40" placeholder="例如：三個月後、10月底前" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
-        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">抓個大概比例：前期研究別超過總時數的一成，多做了通常是在拖延，不是在準備。</div>
+        <div style="border-left:2px solid #cec6b4;padding:12px 0 12px 16px;margin-top:20px;color:#554d40;font-family:'EB Garamond','Noto Serif TC',serif;font-size:14px;line-height:1.9;">抓個大概比例：前期研究別超過總時數的一成，多做了通常是在拖延。</div>
       </sc-if>
 
       <sc-if value="{{ s7 }}">
@@ -148,7 +148,7 @@
         </div>
         <div onClick="{{ onChoiceMaster }}" style="border:1px solid {{ choiceMasterBorder }};background:{{ choiceMasterBg }};border-radius:4px;padding:14px 16px;cursor:pointer;">
           <div style="font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:3px;">精通</div>
-          <div style="font-size:12.5px;color:#938a78;line-height:1.6;">開下一輪計劃繼續深入，不是這裡就停。</div>
+          <div style="font-size:12.5px;color:#938a78;line-height:1.6;">開下一輪計劃繼續深入。</div>
         </div>
       </sc-if>
 
@@ -248,7 +248,7 @@
             <div style="padding:12px 15px;border-top:1px solid #e3ddd0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">範圍</div><div style="font-size:14px;line-height:1.6;">能聽懂會議內容、能寫信、能臨場問答</div></div>
           </div>
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">資源與標竿</div><div style="font-size:14px;line-height:1.7;margin-bottom:12px;">找一份業界通用的教材當起點，找同事聊十五分鐘問他怎麼學的</div>
-          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">直接練習活動</div><div style="font-size:14px;line-height:1.7;margin-bottom:12px;">每天用日語寫一則工作紀錄，而不是只背單字卡</div>
+          <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">直接練習活動</div><div style="font-size:14px;line-height:1.7;margin-bottom:12px;">每天用日語寫一則工作紀錄</div>
           <div style="height:1px;background:#e3ddd0;margin-bottom:14px;"></div>
           <div style="display:flex;gap:14px;margin-bottom:14px;">
             <div style="flex:1;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">總時數</div><div style="font-size:14px;">約 60 小時</div></div>
@@ -267,8 +267,8 @@
         <div style="margin-top:20px;">
           <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:10px;">這個例子想讓你看到三件事</div>
           <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">第一題先分流——這是累積型任務就會被提醒改用習慣類工具，不是每個學習需求都適合這套方法。</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">九項檢查<b>沒有全勾</b>也能完成——它是提醒，不是及格標準，沒勾到的地方之後卡關時回來看。</div>
-          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">計劃卡做完之後，<b>真正執行過</b>再回來用復盤卡對一次——這張卡是起點，不是結案報告。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;margin-bottom:12px;color:#554d40;font-size:13.5px;line-height:1.85;">九項檢查<b>沒有全勾</b>也能完成——它是提醒，沒勾到的地方之後卡關時回來看。</div>
+          <div style="border-left:2px solid #cec6b4;padding:2px 0 2px 14px;color:#554d40;font-size:13.5px;line-height:1.85;">計劃卡做完之後，<b>真正執行過</b>再回來用復盤卡對一次——這張卡是起點。</div>
         </div>
 
         <button onClick="{{ onCloseExample }}" style="display:block;width:100%;border:none;background:#35456a;color:#fbf9f4;border-radius:2px;padding:14px;font-size:14px;letter-spacing:1px;cursor:pointer;margin-top:24px;">懂了，開始做我自己的</button>
