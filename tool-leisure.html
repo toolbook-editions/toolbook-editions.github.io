@@ -147,7 +147,7 @@
           <div style="height:1px;background:#e3ddd0;margin:17px 0;"></div>
           <div style="text-align:center;border:1px dashed #cec6b4;border-radius:2px;padding:14px 12px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">留給自己、不安排</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;white-space:pre-wrap;">{{ cBlank }}</div></div>
           <div style="margin:14px 0 0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">我希望回頭的時候</div><div style="font-size:14px;line-height:1.65;white-space:pre-wrap;">{{ cFeel }}</div></div>
-          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">空白不是還沒安排。</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">空白也算安排。</div>
           <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 06 · MMXXVI</div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
@@ -224,7 +224,7 @@
           <div style="height:1px;background:#e3ddd0;margin:17px 0;"></div>
           <div style="text-align:center;border:1px dashed #cec6b4;border-radius:2px;padding:14px 12px;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">留給自己、不安排</div><div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">週日整個下午，什麼都不排</div></div>
           <div style="margin:14px 0 0;"><div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:5px;">我希望回頭的時候</div><div style="font-size:14px;line-height:1.65;">覺得這段時間真的是我自己的，沒有又被工作填滿</div></div>
-          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">空白不是還沒安排。</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">空白也算安排。</div>
           <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition Nº 06 · MMXXVI</div>
         </div>
 
@@ -341,7 +341,7 @@ class Component extends DCLogic {
   cardTextOf(c) {
     const step = (c.firstStep || "—") + (c.whenv ? "（" + c.whenv + "）" : "");
     return "空白卡\n\n這段空白：" + (c.span || "") + "\n（" + (c.source ? this.SRC[c.source] : "—") + "）\n\n我一直想做的那件事：" + (c.thing || "") +
-      "\n第一個小動作：" + step + "\n\n留給自己、不安排：" + (c.blank || "") + "\n\n我希望回頭的時候：" + (c.feel || "—") + "\n\n空白不是還沒安排。";
+      "\n第一個小動作：" + step + "\n\n留給自己、不安排：" + (c.blank || "") + "\n\n我希望回頭的時候：" + (c.feel || "—") + "\n\n空白也算安排。";
   }
   cur() { const s = this.state; return { source: s.source, span: s.span, actual: s.actual, thing: s.thing, firstStep: s.firstStep, whenv: s.whenv, blank: s.blank, feel: s.feel }; }
   toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
@@ -352,7 +352,7 @@ class Component extends DCLogic {
   onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", "空下來之後"); fd.append("_subject", "Toolbook 工具回饋 · 空下來之後"); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
 
   async _png(spec){try{const m=await import("./toolbook-card.js");const ok=await m.downloadCardPNG(spec);this.toast(ok?"卡片圖片已儲存":"圖片產生失敗");}catch(_){this.toast("圖片產生失敗");}}
-  async saveImage(){const s=this.state;await this._png({title:"空白卡",sub:"AFTER THE RUSH · Nº 06",filename:"空白卡-Toolbook",mantra:"空白不是還沒安排。",edition:"Edition Nº 06 · MMXXVI",blocks:[{k:"這段空白",v:s.span.trim()||"—",big:true,meta:s.source?this.SRC[s.source]:""},{k:"我一直想做的那件事",v:s.thing.trim()||"—",serif:true},{k:"第一個小動作",v:this.stepText()},{k:"留給自己、不安排",v:s.blank.trim()||"—",big:true},{k:"我希望回頭的時候",v:s.feel.trim()||"—"}]});}
+  async saveImage(){const s=this.state;await this._png({title:"空白卡",sub:"AFTER THE RUSH · Nº 06",filename:"空白卡-Toolbook",mantra:"空白也算安排。",edition:"Edition Nº 06 · MMXXVI",blocks:[{k:"這段空白",v:s.span.trim()||"—",big:true,meta:s.source?this.SRC[s.source]:""},{k:"我一直想做的那件事",v:s.thing.trim()||"—",serif:true},{k:"第一個小動作",v:this.stepText()},{k:"留給自己、不安排",v:s.blank.trim()||"—",big:true},{k:"我希望回頭的時候",v:s.feel.trim()||"—"}]});}
 
   renderVals() {
     const s = this.state, step = s.step;

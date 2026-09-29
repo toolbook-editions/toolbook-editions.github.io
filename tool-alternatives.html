@@ -59,7 +59,7 @@
 
       <sc-if value="{{ s1 }}">
         <div style="font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px;">Step 01 · 挑一個人</div>
-        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">先想一個<br />最滿意你的客戶</h2>
+        <h2 style="font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;line-height:1.6;margin-bottom:8px;">想一個<br />最滿意你的客戶</h2>
         <p style="color:#938a78;font-size:13px;margin-bottom:8px;">一個真實的、最近成交或續約、而且是真心愛用的客戶。從一個人開始，比對著空氣想「市場」準得多。</p>
         <label style="display:block;font-family:'Noto Serif TC',serif;font-size:14px;color:#554d40;margin:14px 0 7px;">這位客戶是誰</label>
         <input value="{{ client }}" onInput="{{ onClient }}" maxlength="70" placeholder="例如：一家 20 人的設計公司、負責的是營運長" style="width:100%;border:1px solid #e3ddd0;background:#fff;border-radius:3px;padding:13px 15px;font-size:14.5px;color:#241f18;" />
@@ -122,7 +122,7 @@
             <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">你贏在這個替代方案給不了的</div>
             <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:{{ cardAccent }};line-height:1.6;white-space:pre-wrap;">{{ cardEdge }}</div>
           </div>
-          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:{{ cardAccent }};font-size:14px;letter-spacing:2px;margin-top:16px;">先看清他在比什麼，再談你贏在哪。</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:{{ cardAccent }};font-size:14px;letter-spacing:2px;margin-top:16px;">看清他在比什麼，才談得到你贏在哪。</div>
           <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Toolbook · MMXXVI</div>
         </div>
 
@@ -210,7 +210,7 @@
             <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">你贏在這個替代方案給不了的</div>
             <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#9c5b3f;line-height:1.6;">出錯會自己抓出來，不用月底熬夜核</div>
           </div>
-          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:14px;letter-spacing:2px;margin-top:16px;">先看清他在比什麼，再談你贏在哪。</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#9c5b3f;font-size:14px;letter-spacing:2px;margin-top:16px;">看清他在比什麼，才談得到你贏在哪。</div>
           <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Toolbook · MMXXVI</div>
         </div>
 
@@ -313,7 +313,7 @@ class Component extends DCLogic {
 
   cardText() {
     const s = this.state; const tl = this.TYPES[s.atype] ? this.TYPES[s.atype][0] : "—"; const v = this.VERDICTS[this.verdictKey()];
-    return "替代方案盤點卡\n\n客戶：" + s.client.trim() + "\n主要替代方案：" + s.mainAlt.trim() + "（" + tl + "）\n" + (s.otherAlt.trim() ? "其他也在考慮：" + s.otherAlt.trim() + "\n" : "") + "你贏在替代方案給不了的：" + s.edge.trim() + "\n\n你在打哪種仗：" + v[0] + "\n" + v[1] + "\n\n先看清他在比什麼，再談你贏在哪。";
+    return "替代方案盤點卡\n\n客戶：" + s.client.trim() + "\n主要替代方案：" + s.mainAlt.trim() + "（" + tl + "）\n" + (s.otherAlt.trim() ? "其他也在考慮：" + s.otherAlt.trim() + "\n" : "") + "你贏在替代方案給不了的：" + s.edge.trim() + "\n\n你在打哪種仗：" + v[0] + "\n" + v[1] + "\n\n看清他在比什麼，才談得到你贏在哪。";
   }
   toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
   async copy() { try { await navigator.clipboard.writeText(this.cardText()); this.toast("已複製卡片文字"); } catch (_) { this.toast("瀏覽器未允許複製"); } }
@@ -329,7 +329,7 @@ class Component extends DCLogic {
     if (s.otherAlt.trim()) blocks.push({ k: "其他也在考慮", v: s.otherAlt.trim() });
     blocks.push({ k: "你贏在替代方案給不了的", v: s.edge.trim() || "—", big: true });
     blocks.push({ k: "你在打哪種仗", v: v[0] });
-    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "替代方案盤點卡", sub: "ALTERNATIVES INVENTORY · Nº 07", filename: "替代方案盤點卡-Toolbook", mantra: "先看清他在比什麼，再談你贏在哪。", edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
+    try { const m = await import("./toolbook-card.js"); const ok = await m.downloadCardPNG({ title: "替代方案盤點卡", sub: "ALTERNATIVES INVENTORY · Nº 07", filename: "替代方案盤點卡-Toolbook", mantra: "看清他在比什麼，才談得到你贏在哪。", edition: "Toolbook · MMXXVI", blocks }); this.toast(ok ? "卡片圖片已儲存" : "圖片產生失敗"); } catch (_) { this.toast("圖片產生失敗"); }
   }
 
   renderVals() {

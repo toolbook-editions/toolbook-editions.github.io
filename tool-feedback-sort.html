@@ -162,7 +162,7 @@
             <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我的處理</div>
             <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">{{ cardAct }}</div>
           </div>
-          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">問哪裡能改，不問我是不是不夠好。</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">問哪裡能改。</div>
           <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition · MMXXVI</div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px;">
@@ -250,7 +250,7 @@
             <div style="font-size:9px;letter-spacing:2.3px;text-transform:uppercase;color:#938a78;margin-bottom:6px;">我的處理</div>
             <div style="font-family:'Noto Serif TC',serif;font-size:16px;color:#35456a;line-height:1.6;">回去問清楚</div>
           </div>
-          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">問哪裡能改，不問我是不是不夠好。</div>
+          <div style="text-align:center;font-family:'Noto Serif TC',serif;color:#35456a;font-size:14px;letter-spacing:2px;margin-top:16px;">問哪裡能改。</div>
           <div style="text-align:center;font-size:8px;letter-spacing:2px;color:#938a78;text-transform:uppercase;margin-top:10px;">Edition · MMXXVI</div>
         </div>
 
@@ -381,7 +381,7 @@ class Component extends DCLogic {
       "\n\n指向：" + (this.DIR_LABEL[c.dir] || "—") + "　資訊量：" + (this.INFO_LABEL[c.info] || "—") +
       "\n\n能動手的版本：" + this.translatedOf(c) +
       "\n\n我的處理：" + (this.ACT_LABEL[c.act] || "—") +
-      "\n\n問哪裡能改，不問我是不是不夠好。";
+      "\n\n問哪裡能改。";
   }
   cur() { const s = this.state; return { quote: s.quote, dir: s.dir, info: s.info, translated: s.translated, act: s.act }; }
   toast(msg) { this.setState({ toastOn: true, toastMsg: msg }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ toastOn: false }), 1700); }
@@ -392,7 +392,7 @@ class Component extends DCLogic {
   onSubmitFeedback(e) { e.preventDefault(); var self = this; var fd = new FormData(); fd.append("email", this.state.email || ""); fd.append("message", this.state.feedbackText || ""); fd.append("tool", this.TOOL); fd.append("_subject", "Toolbook 工具回饋 · " + this.TOOL); fd.append("submission_type", "工具完成後回饋"); this.setState({ subLabel: "傳送中…", subStatus: "" }); fetch("https://formspree.io/f/mlgkgveq", { method: "POST", body: fd, headers: { Accept: "application/json" } }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function () { self.setState({ subLabel: "已送出", subStatus: "已傳給創作者 ✓" }); }).catch(function () { self.setState({ subLabel: "傳給創作者", subStatus: "送出失敗，請稍後再試" }); }); }
 
   async _png(spec){try{const m=await import("./toolbook-card.js");const ok=await m.downloadCardPNG(spec);this.toast(ok?"卡片圖片已儲存":"圖片產生失敗");}catch(_){this.toast("圖片產生失敗");}}
-  async saveImage(){const s=this.state;await this._png({title:"回饋拆解卡",sub:"ONE PIECE OF FEEDBACK",filename:"回饋拆解卡-Toolbook",mantra:"問哪裡能改，不問我是不是不夠好。",edition:"Edition · MMXXVI",blocks:[{k:"他說的",v:s.quote.trim()||"—",serif:true},{k:"指向",v:this.DIR_LABEL[s.dir]||"—"},{k:"資訊量",v:this.INFO_LABEL[s.info]||"—"},{k:"能動手的版本",v:this.translatedOf(s)},{k:"我的處理",v:this.ACT_LABEL[s.act]||"—",big:true}]});}
+  async saveImage(){const s=this.state;await this._png({title:"回饋拆解卡",sub:"ONE PIECE OF FEEDBACK",filename:"回饋拆解卡-Toolbook",mantra:"問哪裡能改。",edition:"Edition · MMXXVI",blocks:[{k:"他說的",v:s.quote.trim()||"—",serif:true},{k:"指向",v:this.DIR_LABEL[s.dir]||"—"},{k:"資訊量",v:this.INFO_LABEL[s.info]||"—"},{k:"能動手的版本",v:this.translatedOf(s)},{k:"我的處理",v:this.ACT_LABEL[s.act]||"—",big:true}]});}
 
   renderVals() {
     const s = this.state, step = s.step;
